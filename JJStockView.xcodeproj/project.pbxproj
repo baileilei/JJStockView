@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		060C4B7F222259DE004BA326 /* YYStockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B77222259DE004BA326 /* YYStockModel.m */; };
+		060C4B80222259DE004BA326 /* YYSqliteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B7C222259DE004BA326 /* YYSqliteManager.m */; };
+		060C4B81222259DE004BA326 /* YYMenuLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B7D222259DE004BA326 /* YYMenuLabel.m */; };
+		060C4B82222259DE004BA326 /* YYStockDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B7E222259DE004BA326 /* YYStockDB.m */; };
+		060C4B8D222262A2004BA326 /* XMGTableTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B85222262A1004BA326 /* XMGTableTool.m */; };
+		060C4B8E222262A2004BA326 /* XMGSqliteModelTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B86222262A1004BA326 /* XMGSqliteModelTool.m */; };
+		060C4B8F222262A2004BA326 /* XMGSqliteTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B87222262A1004BA326 /* XMGSqliteTool.m */; };
+		060C4B90222262A2004BA326 /* XMGModelTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B88222262A1004BA326 /* XMGModelTool.m */; };
 		6186110E1F95E2F600E4E8B4 /* JJStockScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6186110D1F95E2F600E4E8B4 /* JJStockScrollView.m */; };
 		61F13E7A1F91F670002F4681 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13E791F91F670002F4681 /* AppDelegate.m */; };
 		61F13E7D1F91F670002F4681 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13E7C1F91F670002F4681 /* DemoViewController.m */; };
@@ -36,6 +44,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		060C4B77222259DE004BA326 /* YYStockModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYStockModel.m; sourceTree = "<group>"; };
+		060C4B78222259DE004BA326 /* YYSqliteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSqliteManager.h; sourceTree = "<group>"; };
+		060C4B79222259DE004BA326 /* YYStockDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYStockDB.h; sourceTree = "<group>"; };
+		060C4B7A222259DE004BA326 /* YYMenuLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYMenuLabel.h; sourceTree = "<group>"; };
+		060C4B7B222259DE004BA326 /* YYStockModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYStockModel.h; sourceTree = "<group>"; };
+		060C4B7C222259DE004BA326 /* YYSqliteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYSqliteManager.m; sourceTree = "<group>"; };
+		060C4B7D222259DE004BA326 /* YYMenuLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYMenuLabel.m; sourceTree = "<group>"; };
+		060C4B7E222259DE004BA326 /* YYStockDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYStockDB.m; sourceTree = "<group>"; };
+		060C4B84222262A1004BA326 /* XMGModelProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGModelProtocol.h; sourceTree = "<group>"; };
+		060C4B85222262A1004BA326 /* XMGTableTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTableTool.m; sourceTree = "<group>"; };
+		060C4B86222262A1004BA326 /* XMGSqliteModelTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGSqliteModelTool.m; sourceTree = "<group>"; };
+		060C4B87222262A1004BA326 /* XMGSqliteTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGSqliteTool.m; sourceTree = "<group>"; };
+		060C4B88222262A1004BA326 /* XMGModelTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGModelTool.m; sourceTree = "<group>"; };
+		060C4B89222262A1004BA326 /* XMGTableTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTableTool.h; sourceTree = "<group>"; };
+		060C4B8A222262A1004BA326 /* XMGSqliteModelTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGSqliteModelTool.h; sourceTree = "<group>"; };
+		060C4B8B222262A1004BA326 /* XMGModelTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGModelTool.h; sourceTree = "<group>"; };
+		060C4B8C222262A1004BA326 /* XMGSqliteTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGSqliteTool.h; sourceTree = "<group>"; };
 		6186110C1F95E2F600E4E8B4 /* JJStockScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJStockScrollView.h; sourceTree = "<group>"; };
 		6186110D1F95E2F600E4E8B4 /* JJStockScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJStockScrollView.m; sourceTree = "<group>"; };
 		61F13E751F91F670002F4681 /* JJStockView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JJStockView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +108,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		060C4B76222259DE004BA326 /* Stock */ = {
+			isa = PBXGroup;
+			children = (
+				060C4B7B222259DE004BA326 /* YYStockModel.h */,
+				060C4B77222259DE004BA326 /* YYStockModel.m */,
+				060C4B7A222259DE004BA326 /* YYMenuLabel.h */,
+				060C4B7D222259DE004BA326 /* YYMenuLabel.m */,
+				060C4B78222259DE004BA326 /* YYSqliteManager.h */,
+				060C4B7C222259DE004BA326 /* YYSqliteManager.m */,
+				060C4B79222259DE004BA326 /* YYStockDB.h */,
+				060C4B7E222259DE004BA326 /* YYStockDB.m */,
+			);
+			path = Stock;
+			sourceTree = "<group>";
+		};
+		060C4B83222262A1004BA326 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				060C4B84222262A1004BA326 /* XMGModelProtocol.h */,
+				060C4B85222262A1004BA326 /* XMGTableTool.m */,
+				060C4B86222262A1004BA326 /* XMGSqliteModelTool.m */,
+				060C4B87222262A1004BA326 /* XMGSqliteTool.m */,
+				060C4B88222262A1004BA326 /* XMGModelTool.m */,
+				060C4B89222262A1004BA326 /* XMGTableTool.h */,
+				060C4B8A222262A1004BA326 /* XMGSqliteModelTool.h */,
+				060C4B8B222262A1004BA326 /* XMGModelTool.h */,
+				060C4B8C222262A1004BA326 /* XMGSqliteTool.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		61F13E6C1F91F670002F4681 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +162,8 @@
 		61F13E771F91F670002F4681 /* JJStockView */ = {
 			isa = PBXGroup;
 			children = (
+				060C4B83222262A1004BA326 /* Classes */,
+				060C4B76222259DE004BA326 /* Stock */,
 				61F13EAA1F91F6B1002F4681 /* Source */,
 				61F13E781F91F670002F4681 /* AppDelegate.h */,
 				61F13E791F91F670002F4681 /* AppDelegate.m */,
@@ -281,10 +339,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				61F13EB01F91F6D4002F4681 /* JJStockView.m in Sources */,
+				060C4B8F222262A2004BA326 /* XMGSqliteTool.m in Sources */,
+				060C4B8D222262A2004BA326 /* XMGTableTool.m in Sources */,
+				060C4B7F222259DE004BA326 /* YYStockModel.m in Sources */,
 				61F13E7D1F91F670002F4681 /* DemoViewController.m in Sources */,
+				060C4B8E222262A2004BA326 /* XMGSqliteModelTool.m in Sources */,
+				060C4B80222259DE004BA326 /* YYSqliteManager.m in Sources */,
+				060C4B82222259DE004BA326 /* YYStockDB.m in Sources */,
 				6186110E1F95E2F600E4E8B4 /* JJStockScrollView.m in Sources */,
 				61F13EAF1F91F6D4002F4681 /* JJStockViewCell.m in Sources */,
+				060C4B81222259DE004BA326 /* YYMenuLabel.m in Sources */,
 				61F13E881F91F670002F4681 /* main.m in Sources */,
+				060C4B90222262A2004BA326 /* XMGModelTool.m in Sources */,
 				61F13E7A1F91F670002F4681 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
