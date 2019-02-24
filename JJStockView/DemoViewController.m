@@ -11,6 +11,8 @@
 #import "YYStockModel.h"
 #import "XMGSqliteModelTool.h"
 
+#import "YYBuyIntoViewController.h"
+
 @interface DemoViewController ()<StockViewDataSource,StockViewDelegate>
 
 @property(nonatomic,readwrite,strong)JJStockView* stockView;
@@ -94,11 +96,11 @@
         [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         button.titleLabel.textAlignment = NSTextAlignmentCenter;
         button.tag = i;
-        [bg addSubview:button];
-//        UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(i * 100, 0, 100, 30)];
-//        label.text = [NSString stringWithFormat:@"内容:%d",i];
-//        label.textAlignment = NSTextAlignmentCenter;
-//        [bg addSubview:label];
+//        [bg addSubview:button];
+        UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(i * 100, 0, 100, 30)];
+        label.text = [NSString stringWithFormat:@"%@",btnTitle];
+        label.textAlignment = NSTextAlignmentCenter;
+        [bg addSubview:label];
     }
     return bg;
 }
@@ -169,12 +171,19 @@
 
 - (void)didSelect:(JJStockView*)stockView atRowPath:(NSUInteger)row{
     NSLog(@"DidSelect Row:%ld",row);
+    YYStockModel *stockModel = self.stocks[row];
+    YYBuyIntoViewController *buyIntoVC = [[YYBuyIntoViewController alloc] init];
+    buyIntoVC.stockModel = stockModel;
+    [self presentViewController:buyIntoVC animated:YES completion:nil];
 }
 
 #pragma mark - Button Action
 
 - (void)buttonAction:(UIButton*)sender{
     NSLog(@"Button Row:%ld",sender.tag);
+    
+  
+//    [self.navigationController pushViewController:[[UINavigationController alloc] initWithRootViewController:buyIntoVC] animated:YES];
 }
 
 #pragma mark - Get

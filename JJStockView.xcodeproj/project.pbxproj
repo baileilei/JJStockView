@@ -15,6 +15,9 @@
 		060C4B8E222262A2004BA326 /* XMGSqliteModelTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B86222262A1004BA326 /* XMGSqliteModelTool.m */; };
 		060C4B8F222262A2004BA326 /* XMGSqliteTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B87222262A1004BA326 /* XMGSqliteTool.m */; };
 		060C4B90222262A2004BA326 /* XMGModelTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B88222262A1004BA326 /* XMGModelTool.m */; };
+		060C4B9422226B9C004BA326 /* YYBuyIntoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B9222226B9C004BA326 /* YYBuyIntoViewController.m */; };
+		060C4B9522226B9C004BA326 /* YYBuyIntoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 060C4B9322226B9C004BA326 /* YYBuyIntoViewController.xib */; };
+		060C4B982222741D004BA326 /* YYBuyintoStockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B972222741D004BA326 /* YYBuyintoStockModel.m */; };
 		6186110E1F95E2F600E4E8B4 /* JJStockScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6186110D1F95E2F600E4E8B4 /* JJStockScrollView.m */; };
 		61F13E7A1F91F670002F4681 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13E791F91F670002F4681 /* AppDelegate.m */; };
 		61F13E7D1F91F670002F4681 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13E7C1F91F670002F4681 /* DemoViewController.m */; };
@@ -61,6 +64,11 @@
 		060C4B8A222262A1004BA326 /* XMGSqliteModelTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGSqliteModelTool.h; sourceTree = "<group>"; };
 		060C4B8B222262A1004BA326 /* XMGModelTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGModelTool.h; sourceTree = "<group>"; };
 		060C4B8C222262A1004BA326 /* XMGSqliteTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGSqliteTool.h; sourceTree = "<group>"; };
+		060C4B9122226B9C004BA326 /* YYBuyIntoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYBuyIntoViewController.h; sourceTree = "<group>"; };
+		060C4B9222226B9C004BA326 /* YYBuyIntoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYBuyIntoViewController.m; sourceTree = "<group>"; };
+		060C4B9322226B9C004BA326 /* YYBuyIntoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YYBuyIntoViewController.xib; sourceTree = "<group>"; };
+		060C4B962222741D004BA326 /* YYBuyintoStockModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYBuyintoStockModel.h; sourceTree = "<group>"; };
+		060C4B972222741D004BA326 /* YYBuyintoStockModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYBuyintoStockModel.m; sourceTree = "<group>"; };
 		6186110C1F95E2F600E4E8B4 /* JJStockScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJStockScrollView.h; sourceTree = "<group>"; };
 		6186110D1F95E2F600E4E8B4 /* JJStockScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJStockScrollView.m; sourceTree = "<group>"; };
 		61F13E751F91F670002F4681 /* JJStockView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JJStockView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +119,8 @@
 		060C4B76222259DE004BA326 /* Stock */ = {
 			isa = PBXGroup;
 			children = (
+				060C4B962222741D004BA326 /* YYBuyintoStockModel.h */,
+				060C4B972222741D004BA326 /* YYBuyintoStockModel.m */,
 				060C4B7B222259DE004BA326 /* YYStockModel.h */,
 				060C4B77222259DE004BA326 /* YYStockModel.m */,
 				060C4B7A222259DE004BA326 /* YYMenuLabel.h */,
@@ -169,6 +179,9 @@
 				61F13E791F91F670002F4681 /* AppDelegate.m */,
 				61F13E7B1F91F670002F4681 /* DemoViewController.h */,
 				61F13E7C1F91F670002F4681 /* DemoViewController.m */,
+				060C4B9122226B9C004BA326 /* YYBuyIntoViewController.h */,
+				060C4B9222226B9C004BA326 /* YYBuyIntoViewController.m */,
+				060C4B9322226B9C004BA326 /* YYBuyIntoViewController.xib */,
 				61F13E811F91F670002F4681 /* Assets.xcassets */,
 				61F13E861F91F670002F4681 /* Info.plist */,
 				61F13E871F91F670002F4681 /* main.m */,
@@ -314,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61F13E821F91F670002F4681 /* Assets.xcassets in Resources */,
+				060C4B9522226B9C004BA326 /* YYBuyIntoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,8 +353,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				61F13EB01F91F6D4002F4681 /* JJStockView.m in Sources */,
+				060C4B982222741D004BA326 /* YYBuyintoStockModel.m in Sources */,
 				060C4B8F222262A2004BA326 /* XMGSqliteTool.m in Sources */,
 				060C4B8D222262A2004BA326 /* XMGTableTool.m in Sources */,
+				060C4B9422226B9C004BA326 /* YYBuyIntoViewController.m in Sources */,
 				060C4B7F222259DE004BA326 /* YYStockModel.m in Sources */,
 				61F13E7D1F91F670002F4681 /* DemoViewController.m in Sources */,
 				060C4B8E222262A2004BA326 /* XMGSqliteModelTool.m in Sources */,
