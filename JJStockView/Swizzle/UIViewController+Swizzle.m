@@ -19,7 +19,12 @@
 
 -(void)YYViewWillAppear:(BOOL)animated{
     [self YYViewWillAppear:animated];
+    
+#ifdef VC_DEBUG
+    
     NSLog(@"[当前视图控制器]:%@",self);
+    
+#endif
 }
 
 @end
