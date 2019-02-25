@@ -1,0 +1,28 @@
+//
+//  YYDateUtil.h
+//  JJStockView
+//
+//  Created by godot on 2019/2/25.
+//  Copyright © 2019年 Jezz. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface YYDateUtil : NSObject
+
++ (NSString *)dateToString:(NSDate *)date
+                andFormate:(NSString *)formate;
+
++ (NSDate *)stringToDate:(NSString *)dateString
+              dateFormat:(NSString *)dateFormat;
+
++ (NSString *)suffixDateStringFromDate:(NSDate *)DateLocal
+                            dateFormat:(NSString *)dateFormat;
+
++ (NSString *)getLocalizedStringFromDate:(NSDate *)date
+                                 formate:(NSString *)formate;
+
+
++ (NSInteger)ageFromBirthday:(NSDate *)birthdate;
+
+@end

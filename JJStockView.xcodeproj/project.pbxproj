@@ -34,6 +34,7 @@
 		FDC46BA52223CA3300C58FA2 /* NSArray+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC46B9D2223CA3300C58FA2 /* NSArray+Swizzle.m */; };
 		FDC46BA62223CA3300C58FA2 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC46B9F2223CA3300C58FA2 /* JRSwizzle.m */; };
 		FDC46BA72223CA3300C58FA2 /* UIApplication+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC46BA02223CA3300C58FA2 /* UIApplication+Swizzle.m */; };
+		FDF0B7502223DFBD003A6999 /* YYDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF0B74F2223DFBD003A6999 /* YYDateUtil.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,8 @@
 		FDC46BA02223CA3300C58FA2 /* UIApplication+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Swizzle.m"; sourceTree = "<group>"; };
 		FDC46BA12223CA3300C58FA2 /* UIButton+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Swizzle.h"; sourceTree = "<group>"; };
 		FDC46BA82223CE7700C58FA2 /* APPConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPConstant.h; sourceTree = "<group>"; };
+		FDF0B74E2223DFBD003A6999 /* YYDateUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYDateUtil.h; sourceTree = "<group>"; };
+		FDF0B74F2223DFBD003A6999 /* YYDateUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYDateUtil.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +198,7 @@
 		61F13E771F91F670002F4681 /* JJStockView */ = {
 			isa = PBXGroup;
 			children = (
+				FDF0B74D2223DF94003A6999 /* Tool */,
 				FDC46B952223CA3300C58FA2 /* Swizzle */,
 				060C4B83222262A1004BA326 /* Classes */,
 				060C4B76222259DE004BA326 /* Stock */,
@@ -271,6 +275,15 @@
 				FDC46BA12223CA3300C58FA2 /* UIButton+Swizzle.h */,
 			);
 			path = Swizzle;
+			sourceTree = "<group>";
+		};
+		FDF0B74D2223DF94003A6999 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				FDF0B74E2223DFBD003A6999 /* YYDateUtil.h */,
+				FDF0B74F2223DFBD003A6999 /* YYDateUtil.m */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,6 +439,7 @@
 				61F13E881F91F670002F4681 /* main.m in Sources */,
 				060C4B90222262A2004BA326 /* XMGModelTool.m in Sources */,
 				FDC46BA42223CA3300C58FA2 /* UIButton+Swizzle.m in Sources */,
+				FDF0B7502223DFBD003A6999 /* YYDateUtil.m in Sources */,
 				FDC46BA62223CA3300C58FA2 /* JRSwizzle.m in Sources */,
 				61F13E7A1F91F670002F4681 /* AppDelegate.m in Sources */,
 			);
