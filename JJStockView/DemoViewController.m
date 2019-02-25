@@ -34,7 +34,7 @@
 #pragma mark - Stock DataSource
 
 - (NSUInteger)countForStockView:(JJStockView*)stockView{
-    return 30;
+    return 20;
 }
 
 - (UIView*)titleCellForStockView:(JJStockView*)stockView atRowPath:(NSUInteger)row{
