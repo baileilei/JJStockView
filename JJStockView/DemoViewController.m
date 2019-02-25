@@ -78,7 +78,7 @@
                 btnTitle = model.bond_id;//输入框？
                 break;
             case 6:
-                btnTitle = @"目标价位";
+                btnTitle = model.issue_dt;
                 break;
             case 7:
                 btnTitle = @"买入策略";//输入框？
@@ -101,6 +101,11 @@
         label.text = [NSString stringWithFormat:@"%@",btnTitle];
         label.textAlignment = NSTextAlignmentCenter;
         [bg addSubview:label];
+        
+        //策略1
+        if (ratio < 0 && ABS(model.full_price.integerValue - 100) < 8) {
+            label.backgroundColor = [UIColor orangeColor];
+        }
     }
     return bg;
 }
@@ -146,7 +151,7 @@
                 label.text = @"债券转码";
                 break;
             case 6:
-                label.text = @"目标价位";
+                label.text = @"可申购日期";
                 break;
             case 7:
                 label.text = @"买入策略";//输入框？
