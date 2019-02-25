@@ -6,7 +6,7 @@
 //  Copyright © 2017年 Jezz. All rights reserved.
 //
 
-#define VC_DEBUG
+//#define VC_DEBUG
 
 #import "AppDelegate.h"
 #import "DemoViewController.h"

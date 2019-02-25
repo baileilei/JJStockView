@@ -110,6 +110,7 @@
 		FDC46B9F2223CA3300C58FA2 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
 		FDC46BA02223CA3300C58FA2 /* UIApplication+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Swizzle.m"; sourceTree = "<group>"; };
 		FDC46BA12223CA3300C58FA2 /* UIButton+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Swizzle.h"; sourceTree = "<group>"; };
+		FDC46BA82223CE7700C58FA2 /* APPConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPConstant.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +209,7 @@
 				61F13E811F91F670002F4681 /* Assets.xcassets */,
 				61F13E861F91F670002F4681 /* Info.plist */,
 				61F13E871F91F670002F4681 /* main.m */,
+				FDC46BA82223CE7700C58FA2 /* APPConstant.h */,
 			);
 			path = JJStockView;
 			sourceTree = "<group>";
@@ -572,6 +574,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BV4VNKPHDV;
+				GCC_PREFIX_HEADER = /Users/godot/Documents/GitHub/JJStockView/JJStockView/APPConstant.h;
 				INFOPLIST_FILE = "$(SRCROOT)/JJStockView/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -590,6 +593,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BV4VNKPHDV;
+				GCC_PREFIX_HEADER = /Users/godot/Documents/GitHub/JJStockView/JJStockView/APPConstant.h;
 				INFOPLIST_FILE = "$(SRCROOT)/JJStockView/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

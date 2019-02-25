@@ -20,6 +20,12 @@
 
 -(void)YYaddTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents{
     [self YYaddTarget:target action:action forControlEvents:controlEvents];
+    
+//#define VC_DEBUG
+
+#ifdef VC_DEBUG
     NSLog(@"%@ calls-- %s",target,action);
+    
+#endif
 }
 @end
