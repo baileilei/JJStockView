@@ -24,7 +24,7 @@
 //#define VC_DEBUG
 
 #ifdef VC_DEBUG
-    NSLog(@"%@ calls-- %s",target,action);
+//    NSLog(@"%@ calls-- %s",target,action);
     
 #endif
 }
