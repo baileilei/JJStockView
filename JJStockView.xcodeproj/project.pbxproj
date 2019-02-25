@@ -35,6 +35,7 @@
 		FDC46BA62223CA3300C58FA2 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC46B9F2223CA3300C58FA2 /* JRSwizzle.m */; };
 		FDC46BA72223CA3300C58FA2 /* UIApplication+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC46BA02223CA3300C58FA2 /* UIApplication+Swizzle.m */; };
 		FDF0B7502223DFBD003A6999 /* YYDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF0B74F2223DFBD003A6999 /* YYDateUtil.m */; };
+		FDF0B7532223E2AF003A6999 /* LocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF0B7512223E2AF003A6999 /* LocalNotificationManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,8 @@
 		FDC46BA82223CE7700C58FA2 /* APPConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPConstant.h; sourceTree = "<group>"; };
 		FDF0B74E2223DFBD003A6999 /* YYDateUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYDateUtil.h; sourceTree = "<group>"; };
 		FDF0B74F2223DFBD003A6999 /* YYDateUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYDateUtil.m; sourceTree = "<group>"; };
+		FDF0B7512223E2AF003A6999 /* LocalNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationManager.m; sourceTree = "<group>"; };
+		FDF0B7522223E2AF003A6999 /* LocalNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotificationManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +283,8 @@
 		FDF0B74D2223DF94003A6999 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				FDF0B7522223E2AF003A6999 /* LocalNotificationManager.h */,
+				FDF0B7512223E2AF003A6999 /* LocalNotificationManager.m */,
 				FDF0B74E2223DFBD003A6999 /* YYDateUtil.h */,
 				FDF0B74F2223DFBD003A6999 /* YYDateUtil.m */,
 			);
@@ -418,6 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDF0B7532223E2AF003A6999 /* LocalNotificationManager.m in Sources */,
 				61F13EB01F91F6D4002F4681 /* JJStockView.m in Sources */,
 				FDC46BA22223CA3300C58FA2 /* UIViewController+Swizzle.m in Sources */,
 				060C4B982222741D004BA326 /* YYBuyintoStockModel.m in Sources */,
