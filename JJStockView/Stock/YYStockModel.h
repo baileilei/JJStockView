@@ -20,8 +20,8 @@
 @property (nonatomic,copy) NSString *btype;//债券类型？
 @property (nonatomic,copy) NSString *convert_amt_ratio;//转债占比
 
-@property (nonatomic,copy) NSString *convert_cd;
-@property (nonatomic,copy) NSString *convert_dt;
+@property (nonatomic,copy) NSString *convert_cd;//转股代码------即过了转股起始期之后才会有的  //未到转股期
+@property (nonatomic,copy) NSString *convert_dt;//转股起始期
 @property (nonatomic,copy) NSString *convert_price;//转股价
 @property (nonatomic,copy) NSString *convert_value;//转股价值
 @property (nonatomic,copy) NSString *cpn_desc;//债券利息
@@ -36,7 +36,7 @@
 @property (nonatomic,copy) NSString *last_time;
 @property (nonatomic,copy) NSString *left_put_year;
 @property (nonatomic,copy) NSString *list_dt;
-@property (nonatomic,copy) NSString *market;
+@property (nonatomic,copy) NSString *market;// sz
 
 @property (nonatomic,copy) NSString *maturity_dt;//到期时间
 @property (nonatomic,copy) NSString *next_put_dt;//下个利息发放期
@@ -91,7 +91,7 @@
 
 @property (nonatomic,copy) NSString *sprice;
 @property (nonatomic,copy) NSString *sqflg;
-@property (nonatomic,copy) NSString *stock_amt;
+@property (nonatomic,copy) NSString *stock_amt;//62668.4700
 @property (nonatomic,copy) NSString *stock_cd;
 @property (nonatomic,copy) NSString *stock_id;//股票代码
 @property (nonatomic,copy) NSString *stock_net_value;//PB
@@ -101,4 +101,6 @@
 @property (nonatomic,copy) NSString *year_left;//剩余年限
 @property (nonatomic,copy) NSString *ytm_rt;//到期税前收益
 @property (nonatomic,copy) NSString *ytm_rt_tax;//到期税后收益
+
+@property (nonatomic,copy) NSString *pinyin;
 @end

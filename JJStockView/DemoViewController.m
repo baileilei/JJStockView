@@ -34,7 +34,7 @@
 #pragma mark - Stock DataSource
 
 - (NSUInteger)countForStockView:(JJStockView*)stockView{
-    return 20;
+    return self.stocks.count;
 }
 
 - (UIView*)titleCellForStockView:(JJStockView*)stockView atRowPath:(NSUInteger)row{
@@ -72,19 +72,19 @@
                 btnTitle = model.convert_price;
                 break;
             case 4:
-                btnTitle = [NSDate date];//日期转String
+                btnTitle = model.convert_dt;//日期转String
                 break;
             case 5:
-                btnTitle = @"买入策略";//输入框？
+                btnTitle = model.bond_id;//输入框？
                 break;
             case 6:
                 btnTitle = @"目标价位";
                 break;
             case 7:
-                btnTitle = @"卖出时间";//输入框？
+                btnTitle = @"买入策略";//输入框？
                 break;
             case 8:
-                btnTitle = @"卖出价位";
+                btnTitle = @"目标价位";
                 break;
                 
             default:
@@ -140,19 +140,19 @@
                 label.text = @"转股价";
                 break;
             case 4:
-                label.text = @"买入时间";
+                label.text = @"转股起始日";
                 break;
             case 5:
-                label.text = @"买入策略";
+                label.text = @"债券转码";
                 break;
             case 6:
                 label.text = @"目标价位";
                 break;
             case 7:
-                label.text = @"卖出时间";//输入框？
+                label.text = @"买入策略";//输入框？
                 break;
             case 8:
-                label.text = @"卖出价位";
+                label.text = @"目标价位";
                 break;
                 
             default:
@@ -205,11 +205,11 @@
     //如何快速测试一个网络请求
     [NSURLConnection sendAsynchronousRequest:request2 queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
         //        NSLog(@"response -----%@",response);
-        //        NSLog(@"data ----%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                NSLog(@"data ----%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
         
         NSError *error = nil;
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        //        NSLog(@"dict-----%@",dict[@"rows"]);
+//        NSLog(@"dict-----%@",dict[@"rows"]);
         
         NSMutableArray *temp = [NSMutableArray array];
         for (NSDictionary *dic in dict[@"rows"]) {

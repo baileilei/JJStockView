@@ -36,12 +36,7 @@
     buyM.preSellTime = self.pre_sellTime.text;[NSDate date];//self.pre_sellTime.text;
     buyM.buyDecisionComment = self.buyDecisionComment.text;
     
-    
-    
-    
     [XMGSqliteModelTool saveOrUpdateModel:buyM uid:@"mybuy"];//Mystock
-    
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)back:(id)sender {
@@ -50,19 +45,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
     self.stockNameID.text = [NSString stringWithFormat:@"%@   %@",self.stockModel.bond_nm,self.stockModel.bond_id];
     
     self.buyIntoTime.delegate = self;
+    self.pre_sellTime.delegate = self;
+    
+    //根据stock id 去读取buyinto的数据，将相关数据加以展示
+    NSString *querySql = [NSString stringWithFormat:@"select * from %@ where bond_id = %@",@"YYBuyintoStockModel",self.stockModel.bond_id];
+    NSArray *result = [XMGSqliteModelTool queryModels:[YYBuyintoStockModel class] WithSql:querySql uid:@"mybuy"];
+    NSLog(@"result---%@",result);
+    if (result.count > 0) {
+        YYBuyintoStockModel *buyM  = result.firstObject;
+        self.buyIntoTime.text = buyM.buyTime;
+        self.TargetPrice.text = buyM.TargetPrice;
+        self.pre_sellTime.text = buyM.preSellTime;
+        self.buyDecisionComment.text = buyM.buyDecisionComment;
+    }
 }
 
 #pragma mark - UITextFieldDelegate
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
     if (textField  == self.buyIntoTime) {
         [self.buyIntoTime endEditing:YES];
+        [self showMonthPicker:self.buyIntoTime];
+    }else if (textField == self.pre_sellTime){
+        [self.buyIntoTime endEditing:YES];
+        [self showMonthPicker:self.pre_sellTime];
     }
-    [self showMonthPicker];
+    
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
@@ -70,9 +81,10 @@
 }
 
 
--(void)showMonthPicker
+-(void)showMonthPicker:(id)sourceView
 {
     picker = [[NTMonthYearPicker alloc] init];
+    picker.sourceView = sourceView;
     [picker addTarget:self action:@selector(onDatePicked:) forControlEvents:UIControlEventValueChanged];
     if( !popupCtrl.isPopoverVisible ) {
         UIView *container = [[UIView alloc] init];
@@ -86,12 +98,18 @@
                                  animated:YES];
     }
 }
-- (void)onDatePicked:(UITapGestureRecognizer *)gestureRecognizer {
+- (void)onDatePicked:(NTMonthYearPicker *)gestureRecognizer {
+    NSLog(@"gestureRecognizer---%@",gestureRecognizer);
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"MMM-yyyy"];
     NSString *dateStr = [df stringFromDate:picker.date];
 //    [self.btnPolicyAnniversary setTitle:dateStr forState:UIControlStateNormal];
-    self.buyIntoTime.text = dateStr;
+    
+    if ([gestureRecognizer sourceView] == self.buyIntoTime) {
+        self.buyIntoTime.text = dateStr;
+    }else{
+        self.pre_sellTime.text = dateStr;
+    }
     
     
     [df setDateFormat:@"M-yyyy"];

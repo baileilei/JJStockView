@@ -28,6 +28,12 @@
 		61F13EAF1F91F6D4002F4681 /* JJStockViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13EAB1F91F6D3002F4681 /* JJStockViewCell.m */; };
 		61F13EB01F91F6D4002F4681 /* JJStockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13EAD1F91F6D4002F4681 /* JJStockView.m */; };
 		FDC46B822223854200C58FA2 /* NTMonthYearPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC46B802223854200C58FA2 /* NTMonthYearPicker.m */; };
+		FDC46BA22223CA3300C58FA2 /* UIViewController+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC46B972223CA3300C58FA2 /* UIViewController+Swizzle.m */; };
+		FDC46BA32223CA3300C58FA2 /* NSDictionary+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC46B992223CA3300C58FA2 /* NSDictionary+Swizzle.m */; };
+		FDC46BA42223CA3300C58FA2 /* UIButton+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC46B9B2223CA3300C58FA2 /* UIButton+Swizzle.m */; };
+		FDC46BA52223CA3300C58FA2 /* NSArray+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC46B9D2223CA3300C58FA2 /* NSArray+Swizzle.m */; };
+		FDC46BA62223CA3300C58FA2 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC46B9F2223CA3300C58FA2 /* JRSwizzle.m */; };
+		FDC46BA72223CA3300C58FA2 /* UIApplication+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC46BA02223CA3300C58FA2 /* UIApplication+Swizzle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +98,18 @@
 		61F13EAE1F91F6D4002F4681 /* JJStockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJStockView.h; sourceTree = "<group>"; };
 		FDC46B802223854200C58FA2 /* NTMonthYearPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTMonthYearPicker.m; sourceTree = "<group>"; };
 		FDC46B812223854200C58FA2 /* NTMonthYearPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTMonthYearPicker.h; sourceTree = "<group>"; };
+		FDC46B962223CA3300C58FA2 /* NSArray+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Swizzle.h"; sourceTree = "<group>"; };
+		FDC46B972223CA3300C58FA2 /* UIViewController+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Swizzle.m"; sourceTree = "<group>"; };
+		FDC46B982223CA3300C58FA2 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
+		FDC46B992223CA3300C58FA2 /* NSDictionary+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Swizzle.m"; sourceTree = "<group>"; };
+		FDC46B9A2223CA3300C58FA2 /* UIApplication+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Swizzle.h"; sourceTree = "<group>"; };
+		FDC46B9B2223CA3300C58FA2 /* UIButton+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Swizzle.m"; sourceTree = "<group>"; };
+		FDC46B9C2223CA3300C58FA2 /* UIViewController+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Swizzle.h"; sourceTree = "<group>"; };
+		FDC46B9D2223CA3300C58FA2 /* NSArray+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Swizzle.m"; sourceTree = "<group>"; };
+		FDC46B9E2223CA3300C58FA2 /* NSDictionary+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Swizzle.h"; sourceTree = "<group>"; };
+		FDC46B9F2223CA3300C58FA2 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
+		FDC46BA02223CA3300C58FA2 /* UIApplication+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Swizzle.m"; sourceTree = "<group>"; };
+		FDC46BA12223CA3300C58FA2 /* UIButton+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Swizzle.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +194,7 @@
 		61F13E771F91F670002F4681 /* JJStockView */ = {
 			isa = PBXGroup;
 			children = (
+				FDC46B952223CA3300C58FA2 /* Swizzle */,
 				060C4B83222262A1004BA326 /* Classes */,
 				060C4B76222259DE004BA326 /* Stock */,
 				61F13EAA1F91F6B1002F4681 /* Source */,
@@ -231,6 +250,25 @@
 				FDC46B812223854200C58FA2 /* NTMonthYearPicker.h */,
 			);
 			path = packageView;
+			sourceTree = "<group>";
+		};
+		FDC46B952223CA3300C58FA2 /* Swizzle */ = {
+			isa = PBXGroup;
+			children = (
+				FDC46B962223CA3300C58FA2 /* NSArray+Swizzle.h */,
+				FDC46B972223CA3300C58FA2 /* UIViewController+Swizzle.m */,
+				FDC46B982223CA3300C58FA2 /* JRSwizzle.h */,
+				FDC46B992223CA3300C58FA2 /* NSDictionary+Swizzle.m */,
+				FDC46B9A2223CA3300C58FA2 /* UIApplication+Swizzle.h */,
+				FDC46B9B2223CA3300C58FA2 /* UIButton+Swizzle.m */,
+				FDC46B9C2223CA3300C58FA2 /* UIViewController+Swizzle.h */,
+				FDC46B9D2223CA3300C58FA2 /* NSArray+Swizzle.m */,
+				FDC46B9E2223CA3300C58FA2 /* NSDictionary+Swizzle.h */,
+				FDC46B9F2223CA3300C58FA2 /* JRSwizzle.m */,
+				FDC46BA02223CA3300C58FA2 /* UIApplication+Swizzle.m */,
+				FDC46BA12223CA3300C58FA2 /* UIButton+Swizzle.h */,
+			);
+			path = Swizzle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,14 +404,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				61F13EB01F91F6D4002F4681 /* JJStockView.m in Sources */,
+				FDC46BA22223CA3300C58FA2 /* UIViewController+Swizzle.m in Sources */,
 				060C4B982222741D004BA326 /* YYBuyintoStockModel.m in Sources */,
 				060C4B8F222262A2004BA326 /* XMGSqliteTool.m in Sources */,
+				FDC46BA32223CA3300C58FA2 /* NSDictionary+Swizzle.m in Sources */,
 				060C4B8D222262A2004BA326 /* XMGTableTool.m in Sources */,
 				060C4B9422226B9C004BA326 /* YYBuyIntoViewController.m in Sources */,
 				060C4B7F222259DE004BA326 /* YYStockModel.m in Sources */,
 				61F13E7D1F91F670002F4681 /* DemoViewController.m in Sources */,
+				FDC46BA52223CA3300C58FA2 /* NSArray+Swizzle.m in Sources */,
 				060C4B8E222262A2004BA326 /* XMGSqliteModelTool.m in Sources */,
 				060C4B80222259DE004BA326 /* YYSqliteManager.m in Sources */,
+				FDC46BA72223CA3300C58FA2 /* UIApplication+Swizzle.m in Sources */,
 				060C4B82222259DE004BA326 /* YYStockDB.m in Sources */,
 				6186110E1F95E2F600E4E8B4 /* JJStockScrollView.m in Sources */,
 				FDC46B822223854200C58FA2 /* NTMonthYearPicker.m in Sources */,
@@ -381,6 +423,8 @@
 				060C4B81222259DE004BA326 /* YYMenuLabel.m in Sources */,
 				61F13E881F91F670002F4681 /* main.m in Sources */,
 				060C4B90222262A2004BA326 /* XMGModelTool.m in Sources */,
+				FDC46BA42223CA3300C58FA2 /* UIButton+Swizzle.m in Sources */,
+				FDC46BA62223CA3300C58FA2 /* JRSwizzle.m in Sources */,
 				61F13E7A1F91F670002F4681 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
