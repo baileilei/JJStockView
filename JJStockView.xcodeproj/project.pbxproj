@@ -27,6 +27,7 @@
 		61F13E9D1F91F670002F4681 /* StockViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13E9C1F91F670002F4681 /* StockViewUITests.m */; };
 		61F13EAF1F91F6D4002F4681 /* JJStockViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13EAB1F91F6D3002F4681 /* JJStockViewCell.m */; };
 		61F13EB01F91F6D4002F4681 /* JJStockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13EAD1F91F6D4002F4681 /* JJStockView.m */; };
+		FD6916402228EC7F00DE3CD6 /* YYWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD69163F2228EC7F00DE3CD6 /* YYWebViewController.m */; };
 		FDC46B822223854200C58FA2 /* NTMonthYearPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC46B802223854200C58FA2 /* NTMonthYearPicker.m */; };
 		FDC46BA22223CA3300C58FA2 /* UIViewController+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC46B972223CA3300C58FA2 /* UIViewController+Swizzle.m */; };
 		FDC46BA32223CA3300C58FA2 /* NSDictionary+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC46B992223CA3300C58FA2 /* NSDictionary+Swizzle.m */; };
@@ -98,6 +99,8 @@
 		61F13EAC1F91F6D3002F4681 /* JJStockViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJStockViewCell.h; sourceTree = "<group>"; };
 		61F13EAD1F91F6D4002F4681 /* JJStockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJStockView.m; sourceTree = "<group>"; };
 		61F13EAE1F91F6D4002F4681 /* JJStockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJStockView.h; sourceTree = "<group>"; };
+		FD69163E2228EC7F00DE3CD6 /* YYWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYWebViewController.h; sourceTree = "<group>"; };
+		FD69163F2228EC7F00DE3CD6 /* YYWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYWebViewController.m; sourceTree = "<group>"; };
 		FDC46B802223854200C58FA2 /* NTMonthYearPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTMonthYearPicker.m; sourceTree = "<group>"; };
 		FDC46B812223854200C58FA2 /* NTMonthYearPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTMonthYearPicker.h; sourceTree = "<group>"; };
 		FDC46B962223CA3300C58FA2 /* NSArray+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Swizzle.h"; sourceTree = "<group>"; };
@@ -210,6 +213,8 @@
 				61F13E791F91F670002F4681 /* AppDelegate.m */,
 				61F13E7B1F91F670002F4681 /* DemoViewController.h */,
 				61F13E7C1F91F670002F4681 /* DemoViewController.m */,
+				FD69163E2228EC7F00DE3CD6 /* YYWebViewController.h */,
+				FD69163F2228EC7F00DE3CD6 /* YYWebViewController.m */,
 				060C4B9122226B9C004BA326 /* YYBuyIntoViewController.h */,
 				060C4B9222226B9C004BA326 /* YYBuyIntoViewController.m */,
 				060C4B9322226B9C004BA326 /* YYBuyIntoViewController.xib */,
@@ -432,6 +437,7 @@
 				060C4B8D222262A2004BA326 /* XMGTableTool.m in Sources */,
 				060C4B9422226B9C004BA326 /* YYBuyIntoViewController.m in Sources */,
 				060C4B7F222259DE004BA326 /* YYStockModel.m in Sources */,
+				FD6916402228EC7F00DE3CD6 /* YYWebViewController.m in Sources */,
 				61F13E7D1F91F670002F4681 /* DemoViewController.m in Sources */,
 				FDC46BA52223CA3300C58FA2 /* NSArray+Swizzle.m in Sources */,
 				060C4B8E222262A2004BA326 /* XMGSqliteModelTool.m in Sources */,

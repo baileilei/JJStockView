@@ -12,6 +12,7 @@
 #import "XMGSqliteModelTool.h"
 
 #import "YYBuyIntoViewController.h"
+#import "YYWebViewController.h"
 
 @interface DemoViewController ()<StockViewDataSource,StockViewDelegate>
 
@@ -25,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self requestData];
     self.navigationItem.title = @"股票表格";
     self.stockView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
@@ -86,6 +88,9 @@
             case 8:
                 btnTitle = @"目标价位";
                 break;
+            case 9:
+                btnTitle = model.stock_id;
+                break;
                 
             default:
                 break;
@@ -96,11 +101,13 @@
         [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         button.titleLabel.textAlignment = NSTextAlignmentCenter;
         button.tag = i;
-//        [bg addSubview:button];
         UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(i * 100, 0, 100, 30)];
         label.text = [NSString stringWithFormat:@"%@",btnTitle];
         label.textAlignment = NSTextAlignmentCenter;
         [bg addSubview:label];
+        if ([btnTitle isEqualToString:model.stock_id]) {
+            [bg addSubview:button];
+        }
         
         //策略1
         if (ratio < 0 && ABS(model.full_price.integerValue - 100) < 8) {
@@ -159,6 +166,9 @@
             case 8:
                 label.text = @"目标价位";
                 break;
+            case 9:
+                label.text = @"公告";
+                break;
                 
             default:
                 break;
@@ -187,7 +197,11 @@
 - (void)buttonAction:(UIButton*)sender{
     NSLog(@"Button Row:%ld",sender.tag);
     
+    YYWebViewController *web = [[YYWebViewController alloc] init];
+    web.stockID = sender.currentTitle;
+    [self presentViewController:web animated:YES completion:nil];
   
+    
 //    [self.navigationController pushViewController:[[UINavigationController alloc] initWithRootViewController:buyIntoVC] animated:YES];
 }
 
@@ -232,5 +246,7 @@
         [self.stockView reloadStockView];
     }];
 }
+
+
 
 @end
