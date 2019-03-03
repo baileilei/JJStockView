@@ -27,7 +27,8 @@
     [self.view addSubview:self.webView];
     self.webView.delegate = self;
     
-    NSString *url = [NSString stringWithFormat:@"https://www.jisilu.cn/data/stock/%@",self.stockID];
+    NSString *url = [NSString stringWithFormat:@"https://www.jisilu.cn/data/stock/%@",[self.stockID substringFromIndex:2] ];
+//    NSString *url = [NSString stringWithFormat:@"https://www.jisilu.cn/data/stock/600031"];
     NSLog(@"url-------%@",url);
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [self.webView loadRequest:request];
@@ -46,7 +47,24 @@
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     NSLog(@"%s",__func__);
+    
+    "item_row";
+    //document.getElementsByClassName('item_row')[0].remove();
+   
     return  YES;
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
+    NSString *str = @"document.getElementsByClassName('item_row')[0].remove();";
+    [webView stringByEvaluatingJavaScriptFromString:str];
+    
+    NSString *str1 = @"document.getElementsByClassName('item_row')[0].remove();";
+    [webView stringByEvaluatingJavaScriptFromString:str1];
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    NSLog(@"%s",__func__);
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
