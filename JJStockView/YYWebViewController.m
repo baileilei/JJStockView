@@ -16,11 +16,19 @@
 
 @implementation YYWebViewController
 
+-(void)back{
+//    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
      [self testResultOfAPI];//如何解析Html数据？？？
+    
+//    UINavigationItem *leftItem = [[UINavigationItem alloc] initwith];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleDone target:self action:@selector(back)];
     
     self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     self.webView.backgroundColor = [UIColor orangeColor];
@@ -48,7 +56,7 @@
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     NSLog(@"%s",__func__);
     
-    "item_row";
+//    "item_row";
     //document.getElementsByClassName('item_row')[0].remove();
    
     return  YES;
@@ -60,6 +68,10 @@
     
     NSString *str1 = @"document.getElementsByClassName('item_row')[0].remove();";
     [webView stringByEvaluatingJavaScriptFromString:str1];
+    
+    //document.getElementById('flex0').remove();
+    NSString *str2 = @"document.getElementById('flex0').remove();";
+    [webView stringByEvaluatingJavaScriptFromString:str2];
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

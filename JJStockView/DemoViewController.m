@@ -199,7 +199,8 @@
     
     YYWebViewController *web = [[YYWebViewController alloc] init];
     web.stockID = sender.currentTitle;
-    [self presentViewController:web animated:YES completion:nil];
+    
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
   
     
 //    [self.navigationController pushViewController:[[UINavigationController alloc] initWithRootViewController:buyIntoVC] animated:YES];
