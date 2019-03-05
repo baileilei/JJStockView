@@ -18,7 +18,12 @@
 
 -(void)back{
 //    [self.navigationController popViewControllerAnimated:YES];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if ([self.webView canGoBack]) {
+        [self.webView goBack];
+    }else{
+        [self.view resignFirstResponder];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (void)viewDidLoad {
@@ -36,8 +41,9 @@
     self.webView.delegate = self;
     
     NSString *url = [NSString stringWithFormat:@"https://www.jisilu.cn/data/stock/%@",[self.stockID substringFromIndex:2] ];
+//    NSString *chartURL = [NSString stringWithFormat:@"http://finance.sina.com.cn/realstock/company/%@/nc.shtml?from=BaiduAladin",self.stockID];
 //    NSString *url = [NSString stringWithFormat:@"https://www.jisilu.cn/data/stock/600031"];
-    NSLog(@"url-------%@",url);
+//    NSLog(@"url-------%@",chartURL);
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [self.webView loadRequest:request];
     
@@ -82,7 +88,7 @@
 
 //https://www.jisilu.cn/data/stock/600031
 -(void)testResultOfAPI{
-    
+    //http://finance.sina.com.cn/realstock/company/sh600031/nc.shtml?from=BaiduAladin
     NSMutableURLRequest *request2 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://www.jisilu.cn/data/stock/600031"]];
     //    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     //如何快速测试一个网络请求
