@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface YYWebViewController : UIViewController
 
 @property (nonatomic,copy) NSString *stockID;
+
+
+@property (strong,nonatomic) UIWebView *webView;
+
 
 @end

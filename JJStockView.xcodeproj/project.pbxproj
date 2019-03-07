@@ -37,6 +37,7 @@
 		FDC46BA72223CA3300C58FA2 /* UIApplication+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC46BA02223CA3300C58FA2 /* UIApplication+Swizzle.m */; };
 		FDF0B7502223DFBD003A6999 /* YYDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF0B74F2223DFBD003A6999 /* YYDateUtil.m */; };
 		FDF0B7532223E2AF003A6999 /* LocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF0B7512223E2AF003A6999 /* LocalNotificationManager.m */; };
+		FDF0BEF72230E9490040A892 /* YYKLineWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF0BEF62230E9490040A892 /* YYKLineWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,8 @@
 		FDF0B74F2223DFBD003A6999 /* YYDateUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYDateUtil.m; sourceTree = "<group>"; };
 		FDF0B7512223E2AF003A6999 /* LocalNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationManager.m; sourceTree = "<group>"; };
 		FDF0B7522223E2AF003A6999 /* LocalNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotificationManager.h; sourceTree = "<group>"; };
+		FDF0BEF52230E9490040A892 /* YYKLineWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYKLineWebViewController.h; sourceTree = "<group>"; };
+		FDF0BEF62230E9490040A892 /* YYKLineWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYKLineWebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +218,8 @@
 				61F13E7C1F91F670002F4681 /* DemoViewController.m */,
 				FD69163E2228EC7F00DE3CD6 /* YYWebViewController.h */,
 				FD69163F2228EC7F00DE3CD6 /* YYWebViewController.m */,
+				FDF0BEF52230E9490040A892 /* YYKLineWebViewController.h */,
+				FDF0BEF62230E9490040A892 /* YYKLineWebViewController.m */,
 				060C4B9122226B9C004BA326 /* YYBuyIntoViewController.h */,
 				060C4B9222226B9C004BA326 /* YYBuyIntoViewController.m */,
 				060C4B9322226B9C004BA326 /* YYBuyIntoViewController.xib */,
@@ -428,6 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDF0BEF72230E9490040A892 /* YYKLineWebViewController.m in Sources */,
 				FDF0B7532223E2AF003A6999 /* LocalNotificationManager.m in Sources */,
 				61F13EB01F91F6D4002F4681 /* JJStockView.m in Sources */,
 				FDC46BA22223CA3300C58FA2 /* UIViewController+Swizzle.m in Sources */,

@@ -10,7 +10,6 @@
 
 @interface YYWebViewController ()<UIWebViewDelegate>
 
-@property (strong,nonatomic) UIWebView *webView;
 
 @end
 
@@ -43,7 +42,7 @@
     NSString *url = [NSString stringWithFormat:@"https://www.jisilu.cn/data/stock/%@",[self.stockID substringFromIndex:2] ];
 //    NSString *chartURL = [NSString stringWithFormat:@"http://finance.sina.com.cn/realstock/company/%@/nc.shtml?from=BaiduAladin",self.stockID];
 //    NSString *url = [NSString stringWithFormat:@"https://www.jisilu.cn/data/stock/600031"];
-//    NSLog(@"url-------%@",chartURL);
+    NSLog(@"url--%@-----%@",url,self);
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [self.webView loadRequest:request];
     
@@ -93,8 +92,8 @@
     //    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     //如何快速测试一个网络请求
     [NSURLConnection sendAsynchronousRequest:request2 queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
-        NSLog(@"response -----%@",response);
-        NSLog(@"data ----%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+//        NSLog(@"response -----%@",response);
+//        NSLog(@"data ----%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
         
         NSError *error = nil;
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];

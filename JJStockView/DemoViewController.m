@@ -13,6 +13,7 @@
 
 #import "YYBuyIntoViewController.h"
 #import "YYWebViewController.h"
+#import "YYKLineWebViewController.h"
 
 @interface DemoViewController ()<StockViewDataSource,StockViewDelegate>
 
@@ -86,7 +87,7 @@
                 btnTitle = @"买入策略";//输入框？
                 break;
             case 8:
-                btnTitle = @"目标价位";
+                btnTitle = [NSString stringWithFormat:@"K-%@",model.stock_id];
                 break;
             case 9:
                 btnTitle = model.stock_id;
@@ -105,7 +106,7 @@
         label.text = [NSString stringWithFormat:@"%@",btnTitle];
         label.textAlignment = NSTextAlignmentCenter;
         [bg addSubview:label];
-        if ([btnTitle isEqualToString:model.stock_id]) {
+        if ([btnTitle isEqualToString:model.stock_id] || [btnTitle isEqualToString:[NSString stringWithFormat:@"K-%@",model.stock_id]]) {
             [bg addSubview:button];
         }
         
@@ -164,7 +165,7 @@
                 label.text = @"买入策略";//输入框？
                 break;
             case 8:
-                label.text = @"目标价位";
+                label.text = @"K线图";
                 break;
             case 9:
                 label.text = @"公告";
@@ -196,6 +197,14 @@
 
 - (void)buttonAction:(UIButton*)sender{
     NSLog(@"Button Row:%ld",sender.tag);
+    
+    if ([sender.currentTitle hasPrefix:@"K-"]) {
+        YYKLineWebViewController *kWeb = [[YYKLineWebViewController alloc] init];
+        kWeb.stockID = [sender.currentTitle substringFromIndex:2];
+        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
+        
+        return;
+    }
     
     YYWebViewController *web = [[YYWebViewController alloc] init];
     web.stockID = sender.currentTitle;
