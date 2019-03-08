@@ -27,15 +27,28 @@
 
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
-    NSString *str = @"document.getElementsByClassName('item_row')[0].remove();";
+    NSString *str = @"document.getElementsByClassName('wrap topAD')[0].remove();";
     [webView stringByEvaluatingJavaScriptFromString:str];
     
-    NSString *str1 = @"document.getElementsByClassName('item_row')[0].remove();";
+    NSString *str1 = @"document.getElementById('hq_main_top_tgWrap').remove();";
     [webView stringByEvaluatingJavaScriptFromString:str1];
     
     //document.getElementById('flex0').remove();
-    NSString *str2 = @"document.getElementById('flex0').remove();";
+    NSString *str2 = @"document.getElementsByClassName('AD_R')[0].remove();";
     [webView stringByEvaluatingJavaScriptFromString:str2];
+    
+    //document.getElementsByClassName('AD_hqbottom')[0].remove();
+
+    NSString *str3 = @"document.getElementsByClassName('AD_hqbottom')[0].remove();";
+    [webView stringByEvaluatingJavaScriptFromString:str3];
+    
+    //document.getElementsByClassName('cj_app_left')[0].remove();
+    NSString *str4 = @"document.getElementsByClassName('cj_app_left')[0].remove();";
+    [webView stringByEvaluatingJavaScriptFromString:str4];
+    //document.getElementsByClassName('topBlk')[0].remove();
+    NSString *str5 = @"document.getElementsByClassName('topBlk')[0].remove();";
+    [webView stringByEvaluatingJavaScriptFromString:str5];
+
 }
 
 @end
