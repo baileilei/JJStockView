@@ -15,6 +15,9 @@
 #import "YYWebViewController.h"
 #import "YYKLineWebViewController.h"
 
+#import "XMGSessionManager.h"
+#import "BaseNetManager.h"
+
 @interface DemoViewController ()<StockViewDataSource,StockViewDelegate>
 
 @property(nonatomic,readwrite,strong)JJStockView* stockView;
@@ -25,8 +28,13 @@
 
 @implementation DemoViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    [self testResultOfAPI];
+    [self testAPIWithAFN];
     
     [self requestData];
     self.navigationItem.title = @"股票表格";
@@ -228,6 +236,9 @@
 }
 
 
+/**
+ 
+ */
 - (void)requestData {
     NSMutableURLRequest *request2 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://www.jisilu.cn/data/cbnew/cb_list/?___jsl=LST___t=1550727503725"]];
     //    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -257,6 +268,58 @@
     }];
 }
 
+//https://xian.newhouse.fang.com/sales/
+/**
+ 
+ */
+-(void)testResultOfAPI{
+    //http://finance.sina.com.cn/realstock/company/sh600031/nc.shtml?from=BaiduAladin
+    NSMutableURLRequest *request2 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://xian.newhouse.fang.com/sales/"]];
+    //    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    //如何快速测试一个网络请求
+    [NSURLConnection sendAsynchronousRequest:request2 queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+        NSLog(@"response -----%@",response);
+        NSLog(@"data ----%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+        
+        NSError *error = nil;
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        //        NSLog(@"dict-----%@",dict[@"rows"]);
+        
+        //        NSMutableArray *temp = [NSMutableArray array];
+        //        for (NSDictionary *dic in dict[@"rows"]) {
+        //            YYStockModel *stockModel = [[YYStockModel alloc] init];
+        //            [stockModel setValuesForKeysWithDictionary:dic[@"cell"]];
+        //            [temp addObject:stockModel];
+        //            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //                [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"Mystock"];
+        //            });
+        //        }
+        
+    }];
+}
+
+-(void)testAPIWithAFN{
+//    XMGSessionManager *manager = [[XMGSessionManager alloc] init];
+//    [manager request:RequestTypeGet urlStr:@"https://xian.newhouse.fang.com/sales/" parameter:nil resultBlock:^(id responseObject, NSError *error) {
+//        
+//        NSLog(@"responseObject----%@",responseObject);
+//        
+//        if (error) {
+//            NSLog(@"error-----%@",error);
+//        }
+//        
+//    }];
+    
+    [[BaseNetManager defaultManager] GET:@"https://xian.newhouse.fang.com/sales/" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"responseObject----%@",responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (error) {
+            NSLog(@"error-----%@",error);
+        }
+    }];
+    
+}
 
 
 @end
