@@ -125,7 +125,7 @@
     [_rightContentScrollView addSubview:contentView];
     
     _rightContentView = contentView;
-    _rightContentView.userInteractionEnabled = NO;//点击的是button，响应的确实代理方法。
+//    _rightContentView.userInteractionEnabled = NO;//点击的是button，响应的确实代理方法。
     
     [self setNeedsLayout];
 }

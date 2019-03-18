@@ -95,7 +95,7 @@
                 btnTitle = model.list_dt.length > 0 ? model.list_dt : model.price_tips;//@"买入策略";//输入框？
                 break;
             case 8:
-                btnTitle = [NSString stringWithFormat:@"K-%@",model.stock_id];
+                btnTitle = [NSString stringWithFormat:@"K-%@",model.bond_id];
                 break;
             case 9:
                 btnTitle = model.stock_id;
@@ -118,13 +118,15 @@
             [bg addSubview:button];
         }
         
-        //策略1
-        if (ratio < 0 && ABS(model.full_price.integerValue - 100) < 8) {
-            label.backgroundColor = [UIColor orangeColor];
-        }
+        
 //        策略2-----经济整体周期进入了衰退期   债券和黄金为主要标的  所以可以放宽一点  从周期把握趋势
         if (ratio < 0 && ABS(model.full_price.integerValue - 100) < 10) {
             label.backgroundColor = [UIColor magentaColor];
+        }
+        
+        //策略1
+        if (ratio < 0 && ABS(model.full_price.integerValue - 100) < 8 && model.full_price.integerValue != 100) {
+            label.backgroundColor = [UIColor orangeColor];//特别关注
         }
     }
     return bg;
