@@ -222,6 +222,12 @@
     if ([sender.currentTitle hasPrefix:@"K-"]) {
         YYKLineWebViewController *kWeb = [[YYKLineWebViewController alloc] init];
         kWeb.stockID = [sender.currentTitle substringFromIndex:2];
+//        NSLog(@" 啥---%@",[self.stocks valueForKey:kWeb.stockID]);
+        for (YYStockModel *m in self.stocks) {
+            if ([m.bond_id isEqualToString:kWeb.stockID]) {
+                kWeb.market = m.market;
+            }
+        }
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
         
         return;

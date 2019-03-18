@@ -18,7 +18,8 @@
     [super viewDidLoad];
    
 //    NSString *url = [NSString stringWithFormat:@"https://www.jisilu.cn/data/stock/%@",[self.stockID substringFromIndex:2] ];
-    NSString *chartURL = [NSString stringWithFormat:@"http://finance.sina.com.cn/realstock/company/%@/nc.shtml?from=BaiduAladin",self.stockID];
+    //http://money.finance.sina.com.cn/bond/quotes/sh110032.html
+    NSString *chartURL = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/bond/quotes/sh%@.html",self.stockID];
     //    NSString *url = [NSString stringWithFormat:@"https://www.jisilu.cn/data/stock/600031"];
     NSLog(@"url-------%@",chartURL);
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:chartURL]];

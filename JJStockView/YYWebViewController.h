@@ -13,6 +13,8 @@
 
 @property (nonatomic,copy) NSString *stockID;
 
+@property (nonatomic,copy) NSString *market;
+
 
 @property (strong,nonatomic) UIWebView *webView;
 
