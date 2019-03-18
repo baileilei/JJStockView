@@ -35,7 +35,7 @@
 @property (nonatomic,copy) NSString *issue_dt;//发布日期
 @property (nonatomic,copy) NSString *last_time;
 @property (nonatomic,copy) NSString *left_put_year;
-@property (nonatomic,copy) NSString *list_dt;
+@property (nonatomic,copy) NSString *list_dt;//上市日期
 @property (nonatomic,copy) NSString *market;// sz
 
 @property (nonatomic,copy) NSString *maturity_dt;//到期时间

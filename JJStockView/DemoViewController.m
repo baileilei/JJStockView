@@ -92,7 +92,7 @@
                 btnTitle = model.issue_dt;
                 break;
             case 7:
-                btnTitle = @"买入策略";//输入框？
+                btnTitle = model.list_dt.length > 0 ? model.list_dt : model.price_tips;//@"买入策略";//输入框？
                 break;
             case 8:
                 btnTitle = [NSString stringWithFormat:@"K-%@",model.stock_id];
@@ -114,13 +114,17 @@
         label.text = [NSString stringWithFormat:@"%@",btnTitle];
         label.textAlignment = NSTextAlignmentCenter;
         [bg addSubview:label];
-        if ([btnTitle isEqualToString:model.stock_id] || [btnTitle isEqualToString:[NSString stringWithFormat:@"K-%@",model.stock_id]]) {
+        if ([btnTitle isEqualToString:model.stock_id] || [btnTitle isEqualToString:[NSString stringWithFormat:@"K-%@",model.bond_id]]) {
             [bg addSubview:button];
         }
         
         //策略1
         if (ratio < 0 && ABS(model.full_price.integerValue - 100) < 8) {
             label.backgroundColor = [UIColor orangeColor];
+        }
+//        策略2-----经济整体周期进入了衰退期   债券和黄金为主要标的  所以可以放宽一点  从周期把握趋势
+        if (ratio < 0 && ABS(model.full_price.integerValue - 100) < 10) {
+            label.backgroundColor = [UIColor magentaColor];
         }
     }
     return bg;
@@ -147,6 +151,10 @@
     for (int i = 0; i < 10; i++) {
         UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(i * 100, 0, 100, 40)];
         label.text = [NSString stringWithFormat:@"标题:%d",i];
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(i * 100, 0, 100, 40);
+        
         switch (i) {
             case 0:
                 label.text = @"溢价率";
@@ -170,7 +178,7 @@
                 label.text = @"可申购日期";
                 break;
             case 7:
-                label.text = @"买入策略";//输入框？
+                label.text = @"上市日期";//@"买入策略";//输入框？
                 break;
             case 8:
                 label.text = @"K线图";
@@ -184,7 +192,10 @@
         }
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = [UIColor grayColor];
-        [bg addSubview:label];
+        [button setTitle:label.text forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(sort:) forControlEvents:UIControlEventTouchUpInside];
+        [bg addSubview:button];
+//        [bg addSubview:label];
     }
     return bg;
 }
@@ -221,6 +232,18 @@
   
     
 //    [self.navigationController pushViewController:[[UINavigationController alloc] initWithRootViewController:buyIntoVC] animated:YES];
+}
+
+-(void)sort:(UIButton *)btn{
+    NSLog(@"%@",btn.currentTitle);
+    
+    [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
+        return obj1.full_price > obj2.full_price;
+    }];
+    
+//    [self.stocks sortusing];
+    
+    [self.stockView reloadStockView];
 }
 
 #pragma mark - Get
