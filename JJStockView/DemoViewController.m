@@ -43,11 +43,11 @@
 }
 
 #pragma mark - Stock DataSource
-
+//多少行
 - (NSUInteger)countForStockView:(JJStockView*)stockView{
-    return self.stocks.count;
+    return 30;//self.stocks.count + 1;
 }
-
+//左侧显示什么名称
 - (UIView*)titleCellForStockView:(JJStockView*)stockView atRowPath:(NSUInteger)row{
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
     YYStockModel *model = self.stocks[row];
@@ -59,7 +59,7 @@
     label.textAlignment = NSTextAlignmentCenter;
     return label;
 }
-
+//内容
 - (UIView*)contentCellForStockView:(JJStockView*)stockView atRowPath:(NSUInteger)row{
     
     UIView* bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1000, 30)];
@@ -100,7 +100,9 @@
             case 9:
                 btnTitle = model.stock_id;
                 break;
-                
+            case 10:
+                btnTitle = model.stock_id;
+                break;
             default:
                 break;
         }
@@ -188,7 +190,9 @@
             case 9:
                 label.text = @"公告";
                 break;
-                
+            case 10:
+                label.text = @"公告";
+                break;
             default:
                 break;
         }

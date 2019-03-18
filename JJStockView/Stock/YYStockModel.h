@@ -18,7 +18,7 @@
 @property (nonatomic,copy) NSString *bond_id;//债券代码
 @property (nonatomic,copy) NSString *bond_nm;//债券名称
 @property (nonatomic,copy) NSString *btype;//债券类型？
-@property (nonatomic,copy) NSString *convert_amt_ratio;//转债占比
+@property (nonatomic,copy) NSString *convert_amt_ratio;//转债占比     👀
 
 @property (nonatomic,copy) NSString *convert_cd;//转股代码------即过了转股起始期之后才会有的  //未到转股期
 @property (nonatomic,copy) NSString *convert_dt;//转股起始期
@@ -49,11 +49,11 @@
 
 
 @property (nonatomic,copy) NSString *price;
-@property (nonatomic,copy) NSString *price_tips;
+@property (nonatomic,copy) NSString *price_tips;//
 @property (nonatomic,copy) NSString *put_convert_price;//回售触发价
 @property (nonatomic,copy) NSString *put_convert_price_ratio;
 @property (nonatomic,copy) NSString *put_count_days;
-@property (nonatomic,copy) NSString *put_dt;
+@property (nonatomic,copy) NSString *put_dt;//回售日期
 @property (nonatomic,copy) NSString *put_inc_cpn_fl;
 @property (nonatomic,copy) NSString *put_price;//债券回售价
 
@@ -71,7 +71,7 @@
 
 @property (nonatomic,copy) NSString *real_force_redeem_price;
 @property (nonatomic,copy) NSString *redeem_count_days;
-@property (nonatomic,copy) NSString *redeem_dt;
+@property (nonatomic,copy) NSString *redeem_dt;//强赎日期
 @property (nonatomic,copy) NSString *redeem_inc_cpn_fl;
 @property (nonatomic,copy) NSString *redeem_price;//赎回价格
 @property (nonatomic,copy) NSString *redeem_price_ratio;//130
@@ -84,19 +84,19 @@
 @property (nonatomic,copy) NSString *repo_valid;//有效期
 @property (nonatomic,copy) NSString *repo_valid_from;
 @property (nonatomic,copy) NSString *repo_valid_to;
-@property (nonatomic,copy) NSString *short_maturity_dt;
+@property (nonatomic,copy) NSString *short_maturity_dt;//到期日期简写
 @property (nonatomic,copy) NSString *sincrease_rt;
 
 
 
-@property (nonatomic,copy) NSString *sprice;
+@property (nonatomic,copy) NSString *sprice;//股价
 @property (nonatomic,copy) NSString *sqflg;
 @property (nonatomic,copy) NSString *stock_amt;//62668.4700
 @property (nonatomic,copy) NSString *stock_cd;
 @property (nonatomic,copy) NSString *stock_id;//股票代码
 @property (nonatomic,copy) NSString *stock_net_value;//PB
 @property (nonatomic,copy) NSString *stock_nm;//股票名称
-@property (nonatomic,copy) NSString *volume;//成交额
+@property (nonatomic,copy) NSString *volume;//成交额   ------Y
 
 @property (nonatomic,copy) NSString *year_left;//剩余年限
 @property (nonatomic,copy) NSString *ytm_rt;//到期税前收益
