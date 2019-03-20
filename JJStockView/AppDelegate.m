@@ -21,6 +21,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"%@",NSHomeDirectory());
     
+    //从启动选项中获取本地通知--------应用杀死状态
+    UILocalNotification *localNote = launchOptions[UIApplicationLaunchOptionsLocalNotificationKey];
+    
+    [self showLocalNote:localNote];
+    
     DemoViewController* view = [[DemoViewController alloc] init];
     UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:view];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -57,9 +62,54 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+//应用在后台的状态
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
     NSString *content = notification.userInfo[@"content"];
     NSLog(@"%@",content);
+    [self showLocalNote:notification];
+}
+
+- (void)showLocalNote:(UILocalNotification *)localNote{
+    
+    //    //使用UI展示获取的通知内容
+    //    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(50, 50, 700, 50)];
+    //    [self.window.rootViewController.view addSubview:label];
+    //    label.text = localNote.userInfo[@"content"];
+    
+    
+    
+    
+    /**
+     *
+     
+     typedef NS_ENUM(NSInteger, UIApplicationState) {
+     UIApplicationStateActive,      应用激活状态(应用在前台)
+     UIApplicationStateInactive,    应用未激活状态
+     UIApplicationStateBackground   应用在后台
+     } NS_ENUM_AVAILABLE_IOS(4_0);
+     */
+    
+    //根据传递数据跳转不同控制器
+    NSInteger type = [localNote.userInfo[@"type"] integerValue];
+    
+    if ([UIApplication sharedApplication].applicationState != UIApplicationStateActive) { //当应用不在前台时,进行界面跳转
+        
+        UITabBarController *tabBarVc =  (UITabBarController *)self.window.rootViewController;
+        switch (type) {
+            case 1:
+                tabBarVc.selectedIndex = 1;
+                break;
+            case 2:
+                tabBarVc.selectedIndex = 2;
+                break;
+            default:
+                break;
+        }
+    } else {
+        
+        NSLog(@"接收到索引:%zd", type);
+    }
+    
 }
 
 
