@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		060A94AE2240C37E00F42A54 /* YYCheckWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 060A94AD2240C37E00F42A54 /* YYCheckWebViewController.m */; };
 		060C4B7F222259DE004BA326 /* YYStockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B77222259DE004BA326 /* YYStockModel.m */; };
 		060C4B80222259DE004BA326 /* YYSqliteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B7C222259DE004BA326 /* YYSqliteManager.m */; };
 		060C4B81222259DE004BA326 /* YYMenuLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B7D222259DE004BA326 /* YYMenuLabel.m */; };
@@ -66,6 +67,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		060A94AC2240C37E00F42A54 /* YYCheckWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYCheckWebViewController.h; sourceTree = "<group>"; };
+		060A94AD2240C37E00F42A54 /* YYCheckWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYCheckWebViewController.m; sourceTree = "<group>"; };
 		060C4B77222259DE004BA326 /* YYStockModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYStockModel.m; sourceTree = "<group>"; };
 		060C4B78222259DE004BA326 /* YYSqliteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSqliteManager.h; sourceTree = "<group>"; };
 		060C4B79222259DE004BA326 /* YYStockDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYStockDB.h; sourceTree = "<group>"; };
@@ -243,6 +246,8 @@
 				61F13E791F91F670002F4681 /* AppDelegate.m */,
 				61F13E7B1F91F670002F4681 /* DemoViewController.h */,
 				61F13E7C1F91F670002F4681 /* DemoViewController.m */,
+				060A94AC2240C37E00F42A54 /* YYCheckWebViewController.h */,
+				060A94AD2240C37E00F42A54 /* YYCheckWebViewController.m */,
 				FD69163E2228EC7F00DE3CD6 /* YYWebViewController.h */,
 				FD69163F2228EC7F00DE3CD6 /* YYWebViewController.m */,
 				FDF0BEF52230E9490040A892 /* YYKLineWebViewController.h */,
@@ -519,6 +524,7 @@
 				FD0E6940223630E200B1F67F /* AFHTTPSessionManager.m in Sources */,
 				FDC46BA62223CA3300C58FA2 /* JRSwizzle.m in Sources */,
 				FD0E6943223630E200B1F67F /* AFNetworkReachabilityManager.m in Sources */,
+				060A94AE2240C37E00F42A54 /* YYCheckWebViewController.m in Sources */,
 				61F13E7A1F91F670002F4681 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

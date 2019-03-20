@@ -18,6 +18,8 @@
 #import "XMGSessionManager.h"
 #import "BaseNetManager.h"
 
+#import "YYCheckWebViewController.h"
+
 @interface DemoViewController ()<StockViewDataSource,StockViewDelegate>
 
 @property(nonatomic,readwrite,strong)JJStockView* stockView;
@@ -33,19 +35,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [self testResultOfAPI];
-    [self testAPIWithAFN];
+    [self p_testLoaclNotification];
+    [self testResultOfAPI];
+//    .[self testAPIWithAFN];
     
     [self requestData];
     self.navigationItem.title = @"股票表格";
     self.stockView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
     [self.view addSubview:self.stockView];
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"查看" style:UIBarButtonItemStyleDone target:self action:@selector(p_checkSum)];
+    self.navigationItem.rightBarButtonItem = rightItem;
 }
 
 #pragma mark - Stock DataSource
 //多少行
 - (NSUInteger)countForStockView:(JJStockView*)stockView{
-    return 30;//self.stocks.count + 1;
+    return self.stocks.count;
 }
 //左侧显示什么名称
 - (UIView*)titleCellForStockView:(JJStockView*)stockView atRowPath:(NSUInteger)row{
@@ -304,12 +310,13 @@
 }
 
 //https://xian.newhouse.fang.com/sales/
+//http://www.sse.com.cn/market/bonddata/convertible/
 /**
  
  */
 -(void)testResultOfAPI{
     //http://finance.sina.com.cn/realstock/company/sh600031/nc.shtml?from=BaiduAladin
-    NSMutableURLRequest *request2 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://xian.newhouse.fang.com/sales/"]];
+    NSMutableURLRequest *request2 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://www.sse.com.cn/market/bonddata/convertible/"]];
     //    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
     //如何快速测试一个网络请求
@@ -333,7 +340,7 @@
         
     }];
 }
-
+//http://www.sse.com.cn/market/bonddata/convertible/
 -(void)testAPIWithAFN{
 //    XMGSessionManager *manager = [[XMGSessionManager alloc] init];
 //    [manager request:RequestTypeGet urlStr:@"https://xian.newhouse.fang.com/sales/" parameter:nil resultBlock:^(id responseObject, NSError *error) {
@@ -346,7 +353,7 @@
 //        
 //    }];
     
-    [[BaseNetManager defaultManager] GET:@"https://xian.newhouse.fang.com/sales/" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[BaseNetManager defaultManager] GET:@"http://www.sse.com.cn/market/bonddata/convertible/" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responseObject----%@",responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (error) {
@@ -356,5 +363,22 @@
     
 }
 
+-(void)p_checkSum{
+    YYCheckWebViewController *checkVC = [[YYCheckWebViewController alloc] init];
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:checkVC] animated:YES completion:nil];
+}
+
+-(void)p_testLoaclNotification{
+    
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge |UIUserNotificationTypeSound categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    
+    UILocalNotification *localNote = [[UILocalNotification alloc] init];
+    localNote.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
+    localNote.alertBody = @"八戒，来信息了";
+    //设置其他信息
+    localNote.userInfo = @{@"content": @"高小姐喊你回家吃饭", @"type": @2};
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNote];
+}
 
 @end
