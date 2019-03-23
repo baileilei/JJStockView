@@ -10,6 +10,38 @@
 
 @implementation YYDateUtil
 
++(BOOL)toCurrentLessThan8Days:(NSString *)dateStr{
+    NSDate *currentDate = [NSDate date];
+    
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *currentcomponents = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:currentDate];
+    
+    NSInteger currentyear=[currentcomponents year];
+    NSInteger currentmonth=[currentcomponents month];
+    NSInteger currentday=[currentcomponents day];
+    
+    NSLog(@"currentDate = %@ ,year = %ld ,month=%ld, day=%ld",currentDate,currentyear,currentmonth,currentday);
+    
+    NSDate *issueDate = [self stringToDate:dateStr dateFormat:@"yyyy-MM-dd"];
+    NSDateComponents *issuecomponents = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:issueDate];
+    
+    NSInteger issuetyear=[issuecomponents year];
+    NSInteger issuemonth=[issuecomponents month];
+    NSInteger issueday=[issuecomponents day];
+     NSLog(@"issueDate = %@ ,issueyear = %ld ,issuemonth=%ld, issueday=%ld",issueDate,issuetyear,issuemonth,issueday);
+    if (currentyear == issuetyear && currentmonth == issuemonth && abs(currentday - issueday) < 8) {
+        return YES;
+    }
+    
+//    if (issuetyear == 2019) {
+//        return YES;
+//    }
+    
+    
+    return NO;
+}
+
 + (NSString *)dateToString:(NSDate *)date
                 andFormate:(NSString *)formate{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];

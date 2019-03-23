@@ -19,6 +19,7 @@
 		060C4B9422226B9C004BA326 /* YYBuyIntoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B9222226B9C004BA326 /* YYBuyIntoViewController.m */; };
 		060C4B9522226B9C004BA326 /* YYBuyIntoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 060C4B9322226B9C004BA326 /* YYBuyIntoViewController.xib */; };
 		060C4B982222741D004BA326 /* YYBuyintoStockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B972222741D004BA326 /* YYBuyintoStockModel.m */; };
+		06487AF32245BC2E0008A5F0 /* note&URS in Resources */ = {isa = PBXBuildFile; fileRef = 06487AF22245BC2E0008A5F0 /* note&URS */; };
 		6186110E1F95E2F600E4E8B4 /* JJStockScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6186110D1F95E2F600E4E8B4 /* JJStockScrollView.m */; };
 		61F13E7A1F91F670002F4681 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13E791F91F670002F4681 /* AppDelegate.m */; };
 		61F13E7D1F91F670002F4681 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13E7C1F91F670002F4681 /* DemoViewController.m */; };
@@ -91,6 +92,7 @@
 		060C4B9322226B9C004BA326 /* YYBuyIntoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YYBuyIntoViewController.xib; sourceTree = "<group>"; };
 		060C4B962222741D004BA326 /* YYBuyintoStockModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYBuyintoStockModel.h; sourceTree = "<group>"; };
 		060C4B972222741D004BA326 /* YYBuyintoStockModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYBuyintoStockModel.m; sourceTree = "<group>"; };
+		06487AF22245BC2E0008A5F0 /* note&URS */ = {isa = PBXFileReference; lastKnownFileType = text; path = "note&URS"; sourceTree = "<group>"; };
 		6186110C1F95E2F600E4E8B4 /* JJStockScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJStockScrollView.h; sourceTree = "<group>"; };
 		6186110D1F95E2F600E4E8B4 /* JJStockScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJStockScrollView.m; sourceTree = "<group>"; };
 		61F13E751F91F670002F4681 /* JJStockView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JJStockView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,6 +248,7 @@
 				61F13E791F91F670002F4681 /* AppDelegate.m */,
 				61F13E7B1F91F670002F4681 /* DemoViewController.h */,
 				61F13E7C1F91F670002F4681 /* DemoViewController.m */,
+				06487AF22245BC2E0008A5F0 /* note&URS */,
 				060A94AC2240C37E00F42A54 /* YYCheckWebViewController.h */,
 				060A94AD2240C37E00F42A54 /* YYCheckWebViewController.m */,
 				FD69163E2228EC7F00DE3CD6 /* YYWebViewController.h */,
@@ -465,6 +468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61F13E821F91F670002F4681 /* Assets.xcassets in Resources */,
+				06487AF32245BC2E0008A5F0 /* note&URS in Resources */,
 				060C4B9522226B9C004BA326 /* YYBuyIntoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

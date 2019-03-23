@@ -20,6 +20,8 @@
 
 #import "YYCheckWebViewController.h"
 
+#import "YYDateUtil.h"
+
 @interface DemoViewController ()<StockViewDataSource,StockViewDelegate>
 
 @property(nonatomic,readwrite,strong)JJStockView* stockView;
@@ -35,8 +37,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self p_testLoaclNotification];
-    [self testResultOfAPI];
+//    [self p_testLoaclNotification];
+//    [self testResultOfAPI];
 //    .[self testAPIWithAFN];
     
     [self requestData];
@@ -86,13 +88,13 @@
                 btnTitle = model.convert_value;
                 break;
             case 3:
-                btnTitle = model.convert_price;
+                btnTitle = model.convert_price;// 0.9   1.3
                 break;
             case 4:
                 btnTitle = model.convert_dt;//日期转String
                 break;
             case 5:
-                btnTitle = model.bond_id;//输入框？
+                btnTitle = model.sprice;//输入框？
                 break;
             case 6:
                 btnTitle = model.issue_dt;
@@ -126,16 +128,49 @@
             [bg addSubview:button];
         }
         
-        
-//        策略2-----经济整体周期进入了衰退期   债券和黄金为主要标的  所以可以放宽一点  从周期把握趋势
-        if (ratio < 0 && ABS(model.full_price.integerValue - 100) < 10) {
-            label.backgroundColor = [UIColor magentaColor];
+        //青橙黄绿蓝棕紫
+        /*
+          + (UIColor *)cyanColor;       // 0.0, 1.0, 1.0 RGB    青   蓝绿
+         + (UIColor *)orangeColor;     // 1.0, 0.5, 0.0 RGB    橙
+         + (UIColor *)yellowColor;     // 1.0, 1.0, 0.0 RGB   黄
+         + (UIColor *)greenColor;      // 0.0, 1.0, 0.0 RGB   绿
+         + (UIColor *)blueColor;       // 0.0, 0.0, 1.0 RGB    蓝
+         + (UIColor *)brownColor;      // 0.6, 0.4, 0.2 RGB   棕
+          + (UIColor *)purpleColor;     // 0.5, 0.0, 0.5 RGB    紫
+         
+         + (UIColor *)redColor;        // 1.0, 0.0, 0.0 RGB  红
+         + (UIColor *)magentaColor;    // 1.0, 0.0, 1.0 RGB    粉红
+         */
+        //关注- 上市日期在8天之内的
+        //        model.issue_dt
+        if (ABS(model.full_price.integerValue - 100) < 10 ) {//关注
+            label.backgroundColor = [UIColor orangeColor];
         }
         
+        if ([YYDateUtil toCurrentLessThan8Days:model.issue_dt]) {//上市八天内的
+            label.backgroundColor = [UIColor purpleColor];
+        }
+        
+        if (model.sprice.floatValue > model.convert_price.floatValue && ABS(model.full_price.integerValue - 100) < 13) {//关注
+            label.backgroundColor = [UIColor redColor];
+        }
+       
+        
+        
+//        策略2-----经济整体周期进入了衰退期   债券和黄金为主要标的  所以可以放宽一点  从周期把握趋势
+        if (ratio < 0 && ABS(model.full_price.integerValue - 100) < 10) {//特别关注
+            label.backgroundColor = [UIColor magentaColor];
+        }
+         
         //策略1
         if (ratio < 0 && ABS(model.full_price.integerValue - 100) < 8 && model.full_price.integerValue != 100) {
             label.backgroundColor = [UIColor orangeColor];//特别关注
         }
+        
+
+       
+
+        
     }
     return bg;
 }
@@ -182,7 +217,7 @@
                 label.text = @"转股起始日";
                 break;
             case 5:
-                label.text = @"债券转码";
+                label.text = @"股价";
                 break;
             case 6:
                 label.text = @"可申购日期";
