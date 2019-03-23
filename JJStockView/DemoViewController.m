@@ -199,9 +199,9 @@
 }
 
 - (UIView*)headTitle:(JJStockView*)stockView{
-    UIView* bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1000, 40)];
+    UIView* bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, columnCount * 100, 40)];
     bg.backgroundColor = [UIColor colorWithRed:223.0f/255.0 green:223.0f/255.0 blue:223.0f/255.0 alpha:1.0];
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < columnCount; i++) {
         UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(i * 100, 0, 100, 40)];
         label.text = [NSString stringWithFormat:@"标题:%d",i];
         
