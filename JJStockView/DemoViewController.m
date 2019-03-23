@@ -22,6 +22,8 @@
 
 #import "YYDateUtil.h"
 
+#define columnCount 12
+
 @interface DemoViewController ()<StockViewDataSource,StockViewDelegate>
 
 @property(nonatomic,readwrite,strong)JJStockView* stockView;
@@ -70,9 +72,9 @@
 //内容
 - (UIView*)contentCellForStockView:(JJStockView*)stockView atRowPath:(NSUInteger)row{
     
-    UIView* bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1000, 30)];
+    UIView* bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, columnCount * 100, 30)];
     bg.backgroundColor = row % 2 == 0 ?[UIColor whiteColor] :[UIColor colorWithRed:240.0f/255.0 green:240.0f/255.0 blue:240.0f/255.0 alpha:1.0];
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < columnCount; i++) {
         UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(i * 100, 0, 100, 30)];
         YYStockModel *model = self.stocks[row];
         NSString *btnTitle = nil;
@@ -109,6 +111,12 @@
                 btnTitle = model.stock_id;
                 break;
             case 10:
+                btnTitle = model.stock_id;
+                break;
+            case 11:
+                btnTitle = model.stock_id;
+                break;
+            case 12:
                 btnTitle = model.stock_id;
                 break;
             default:
@@ -232,6 +240,12 @@
                 label.text = @"公告";
                 break;
             case 10:
+                label.text = @"公告";
+                break;
+            case 11:
+                label.text = @"公告";
+                break;
+            case 12:
                 label.text = @"公告";
                 break;
             default:

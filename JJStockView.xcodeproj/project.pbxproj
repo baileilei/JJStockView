@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		047622BE22468379005CD02C /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 047622BD22468379005CD02C /* libsqlite3.0.tbd */; };
+		047622C0224683D9005CD02C /* testForCheck.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047622BF224683D9005CD02C /* testForCheck.xib */; };
 		060A94AE2240C37E00F42A54 /* YYCheckWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 060A94AD2240C37E00F42A54 /* YYCheckWebViewController.m */; };
 		060C4B7F222259DE004BA326 /* YYStockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B77222259DE004BA326 /* YYStockModel.m */; };
 		060C4B80222259DE004BA326 /* YYSqliteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B7C222259DE004BA326 /* YYSqliteManager.m */; };
@@ -68,6 +70,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		047622BD22468379005CD02C /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		047622BF224683D9005CD02C /* testForCheck.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = testForCheck.xib; sourceTree = "<group>"; };
 		060A94AC2240C37E00F42A54 /* YYCheckWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYCheckWebViewController.h; sourceTree = "<group>"; };
 		060A94AD2240C37E00F42A54 /* YYCheckWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYCheckWebViewController.m; sourceTree = "<group>"; };
 		060C4B77222259DE004BA326 /* YYStockModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYStockModel.m; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				047622BE22468379005CD02C /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +186,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		047622BC22468379005CD02C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				047622BD22468379005CD02C /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		060C4B76222259DE004BA326 /* Stock */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +235,7 @@
 				61F13E901F91F670002F4681 /* StockViewTests */,
 				61F13E9B1F91F670002F4681 /* StockViewUITests */,
 				61F13E761F91F670002F4681 /* Products */,
+				047622BC22468379005CD02C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -258,6 +272,7 @@
 				060C4B9122226B9C004BA326 /* YYBuyIntoViewController.h */,
 				060C4B9222226B9C004BA326 /* YYBuyIntoViewController.m */,
 				060C4B9322226B9C004BA326 /* YYBuyIntoViewController.xib */,
+				047622BF224683D9005CD02C /* testForCheck.xib */,
 				61F13E811F91F670002F4681 /* Assets.xcassets */,
 				61F13E861F91F670002F4681 /* Info.plist */,
 				61F13E871F91F670002F4681 /* main.m */,
@@ -469,6 +484,7 @@
 			files = (
 				61F13E821F91F670002F4681 /* Assets.xcassets in Resources */,
 				06487AF32245BC2E0008A5F0 /* note&URS in Resources */,
+				047622C0224683D9005CD02C /* testForCheck.xib in Resources */,
 				060C4B9522226B9C004BA326 /* YYBuyIntoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
