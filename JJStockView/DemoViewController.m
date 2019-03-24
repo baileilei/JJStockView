@@ -22,7 +22,7 @@
 
 #import "YYDateUtil.h"
 
-#define columnCount 12
+#define columnCount 13
 
 @interface DemoViewController ()<StockViewDataSource,StockViewDelegate>
 
@@ -40,7 +40,7 @@
     [super viewDidLoad];
     
 //    [self p_testLoaclNotification];
-//    [self testResultOfAPI];
+    [self testResultOfAPI];
 //    .[self testAPIWithAFN];
     
     [self requestData];
@@ -114,10 +114,10 @@
                 btnTitle = model.stock_id;
                 break;
             case 11:
-                btnTitle = model.stock_id;
+                btnTitle = [NSString stringWithFormat:@"%.2f",model.convert_price.floatValue * 0.9];;
                 break;
             case 12:
-                btnTitle = model.stock_id;
+                btnTitle = [NSString stringWithFormat:@"%.2f",model.convert_price.floatValue * 1.3];;
                 break;
             default:
                 break;
@@ -243,10 +243,10 @@
                 label.text = @"公告";
                 break;
             case 11:
-                label.text = @"公告";
+                label.text = @"最底价";
                 break;
             case 12:
-                label.text = @"公告";
+                label.text = @"最高价";
                 break;
             default:
                 break;
@@ -404,6 +404,8 @@
     
     [[BaseNetManager defaultManager] GET:@"http://www.sse.com.cn/market/bonddata/convertible/" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responseObject----%@",responseObject);
+        
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (error) {
             NSLog(@"error-----%@",error);

@@ -21,7 +21,7 @@
     NSInteger currentmonth=[currentcomponents month];
     NSInteger currentday=[currentcomponents day];
     
-    NSLog(@"currentDate = %@ ,year = %ld ,month=%ld, day=%ld",currentDate,currentyear,currentmonth,currentday);
+//    NSLog(@"currentDate = %@ ,year = %ld ,month=%ld, day=%ld",currentDate,currentyear,currentmonth,currentday);
     
     NSDate *issueDate = [self stringToDate:dateStr dateFormat:@"yyyy-MM-dd"];
     NSDateComponents *issuecomponents = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:issueDate];
@@ -29,7 +29,7 @@
     NSInteger issuetyear=[issuecomponents year];
     NSInteger issuemonth=[issuecomponents month];
     NSInteger issueday=[issuecomponents day];
-     NSLog(@"issueDate = %@ ,issueyear = %ld ,issuemonth=%ld, issueday=%ld",issueDate,issuetyear,issuemonth,issueday);
+//     NSLog(@"issueDate = %@ ,issueyear = %ld ,issuemonth=%ld, issueday=%ld",issueDate,issuetyear,issuemonth,issueday);
     if (currentyear == issuetyear && currentmonth == issuemonth && abs(currentday - issueday) < 8) {
         return YES;
     }

@@ -8,7 +8,7 @@
 
 #import "YYCheckWebViewController.h"
 
-@interface YYCheckWebViewController ()
+@interface YYCheckWebViewController ()<UIWebViewDelegate>
 
 @end
 
@@ -26,6 +26,11 @@
     [self.webView loadRequest:request];
 }
 
-
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
+    NSString *jsStr = [NSString stringWithFormat:@"document.querySelector('#tableData_1210 > div.table-responsive.sse_table_T01.tdclickable > table > tbody')"];
+    
+    NSString *targetStr = [webView stringByEvaluatingJavaScriptFromString:jsStr];
+    NSLog(@"targetStr--%@",targetStr);
+}
 
 @end
