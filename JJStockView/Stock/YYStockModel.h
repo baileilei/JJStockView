@@ -11,6 +11,8 @@
 
 @interface YYStockModel : NSObject<XMGModelProtocol>
 
+@property (nonatomic,assign) float ratio;
+
 @property (nonatomic,copy) NSString *active_fl;
 @property (nonatomic,copy) NSString *adjust_tc;//条件
 @property (nonatomic,copy) NSString *adq_rating;

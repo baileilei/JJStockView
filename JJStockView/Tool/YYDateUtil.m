@@ -10,6 +10,13 @@
 
 @implementation YYDateUtil
 
++(BOOL)compareDate:(NSDate *)date{
+    
+    NSDate *date0 = [self stringToDate:date dateFormat:@"yyyy-MM-dd"];
+    
+    return [self compareDate:date0];
+}
+
 +(BOOL)toCurrentLessThan8Days:(NSString *)dateStr{
     NSDate *currentDate = [NSDate date];
     
@@ -41,6 +48,7 @@
     
     return NO;
 }
+
 
 + (NSString *)dateToString:(NSDate *)date
                 andFormate:(NSString *)formate{

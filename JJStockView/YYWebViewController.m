@@ -69,6 +69,7 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     NSString *str = @"document.getElementsByClassName('item_row')[0].remove();";
+    NSLog(@"test ---%@",[webView stringByEvaluatingJavaScriptFromString:str]);
     [webView stringByEvaluatingJavaScriptFromString:str];
     
     NSString *str1 = @"document.getElementsByClassName('item_row')[0].remove();";

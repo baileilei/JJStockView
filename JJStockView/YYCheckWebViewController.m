@@ -7,8 +7,22 @@
 //
 
 #import "YYCheckWebViewController.h"
+#import <WebKit/WebKit.h>
 
-@interface YYCheckWebViewController ()<UIWebViewDelegate>
+//(function(NSDictionary *) {
+//    var init = function() {
+//        return {
+//        imgSrc: document.getElementsByClassName('item')[0].getElementsByTagName('img')[0].src,
+//        price: document.getElementsByClassName('real-price')[0].getElementsByClassName('price')[0].textContent,
+//        title: document.getElementsByClassName('main')[0].textContent
+//        };
+//    };
+////    return init();
+//})();
+
+@interface YYCheckWebViewController ()<UIWebViewDelegate,WKNavigationDelegate>
+
+//@property (weak,nonatomic) WKWebView *wkwebView;
 
 @end
 
@@ -24,13 +38,16 @@
     NSLog(@"url--%@-----%@",url,self);
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [self.webView loadRequest:request];
+    
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
-    NSString *jsStr = [NSString stringWithFormat:@"document.querySelector('#tableData_1210 > div.table-responsive.sse_table_T01.tdclickable > table > tbody')"];
-    
+    //document.getElementsByClassName('isClickTr')[0].textContent
+    NSString *jsStr = [NSString stringWithFormat:@"document.getElementsByClassName('isClickTr')[0].textContent"];
+//    NSString *jsStr = [NSString stringWithFormat:@"(function(){var init = function(){return {imgSrc:document.getElementsByClassName('item')[0].getElementsByTagName('img')[0].src,price:document.getElementsByClassName('real-price')[0].getElementsByClassName('price')[0].textContent,title:document.getElementsByClassName('main')[0].textContent};}; return init();})()"];
     NSString *targetStr = [webView stringByEvaluatingJavaScriptFromString:jsStr];
     NSLog(@"targetStr--%@",targetStr);
+    //没有效果，根本原因在于这个网络请求中没有这个数据的返回。  这个网络请求中应该是直接回发起两次网络请求，但是怎么发出去的却不太懂。    回调中才有数据的返回。 相同的网络请求，不同的返回结果。
 }
 
 @end

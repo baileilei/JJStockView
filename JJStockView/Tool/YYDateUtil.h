@@ -10,6 +10,8 @@
 
 @interface YYDateUtil : NSObject
 
++(BOOL)compareDate:(NSString *)date;
+
 +(BOOL)toCurrentLessThan8Days:(NSString *)dateStr;
 
 + (NSString *)dateToString:(NSDate *)date

@@ -22,6 +22,7 @@
 		060C4B9522226B9C004BA326 /* YYBuyIntoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 060C4B9322226B9C004BA326 /* YYBuyIntoViewController.xib */; };
 		060C4B982222741D004BA326 /* YYBuyintoStockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B972222741D004BA326 /* YYBuyintoStockModel.m */; };
 		06487AF32245BC2E0008A5F0 /* note&URS in Resources */ = {isa = PBXBuildFile; fileRef = 06487AF22245BC2E0008A5F0 /* note&URS */; };
+		06C5BBC52252F0A90037B993 /* note201904 in Resources */ = {isa = PBXBuildFile; fileRef = 06C5BBC42252F0A90037B993 /* note201904 */; };
 		6186110E1F95E2F600E4E8B4 /* JJStockScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6186110D1F95E2F600E4E8B4 /* JJStockScrollView.m */; };
 		61F13E7A1F91F670002F4681 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13E791F91F670002F4681 /* AppDelegate.m */; };
 		61F13E7D1F91F670002F4681 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13E7C1F91F670002F4681 /* DemoViewController.m */; };
@@ -97,6 +98,7 @@
 		060C4B962222741D004BA326 /* YYBuyintoStockModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYBuyintoStockModel.h; sourceTree = "<group>"; };
 		060C4B972222741D004BA326 /* YYBuyintoStockModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYBuyintoStockModel.m; sourceTree = "<group>"; };
 		06487AF22245BC2E0008A5F0 /* note&URS */ = {isa = PBXFileReference; lastKnownFileType = text; path = "note&URS"; sourceTree = "<group>"; };
+		06C5BBC42252F0A90037B993 /* note201904 */ = {isa = PBXFileReference; lastKnownFileType = text; path = note201904; sourceTree = "<group>"; };
 		6186110C1F95E2F600E4E8B4 /* JJStockScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJStockScrollView.h; sourceTree = "<group>"; };
 		6186110D1F95E2F600E4E8B4 /* JJStockScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJStockScrollView.m; sourceTree = "<group>"; };
 		61F13E751F91F670002F4681 /* JJStockView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JJStockView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,6 +230,14 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		06C5BBC32252F0900037B993 /* notes */ = {
+			isa = PBXGroup;
+			children = (
+				06C5BBC42252F0A90037B993 /* note201904 */,
+			);
+			path = notes;
+			sourceTree = "<group>";
+		};
 		61F13E6C1F91F670002F4681 = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +262,7 @@
 		61F13E771F91F670002F4681 /* JJStockView */ = {
 			isa = PBXGroup;
 			children = (
+				06C5BBC32252F0900037B993 /* notes */,
 				FD0E6930223630E200B1F67F /* AFNetworking */,
 				FDF0B74D2223DF94003A6999 /* Tool */,
 				FDC46B952223CA3300C58FA2 /* Swizzle */,
@@ -483,6 +494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61F13E821F91F670002F4681 /* Assets.xcassets in Resources */,
+				06C5BBC52252F0A90037B993 /* note201904 in Resources */,
 				06487AF32245BC2E0008A5F0 /* note&URS in Resources */,
 				047622C0224683D9005CD02C /* testForCheck.xib in Resources */,
 				060C4B9522226B9C004BA326 /* YYBuyIntoViewController.xib in Resources */,
@@ -691,7 +703,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BV4VNKPHDV;
+				DEVELOPMENT_TEAM = 466F58GF93;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/JJStockView/APPConstant.h";
 				INFOPLIST_FILE = "$(SRCROOT)/JJStockView/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -710,7 +722,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BV4VNKPHDV;
+				DEVELOPMENT_TEAM = 466F58GF93;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/JJStockView/APPConstant.h";
 				INFOPLIST_FILE = "$(SRCROOT)/JJStockView/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

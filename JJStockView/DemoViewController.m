@@ -40,7 +40,7 @@
     [super viewDidLoad];
     
 //    [self p_testLoaclNotification];
-    [self testResultOfAPI];
+//    [self testResultOfAPI];
 //    .[self testAPIWithAFN];
     
     [self requestData];
@@ -304,11 +304,26 @@
 -(void)sort:(UIButton *)btn{
     NSLog(@"%@",btn.currentTitle);
     
-    [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
-        return obj1.full_price > obj2.full_price;
-    }];
+    if ([btn.currentTitle isEqualToString:@"现价"]) {
+        [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
+            return obj1.full_price.floatValue > obj2.full_price.floatValue;
+        }];
+    }
     
-//    [self.stocks sortusing];
+    if ([btn.currentTitle isEqualToString:@"上市日期"]) {
+        [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
+            return [[YYDateUtil stringToDate:obj2.issue_dt dateFormat:@"yyyy-MM-dd"] compare:[YYDateUtil stringToDate:obj1.issue_dt dateFormat:@"yyyy-MM-dd"]];
+            
+        }];
+    }
+    
+    if ([btn.currentTitle isEqualToString:@"溢价率"]) {
+        [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
+            return obj1.ratio > obj2.ratio;
+            
+        }];
+    }
+
     
     [self.stockView reloadStockView];
 }
@@ -335,7 +350,7 @@
     //如何快速测试一个网络请求
     [NSURLConnection sendAsynchronousRequest:request2 queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
         //        NSLog(@"response -----%@",response);
-//                NSLog(@"data ----%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+//        NSLog(@"data ----%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
         
         NSError *error = nil;
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
@@ -343,8 +358,16 @@
         
         NSMutableArray *temp = [NSMutableArray array];
         for (NSDictionary *dic in dict[@"rows"]) {
+            
             YYStockModel *stockModel = [[YYStockModel alloc] init];
+            
             [stockModel setValuesForKeysWithDictionary:dic[@"cell"]];
+            float ratio = (stockModel.full_price.floatValue - stockModel.convert_value.floatValue)/stockModel.convert_value.floatValue;
+            stockModel.ratio = ratio;
+            
+            //if (ratio < 0) {
+//                stockModel.ratio = [NSString stringWithFormat:@"%.2f%%",ratio * 100];
+//            }
             [temp addObject:stockModel];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"Mystock"];
@@ -361,11 +384,12 @@
 //https://xian.newhouse.fang.com/sales/
 //http://www.sse.com.cn/market/bonddata/convertible/
 /**
- 
+ //http://query.sse.com.cn/commonQuery.do?jsonCallBack=jsonpCallback58699&isPagination=true&YEAR=&CVTBOND_CODE=&sqlId=COMMON_SSE_ZQ_TJSJ_ZXTJ_KZZZGTJ_L&pageHelp.pageSize=10&pageHelp.pageNo=1&pageHelp.beginPage=1&pageHelp.cacheSize=1&pageHelp.endPage=6&_=1553501700996
  */
 -(void)testResultOfAPI{
     //http://finance.sina.com.cn/realstock/company/sh600031/nc.shtml?from=BaiduAladin
     NSMutableURLRequest *request2 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://www.sse.com.cn/market/bonddata/convertible/"]];
+    [request2 setValue:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36" forHTTPHeaderField:@"User-Agent"];
     //    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
     //如何快速测试一个网络请求
@@ -431,5 +455,7 @@
     localNote.userInfo = @{@"content": @"高小姐喊你回家吃饭", @"type": @2};
     [[UIApplication sharedApplication] scheduleLocalNotification:localNote];
 }
+
+
 
 @end
