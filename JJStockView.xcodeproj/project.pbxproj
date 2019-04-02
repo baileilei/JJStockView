@@ -24,6 +24,9 @@
 		06487AF32245BC2E0008A5F0 /* note&URS in Resources */ = {isa = PBXBuildFile; fileRef = 06487AF22245BC2E0008A5F0 /* note&URS */; };
 		06C5BBC52252F0A90037B993 /* note201904 in Resources */ = {isa = PBXBuildFile; fileRef = 06C5BBC42252F0A90037B993 /* note201904 */; };
 		06C5BBC92252FFD60037B993 /* YYSerachViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C5BBC82252FFD60037B993 /* YYSerachViewController.m */; };
+		06C5BBD02253318B0037B993 /* ActionEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C5BBCD2253318A0037B993 /* ActionEvent.m */; };
+		06C5BBD12253318B0037B993 /* ListenerBag.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C5BBCF2253318A0037B993 /* ListenerBag.m */; };
+		06C5BBD42253319D0037B993 /* TFEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C5BBD22253319C0037B993 /* TFEvent.m */; };
 		6186110E1F95E2F600E4E8B4 /* JJStockScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6186110D1F95E2F600E4E8B4 /* JJStockScrollView.m */; };
 		61F13E7A1F91F670002F4681 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13E791F91F670002F4681 /* AppDelegate.m */; };
 		61F13E7D1F91F670002F4681 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13E7C1F91F670002F4681 /* DemoViewController.m */; };
@@ -102,6 +105,15 @@
 		06C5BBC42252F0A90037B993 /* note201904 */ = {isa = PBXFileReference; lastKnownFileType = text; path = note201904; sourceTree = "<group>"; };
 		06C5BBC72252FFD60037B993 /* YYSerachViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYSerachViewController.h; sourceTree = "<group>"; };
 		06C5BBC82252FFD60037B993 /* YYSerachViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYSerachViewController.m; sourceTree = "<group>"; };
+		06C5BBCB2253318A0037B993 /* ListenerBag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenerBag.h; sourceTree = "<group>"; };
+		06C5BBCC2253318A0037B993 /* ActionEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionEvent.h; sourceTree = "<group>"; };
+		06C5BBCD2253318A0037B993 /* ActionEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionEvent.m; sourceTree = "<group>"; };
+		06C5BBCE2253318A0037B993 /* ActionListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionListener.h; sourceTree = "<group>"; };
+		06C5BBCF2253318A0037B993 /* ListenerBag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenerBag.m; sourceTree = "<group>"; };
+		06C5BBD22253319C0037B993 /* TFEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFEvent.m; sourceTree = "<group>"; };
+		06C5BBD32253319D0037B993 /* TFEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFEvent.h; sourceTree = "<group>"; };
+		06C5BBD5225332000037B993 /* ItemListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemListener.h; sourceTree = "<group>"; };
+		06C5BBD62253320C0037B993 /* ChangeListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeListener.h; sourceTree = "<group>"; };
 		6186110C1F95E2F600E4E8B4 /* JJStockScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJStockScrollView.h; sourceTree = "<group>"; };
 		6186110D1F95E2F600E4E8B4 /* JJStockScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJStockScrollView.m; sourceTree = "<group>"; };
 		61F13E751F91F670002F4681 /* JJStockView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JJStockView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -250,6 +262,22 @@
 			path = search;
 			sourceTree = "<group>";
 		};
+		06C5BBCA2253315D0037B993 /* UIEvent */ = {
+			isa = PBXGroup;
+			children = (
+				06C5BBD32253319D0037B993 /* TFEvent.h */,
+				06C5BBD22253319C0037B993 /* TFEvent.m */,
+				06C5BBCC2253318A0037B993 /* ActionEvent.h */,
+				06C5BBCD2253318A0037B993 /* ActionEvent.m */,
+				06C5BBD62253320C0037B993 /* ChangeListener.h */,
+				06C5BBD5225332000037B993 /* ItemListener.h */,
+				06C5BBCE2253318A0037B993 /* ActionListener.h */,
+				06C5BBCB2253318A0037B993 /* ListenerBag.h */,
+				06C5BBCF2253318A0037B993 /* ListenerBag.m */,
+			);
+			path = UIEvent;
+			sourceTree = "<group>";
+		};
 		61F13E6C1F91F670002F4681 = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +302,7 @@
 		61F13E771F91F670002F4681 /* JJStockView */ = {
 			isa = PBXGroup;
 			children = (
+				06C5BBCA2253315D0037B993 /* UIEvent */,
 				06C5BBC62252FFB30037B993 /* search */,
 				06C5BBC32252F0900037B993 /* notes */,
 				FD0E6930223630E200B1F67F /* AFNetworking */,
@@ -535,11 +564,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06C5BBD42253319D0037B993 /* TFEvent.m in Sources */,
 				FDF0BEF72230E9490040A892 /* YYKLineWebViewController.m in Sources */,
 				FDF0B7532223E2AF003A6999 /* LocalNotificationManager.m in Sources */,
 				61F13EB01F91F6D4002F4681 /* JJStockView.m in Sources */,
 				FDC46BA22223CA3300C58FA2 /* UIViewController+Swizzle.m in Sources */,
 				060C4B982222741D004BA326 /* YYBuyintoStockModel.m in Sources */,
+				06C5BBD12253318B0037B993 /* ListenerBag.m in Sources */,
 				060C4B8F222262A2004BA326 /* XMGSqliteTool.m in Sources */,
 				FDC46BA32223CA3300C58FA2 /* NSDictionary+Swizzle.m in Sources */,
 				060C4B8D222262A2004BA326 /* XMGTableTool.m in Sources */,
@@ -557,6 +588,7 @@
 				6186110E1F95E2F600E4E8B4 /* JJStockScrollView.m in Sources */,
 				06C5BBC92252FFD60037B993 /* YYSerachViewController.m in Sources */,
 				FD0E693F223630E200B1F67F /* AFURLResponseSerialization.m in Sources */,
+				06C5BBD02253318B0037B993 /* ActionEvent.m in Sources */,
 				FDC46B822223854200C58FA2 /* NTMonthYearPicker.m in Sources */,
 				61F13EAF1F91F6D4002F4681 /* JJStockViewCell.m in Sources */,
 				FD0E6942223630E200B1F67F /* AFURLRequestSerialization.m in Sources */,
