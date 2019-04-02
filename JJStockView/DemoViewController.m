@@ -22,13 +22,19 @@
 
 #import "YYDateUtil.h"
 
+#import "YYSerachViewController.h"
+
 #define columnCount 13
 
-@interface DemoViewController ()<StockViewDataSource,StockViewDelegate>
+@interface DemoViewController ()<StockViewDataSource,StockViewDelegate,UISearchBarDelegate>
 
 @property(nonatomic,readwrite,strong)JJStockView* stockView;
 
 @property (nonatomic,strong) NSMutableArray *stocks;
+
+@property (nonatomic, strong) NSMutableArray *searchResults;
+
+@property (assign,nonatomic) BOOL isSearch;
 
 @end
 
@@ -42,25 +48,77 @@
 //    [self p_testLoaclNotification];
 //    [self testResultOfAPI];
 //    .[self testAPIWithAFN];
+    self.searchResults = [NSMutableArray array];
+    
+    self.isSearch = NO;
     
     [self requestData];
     self.navigationItem.title = @"股票表格";
+    
+    UISearchBar *searchBar = [[UISearchBar alloc] init];
+    searchBar.placeholder = @"请输入名称、代码";
+    searchBar.delegate = self;
+    self.navigationItem.titleView = searchBar;
+    
+    
     self.stockView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
     [self.view addSubview:self.stockView];
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"查看" style:UIBarButtonItemStyleDone target:self action:@selector(p_checkSum)];
     self.navigationItem.rightBarButtonItem = rightItem;
+    
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"刷新" style:UIBarButtonItemStyleDone target:self action:@selector(p_refresh)];
+    self.navigationItem.leftBarButtonItem = leftItem;
+    
+//    UISearchBar *searchBar = [[UISearchBar alloc] init];
+    
 }
+
+#pragma mark - UISearchBarDelegate
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    self.isSearch = YES;
+    
+    if (searchText.length == 0) {
+        [self.searchResults removeAllObjects];
+    }
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF contains[cd] %@", searchText];
+    
+    NSArray *temp = [[self.stocks valueForKey:@"bond_nm"] filteredArrayUsingPredicate:resultPredicate];
+//    NSArray *nameArray = [self.stocks valueForKey:@"bond_nm"];
+    for (NSString *name in temp) {
+        for (YYStockModel *model in self.stocks) {
+            if ([name isEqualToString:model.bond_nm]) {
+                [self.searchResults addObject:model];
+            }
+        }
+    }
+    
+    [self.stockView reloadStockView];
+   
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    NSLog(@"%@",self.searchResults);
+    
+//    self.searchResults = [XMGSqliteModelTool queryModels:[YYStockModel class] columnName:@"full_price" relation:ColumnNameToValueRelationTypeEqual value:searchBar.text uid:@"Mystock"];
+    
+    [self.stockView reloadStockView];
+    [self.view endEditing:YES];
+    [searchBar resignFirstResponder];
+    searchBar.text = nil;
+}
+//-searchbare
 
 #pragma mark - Stock DataSource
 //多少行
 - (NSUInteger)countForStockView:(JJStockView*)stockView{
-    return self.stocks.count;
+    return self.isSearch == YES? self.searchResults.count : self.stocks.count;
 }
 //左侧显示什么名称
 - (UIView*)titleCellForStockView:(JJStockView*)stockView atRowPath:(NSUInteger)row{
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
-    YYStockModel *model = self.stocks[row];
+    
+    YYStockModel *model = self.isSearch == YES? self.searchResults[row] : self.stocks[row];
 //    label.text = [NSString stringWithFormat:@"标题:%ld",row];
     label.text = [NSString stringWithFormat:@"%@",model.bond_nm];
     
@@ -454,6 +512,20 @@
     //设置其他信息
     localNote.userInfo = @{@"content": @"高小姐喊你回家吃饭", @"type": @2};
     [[UIApplication sharedApplication] scheduleLocalNotification:localNote];
+}
+
+-(void)p_refresh{
+    if (self.isSearch) {
+        self.isSearch = NO;
+        [self.stockView reloadStockView];
+    }
+    //
+//    NSLog(@"result search");
+//    YYSerachViewController *serachVC = [[YYSerachViewController alloc] init];
+////    [self.navigationController pushViewController:[[UINavigationController alloc] initWithRootViewController:serachVC] animated:NO];
+//    serachVC.stocks = self.stocks;
+//    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:serachVC] animated:YES completion:nil];
+    
 }
 
 
