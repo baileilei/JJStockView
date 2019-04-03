@@ -88,10 +88,13 @@
     for (NSString *name in temp) {
         for (YYStockModel *model in self.stocks) {
             if ([name isEqualToString:model.bond_nm]) {
+                NSLog(@"%@",model.full_price);
                 [self.searchResults addObject:model];
             }
         }
     }
+    
+    NSLog(@"self.searchResults---%@",self.searchResults);
     
     [self.stockView reloadStockView];
    
@@ -134,7 +137,7 @@
     bg.backgroundColor = row % 2 == 0 ?[UIColor whiteColor] :[UIColor colorWithRed:240.0f/255.0 green:240.0f/255.0 blue:240.0f/255.0 alpha:1.0];
     for (int i = 0; i < columnCount; i++) {
         UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(i * 100, 0, 100, 30)];
-        YYStockModel *model = self.stocks[row];
+        YYStockModel *model = self.isSearch == YES? self.searchResults[row] : self.stocks[row];;
         NSString *btnTitle = nil;
         float ratio = (model.full_price.floatValue - model.convert_value.floatValue)/model.convert_value.floatValue;
         switch (i) {
@@ -325,7 +328,7 @@
 
 - (void)didSelect:(JJStockView*)stockView atRowPath:(NSUInteger)row{
     NSLog(@"DidSelect Row:%ld",row);
-    YYStockModel *stockModel = self.stocks[row];
+    YYStockModel *stockModel = self.isSearch == YES? self.searchResults[row] : self.stocks[row];;
     YYBuyIntoViewController *buyIntoVC = [[YYBuyIntoViewController alloc] init];
     buyIntoVC.stockModel = stockModel;
     [self presentViewController:buyIntoVC animated:YES completion:nil];
