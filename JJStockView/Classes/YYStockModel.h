@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "XMGModelProtocol.h"
 
+
+
 @interface YYStockModel : NSObject<XMGModelProtocol>
 
 @property (nonatomic,assign) float ratio;
@@ -27,8 +29,8 @@
 @property (nonatomic,copy) NSString *convert_price;//转股价
 @property (nonatomic,copy) NSString *convert_value;//转股价值
 @property (nonatomic,copy) NSString *cpn_desc;//债券利息
-@property (nonatomic,copy) NSString *curr_iss_amt;
-@property (nonatomic,copy) NSString *force_redeem;
+@property (nonatomic,copy) NSString *curr_iss_amt;//剩余规模
+@property (nonatomic,copy) NSString *force_redeem;//赎回价
 @property (nonatomic,copy) NSString *force_redeem_price;//强赎触发价
 
 @property (nonatomic,copy) NSString *full_price;//债券现价
@@ -43,7 +45,7 @@
 @property (nonatomic,copy) NSString *maturity_dt;//到期时间
 @property (nonatomic,copy) NSString *next_put_dt;//下个利息发放期
 @property (nonatomic,copy) NSString *online_offline_ratio;
-@property (nonatomic,copy) NSString *orig_iss_amt;
+@property (nonatomic,copy) NSString *orig_iss_amt;//规模46.5亿
 @property (nonatomic,copy) NSString *owned;
 @property (nonatomic,copy) NSString *pb;
 @property (nonatomic,copy) NSString *pre_bond_id;//转债代码
@@ -71,16 +73,16 @@
 @property (nonatomic,copy) NSString *ration_rt;
 
 
-@property (nonatomic,copy) NSString *real_force_redeem_price;
-@property (nonatomic,copy) NSString *redeem_count_days;
+@property (nonatomic,copy) NSString *real_force_redeem_price;//100.160
+@property (nonatomic,copy) NSString *redeem_count_days;//15
 @property (nonatomic,copy) NSString *redeem_dt;//强赎日期
 @property (nonatomic,copy) NSString *redeem_inc_cpn_fl;
 @property (nonatomic,copy) NSString *redeem_price;//赎回价格
 @property (nonatomic,copy) NSString *redeem_price_ratio;//130
-@property (nonatomic,copy) NSString *redeem_real_days;
+@property (nonatomic,copy) NSString *redeem_real_days;//29
 @property (nonatomic,copy) NSString *redeem_tc;//赎回条件
 
-@property (nonatomic,copy) NSString *redeem_total_days;
+@property (nonatomic,copy) NSString *redeem_total_days;//30
 @property (nonatomic,copy) NSString *repo_cd;
 @property (nonatomic,copy) NSString *repo_discount_rt;//折算率
 @property (nonatomic,copy) NSString *repo_valid;//有效期
@@ -106,3 +108,9 @@
 
 @property (nonatomic,copy) NSString *pinyin;
 @end
+
+
+@interface YYRedeemModel:YYStockModel
+@property (nonatomic,copy) NSString *redeem_count;//15 "<span style=\"color:red;\">29\/30<\/span>"
+@end
+
