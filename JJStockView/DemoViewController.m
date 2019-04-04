@@ -160,7 +160,7 @@
                 btnTitle = model.sprice;//输入框？
                 break;
             case 6:
-                btnTitle = [NSString stringWithFormat:@"%@",model.redeem_real_days];
+                btnTitle = model.issue_dt;
                 break;
             case 7:
                 btnTitle = model.list_dt.length > 0 ? model.list_dt : model.price_tips;//@"买入策略";//输入框？
@@ -220,12 +220,10 @@
             label.backgroundColor = [UIColor purpleColor];
         }
         
-//        if (model.sprice.floatValue > model.convert_price.floatValue && ABS(model.full_price.integerValue - 100) < 13) {//关注
-//            label.backgroundColor = [UIColor redColor];
-//        }
-        if (model.redeem_real_days.integerValue != 0) {
+        if (model.sprice.floatValue > model.convert_price.floatValue && ABS(model.full_price.integerValue - 100) < 13) {//关注
             label.backgroundColor = [UIColor redColor];
         }
+       
         
         
 //        策略2-----经济整体周期进入了衰退期   债券和黄金为主要标的  所以可以放宽一点  从周期把握趋势
@@ -239,7 +237,6 @@
         }
         
 
-        
        
 
         
@@ -292,7 +289,7 @@
                 label.text = @"股价";
                 break;
             case 6:
-                label.text = @"强天数";
+                label.text = @"可申购日期";
                 break;
             case 7:
                 label.text = @"上市日期";//@"买入策略";//输入框？
@@ -409,14 +406,12 @@
  
  */
 - (void)requestData {
-    //https://www.jisilu.cn/data/cbnew/redeem_list/?___jsl=LST___t=1554264191753 强书
-    //https://www.jisilu.cn/data/cbnew/cb_list/?___jsl=LST___t=1550727503725   可转债
     NSMutableURLRequest *request2 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://www.jisilu.cn/data/cbnew/cb_list/?___jsl=LST___t=1550727503725"]];
     //    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     //如何快速测试一个网络请求
     [NSURLConnection sendAsynchronousRequest:request2 queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
         //        NSLog(@"response -----%@",response);
-        NSLog(@"data ----%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+//        NSLog(@"data ----%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
         
         NSError *error = nil;
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
@@ -536,6 +531,6 @@
     
 }
 
-//https://www.jisilu.cn/data/cbnew/redeem_list/?___jsl=LST___t=1554264191753
+
 
 @end
