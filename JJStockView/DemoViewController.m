@@ -172,7 +172,7 @@
                 btnTitle = model.stock_id;
                 break;
             case 10:
-                btnTitle = model.stock_id;
+                btnTitle = [NSString stringWithFormat:@"%@",model.redeem_real_days];
                 break;
             case 11:
                 btnTitle = [NSString stringWithFormat:@"%.2f",model.convert_price.floatValue * 0.9];;
@@ -213,27 +213,32 @@
         //关注- 上市日期在8天之内的
         //        model.issue_dt
         if (ABS(model.full_price.integerValue - 100) < 10 ) {//关注
-            label.backgroundColor = [UIColor orangeColor];
+//            label.backgroundColor = [UIColor orangeColor];
         }
         
         if ([YYDateUtil toCurrentLessThan8Days:model.issue_dt]) {//上市八天内的
-            label.backgroundColor = [UIColor purpleColor];
+//            label.backgroundColor = [UIColor purpleColor];
         }
         
         if (model.sprice.floatValue > model.convert_price.floatValue && ABS(model.full_price.integerValue - 100) < 13) {//关注
-            label.backgroundColor = [UIColor redColor];
+//            label.backgroundColor = [UIColor redColor];
         }
        
         
         
 //        策略2-----经济整体周期进入了衰退期   债券和黄金为主要标的  所以可以放宽一点  从周期把握趋势
         if (ratio < 0 && ABS(model.full_price.integerValue - 100) < 10) {//特别关注
-            label.backgroundColor = [UIColor magentaColor];
+//            label.backgroundColor = [UIColor magentaColor];
         }
          
         //策略1
         if (ratio < 0 && ABS(model.full_price.integerValue - 100) < 8 && model.full_price.integerValue != 100) {
-            label.backgroundColor = [UIColor orangeColor];//特别关注
+//            label.backgroundColor = [UIColor orangeColor];//特别关注
+        }
+        
+        //必然进入转股期的    并且涨势还不错的
+        if (model.redeem_real_days.integerValue > 0) {
+            label.backgroundColor = [UIColor orangeColor];
         }
         
 
@@ -301,7 +306,7 @@
                 label.text = @"公告";
                 break;
             case 10:
-                label.text = @"公告";
+                label.text = @"强天数";
                 break;
             case 11:
                 label.text = @"最底价";
