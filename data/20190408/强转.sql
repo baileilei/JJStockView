@@ -1,0 +1,1 @@
+select bond_id,bond_nm,full_price,redeem_real_days from YYStockModel where redeem_real_days > 0 order by full_price;

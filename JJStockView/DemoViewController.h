@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JJStockView.h"
+
 
 @interface DemoViewController : UIViewController
 
+@property(nonatomic,readwrite,strong)JJStockView* stockView;
+
+@property (nonatomic,strong) NSMutableArray *stocks;
 
 @end
 
