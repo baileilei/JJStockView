@@ -28,6 +28,7 @@
 		06C5BBD12253318B0037B993 /* ListenerBag.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C5BBCF2253318A0037B993 /* ListenerBag.m */; };
 		06C5BBD42253319D0037B993 /* TFEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C5BBD22253319C0037B993 /* TFEvent.m */; };
 		06D1589B225B4A1A0040B6C6 /* YYRedeemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D1589A225B4A1A0040B6C6 /* YYRedeemViewController.m */; };
+		06D1589F225C6EFE0040B6C6 /* YYSelfDefineCategoryStock.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D1589E225C6EFE0040B6C6 /* YYSelfDefineCategoryStock.m */; };
 		6186110E1F95E2F600E4E8B4 /* JJStockScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6186110D1F95E2F600E4E8B4 /* JJStockScrollView.m */; };
 		61F13E7A1F91F670002F4681 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13E791F91F670002F4681 /* AppDelegate.m */; };
 		61F13E7D1F91F670002F4681 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13E7C1F91F670002F4681 /* DemoViewController.m */; };
@@ -117,6 +118,8 @@
 		06C5BBD62253320C0037B993 /* ChangeListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeListener.h; sourceTree = "<group>"; };
 		06D15899225B4A1A0040B6C6 /* YYRedeemViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYRedeemViewController.h; sourceTree = "<group>"; };
 		06D1589A225B4A1A0040B6C6 /* YYRedeemViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYRedeemViewController.m; sourceTree = "<group>"; };
+		06D1589D225C6EFE0040B6C6 /* YYSelfDefineCategoryStock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYSelfDefineCategoryStock.h; sourceTree = "<group>"; };
+		06D1589E225C6EFE0040B6C6 /* YYSelfDefineCategoryStock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYSelfDefineCategoryStock.m; sourceTree = "<group>"; };
 		6186110C1F95E2F600E4E8B4 /* JJStockScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJStockScrollView.h; sourceTree = "<group>"; };
 		6186110D1F95E2F600E4E8B4 /* JJStockScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJStockScrollView.m; sourceTree = "<group>"; };
 		61F13E751F91F670002F4681 /* JJStockView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JJStockView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,6 +223,8 @@
 				060C4B962222741D004BA326 /* YYBuyintoStockModel.h */,
 				060C4B972222741D004BA326 /* YYBuyintoStockModel.m */,
 				060C4B7B222259DE004BA326 /* YYStockModel.h */,
+				06D1589D225C6EFE0040B6C6 /* YYSelfDefineCategoryStock.h */,
+				06D1589E225C6EFE0040B6C6 /* YYSelfDefineCategoryStock.m */,
 				060C4B77222259DE004BA326 /* YYStockModel.m */,
 				060C4B7A222259DE004BA326 /* YYMenuLabel.h */,
 				060C4B7D222259DE004BA326 /* YYMenuLabel.m */,
@@ -604,6 +609,7 @@
 				FD0E6944223630E200B1F67F /* AFSecurityPolicy.m in Sources */,
 				060C4B90222262A2004BA326 /* XMGModelTool.m in Sources */,
 				FDC46BA42223CA3300C58FA2 /* UIButton+Swizzle.m in Sources */,
+				06D1589F225C6EFE0040B6C6 /* YYSelfDefineCategoryStock.m in Sources */,
 				FDF0B7502223DFBD003A6999 /* YYDateUtil.m in Sources */,
 				FD0E6940223630E200B1F67F /* AFHTTPSessionManager.m in Sources */,
 				FDC46BA62223CA3300C58FA2 /* JRSwizzle.m in Sources */,
