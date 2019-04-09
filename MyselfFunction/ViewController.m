@@ -11,7 +11,7 @@
 #import "Masonry.h"
 #import "MTCategoryCell.h"
 #import "MTStockHeaderView.h"
-//#import "JJStockViewCell.h"
+#import "YYStockViewCell.h"
 
 // cell的重用标识符
 static NSString *cellId = @"cellId";
@@ -141,7 +141,11 @@ static NSString *headerId = @"headerId";
         return cell;
     }
     // 1.2 菜品的cell
-//    ((UITableViewCell *)cell).foodModel = _categoryList[indexPath.section].spus[indexPath.row];
+    YYStockModel * model = _categoryList[indexPath.section].spus[indexPath.row];
+//    YYStockViewCell *stockCell = (YYStockViewCell *)cell;
+//    stockCell.smodel = model;
+//    stockCell.
+//    stockCell.smodel = model;
     cell.textLabel.text = @"test";
     
     // 3.返回cell!
@@ -188,7 +192,7 @@ static NSString *headerId = @"headerId";
     
     // MARK: - 1.左侧的分类列表视图
     UITableView *tvCategory = [[UITableView alloc] init];
-    
+    tvCategory.backgroundColor = [UIColor grayColor];
     [self.view addSubview:tvCategory];
     
     [tvCategory mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -223,7 +227,7 @@ static NSString *headerId = @"headerId";
     
     // 2.注册cell
     [tvCategory registerClass:[MTCategoryCell class] forCellReuseIdentifier:cellId];
-    [tvStock registerClass:[UITableViewCell class] forCellReuseIdentifier:cellId];
+//    [tvStock registerClass:[YYStockViewCell class] forCellReuseIdentifier:cellId];
     
     // 注册header! -> 负责注册tableView的组标题视图的!
     // 类型-> 继承自UITaleViewHeaderFooterView!

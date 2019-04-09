@@ -19,11 +19,16 @@
    //http://finance.sina.com.cn/realstock/company/sh600031/nc.shtml
 //    NSString *url = [NSString stringWithFormat:@"https://www.jisilu.cn/data/stock/%@",[self.stockID substringFromIndex:2] ];
     //http://money.finance.sina.com.cn/bond/quotes/sh110032.html
+    //http://quote.eastmoney.com/bond/sh110055.html
     NSString *chartURL = nil;
     if ([self.stockID hasPrefix:@"sz"] || [self.stockID hasPrefix:@"sh"]) {
         chartURL = [NSString stringWithFormat:@"http://finance.sina.com.cn/realstock/company/%@/nc.shtml",self.stockID];
     }else{
-        chartURL = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/bond/quotes/sh%@.html",self.stockID];
+        if ([self.market isEqualToString:@"sh"]) {
+            chartURL = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/bond/quotes/sh%@.html",self.stockID];
+        }else{
+            chartURL = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/bond/quotes/sz%@.html",self.stockID];
+        }
     }
     //    NSString *url = [NSString stringWithFormat:@"https://www.jisilu.cn/data/stock/600031"];
     NSLog(@"url-------%@",chartURL);

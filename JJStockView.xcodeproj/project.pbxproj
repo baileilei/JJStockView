@@ -50,6 +50,9 @@
 		06D158E7225C734B0040B6C6 /* MTCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D158E4225C73490040B6C6 /* MTCategoryCell.m */; };
 		06D158E8225C734B0040B6C6 /* MTStockHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D158E6225C734A0040B6C6 /* MTStockHeaderView.m */; };
 		06D158EA225C781A0040B6C6 /* YYSelfDefineCategoryStock.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D1589E225C6EFE0040B6C6 /* YYSelfDefineCategoryStock.m */; };
+		06D158ED225C81FB0040B6C6 /* StrongStocks.json in Resources */ = {isa = PBXBuildFile; fileRef = 06D158EC225C81FA0040B6C6 /* StrongStocks.json */; };
+		06D158F3225C84120040B6C6 /* YYStockViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D158F1225C84120040B6C6 /* YYStockViewCell.m */; };
+		06D158F4225C84120040B6C6 /* YYStockScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D158F2225C84120040B6C6 /* YYStockScrollView.m */; };
 		6186110E1F95E2F600E4E8B4 /* JJStockScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6186110D1F95E2F600E4E8B4 /* JJStockScrollView.m */; };
 		61F13E7A1F91F670002F4681 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13E791F91F670002F4681 /* AppDelegate.m */; };
 		61F13E7D1F91F670002F4681 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13E7C1F91F670002F4681 /* DemoViewController.m */; };
@@ -183,6 +186,11 @@
 		06D158E5225C734A0040B6C6 /* MTCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCategoryCell.h; sourceTree = "<group>"; };
 		06D158E6225C734A0040B6C6 /* MTStockHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTStockHeaderView.m; sourceTree = "<group>"; };
 		06D158E9225C74060040B6C6 /* All.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = All.h; sourceTree = "<group>"; };
+		06D158EC225C81FA0040B6C6 /* StrongStocks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StrongStocks.json; sourceTree = "<group>"; };
+		06D158EF225C84120040B6C6 /* YYStockViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYStockViewCell.h; sourceTree = "<group>"; };
+		06D158F0225C84120040B6C6 /* YYStockScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYStockScrollView.h; sourceTree = "<group>"; };
+		06D158F1225C84120040B6C6 /* YYStockViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYStockViewCell.m; sourceTree = "<group>"; };
+		06D158F2225C84120040B6C6 /* YYStockScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYStockScrollView.m; sourceTree = "<group>"; };
 		6186110C1F95E2F600E4E8B4 /* JJStockScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJStockScrollView.h; sourceTree = "<group>"; };
 		6186110D1F95E2F600E4E8B4 /* JJStockScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJStockScrollView.m; sourceTree = "<group>"; };
 		61F13E751F91F670002F4681 /* JJStockView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JJStockView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -366,6 +374,7 @@
 				06D158A9225C701B0040B6C6 /* ViewController.h */,
 				06D158AA225C701B0040B6C6 /* ViewController.m */,
 				06D158AC225C701B0040B6C6 /* Main.storyboard */,
+				06D158EC225C81FA0040B6C6 /* StrongStocks.json */,
 				06D158E0225C71A70040B6C6 /* food.json */,
 				06D158AF225C701D0040B6C6 /* Assets.xcassets */,
 				06D158B1225C701D0040B6C6 /* LaunchScreen.storyboard */,
@@ -412,6 +421,10 @@
 		06D158E2225C73400040B6C6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				06D158F0225C84120040B6C6 /* YYStockScrollView.h */,
+				06D158F2225C84120040B6C6 /* YYStockScrollView.m */,
+				06D158EF225C84120040B6C6 /* YYStockViewCell.h */,
+				06D158F1225C84120040B6C6 /* YYStockViewCell.m */,
 				06D158E5225C734A0040B6C6 /* MTCategoryCell.h */,
 				06D158E4225C73490040B6C6 /* MTCategoryCell.m */,
 				06D158E3225C73480040B6C6 /* MTStockHeaderView.h */,
@@ -704,6 +717,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06D158DF225C711C0040B6C6 /* Info.plist in Resources */,
+				06D158ED225C81FB0040B6C6 /* StrongStocks.json in Resources */,
 				06D158B3225C701D0040B6C6 /* LaunchScreen.storyboard in Resources */,
 				06D158E1225C71A80040B6C6 /* food.json in Resources */,
 				06D158B0225C701D0040B6C6 /* Assets.xcassets in Resources */,
@@ -752,9 +766,11 @@
 				06D158B6225C701D0040B6C6 /* main.m in Sources */,
 				06D158D9225C711C0040B6C6 /* MASLayoutConstraint.m in Sources */,
 				06D158E7225C734B0040B6C6 /* MTCategoryCell.m in Sources */,
+				06D158F3225C84120040B6C6 /* YYStockViewCell.m in Sources */,
 				06D158DC225C711C0040B6C6 /* MASConstraint.m in Sources */,
 				06D158DA225C711C0040B6C6 /* NSArray+MASAdditions.m in Sources */,
 				06D158A8225C701B0040B6C6 /* AppDelegate.m in Sources */,
+				06D158F4225C84120040B6C6 /* YYStockScrollView.m in Sources */,
 				06D158D7225C711C0040B6C6 /* MASCompositeConstraint.m in Sources */,
 				06D158DB225C711C0040B6C6 /* View+MASAdditions.m in Sources */,
 				06D158D5225C711C0040B6C6 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,

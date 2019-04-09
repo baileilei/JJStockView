@@ -1,0 +1,1 @@
+select * from YYStockModel where redeem_real_days > 0 order by full_price;
