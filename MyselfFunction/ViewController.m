@@ -44,6 +44,55 @@ static NSString *headerId = @"headerId";
     [self setupUI];
 }
 
+#pragma mark - 代理方法
+// 选中的代理方法
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // 选中了分类里面的cell!
+    if (tableView == _tvCategory) {
+        
+        // 需要让 菜品 列表进行滚动!
+        // 选中分类的行 => 菜品列表对应的组!
+        NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:indexPath.row];
+        // 让列表视图滚动!
+        [_tvStock scrollToRowAtIndexPath:path atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        
+        return;
+    }
+    
+    // 选中了菜品里面的cell
+    NSLog(@"food === cell");
+    
+}
+
+// 将要显示cell的代理方法 -> 将要显示某一行cell时,调用的方法!
+// Display 显示
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // 1.如果是分类,直接返回
+    if (tableView == _tvCategory) {
+        return;
+    }
+    
+    // 如果不是用户滚动的菜品,不做操作!
+    if (!(_tvStock.isDragging || _tvStock.isDecelerating || _tvStock.isTracking)) {
+        return;
+    }
+    
+    // 2.菜品列表在滚动的时候,会显示下面的cell!
+    NSLog(@"显示cell");
+    
+    // 计算需要选中的索引信息
+    NSInteger row = indexPath.section;
+    NSIndexPath *path = [NSIndexPath indexPathForRow:row inSection:0];
+    
+    
+    // 让分类列表选中行
+    [_tvCategory selectRowAtIndexPath:path animated:NO scrollPosition:UITableViewScrollPositionTop];
+    
+}
+
+
 #pragma mark - 数据源方法
 // 组
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

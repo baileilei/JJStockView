@@ -44,7 +44,7 @@
     
     // 4.黄色的竖线
     UIView *vLine = [[UIView alloc] init];
-//    vLine.backgroundColor = [UIColor cz_colorWithHex:0xffd900];
+    vLine.backgroundColor = [UIColor brownColor];
     
     [selectBg addSubview:vLine];
     
@@ -57,7 +57,7 @@
     
     // 5.添加自己的分割线
     UIView *separatorLine = [[UIView alloc] init];
-//    separatorLine.backgroundColor = [UIColor cz_colorWithHex:0xe3e3e3];
+    separatorLine.backgroundColor = [UIColor grayColor];
     
     [self.contentView addSubview:separatorLine];
     
