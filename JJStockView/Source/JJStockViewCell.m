@@ -77,6 +77,7 @@
         return _rightContentScrollView;
     }
     _rightContentScrollView = [JJStockScrollView new];
+    _rightContentScrollView.backgroundColor = [UIColor redColor];
     _rightContentScrollView.canCancelContentTouches = YES;
     _rightContentScrollView.showsVerticalScrollIndicator = NO;
     _rightContentScrollView.showsHorizontalScrollIndicator = NO;
@@ -118,7 +119,7 @@
     return self;
 }
 
-- (void)setRightContentView:(UIView*)contentView{
+- (void)setRightContentView:(UIView*)contentView{//这个contentView指的是rightScrollView中的contentView
     if(_rightContentView){
         [_rightContentView removeFromSuperview];
     }

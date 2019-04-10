@@ -151,7 +151,7 @@ static NSString* const CellID = @"cellID";
     }
     return 0;
 }
-
+// tableView的头部视图， 从左到右------headerView =标题/scrollView/(bgView)
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 40)];
     headerView.backgroundColor = [UIColor whiteColor];
@@ -224,10 +224,10 @@ static NSString* const CellID = @"cellID";
     }
     
     
-    _lastScrollX = sender.contentOffset.x;
+    _lastScrollX = sender.contentOffset.x;//得到最终的滚动结果值
 }
 
-- (void)scrollToLastScrollX{
+- (void)scrollToLastScrollX{//保持了同步
     NSArray* visibleCells = [self.stockTableView visibleCells];
     for (JJStockViewCell* cell in visibleCells) {
             cell.rightContentScrollView.delegate = nil;//disable send scrollViewDidScroll message

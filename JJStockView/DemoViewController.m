@@ -45,7 +45,7 @@
     [super viewDidLoad];
     
 //    [self p_testLoaclNotification];
-    [self testResultOfAPI];
+//    [self testResultOfAPI];
 //    .[self testAPIWithAFN];
     self.searchResults = [NSMutableArray array];
     
