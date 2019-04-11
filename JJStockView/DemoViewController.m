@@ -225,12 +225,12 @@
 //            label.backgroundColor = [UIColor orangeColor];
         }
         
-        if ([YYDateUtil toCurrentLessThan8Days:model.issue_dt]) {//上市八天内的
-//            label.backgroundColor = [UIColor purpleColor];
+        if ([YYDateUtil toCurrentLessThan8Days:model.list_dt]) {//上市八天内的
+            label.backgroundColor = [UIColor purpleColor];
         }
         
         if (model.sprice.floatValue > model.convert_price.floatValue && ABS(model.full_price.integerValue - 100) < 13 && model.full_price.integerValue != 100) {//入场点
-            label.backgroundColor = [UIColor redColor];
+//            label.backgroundColor = [UIColor redColor];
         }
        
         
@@ -247,7 +247,7 @@
         
         //必然进入转股期的    并且涨势还不错的
         if (model.redeem_real_days.integerValue > 0 && model.full_price.integerValue < 130) {
-            label.backgroundColor = [UIColor orangeColor];
+//            label.backgroundColor = [UIColor orangeColor];
         }
         
 

@@ -19,6 +19,7 @@
    //http://finance.sina.com.cn/realstock/company/sh600031/nc.shtml
 //    NSString *url = [NSString stringWithFormat:@"https://www.jisilu.cn/data/stock/%@",[self.stockID substringFromIndex:2] ];
     //http://money.finance.sina.com.cn/bond/quotes/sh110032.html
+    //http://quote.eastmoney.com/bond/sz123007.html
     NSString *chartURL = nil;
     if ([self.stockID hasPrefix:@"sz"] || [self.stockID hasPrefix:@"sh"]) {
         chartURL = [NSString stringWithFormat:@"http://finance.sina.com.cn/realstock/company/%@/nc.shtml",self.stockID];
