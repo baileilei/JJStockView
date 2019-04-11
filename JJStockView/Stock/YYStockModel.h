@@ -105,4 +105,6 @@
 @property (nonatomic,copy) NSString *ytm_rt_tax;//到期税后收益
 
 @property (nonatomic,copy) NSString *pinyin;
+
+
 @end

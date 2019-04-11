@@ -44,8 +44,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        [NSTimer scheduledTimerWithTimeInterval:60 * 60 * 24 target:self selector:@selector(requestData) userInfo:nil repeats:YES];
+    });
+    
 //    [self p_testLoaclNotification];
-//    [self testResultOfAPI];
+    [self testResultOfAPI];
 //    .[self testAPIWithAFN];
     self.searchResults = [NSMutableArray array];
     
@@ -470,7 +474,10 @@
 //            }
             [temp addObject:stockModel];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"Mystock"];
+                NSDate *date = [NSDate date];
+                NSLog(@"%@",[YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"]);
+                NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
+                [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:dateStr];
             });
         }
         
@@ -493,7 +500,7 @@
     //http://finance.sina.com.cn/realstock/company/sh600031/nc.shtml?from=BaiduAladin
     //https://www.jisilu.cn/data/cbnew/redeem_list/?___jsl=LST___t=1554699154321
     //https://stock.xueqiu.com/v5/stock/f10/cn/holders.json?symbol=SH600031&extend=true&page=1&size=10  股东人数
-    NSMutableURLRequest *request2 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://www.jisilu.cn/data/cbnew/redeem_list/?___jsl=LST___t=1554699154321"]];
+    NSMutableURLRequest *request2 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://www.ximalaya.com/shangye/4292636/174969115"]];
     [request2 setValue:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36" forHTTPHeaderField:@"User-Agent"];
     //    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
