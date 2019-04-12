@@ -557,7 +557,7 @@
                 if ([YYDateUtil toCurrentLessThan8Days:stockModel.convert_dt]) {
                     NSString *sql = [NSString stringWithFormat:@"select full_price from YYStockModel where bond_id = %@;",stockModel.bond_id];
                     NSArray *nearConvertArray = [XMGSqliteModelTool queryModels:[YYStockModel class] WithSql:sql uid:stockModel.convert_dt];
-//                    NSArray *nearConvertArray = [XMGSqliteModelTool queryModels:[YYStockModel class] WithSql:sql uid:stockModel.convert_dt];
+//                    NSArray *nearConvertArray = [XMGSqliteModelTool queryModels:[YYStockModel class] WithSql:sql uid:dateStr];//测试用
                     if (nearConvertArray.count > 0) {
                         [self p_testLoaclNotification:stockModel.stock_nm];
                     }

@@ -40,7 +40,7 @@
     NSInteger issuemonth=[issuecomponents month];
     NSInteger issueday=[issuecomponents day];
 //     NSLog(@"issueDate = %@ ,issueyear = %ld ,issuemonth=%ld, issueday=%ld",issueDate,issuetyear,issuemonth,issueday);
-    if (currentyear == issuetyear && currentmonth == issuemonth && abs(currentday - issueday) < 30) {
+    if (currentyear == issuetyear && currentmonth == issuemonth && abs(currentday - issueday) < 8) {
         return YES;
     }
     
