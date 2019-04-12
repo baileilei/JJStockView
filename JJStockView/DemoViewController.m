@@ -506,7 +506,10 @@
 //            }
             [temp addObject:stockModel];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"Mystock"];
+                NSDate *date = [NSDate date];
+                NSLog(@"%@",[YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"]);
+                NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
+                [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:dateStr];
             });
         }
         
