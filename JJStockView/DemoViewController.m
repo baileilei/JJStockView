@@ -24,12 +24,13 @@
 
 #import "YYSerachViewController.h"
 
-#define columnCount 14
+#define columnCount 15
+#define kYYCachePath @"/Users/g/Desktop"
 
 @interface DemoViewController ()<StockViewDataSource,StockViewDelegate,UISearchBarDelegate>
 
 
-
+@property (nonatomic,strong) NSMutableDictionary *collectDict;
 
 @property (nonatomic, strong) NSMutableArray *searchResults;
 
@@ -70,6 +71,8 @@
     
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"刷新" style:UIBarButtonItemStyleDone target:self action:@selector(p_refresh)];
     self.navigationItem.leftBarButtonItem = leftItem;
+    
+    self.collectDict = [[NSMutableDictionary alloc] init];
     
 //    UISearchBar *searchBar = [[UISearchBar alloc] init];
     
@@ -184,6 +187,10 @@
             case 13:
                 btnTitle = [NSString stringWithFormat:@"SK-%@",model.stock_id];
                 break;
+                
+            case 14:
+                btnTitle = [NSString stringWithFormat:@"SC-%@",model.stock_id];;
+                break;
             
             default:
                 break;
@@ -198,7 +205,7 @@
         label.text = [NSString stringWithFormat:@"%@",btnTitle];
         label.textAlignment = NSTextAlignmentCenter;
         [bg addSubview:label];
-        if ([btnTitle isEqualToString:model.stock_id] || [btnTitle isEqualToString:[NSString stringWithFormat:@"K-%@",model.bond_id]] ||  [btnTitle isEqualToString:[NSString stringWithFormat:@"SK-%@",model.stock_id]]) {
+        if ([btnTitle isEqualToString:model.stock_id] || [btnTitle isEqualToString:[NSString stringWithFormat:@"K-%@",model.bond_id]] ||  [btnTitle isEqualToString:[NSString stringWithFormat:@"SK-%@",model.stock_id]] || [btnTitle isEqualToString:[NSString stringWithFormat:@"SC-%@",model.stock_id]]) {
             [bg addSubview:button];
         }
         
@@ -225,9 +232,13 @@
 //            label.backgroundColor = [UIColor purpleColor];
         }
         
-        if (model.sprice.floatValue > model.convert_price.floatValue && ABS(model.full_price.integerValue - 100) < 10 && model.full_price.integerValue != 100) {//入场点
-            label.backgroundColor = [UIColor redColor];
+        if (model.convert_dt && [YYDateUtil toCurrentLessThan8Days:model.convert_dt]) {//临近转股期的   
+            label.backgroundColor = [UIColor purpleColor];
         }
+        
+//        if (model.sprice.floatValue > model.convert_price.floatValue && ABS(model.full_price.integerValue - 100) < 10 && model.full_price.integerValue != 100) {//入场点
+//            label.backgroundColor = [UIColor redColor];
+//        }
        
         
         
@@ -236,7 +247,7 @@
 //            label.backgroundColor = [UIColor magentaColor];
         }
          
-        //策略1
+        //策略1--------------非转股期
         if (ratio < 0 && ABS(model.full_price.integerValue - 100) < 8 && model.full_price.integerValue != 100) {
 //            label.backgroundColor = [UIColor orangeColor];//特别关注
         }
@@ -246,6 +257,9 @@
 //            label.backgroundColor = [UIColor orangeColor];
             [self p_testLoaclNotification:model.bond_nm];
         }
+        
+        
+        
         
 
        
@@ -323,6 +337,9 @@
             case 13:
                 label.text = @"S-K线图";
                 break;
+            case 14:
+                label.text = @"收藏";
+                break;
           
             default:
                 break;
@@ -382,6 +399,24 @@
             }
         }
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
+        
+        return;
+    }else if ([sender.currentTitle hasPrefix:@"SC-"]){
+        NSMutableArray *temp = [NSMutableArray array];
+        NSString *stockID = [sender.currentTitle substringFromIndex:3];
+        for (YYStockModel *m in self.stocks) {
+            if ([m.stock_id isEqualToString:stockID]) {
+                [temp addObject:m.stock_id];
+            }
+        }
+        //数组中的对象如何存储？？？？      转股期
+        //打新策略---非转股期-首日下午或者第二天卖出
+        [self.collectDict setObject:temp.copy forKey:@"强赎期"];
+        
+        NSString *path = [kYYCachePath stringByAppendingPathComponent:@"collect.plist"];
+
+        
+        [self.collectDict writeToFile:[self filePathWithFileName:@"collect.plist"] atomically:YES];
         
         return;
     }
@@ -584,6 +619,21 @@
 ////    [self.navigationController pushViewController:[[UINavigationController alloc] initWithRootViewController:serachVC] animated:NO];
 //    serachVC.stocks = self.stocks;
 //    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:serachVC] animated:YES completion:nil];
+    
+}
+
+
+#pragma mark - 根据传入的文件名称,拼接全路径并返回!
+- (NSString *)filePathWithFileName:(NSString *)fileName {
+    
+    // 1.获取docPath
+    NSString *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
+    
+    // 2.拼接
+    NSString *filePath = [docPath stringByAppendingPathComponent:fileName];
+    
+    // 3.返回
+    return filePath;
     
 }
 
