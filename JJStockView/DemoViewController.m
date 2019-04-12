@@ -378,6 +378,7 @@
         for (YYStockModel *m in self.stocks) {
             if ([m.bond_id isEqualToString:kWeb.stockID]) {
                 kWeb.market = m.market;
+                kWeb.bigPrice = [NSString stringWithFormat:@"%@---转股%@------强赎%@",m.list_dt,m.convert_dt,m.redeem_dt];
             }
         }
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
@@ -388,7 +389,7 @@
         kWeb.stockID = [sender.currentTitle substringFromIndex:3];
         for (YYStockModel *m in self.stocks) {
             if ([m.stock_id isEqualToString:kWeb.stockID]) {
-                kWeb.bigPrice = [NSString stringWithFormat:@"%.2f-------%.2f----%@天-------%.2f,--------currentPrice%@",m.convert_price.floatValue * 0.7,m.convert_price.floatValue * 0.9,m.redeem_real_days,m.convert_price.floatValue * 1.3,m.full_price];;
+                kWeb.bigPrice = [NSString stringWithFormat:@"回售价%.2f-------下调价%.2f----%@天-----转股价%.2f--------强赎价%.2f,--------currentPrice%@",m.convert_price.floatValue * 0.7,m.convert_price.floatValue * 0.9,m.redeem_real_days,m.convert_price.floatValue,m.convert_price.floatValue * 1.3,m.full_price];;
             }
         }
 //        kWeb.bigPrice = ;
@@ -406,17 +407,27 @@
         NSString *stockID = [sender.currentTitle substringFromIndex:3];
         for (YYStockModel *m in self.stocks) {
             if ([m.stock_id isEqualToString:stockID]) {
-                [temp addObject:m.stock_id];
+                if (m.redeem_real_days >0) {
+                    [temp addObject:m.stock_id];
+                    [self.collectDict setObject:temp.copy forKey:@"强赎期"];
+                }
+                
+                if ([YYDateUtil toCurrentLessThan8Days:m.convert_dt]) {
+                    [self.collectDict setObject:temp.copy forKey:@"转股临近期"];
+                }
             }
         }
         //数组中的对象如何存储？？？？      转股期
         //打新策略---非转股期-首日下午或者第二天卖出
-        [self.collectDict setObject:temp.copy forKey:@"强赎期"];
+        
+        
+        
         
         NSString *path = [kYYCachePath stringByAppendingPathComponent:@"collect.plist"];
 
         
         [self.collectDict writeToFile:[self filePathWithFileName:@"collect.plist"] atomically:YES];
+        [self.collectDict writeToFile:path atomically:YES];
         
         return;
     }
@@ -435,7 +446,7 @@
     
     if ([btn.currentTitle isEqualToString:@"现价"]) {
         [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
-            return obj1.full_price.floatValue > obj2.full_price.floatValue;
+            return obj1.full_price.floatValue < obj2.full_price.floatValue;
         }];
     }
     
@@ -504,12 +515,42 @@
             //if (ratio < 0) {
 //                stockModel.ratio = [NSString stringWithFormat:@"%.2f%%",ratio * 100];
 //            }
+            
+            NSMutableArray *tempC = [NSMutableArray array];
+
+            if (stockModel.redeem_real_days >0) {
+                [tempC addObject:stockModel.stock_id];
+                [self.collectDict setObject:tempC.copy forKey:@"强赎期"];
+            }
+            
+            if ([YYDateUtil toCurrentLessThan8Days:stockModel.convert_dt]) {
+                [self.collectDict setObject:tempC.copy forKey:@"转股临近期"];
+            }
+            
+            //策略：非转股期的最高价？    当前的价格比较低的标的？？？    利尔？
+            //数组中的对象如何存储？？？？      转股期
+            //打新策略---非转股期-首日下午或者第二天卖出
+            
+            //价格比较低的才是价值投资？  6年？？？？？？
+            
+            NSString *path = [kYYCachePath stringByAppendingPathComponent:@"collect.plist"];
+            
+            [self.collectDict writeToFile:[self filePathWithFileName:@"collect.plist"] atomically:YES];
+            [self.collectDict writeToFile:path atomically:YES];
+            
+            
             [temp addObject:stockModel];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 NSDate *date = [NSDate date];
-                NSLog(@"%@",[YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"]);
+//                NSLog(@"%@",[YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"]);
                 NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
                 [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:dateStr];
+                
+                
+                if ([dateStr isEqualToString:@"2019-04-19"]) {//逆转？
+                    [self p_testLoaclNotification:@"视觉中国"];
+                }
+                //伊力策略-----一旦低于110就加仓   甚至重仓
             });
         }
         
@@ -538,8 +579,8 @@
     
     //如何快速测试一个网络请求
     [NSURLConnection sendAsynchronousRequest:request2 queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
-        NSLog(@"response -----%@",response);
-        NSLog(@"data ----%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+//        NSLog(@"response -----%@",response);
+//        NSLog(@"data ----%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
         
         NSError *error = nil;
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
