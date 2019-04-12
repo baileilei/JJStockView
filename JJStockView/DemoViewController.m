@@ -551,6 +551,17 @@
                     [self p_testLoaclNotification:@"视觉中国"];
                 }
                 //伊力策略-----一旦低于110就加仓   甚至重仓
+                
+                //
+                
+                if ([YYDateUtil toCurrentLessThan8Days:stockModel.convert_dt]) {
+                    NSString *sql = [NSString stringWithFormat:@"select full_price from YYStockModel where bond_id = %@;",stockModel.bond_id];
+                    NSArray *nearConvertArray = [XMGSqliteModelTool queryModels:[YYStockModel class] WithSql:sql uid:stockModel.convert_dt];
+//                    NSArray *nearConvertArray = [XMGSqliteModelTool queryModels:[YYStockModel class] WithSql:sql uid:stockModel.convert_dt];
+                    if (nearConvertArray.count > 0) {
+                        [self p_testLoaclNotification:stockModel.stock_nm];
+                    }
+                }
             });
         }
         
