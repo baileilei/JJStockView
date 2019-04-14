@@ -550,6 +550,16 @@
                 if ([dateStr isEqualToString:@"2019-04-19"]) {//逆转？
                     [self p_testLoaclNotification:@"视觉中国"];
                 }
+                
+                if ([stockModel.bond_nm isEqualToString:@"平银转债"] && stockModel.full_price.integerValue < 115) {
+                    [self p_testLoaclNotification:@"平银转债"];//
+                    if (stockModel.full_price.integerValue < 110) {
+                        [self p_testLoaclNotification:@"全仓"];
+                    }
+                }
+                if ([dateStr isEqualToString:@"2019-07-25"] ) {
+                    [self p_testLoaclNotification:@"平银转债"];
+                }
                 //伊力策略-----一旦低于110就加仓   甚至重仓
                 
                 //
