@@ -33,7 +33,7 @@
 
 @property (nonatomic,copy) NSString *full_price;//债券现价
 @property (nonatomic,copy) NSString *guarantor;//无担保
-@property (nonatomic,copy) NSString *increase_rt;
+@property (nonatomic,copy) NSString *increase_rt;//债券涨跌幅？
 @property (nonatomic,copy) NSString *issue_dt;//发布日期
 @property (nonatomic,copy) NSString *last_time;
 @property (nonatomic,copy) NSString *left_put_year;
@@ -87,7 +87,7 @@
 @property (nonatomic,copy) NSString *repo_valid_from;
 @property (nonatomic,copy) NSString *repo_valid_to;
 @property (nonatomic,copy) NSString *short_maturity_dt;//到期日期简写
-@property (nonatomic,copy) NSString *sincrease_rt;
+@property (nonatomic,copy) NSString *sincrease_rt;//股票涨跌幅
 
 
 

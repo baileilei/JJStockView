@@ -534,7 +534,7 @@
             
             if ([YYDateUtil toCurrentLessThan8Days:stockModel.convert_dt]) {
                 [self.collectDict setObject:tempC.copy forKey:@"转股临近期"];
-            }
+            }//日历
             
             //策略：非转股期的最高价？    当前的价格比较低的标的？？？    利尔？
             //数组中的对象如何存储？？？？      转股期
