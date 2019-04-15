@@ -24,13 +24,12 @@
 
 #import "YYSerachViewController.h"
 
-#define columnCount 15
-#define kYYCachePath @"/Users/g/Desktop"
+#define columnCount 14
 
 @interface DemoViewController ()<StockViewDataSource,StockViewDelegate,UISearchBarDelegate>
 
 
-@property (nonatomic,strong) NSMutableDictionary *collectDict;
+
 
 @property (nonatomic, strong) NSMutableArray *searchResults;
 
@@ -67,15 +66,10 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"查看" style:UIBarButtonItemStyleDone target:self action:@selector(p_checkSum)];
     
      UIBarButtonItem *rightItem1 = [[UIBarButtonItem alloc] initWithTitle:@"强赎" style:UIBarButtonItemStyleDone target:self action:@selector(p_redeem)];
-    
-    UIBarButtonItem *rightItem2 = [[UIBarButtonItem alloc] initWithTitle:@"日历" style:UIBarButtonItemStyleDone target:self action:@selector(p_calenar)];
-    
-    self.navigationItem.rightBarButtonItems = @[rightItem,rightItem1,rightItem2];
+    self.navigationItem.rightBarButtonItems = @[rightItem,rightItem1];
     
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"刷新" style:UIBarButtonItemStyleDone target:self action:@selector(p_refresh)];
     self.navigationItem.leftBarButtonItem = leftItem;
-    
-    self.collectDict = [[NSMutableDictionary alloc] init];
     
 //    UISearchBar *searchBar = [[UISearchBar alloc] init];
     
@@ -158,44 +152,37 @@
                 btnTitle = [NSString stringWithFormat:@"%@",model.redeem_real_days];
                 break;
             case 3:
-                btnTitle = [NSString stringWithFormat:@"%@",model.curr_iss_amt];
-                break;
-            case 4:
                 btnTitle = [NSString stringWithFormat:@"%.2f",model.convert_price.floatValue * 0.9];;//下调权    0.7回售义务
                 break;
-            case 5:
-                btnTitle = model.force_redeem_price;//[NSString stringWithFormat:@"%.2f",model.convert_price.floatValue * 1.3];;//强赎权
+            case 4:
+                btnTitle = [NSString stringWithFormat:@"%.2f",model.convert_price.floatValue * 1.3];;//强赎权
                 break;
-            case 6:
+            case 5:
                 btnTitle = model.convert_value;
                 break;
-            case 7:
+            case 6:
                 btnTitle = model.convert_price;// 0.9   1.3
                 break;
-            case 8:
+            case 7:
                 btnTitle = model.convert_dt;//日期转String
                 break;
-            case 9:
+            case 8:
                 btnTitle = model.sprice;//输入框？
                 break;
-            case 10:
+            case 9:
                 btnTitle = model.issue_dt;
                 break;
-            case 11:
+            case 10:
                 btnTitle = model.list_dt.length > 0 ? model.list_dt : model.price_tips;//@"买入策略";//输入框？
                 break;
-            case 12:
+            case 11:
                 btnTitle = [NSString stringWithFormat:@"K-%@",model.bond_id];
                 break;
-            case 13:
+            case 12:
                 btnTitle = model.stock_id;
                 break;
-            case 14:
+            case 13:
                 btnTitle = [NSString stringWithFormat:@"SK-%@",model.stock_id];
-                break;
-                
-            case 15:
-                btnTitle = [NSString stringWithFormat:@"SC-%@",model.stock_id];;
                 break;
             
             default:
@@ -211,7 +198,7 @@
         label.text = [NSString stringWithFormat:@"%@",btnTitle];
         label.textAlignment = NSTextAlignmentCenter;
         [bg addSubview:label];
-        if ([btnTitle isEqualToString:model.stock_id] || [btnTitle isEqualToString:[NSString stringWithFormat:@"K-%@",model.bond_id]] ||  [btnTitle isEqualToString:[NSString stringWithFormat:@"SK-%@",model.stock_id]] || [btnTitle isEqualToString:[NSString stringWithFormat:@"SC-%@",model.stock_id]]) {
+        if ([btnTitle isEqualToString:model.stock_id] || [btnTitle isEqualToString:[NSString stringWithFormat:@"K-%@",model.bond_id]] ||  [btnTitle isEqualToString:[NSString stringWithFormat:@"SK-%@",model.stock_id]]) {
             [bg addSubview:button];
         }
         
@@ -234,17 +221,13 @@
 //            label.backgroundColor = [UIColor orangeColor];
         }
         
-        if ([YYDateUtil toCurrentLessThan8Days:model.list_dt]) {//上市八天内的
+        if ([YYDateUtil toCurrentLessThan8Days:model.issue_dt]) {//上市八天内的
 //            label.backgroundColor = [UIColor purpleColor];
         }
         
-        if (model.convert_dt && [YYDateUtil toCurrentLessThan8Days:model.convert_dt]) {//临近转股期的   
-            label.backgroundColor = [UIColor purpleColor];
+        if (model.sprice.floatValue > model.convert_price.floatValue && ABS(model.full_price.integerValue - 100) < 13 && model.full_price.integerValue != 100) {//入场点
+            label.backgroundColor = [UIColor redColor];
         }
-        
-//        if (model.sprice.floatValue > model.convert_price.floatValue && ABS(model.full_price.integerValue - 100) < 10 && model.full_price.integerValue != 100) {//入场点
-//            label.backgroundColor = [UIColor redColor];
-//        }
        
         
         
@@ -253,19 +236,15 @@
 //            label.backgroundColor = [UIColor magentaColor];
         }
          
-        //策略1--------------非转股期
+        //策略1
         if (ratio < 0 && ABS(model.full_price.integerValue - 100) < 8 && model.full_price.integerValue != 100) {
 //            label.backgroundColor = [UIColor orangeColor];//特别关注
         }
         
-        //必然进入转股期的    触发了强赎价的     短暂回调的至115的     
-        if (model.redeem_real_days.integerValue > 0 && model.full_price.integerValue < 115) {
+        //必然进入转股期的    并且涨势还不错的
+        if (model.redeem_real_days.integerValue > 0 && model.full_price.integerValue < 130) {
             label.backgroundColor = [UIColor orangeColor];
-            [self p_testLoaclNotification:model.bond_nm];
         }
-        
-        
-        
         
 
        
@@ -311,43 +290,37 @@
                 label.text = @"强天数";
                 break;
             case 3:
-                label.text = @"剩余规模";
-                break;
-            case 4:
                 label.text = @"最底价";
                 break;
-            case 5:
+            case 4:
                 label.text = @"最高价";
                 break;
-            case 6:
+            case 5:
                 label.text = @"转股价值";
                 break;
-            case 7:
+            case 6:
                 label.text = @"转股价";
                 break;
-            case 8:
+            case 7:
                 label.text = @"转股起始日";
                 break;
-            case 9:
+            case 8:
                 label.text = @"股价";
                 break;
-            case 10:
+            case 9:
                 label.text = @"可申购日期";
                 break;
-            case 11:
+            case 10:
                 label.text = @"上市日期";//@"买入策略";//输入框？
                 break;
-            case 12:
+            case 11:
                 label.text = @"K线图";
                 break;
-            case 13:
+            case 12:
                 label.text = @"公告";
                 break;
-            case 14:
+            case 13:
                 label.text = @"S-K线图";
-                break;
-            case 15:
-                label.text = @"收藏";
                 break;
           
             default:
@@ -387,7 +360,6 @@
         for (YYStockModel *m in self.stocks) {
             if ([m.bond_id isEqualToString:kWeb.stockID]) {
                 kWeb.market = m.market;
-                kWeb.bigPrice = [NSString stringWithFormat:@"%@---转股%@------强赎%@",m.list_dt,m.convert_dt,m.redeem_dt];
             }
         }
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
@@ -398,7 +370,7 @@
         kWeb.stockID = [sender.currentTitle substringFromIndex:3];
         for (YYStockModel *m in self.stocks) {
             if ([m.stock_id isEqualToString:kWeb.stockID]) {
-                kWeb.bigPrice = [NSString stringWithFormat:@"回售价%.2f-------下调价%.2f----%@天-----转股价%.2f--------强赎价%.2f,--------currentPrice%@",m.convert_price.floatValue * 0.7,m.convert_price.floatValue * 0.9,m.redeem_real_days,m.convert_price.floatValue,m.convert_price.floatValue * 1.3,m.full_price];;
+                kWeb.bigPrice = [NSString stringWithFormat:@"%.2f-------%.2f----%@天-------%.2f,--------currentPrice%@",m.convert_price.floatValue * 0.7,m.convert_price.floatValue * 0.9,m.redeem_real_days,m.convert_price.floatValue * 1.3,m.full_price];;
             }
         }
 //        kWeb.bigPrice = ;
@@ -409,34 +381,6 @@
             }
         }
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
-        
-        return;
-    }else if ([sender.currentTitle hasPrefix:@"SC-"]){
-        NSMutableArray *temp = [NSMutableArray array];
-        NSString *stockID = [sender.currentTitle substringFromIndex:3];
-        for (YYStockModel *m in self.stocks) {
-            if ([m.stock_id isEqualToString:stockID]) {
-                if (m.redeem_real_days >0) {
-                    [temp addObject:m.stock_id];
-                    [self.collectDict setObject:temp.copy forKey:@"强赎期"];
-                }
-                
-                if ([YYDateUtil toCurrentLessThan8Days:m.convert_dt]) {
-                    [self.collectDict setObject:temp.copy forKey:@"转股临近期"];
-                }
-            }
-        }
-        //数组中的对象如何存储？？？？      转股期
-        //打新策略---非转股期-首日下午或者第二天卖出
-        
-        
-        
-        
-        NSString *path = [kYYCachePath stringByAppendingPathComponent:@"collect.plist"];
-
-        
-        [self.collectDict writeToFile:[self filePathWithFileName:@"collect.plist"] atomically:YES];
-        [self.collectDict writeToFile:path atomically:YES];
         
         return;
     }
@@ -455,7 +399,7 @@
     
     if ([btn.currentTitle isEqualToString:@"现价"]) {
         [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
-            return obj1.full_price.floatValue < obj2.full_price.floatValue;
+            return obj1.full_price.floatValue > obj2.full_price.floatValue;
         }];
     }
     
@@ -524,69 +468,12 @@
             //if (ratio < 0) {
 //                stockModel.ratio = [NSString stringWithFormat:@"%.2f%%",ratio * 100];
 //            }
-            
-            NSMutableArray *tempC = [NSMutableArray array];
-
-            if (stockModel.redeem_real_days >0) {
-                [tempC addObject:stockModel.stock_id];
-                [self.collectDict setObject:tempC.copy forKey:@"强赎期"];
-            }
-            
-            if ([YYDateUtil toCurrentLessThan8Days:stockModel.convert_dt]) {
-                [self.collectDict setObject:tempC.copy forKey:@"转股临近期"];
-            }//日历
-            
-            //策略：非转股期的最高价？    当前的价格比较低的标的？？？    利尔？
-            //数组中的对象如何存储？？？？      转股期
-            //打新策略---非转股期-首日下午或者第二天卖出
-            
-            //价格比较低的才是价值投资？  6年？？？？？？
-            //强者恒强 ----宁行和金农   而价格较低的必然是弱势的   三力
-            //强赎里面选取强势的。。。才有动力。  也得看大盘的配合。但是至少能知道情况。
-            //目标： 130~150，160    成本？？？
-            //按照价格最低的思路去挑选标的，选到的总是最弱势的。。。
-            
-            
-            
-            NSString *path = [kYYCachePath stringByAppendingPathComponent:@"collect.plist"];
-            
-            [self.collectDict writeToFile:[self filePathWithFileName:@"collect.plist"] atomically:YES];
-            [self.collectDict writeToFile:path atomically:YES];
-            
-            
             [temp addObject:stockModel];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 NSDate *date = [NSDate date];
-//                NSLog(@"%@",[YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"]);
+                NSLog(@"%@",[YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"]);
                 NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
                 [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:dateStr];
-                
-                
-                if ([dateStr isEqualToString:@"2019-04-19"]) {//逆转？
-                    [self p_testLoaclNotification:@"视觉中国"];
-                }
-                
-                if ([stockModel.bond_nm isEqualToString:@"平银转债"] && stockModel.full_price.integerValue < 115) {
-                    [self p_testLoaclNotification:@"平银转债"];//
-                    if (stockModel.full_price.integerValue < 110) {
-                        [self p_testLoaclNotification:@"全仓"];
-                    }
-                }
-                if ([dateStr isEqualToString:@"2019-07-25"] ) {
-                    [self p_testLoaclNotification:@"平银转债"];
-                }
-                //伊力策略-----一旦低于110就加仓   甚至重仓
-                
-                //
-                
-                if ([YYDateUtil toCurrentLessThan8Days:stockModel.convert_dt]) {
-                    NSString *sql = [NSString stringWithFormat:@"select full_price from YYStockModel where bond_id = %@;",stockModel.bond_id];
-                    NSArray *nearConvertArray = [XMGSqliteModelTool queryModels:[YYStockModel class] WithSql:sql uid:stockModel.convert_dt];
-//                    NSArray *nearConvertArray = [XMGSqliteModelTool queryModels:[YYStockModel class] WithSql:sql uid:dateStr];//测试用
-                    if (nearConvertArray.count > 0) {
-                        [self p_testLoaclNotification:stockModel.stock_nm];
-                    }
-                }
             });
         }
         
@@ -609,7 +496,7 @@
     //http://finance.sina.com.cn/realstock/company/sh600031/nc.shtml?from=BaiduAladin
     //https://www.jisilu.cn/data/cbnew/redeem_list/?___jsl=LST___t=1554699154321
     //https://stock.xueqiu.com/v5/stock/f10/cn/holders.json?symbol=SH600031&extend=true&page=1&size=10  股东人数
-    NSMutableURLRequest *request2 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://www.jisilu.cn/data/calendar/"]];
+    NSMutableURLRequest *request2 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://www.jisilu.cn/data/cbnew/redeem_list/?___jsl=LST___t=1554699154321"]];
     [request2 setValue:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36" forHTTPHeaderField:@"User-Agent"];
     //    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
@@ -664,7 +551,7 @@
     [self presentViewController:[[UINavigationController alloc] initWithRootViewController:checkVC] animated:YES completion:nil];
 }
 
--(void)p_testLoaclNotification:(NSString *)modelName{
+-(void)p_testLoaclNotification{
     
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge |UIUserNotificationTypeSound categories:nil];
     [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
@@ -673,7 +560,7 @@
     localNote.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
     localNote.alertBody = @"八戒，来信息了";
     //设置其他信息
-    localNote.userInfo = @{@"content": modelName, @"type": @2};
+    localNote.userInfo = @{@"content": @"高小姐喊你回家吃饭", @"type": @2};
     [[UIApplication sharedApplication] scheduleLocalNotification:localNote];
 }
 
@@ -699,27 +586,6 @@
 ////    [self.navigationController pushViewController:[[UINavigationController alloc] initWithRootViewController:serachVC] animated:NO];
 //    serachVC.stocks = self.stocks;
 //    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:serachVC] animated:YES completion:nil];
-    
-}
-
--(void)p_calenar{
-    
-    YYWebViewController *web = [[YYWebViewController alloc] init];
-    web.targetUrl = @"https://www.jisilu.cn/data/calendar/";
-    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
-}
-
-#pragma mark - 根据传入的文件名称,拼接全路径并返回!
-- (NSString *)filePathWithFileName:(NSString *)fileName {
-    
-    // 1.获取docPath
-    NSString *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
-    
-    // 2.拼接
-    NSString *filePath = [docPath stringByAppendingPathComponent:fileName];
-    
-    // 3.返回
-    return filePath;
     
 }
 
