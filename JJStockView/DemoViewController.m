@@ -158,40 +158,43 @@
                 btnTitle = [NSString stringWithFormat:@"%@",model.redeem_real_days];
                 break;
             case 3:
-                btnTitle = [NSString stringWithFormat:@"%.2f",model.convert_price.floatValue * 0.9];;//下调权    0.7回售义务
+                btnTitle = [NSString stringWithFormat:@"%@",model.curr_iss_amt];
                 break;
             case 4:
-                btnTitle = [NSString stringWithFormat:@"%.2f",model.convert_price.floatValue * 1.3];;//强赎权
+                btnTitle = [NSString stringWithFormat:@"%.2f",model.convert_price.floatValue * 0.9];;//下调权    0.7回售义务
                 break;
             case 5:
-                btnTitle = model.convert_value;
+                btnTitle = model.force_redeem_price;//[NSString stringWithFormat:@"%.2f",model.convert_price.floatValue * 1.3];;//强赎权
                 break;
             case 6:
-                btnTitle = model.convert_price;// 0.9   1.3
+                btnTitle = model.convert_value;
                 break;
             case 7:
-                btnTitle = model.convert_dt;//日期转String
+                btnTitle = model.convert_price;// 0.9   1.3
                 break;
             case 8:
-                btnTitle = model.sprice;//输入框？
+                btnTitle = model.convert_dt;//日期转String
                 break;
             case 9:
-                btnTitle = model.issue_dt;
+                btnTitle = model.sprice;//输入框？
                 break;
             case 10:
-                btnTitle = model.list_dt.length > 0 ? model.list_dt : model.price_tips;//@"买入策略";//输入框？
+                btnTitle = model.issue_dt;
                 break;
             case 11:
-                btnTitle = [NSString stringWithFormat:@"K-%@",model.bond_id];
+                btnTitle = model.list_dt.length > 0 ? model.list_dt : model.price_tips;//@"买入策略";//输入框？
                 break;
             case 12:
-                btnTitle = model.stock_id;
+                btnTitle = [NSString stringWithFormat:@"K-%@",model.bond_id];
                 break;
             case 13:
+                btnTitle = model.stock_id;
+                break;
+            case 14:
                 btnTitle = [NSString stringWithFormat:@"SK-%@",model.stock_id];
                 break;
                 
-            case 14:
+            case 15:
                 btnTitle = [NSString stringWithFormat:@"SC-%@",model.stock_id];;
                 break;
             
@@ -308,39 +311,42 @@
                 label.text = @"强天数";
                 break;
             case 3:
-                label.text = @"最底价";
+                label.text = @"剩余规模";
                 break;
             case 4:
-                label.text = @"最高价";
+                label.text = @"最底价";
                 break;
             case 5:
-                label.text = @"转股价值";
+                label.text = @"最高价";
                 break;
             case 6:
-                label.text = @"转股价";
+                label.text = @"转股价值";
                 break;
             case 7:
-                label.text = @"转股起始日";
+                label.text = @"转股价";
                 break;
             case 8:
-                label.text = @"股价";
+                label.text = @"转股起始日";
                 break;
             case 9:
-                label.text = @"可申购日期";
+                label.text = @"股价";
                 break;
             case 10:
-                label.text = @"上市日期";//@"买入策略";//输入框？
+                label.text = @"可申购日期";
                 break;
             case 11:
-                label.text = @"K线图";
+                label.text = @"上市日期";//@"买入策略";//输入框？
                 break;
             case 12:
-                label.text = @"公告";
+                label.text = @"K线图";
                 break;
             case 13:
-                label.text = @"S-K线图";
+                label.text = @"公告";
                 break;
             case 14:
+                label.text = @"S-K线图";
+                break;
+            case 15:
                 label.text = @"收藏";
                 break;
           
