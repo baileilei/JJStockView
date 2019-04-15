@@ -18,5 +18,6 @@
 
 @property (strong,nonatomic) UIWebView *webView;
 
+@property (copy,nonatomic) NSString *targetUrl;
 
 @end

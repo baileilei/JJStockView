@@ -67,7 +67,10 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"查看" style:UIBarButtonItemStyleDone target:self action:@selector(p_checkSum)];
     
      UIBarButtonItem *rightItem1 = [[UIBarButtonItem alloc] initWithTitle:@"强赎" style:UIBarButtonItemStyleDone target:self action:@selector(p_redeem)];
-    self.navigationItem.rightBarButtonItems = @[rightItem,rightItem1];
+    
+    UIBarButtonItem *rightItem2 = [[UIBarButtonItem alloc] initWithTitle:@"日历" style:UIBarButtonItemStyleDone target:self action:@selector(p_calenar)];
+    
+    self.navigationItem.rightBarButtonItems = @[rightItem,rightItem1,rightItem2];
     
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"刷新" style:UIBarButtonItemStyleDone target:self action:@selector(p_refresh)];
     self.navigationItem.leftBarButtonItem = leftItem;
@@ -252,9 +255,9 @@
 //            label.backgroundColor = [UIColor orangeColor];//特别关注
         }
         
-        //必然进入转股期的    并且涨势还不错的
-        if (model.redeem_real_days.integerValue > 0 && model.full_price.integerValue < 110) {
-//            label.backgroundColor = [UIColor orangeColor];
+        //必然进入转股期的    触发了强赎价的     短暂回调的至115的     
+        if (model.redeem_real_days.integerValue > 0 && model.full_price.integerValue < 115) {
+            label.backgroundColor = [UIColor orangeColor];
             [self p_testLoaclNotification:model.bond_nm];
         }
         
@@ -535,6 +538,9 @@
             //强者恒强 ----宁行和金农   而价格较低的必然是弱势的   三力
             //强赎里面选取强势的。。。才有动力。  也得看大盘的配合。但是至少能知道情况。
             //目标： 130~150，160    成本？？？
+            //按照价格最低的思路去挑选标的，选到的总是最弱势的。。。
+            
+            
             
             NSString *path = [kYYCachePath stringByAppendingPathComponent:@"collect.plist"];
             
@@ -597,14 +603,14 @@
     //http://finance.sina.com.cn/realstock/company/sh600031/nc.shtml?from=BaiduAladin
     //https://www.jisilu.cn/data/cbnew/redeem_list/?___jsl=LST___t=1554699154321
     //https://stock.xueqiu.com/v5/stock/f10/cn/holders.json?symbol=SH600031&extend=true&page=1&size=10  股东人数
-    NSMutableURLRequest *request2 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://www.jisilu.cn/data/cbnew/redeem_list/?___jsl=LST___t=1554699154321"]];
+    NSMutableURLRequest *request2 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://www.jisilu.cn/data/calendar/"]];
     [request2 setValue:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36" forHTTPHeaderField:@"User-Agent"];
     //    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
     //如何快速测试一个网络请求
     [NSURLConnection sendAsynchronousRequest:request2 queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
-//        NSLog(@"response -----%@",response);
-//        NSLog(@"data ----%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+        NSLog(@"response -----%@",response);
+        NSLog(@"data ----%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
         
         NSError *error = nil;
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
@@ -690,6 +696,12 @@
     
 }
 
+-(void)p_calenar{
+    
+    YYWebViewController *web = [[YYWebViewController alloc] init];
+    web.targetUrl = @"https://www.jisilu.cn/data/calendar/";
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
+}
 
 #pragma mark - 根据传入的文件名称,拼接全路径并返回!
 - (NSString *)filePathWithFileName:(NSString *)fileName {
