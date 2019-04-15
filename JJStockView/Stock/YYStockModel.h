@@ -27,7 +27,7 @@
 @property (nonatomic,copy) NSString *convert_price;//转股价
 @property (nonatomic,copy) NSString *convert_value;//转股价值
 @property (nonatomic,copy) NSString *cpn_desc;//债券利息
-@property (nonatomic,copy) NSString *curr_iss_amt;
+@property (nonatomic,copy) NSString *curr_iss_amt;//当前规模
 @property (nonatomic,copy) NSString *force_redeem;
 @property (nonatomic,copy) NSString *force_redeem_price;//强赎触发价
 
@@ -87,7 +87,7 @@
 @property (nonatomic,copy) NSString *repo_valid_from;
 @property (nonatomic,copy) NSString *repo_valid_to;
 @property (nonatomic,copy) NSString *short_maturity_dt;//到期日期简写
-@property (nonatomic,copy) NSString *sincrease_rt;
+@property (nonatomic,copy) NSString *sincrease_rt;//股票涨跌幅
 
 
 
