@@ -533,6 +533,8 @@
             
             //价格比较低的才是价值投资？  6年？？？？？？
             //强者恒强 ----宁行和金农   而价格较低的必然是弱势的   三力
+            //强赎里面选取强势的。。。才有动力。  也得看大盘的配合。但是至少能知道情况。
+            //目标： 130~150，160    成本？？？
             
             NSString *path = [kYYCachePath stringByAppendingPathComponent:@"collect.plist"];
             
