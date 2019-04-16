@@ -29,7 +29,7 @@
 @interface DemoViewController ()<StockViewDataSource,StockViewDelegate,UISearchBarDelegate>
 
 
-
+@property (nonatomic,strong) NSMutableDictionary *collectDict;
 
 @property (nonatomic, strong) NSMutableArray *searchResults;
 
@@ -48,6 +48,8 @@
     [self testResultOfAPI];
 //    .[self testAPIWithAFN];
     self.searchResults = [NSMutableArray array];
+    
+    self.collectDict = [[NSMutableDictionary alloc] init];
     
     self.isSearch = NO;
     
@@ -455,6 +457,8 @@
 //        NSLog(@"dict-----%@",dict[@"rows"]);
         
         NSMutableArray *temp = [NSMutableArray array];
+        NSMutableArray *categoriStock = [NSMutableArray array];
+        NSMutableArray *ratioStock = [NSMutableArray array];
         for (NSDictionary *dic in dict[@"rows"]) {
             
             YYStockModel *stockModel = [[YYStockModel alloc] init];
@@ -463,9 +467,21 @@
             float ratio = (stockModel.full_price.floatValue - stockModel.convert_value.floatValue)/stockModel.convert_value.floatValue;
             stockModel.ratio = ratio;
             
-            //if (ratio < 0) {
+            if (ratio < 0) {
 //                stockModel.ratio = [NSString stringWithFormat:@"%.2f%%",ratio * 100];
-//            }
+                [ratioStock addObject:stockModel.bond_nm];
+            }
+            [self.collectDict setValue:ratioStock forKey:@"溢价债券"];
+            
+            
+            if (stockModel.redeem_real_days.integerValue > 0) {
+                [categoriStock addObject:stockModel.bond_nm];
+            }
+            
+            [self.collectDict setValue:categoriStock forKey:@"强赎"];
+//            [self.collectDict ]
+            [self.collectDict writeToFile:@"/Users/g/Desktop/collect.plist" atomically:YES];
+            
             [temp addObject:stockModel];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 NSDate *date = [NSDate date];
