@@ -389,9 +389,6 @@
     web.stockID = sender.currentTitle;
     
     [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
-  
-    
-//    [self.navigationController pushViewController:[[UINavigationController alloc] initWithRootViewController:buyIntoVC] animated:YES];
 }
 
 -(void)sort:(UIButton *)btn{
@@ -523,16 +520,6 @@
 }
 //http://www.sse.com.cn/market/bonddata/convertible/
 -(void)testAPIWithAFN{
-//    XMGSessionManager *manager = [[XMGSessionManager alloc] init];
-//    [manager request:RequestTypeGet urlStr:@"https://xian.newhouse.fang.com/sales/" parameter:nil resultBlock:^(id responseObject, NSError *error) {
-//        
-//        NSLog(@"responseObject----%@",responseObject);
-//        
-//        if (error) {
-//            NSLog(@"error-----%@",error);
-//        }
-//        
-//    }];
     
     [[BaseNetManager defaultManager] GET:@"http://www.sse.com.cn/market/bonddata/convertible/" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responseObject----%@",responseObject);
@@ -580,13 +567,6 @@
         self.isSearch = NO;
         [self.stockView reloadStockView];
     }
-    //
-//    NSLog(@"result search");
-//    YYSerachViewController *serachVC = [[YYSerachViewController alloc] init];
-////    [self.navigationController pushViewController:[[UINavigationController alloc] initWithRootViewController:serachVC] animated:NO];
-//    serachVC.stocks = self.stocks;
-//    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:serachVC] animated:YES completion:nil];
-    
 }
 
 
