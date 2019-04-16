@@ -225,8 +225,8 @@
 //            label.backgroundColor = [UIColor purpleColor];
         }
         
-        if (model.sprice.floatValue > model.convert_price.floatValue && ABS(model.full_price.integerValue - 100) < 13 && model.full_price.integerValue != 100) {//入场点
-            label.backgroundColor = [UIColor redColor];
+        if (model.sprice.floatValue > model.convert_price.floatValue && ABS(model.full_price.integerValue - 100) < 10 && model.full_price.integerValue != 100) {//入场点
+//            label.backgroundColor = [UIColor redColor];
         }
        
         
@@ -242,7 +242,8 @@
         }
         
         //必然进入转股期的    并且涨势还不错的
-        if (model.redeem_real_days.integerValue > 0 && model.full_price.integerValue < 130) {
+        if (model.redeem_real_days.integerValue > 0 && ((model.sincrease_rt.floatValue - model.increase_rt.floatValue) > 2) ) {//短期的
+            NSLog(@"%@,%f, %f, %f",model.bond_nm,model.sincrease_rt.floatValue,model.increase_rt.floatValue,(model.sincrease_rt.floatValue - model.increase_rt.floatValue));
             label.backgroundColor = [UIColor orangeColor];
         }
         
