@@ -11,6 +11,6 @@
 
 @interface YYKLineWebViewController : YYWebViewController
 
-@property (nonatomic,copy) NSString *bigPrice;
+
 
 @end

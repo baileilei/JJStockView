@@ -69,7 +69,10 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"查看" style:UIBarButtonItemStyleDone target:self action:@selector(p_checkSum)];
     
      UIBarButtonItem *rightItem1 = [[UIBarButtonItem alloc] initWithTitle:@"强赎" style:UIBarButtonItemStyleDone target:self action:@selector(p_redeem)];
-    self.navigationItem.rightBarButtonItems = @[rightItem,rightItem1];
+    
+    UIBarButtonItem *rightItem2 = [[UIBarButtonItem alloc] initWithTitle:@"日历" style:UIBarButtonItemStyleDone target:self action:@selector(p_caledar)];
+    
+    self.navigationItem.rightBarButtonItems = @[rightItem,rightItem1,rightItem2];
     
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"刷新" style:UIBarButtonItemStyleDone target:self action:@selector(p_refresh)];
     self.navigationItem.leftBarButtonItem = leftItem;
@@ -585,6 +588,14 @@
         self.isSearch = NO;
         [self.stockView reloadStockView];
     }
+}
+
+-(void)p_caledar{
+    
+    YYWebViewController *web = [[YYWebViewController alloc] init];
+    web.targetUrl = @"https://www.jisilu.cn/data/calendar/";
+    web.bigPrice = @"下调转修会";
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
 }
 
 

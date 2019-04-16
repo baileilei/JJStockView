@@ -18,5 +18,7 @@
 
 @property (strong,nonatomic) UIWebView *webView;
 
+@property (copy,nonatomic) NSString *targetUrl;
 
+@property (nonatomic,copy) NSString *bigPrice;
 @end
