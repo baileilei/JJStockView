@@ -7,7 +7,6 @@
 //
 
 #import "DemoViewController.h"
-#import "YYRedeemViewController.h"
 #import "YYStockModel.h"
 #import "XMGSqliteModelTool.h"
 
@@ -574,12 +573,12 @@
 
 -(void)p_redeem{
     
-    YYRedeemViewController *Redeem = [[YYRedeemViewController alloc] init];
+//    YYRedeemViewController *Redeem = [[YYRedeemViewController alloc] init];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"redeem_real_days > 0"];
     
-    Redeem.stocks = [self.stocks filteredArrayUsingPredicate:predicate];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:Redeem];
-    [self presentViewController:nav animated:NO completion:nil];
+//    Redeem.stocks = [self.stocks filteredArrayUsingPredicate:predicate];
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:Redeem];
+//    [self presentViewController:nav animated:NO completion:nil];
     
 }
 

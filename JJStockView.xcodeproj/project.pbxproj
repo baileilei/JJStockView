@@ -27,7 +27,6 @@
 		06C5BBD02253318B0037B993 /* ActionEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C5BBCD2253318A0037B993 /* ActionEvent.m */; };
 		06C5BBD12253318B0037B993 /* ListenerBag.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C5BBCF2253318A0037B993 /* ListenerBag.m */; };
 		06C5BBD42253319D0037B993 /* TFEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C5BBD22253319C0037B993 /* TFEvent.m */; };
-		06D1589B225B4A1A0040B6C6 /* YYRedeemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D1589A225B4A1A0040B6C6 /* YYRedeemViewController.m */; };
 		06D1589F225C6EFE0040B6C6 /* YYSelfDefineCategoryStock.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D1589E225C6EFE0040B6C6 /* YYSelfDefineCategoryStock.m */; };
 		6186110E1F95E2F600E4E8B4 /* JJStockScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6186110D1F95E2F600E4E8B4 /* JJStockScrollView.m */; };
 		61F13E7A1F91F670002F4681 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13E791F91F670002F4681 /* AppDelegate.m */; };
@@ -116,8 +115,6 @@
 		06C5BBD32253319D0037B993 /* TFEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFEvent.h; sourceTree = "<group>"; };
 		06C5BBD5225332000037B993 /* ItemListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemListener.h; sourceTree = "<group>"; };
 		06C5BBD62253320C0037B993 /* ChangeListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeListener.h; sourceTree = "<group>"; };
-		06D15899225B4A1A0040B6C6 /* YYRedeemViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYRedeemViewController.h; sourceTree = "<group>"; };
-		06D1589A225B4A1A0040B6C6 /* YYRedeemViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYRedeemViewController.m; sourceTree = "<group>"; };
 		06D1589D225C6EFE0040B6C6 /* YYSelfDefineCategoryStock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYSelfDefineCategoryStock.h; sourceTree = "<group>"; };
 		06D1589E225C6EFE0040B6C6 /* YYSelfDefineCategoryStock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYSelfDefineCategoryStock.m; sourceTree = "<group>"; };
 		6186110C1F95E2F600E4E8B4 /* JJStockScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJStockScrollView.h; sourceTree = "<group>"; };
@@ -323,8 +320,6 @@
 				61F13E791F91F670002F4681 /* AppDelegate.m */,
 				61F13E7B1F91F670002F4681 /* DemoViewController.h */,
 				61F13E7C1F91F670002F4681 /* DemoViewController.m */,
-				06D15899225B4A1A0040B6C6 /* YYRedeemViewController.h */,
-				06D1589A225B4A1A0040B6C6 /* YYRedeemViewController.m */,
 				06487AF22245BC2E0008A5F0 /* note&URS */,
 				060A94AC2240C37E00F42A54 /* YYCheckWebViewController.h */,
 				060A94AD2240C37E00F42A54 /* YYCheckWebViewController.m */,
@@ -599,7 +594,6 @@
 				06C5BBC92252FFD60037B993 /* YYSerachViewController.m in Sources */,
 				FD0E693F223630E200B1F67F /* AFURLResponseSerialization.m in Sources */,
 				06C5BBD02253318B0037B993 /* ActionEvent.m in Sources */,
-				06D1589B225B4A1A0040B6C6 /* YYRedeemViewController.m in Sources */,
 				FDC46B822223854200C58FA2 /* NTMonthYearPicker.m in Sources */,
 				61F13EAF1F91F6D4002F4681 /* JJStockViewCell.m in Sources */,
 				FD0E6942223630E200B1F67F /* AFURLRequestSerialization.m in Sources */,
