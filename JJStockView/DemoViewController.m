@@ -25,6 +25,7 @@
 #import "YYSerachViewController.h"
 
 #define columnCount 14
+#define kYYCollectPath @"/Users/g/Desktop/collects.plist"
 
 @interface DemoViewController ()<StockViewDataSource,StockViewDelegate,UISearchBarDelegate>
 
@@ -480,7 +481,7 @@
             
             [self.collectDict setValue:categoriStock forKey:@"强赎"];
 //            [self.collectDict ]
-            [self.collectDict writeToFile:@"/Users/g/Desktop/collect.plist" atomically:YES];
+            [self.collectDict writeToFile:kYYCollectPath atomically:YES];
             
             [temp addObject:stockModel];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
