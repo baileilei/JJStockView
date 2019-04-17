@@ -187,16 +187,21 @@ static NSString* const CellID = @"cellID";
 #pragma mark - UIScrollViewDelegate
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+//    NSLog(@"scrollView===%@",scrollView);//系统会识别出是哪个view来响应？ tableView还是cell中的scrollView？  通过view的不同，来响应左右滑动事件    或者上下滑动事件
     if (scrollView == self.stockTableView){
         [self scrollToLastScrollX];
+//        NSLog(@"scrollViewDidEndDecelerating");
     }else if(scrollView == self.headScrollView){
         [self linkAgeScrollView:scrollView];
-    }else{
+    }else{//cell中的scrollView
+       
         [self linkAgeScrollView:scrollView];
+//        NSLog(@"scrollViewDidEndDecelerating");
     }
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+   
     if (scrollView == self.stockTableView){
         [self scrollToLastScrollX];
     }else if(scrollView == self.headScrollView){
@@ -204,6 +209,7 @@ static NSString* const CellID = @"cellID";
     }else{
         [self linkAgeScrollView:scrollView];
     }
+//     NSLog(@"scrollViewDidScroll");
 }
 
 #pragma mark - Control Scroll

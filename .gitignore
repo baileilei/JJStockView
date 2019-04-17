@@ -27,6 +27,8 @@ xcuserdata/
 *.ipa
 *.dSYM.zip
 *.dSYM
+*.xlsx
+data/*.xlsx
 
 # CocoaPods
 #
@@ -62,3 +64,4 @@ fastlane/test_output
 
 iOSInjectionProject/
 *.xlsx
+JJStockView/note&URS

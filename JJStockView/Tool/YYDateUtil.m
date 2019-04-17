@@ -18,6 +18,9 @@
 }
 
 +(BOOL)toCurrentLessThan8Days:(NSString *)dateStr{
+    if (dateStr.length == 0) {
+        return NO;
+    }
     NSDate *currentDate = [NSDate date];
     
     
