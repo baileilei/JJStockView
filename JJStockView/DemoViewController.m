@@ -521,7 +521,7 @@
             float ratio = (stockModel.full_price.floatValue - stockModel.convert_value.floatValue)/stockModel.convert_value.floatValue;
             stockModel.ratio = ratio;
             
-            if (ratio < 0) {
+//            if (ratio < 0) {
 //                stockModel.ratio = [NSString stringWithFormat:@"%.2f%%",ratio * 100];
 //            }
             
@@ -568,10 +568,11 @@
                 
                 if ([stockModel.bond_nm isEqualToString:@"平银转债"] && stockModel.full_price.integerValue < 115) {
                     [self p_testLoaclNotification:@"平银转债"];//
-                    if (stockModel.full_price.integerValue < 110) {
+                }
+                if (stockModel.full_price.integerValue < 110) {
                         [self p_testLoaclNotification:@"全仓"];
                     }
-                }
+                
                 if ([dateStr isEqualToString:@"2019-07-25"] ) {
                     [self p_testLoaclNotification:@"平银转债"];
                 }
