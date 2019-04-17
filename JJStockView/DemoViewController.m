@@ -547,6 +547,11 @@
             //按照价格最低的思路去挑选标的，选到的总是最弱势的。。。
             
             
+            //属于强赎的     -----确保了强势的！
+            //价格最低的。。。 -----成本低。
+            //回调到110，大盘比较弱 + 盈利预期不好？  大股东故意释放的利空消息？  道氏 利空，却涨停。
+            
+            
             
             NSString *path = [kYYCachePath stringByAppendingPathComponent:@"collect.plist"];
             
