@@ -23,7 +23,7 @@
 
 #import "YYSerachViewController.h"
 
-#define columnCount 15
+#define columnCount 17
 #define kYYCachePath @"/Users/g/Desktop"
 
 @interface DemoViewController ()<StockViewDataSource,StockViewDelegate,UISearchBarDelegate>
@@ -162,40 +162,43 @@
                 btnTitle = [NSString stringWithFormat:@"%@",model.curr_iss_amt];
                 break;
             case 4:
-                btnTitle = [NSString stringWithFormat:@"%.2f",model.convert_price.floatValue * 0.9];;//下调权    0.7回售义务
+                btnTitle = [NSString stringWithFormat:@"%@",model.year_left];
                 break;
             case 5:
-                btnTitle = model.force_redeem_price;//[NSString stringWithFormat:@"%.2f",model.convert_price.floatValue * 1.3];;//强赎权
+                btnTitle = [NSString stringWithFormat:@"%.2f",model.convert_price.floatValue * 0.9];;//下调权    0.7回售义务
                 break;
             case 6:
-                btnTitle = model.convert_value;
+                btnTitle = model.force_redeem_price;//[NSString stringWithFormat:@"%.2f",model.convert_price.floatValue * 1.3];;//强赎权
                 break;
             case 7:
-                btnTitle = model.convert_price;// 0.9   1.3
+                btnTitle = model.convert_value;
                 break;
             case 8:
-                btnTitle = model.convert_dt;//日期转String
+                btnTitle = model.convert_price;// 0.9   1.3
                 break;
             case 9:
-                btnTitle = model.sprice;//输入框？
+                btnTitle = model.convert_dt;//日期转String
                 break;
             case 10:
-                btnTitle = model.issue_dt;
+                btnTitle = model.sprice;//输入框？
                 break;
             case 11:
-                btnTitle = model.list_dt.length > 0 ? model.list_dt : model.price_tips;//@"买入策略";//输入框？
+                btnTitle = model.issue_dt;
                 break;
             case 12:
-                btnTitle = [NSString stringWithFormat:@"K-%@",model.bond_id];
+                btnTitle = model.list_dt.length > 0 ? model.list_dt : model.price_tips;//@"买入策略";//输入框？
                 break;
             case 13:
-                btnTitle = model.stock_id;
+                btnTitle = [NSString stringWithFormat:@"K-%@",model.bond_id];
                 break;
             case 14:
+                btnTitle = model.stock_id;
+                break;
+            case 15:
                 btnTitle = [NSString stringWithFormat:@"SK-%@",model.stock_id];
                 break;
                 
-            case 15:
+            case 16:
                 btnTitle = [NSString stringWithFormat:@"SC-%@",model.stock_id];;
                 break;
             
@@ -315,39 +318,42 @@
                 label.text = @"剩余规模";
                 break;
             case 4:
-                label.text = @"最底价";
+                label.text = @"剩余年限";
                 break;
             case 5:
-                label.text = @"最高价";
+                label.text = @"最底价";
                 break;
             case 6:
-                label.text = @"转股价值";
+                label.text = @"最高价";
                 break;
             case 7:
-                label.text = @"转股价";
+                label.text = @"转股价值";
                 break;
             case 8:
-                label.text = @"转股起始日";
+                label.text = @"转股价";
                 break;
             case 9:
-                label.text = @"股价";
+                label.text = @"转股起始日";
                 break;
             case 10:
-                label.text = @"可申购日期";
+                label.text = @"股价";
                 break;
             case 11:
-                label.text = @"上市日期";//@"买入策略";//输入框？
+                label.text = @"可申购日期";
                 break;
             case 12:
-                label.text = @"K线图";
+                label.text = @"上市日期";//@"买入策略";//输入框？
                 break;
             case 13:
-                label.text = @"公告";
+                label.text = @"K线图";
                 break;
             case 14:
-                label.text = @"S-K线图";
+                label.text = @"公告";
                 break;
             case 15:
+                label.text = @"S-K线图";
+                break;
+            case 16:
                 label.text = @"收藏";
                 break;
           
@@ -402,7 +408,6 @@
                 kWeb.bigPrice = [NSString stringWithFormat:@"回售价%.2f-------下调价%.2f----%@天-----转股价%.2f--------强赎价%.2f,--------currentPrice%@",m.convert_price.floatValue * 0.7,m.convert_price.floatValue * 0.9,m.redeem_real_days,m.convert_price.floatValue,m.convert_price.floatValue * 1.3,m.full_price];;
             }
         }
-//        kWeb.bigPrice = ;
         NSLog(@" 啥------%@",kWeb.stockID);
         for (YYStockModel *m in self.stocks) {
             if ([m.bond_id isEqualToString:kWeb.stockID]) {
@@ -431,6 +436,14 @@
         //打新策略---非转股期-首日下午或者第二天卖出
         
         
+        //下调转修     一个利好     ------ 假设前提：大股东可以操作股价的！！！   ---6个月到2年。
+        //强赎     --------------3个月到6个月   如果回调严重，可以加仓，至少有大股东在维持此标的。
+        
+        //这种假设前提下， 其实利好的季度公告是可以被大股东操作的。
+        
+        //道氏   在第14天的时候卖出。      特别低的就是有大股东在专门打压，专门回调。   心态取决于仓位。
+        
+        //数量大，仓位30%          真跌到110   加仓？？   所谓的环境又变了。。。
         
         
         NSString *path = [kYYCachePath stringByAppendingPathComponent:@"collect.plist"];
@@ -438,6 +451,8 @@
         
         [self.collectDict writeToFile:[self filePathWithFileName:@"collect.plist"] atomically:YES];
         [self.collectDict writeToFile:path atomically:YES];
+        
+        
         
         return;
     }
@@ -474,6 +489,20 @@
     if ([btn.currentTitle isEqualToString:@"强天数"]) {
         [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
             return obj1.redeem_real_days < obj2.redeem_real_days;
+            
+        }];
+    }
+    
+    if ([btn.currentTitle isEqualToString:@"剩余年限"]) {
+        [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
+            return obj1.year_left.floatValue < obj2.year_left.floatValue;
+            
+        }];
+    }
+    
+    if ([btn.currentTitle isEqualToString:@"剩余规模"]) {
+        [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
+            return obj1.curr_iss_amt.floatValue < obj2.curr_iss_amt.floatValue;
             
         }];
     }

@@ -22,6 +22,7 @@
 		060C4B9522226B9C004BA326 /* YYBuyIntoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 060C4B9322226B9C004BA326 /* YYBuyIntoViewController.xib */; };
 		060C4B982222741D004BA326 /* YYBuyintoStockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B972222741D004BA326 /* YYBuyintoStockModel.m */; };
 		06487AF32245BC2E0008A5F0 /* note&URS in Resources */ = {isa = PBXBuildFile; fileRef = 06487AF22245BC2E0008A5F0 /* note&URS */; };
+		06C307522266CACE00B08B4B /* YYSelfCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C307512266CACE00B08B4B /* YYSelfCollectViewController.m */; };
 		06C5BBC52252F0A90037B993 /* note201904 in Resources */ = {isa = PBXBuildFile; fileRef = 06C5BBC42252F0A90037B993 /* note201904 */; };
 		06C5BBC92252FFD60037B993 /* YYSerachViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C5BBC82252FFD60037B993 /* YYSerachViewController.m */; };
 		06C5BBD02253318B0037B993 /* ActionEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C5BBCD2253318A0037B993 /* ActionEvent.m */; };
@@ -127,6 +128,8 @@
 		060C4B962222741D004BA326 /* YYBuyintoStockModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYBuyintoStockModel.h; sourceTree = "<group>"; };
 		060C4B972222741D004BA326 /* YYBuyintoStockModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYBuyintoStockModel.m; sourceTree = "<group>"; };
 		06487AF22245BC2E0008A5F0 /* note&URS */ = {isa = PBXFileReference; lastKnownFileType = text; path = "note&URS"; sourceTree = "<group>"; };
+		06C307502266CACE00B08B4B /* YYSelfCollectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYSelfCollectViewController.h; sourceTree = "<group>"; };
+		06C307512266CACE00B08B4B /* YYSelfCollectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYSelfCollectViewController.m; sourceTree = "<group>"; };
 		06C5BBC42252F0A90037B993 /* note201904 */ = {isa = PBXFileReference; lastKnownFileType = text; path = note201904; sourceTree = "<group>"; };
 		06C5BBC72252FFD60037B993 /* YYSerachViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYSerachViewController.h; sourceTree = "<group>"; };
 		06C5BBC82252FFD60037B993 /* YYSerachViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYSerachViewController.m; sourceTree = "<group>"; };
@@ -469,6 +472,8 @@
 				61F13E791F91F670002F4681 /* AppDelegate.m */,
 				61F13E7B1F91F670002F4681 /* DemoViewController.h */,
 				61F13E7C1F91F670002F4681 /* DemoViewController.m */,
+				06C307502266CACE00B08B4B /* YYSelfCollectViewController.h */,
+				06C307512266CACE00B08B4B /* YYSelfCollectViewController.m */,
 				06487AF22245BC2E0008A5F0 /* note&URS */,
 				060A94AC2240C37E00F42A54 /* YYCheckWebViewController.h */,
 				060A94AD2240C37E00F42A54 /* YYCheckWebViewController.m */,
@@ -805,6 +810,7 @@
 				06C5BBD02253318B0037B993 /* ActionEvent.m in Sources */,
 				FDC46B822223854200C58FA2 /* NTMonthYearPicker.m in Sources */,
 				61F13EAF1F91F6D4002F4681 /* JJStockViewCell.m in Sources */,
+				06C307522266CACE00B08B4B /* YYSelfCollectViewController.m in Sources */,
 				FD0E6942223630E200B1F67F /* AFURLRequestSerialization.m in Sources */,
 				060C4B81222259DE004BA326 /* YYMenuLabel.m in Sources */,
 				61F13E881F91F670002F4681 /* main.m in Sources */,

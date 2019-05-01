@@ -20,7 +20,7 @@
 @property (nonatomic,copy) NSString *bond_id;//债券代码
 @property (nonatomic,copy) NSString *bond_nm;//债券名称
 @property (nonatomic,copy) NSString *btype;//债券类型？
-@property (nonatomic,copy) NSString *convert_amt_ratio;//转债占比     👀
+@property (nonatomic,copy) NSString *convert_amt_ratio;//转债占比    转债余额/总市值   👀
 
 @property (nonatomic,copy) NSString *convert_cd;//转股代码------即过了转股起始期之后才会有的  //未到转股期
 @property (nonatomic,copy) NSString *convert_dt;//转股起始期
