@@ -62,6 +62,10 @@
 		61F13E9D1F91F670002F4681 /* StockViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13E9C1F91F670002F4681 /* StockViewUITests.m */; };
 		61F13EAF1F91F6D4002F4681 /* JJStockViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13EAB1F91F6D3002F4681 /* JJStockViewCell.m */; };
 		61F13EB01F91F6D4002F4681 /* JJStockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13EAD1F91F6D4002F4681 /* JJStockView.m */; };
+		B671E57B22F82B4500483FBA /* WSDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B671E57722F82B4500483FBA /* WSDatePickerView.xib */; };
+		B671E57C22F82B4500483FBA /* WSDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E57822F82B4500483FBA /* WSDatePickerView.m */; };
+		B671E57D22F82B4500483FBA /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E57922F82B4500483FBA /* NSDate+Extension.m */; };
+		B671E57E22F82B4500483FBA /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E57A22F82B4500483FBA /* UIView+Extension.m */; };
 		FD0E692F2236308800B1F67F /* XMGSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0E692E2236308800B1F67F /* XMGSessionManager.m */; };
 		FD0E693F223630E200B1F67F /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0E6935223630E200B1F67F /* AFURLResponseSerialization.m */; };
 		FD0E6940223630E200B1F67F /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0E6936223630E200B1F67F /* AFHTTPSessionManager.m */; };
@@ -211,6 +215,13 @@
 		61F13EAC1F91F6D3002F4681 /* JJStockViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJStockViewCell.h; sourceTree = "<group>"; };
 		61F13EAD1F91F6D4002F4681 /* JJStockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJStockView.m; sourceTree = "<group>"; };
 		61F13EAE1F91F6D4002F4681 /* JJStockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJStockView.h; sourceTree = "<group>"; };
+		B671E57422F82B4500483FBA /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
+		B671E57522F82B4500483FBA /* WSDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSDatePickerView.h; sourceTree = "<group>"; };
+		B671E57622F82B4500483FBA /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		B671E57722F82B4500483FBA /* WSDatePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WSDatePickerView.xib; sourceTree = "<group>"; };
+		B671E57822F82B4500483FBA /* WSDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSDatePickerView.m; sourceTree = "<group>"; };
+		B671E57922F82B4500483FBA /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
+		B671E57A22F82B4500483FBA /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		FD0E692D2236308800B1F67F /* XMGSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGSessionManager.h; sourceTree = "<group>"; };
 		FD0E692E2236308800B1F67F /* XMGSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGSessionManager.m; sourceTree = "<group>"; };
 		FD0E6931223630E200B1F67F /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
@@ -524,6 +535,20 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
+		B671E57322F82B4500483FBA /* WSDatePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				B671E57422F82B4500483FBA /* NSDate+Extension.h */,
+				B671E57522F82B4500483FBA /* WSDatePickerView.h */,
+				B671E57622F82B4500483FBA /* UIView+Extension.h */,
+				B671E57722F82B4500483FBA /* WSDatePickerView.xib */,
+				B671E57822F82B4500483FBA /* WSDatePickerView.m */,
+				B671E57922F82B4500483FBA /* NSDate+Extension.m */,
+				B671E57A22F82B4500483FBA /* UIView+Extension.m */,
+			);
+			path = WSDatePickerView;
+			sourceTree = "<group>";
+		};
 		FD0E6930223630E200B1F67F /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -576,6 +601,7 @@
 		FDF0B74D2223DF94003A6999 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				B671E57322F82B4500483FBA /* WSDatePickerView */,
 				FD0E69452236381D00B1F67F /* BaseNetManager.h */,
 				FD0E69462236381E00B1F67F /* BaseNetManager.m */,
 				FD0E692D2236308800B1F67F /* XMGSessionManager.h */,
@@ -733,6 +759,7 @@
 				06C5BBC52252F0A90037B993 /* note201904 in Resources */,
 				06487AF32245BC2E0008A5F0 /* note&URS in Resources */,
 				047622C0224683D9005CD02C /* testForCheck.xib in Resources */,
+				B671E57B22F82B4500483FBA /* WSDatePickerView.xib in Resources */,
 				060C4B9522226B9C004BA326 /* YYBuyIntoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -783,6 +810,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B671E57E22F82B4500483FBA /* UIView+Extension.m in Sources */,
 				06C5BBD42253319D0037B993 /* TFEvent.m in Sources */,
 				FDF0BEF72230E9490040A892 /* YYKLineWebViewController.m in Sources */,
 				FDF0B7532223E2AF003A6999 /* LocalNotificationManager.m in Sources */,
@@ -807,9 +835,11 @@
 				6186110E1F95E2F600E4E8B4 /* JJStockScrollView.m in Sources */,
 				06C5BBC92252FFD60037B993 /* YYSerachViewController.m in Sources */,
 				FD0E693F223630E200B1F67F /* AFURLResponseSerialization.m in Sources */,
+				B671E57D22F82B4500483FBA /* NSDate+Extension.m in Sources */,
 				06C5BBD02253318B0037B993 /* ActionEvent.m in Sources */,
 				FDC46B822223854200C58FA2 /* NTMonthYearPicker.m in Sources */,
 				61F13EAF1F91F6D4002F4681 /* JJStockViewCell.m in Sources */,
+				B671E57C22F82B4500483FBA /* WSDatePickerView.m in Sources */,
 				06C307522266CACE00B08B4B /* YYSelfCollectViewController.m in Sources */,
 				FD0E6942223630E200B1F67F /* AFURLRequestSerialization.m in Sources */,
 				060C4B81222259DE004BA326 /* YYMenuLabel.m in Sources */,
@@ -1026,7 +1056,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 466F58GF93;
+				DEVELOPMENT_TEAM = SS3JMJH6PN;
 				GCC_PREFIX_HEADER = JJStockView/APPConstant.h;
 				INFOPLIST_FILE = "$(SRCROOT)/JJStockView/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1046,7 +1076,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 466F58GF93;
+				DEVELOPMENT_TEAM = SS3JMJH6PN;
 				GCC_PREFIX_HEADER = JJStockView/APPConstant.h;
 				INFOPLIST_FILE = "$(SRCROOT)/JJStockView/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

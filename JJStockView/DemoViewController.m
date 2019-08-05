@@ -22,8 +22,11 @@
 #import "YYDateUtil.h"
 
 #import "YYSerachViewController.h"
+#import "WSDatePickerView.h"
+#import "LocalNotificationManager.h"
 
-#define columnCount 17
+
+#define columnCount 18
 #define kYYCachePath @"/Users/g/Desktop"
 
 @interface DemoViewController ()<StockViewDataSource,StockViewDelegate,UISearchBarDelegate>
@@ -150,7 +153,9 @@
         float ratio = (model.full_price.floatValue - model.convert_value.floatValue)/model.convert_value.floatValue;
         switch (i) {
             case 0:
-                btnTitle = [NSString stringWithFormat:@"%.2f%%",ratio * 100];
+//                btnTitle = [NSString stringWithFormat:@"%.2f%%",ratio * 100];
+                btnTitle = model.noteDate?model.noteDate : @"2019-";//[NSString stringWithFormat:model.noteDate];
+                
                 break;
             case 1:
                 btnTitle = model.full_price;
@@ -210,12 +215,12 @@
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         button.titleLabel.textAlignment = NSTextAlignmentCenter;
-        button.tag = i;
+        button.tag = row;
         UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(i * 100, 0, 100, 30)];
         label.text = [NSString stringWithFormat:@"%@",btnTitle];
         label.textAlignment = NSTextAlignmentCenter;
         [bg addSubview:label];
-        if ([btnTitle isEqualToString:model.stock_id] || [btnTitle isEqualToString:[NSString stringWithFormat:@"K-%@",model.bond_id]] ||  [btnTitle isEqualToString:[NSString stringWithFormat:@"SK-%@",model.stock_id]] || [btnTitle isEqualToString:[NSString stringWithFormat:@"SC-%@",model.stock_id]]) {
+        if ([btnTitle isEqualToString:model.stock_id] || [btnTitle isEqualToString:[NSString stringWithFormat:@"K-%@",model.bond_id]] ||  [btnTitle isEqualToString:[NSString stringWithFormat:@"SK-%@",model.stock_id]] || [btnTitle isEqualToString:[NSString stringWithFormat:@"SC-%@",model.stock_id]] || [btnTitle hasPrefix:@"2019"]) {
             [bg addSubview:button];
         }
         
@@ -306,7 +311,8 @@
         
         switch (i) {
             case 0:
-                label.text = @"溢价率";
+//                label.text = @"溢价率";
+                label.text = @"添加通知";
                 break;
             case 1:
                 label.text = @"现价";
@@ -386,6 +392,55 @@
 
 - (void)buttonAction:(UIButton*)sender{
     NSLog(@"Button Row:%ld",sender.tag);
+    
+    if ([sender.currentTitle hasPrefix:@"2019"]) {
+        
+        NSDateFormatter *minDateFormater = [[NSDateFormatter alloc] init];
+        [minDateFormater setDateFormat:@"yyyy-MM-dd HH:mm"];
+        NSDate *scrollToDate = [minDateFormater dateFromString:@"2019-08-01 11:11"];
+        
+        WSDatePickerView *datepicker = [[WSDatePickerView alloc] initWithDateStyle:DateStyleShowYearMonthDayHourMinute scrollToDate:scrollToDate CompleteBlock:^(NSDate *selectDate) {
+            
+            // 在数据更改之前先取消之前的通知
+//            [MMHDrinkWaterNotifyManager cancelLocalNotification:strongCell.dmData];
+            
+            NSString *date = [selectDate stringWithFormat:@"yyyy-MM-dd HH:mm"];
+            NSLog(@"选择的日期：%@",date);
+
+            [sender setTitle:@"" forState:UIControlStateNormal];
+            [sender setTitle:date forState:UIControlStateNormal];
+            
+            YYStockModel *model = self.stocks[sender.tag];
+            
+            model.noteDate = date;
+            
+            NSDate *currentDate = [NSDate date];
+            NSString *dateStr = [YYDateUtil dateToString:currentDate andFormate:@"yyyy-MM-dd"];
+            [XMGSqliteModelTool saveOrUpdateModel:model uid:dateStr];
+            
+            [LocalNotificationManager addLocalNotification:date withName:model.bond_nm];
+            
+//            // 刷新 Cell 中的数据模型存储的时间 （因为 Cell中的数据模型是引用 dataArray 里的数据模型，所以Cell 中的数据模型存储的时间更改后，即更改了数据列表中存储的时间）
+//            strongCell.dmData.time = date;
+//            DLog(@"%@", strongSelf.dataArray[cell.tag].time);
+//
+//            // 数据列表中时间更改后，马上缓存到本地
+//            [strongSelf storageData];
+//
+//            // 添加到通知列表中
+//            MMHDrinkWaterDMData *dmData = [MMHDrinkWaterDMData new];
+//            dmData.time = date;
+//            dmData.isTurnOn = [kTurnOn integerValue];
+//            [MMHDrinkWaterNotifyManager addLocalNotification:dmData];
+        }];
+        //    datepicker.dateLabelColor = RGB(65, 188, 241);//年-月-日-时-分 颜色
+        datepicker.datePickerColor = [UIColor blackColor];//滚轮日期颜色
+        //    datepicker.doneButtonColor = RGB(65, 188, 241);//确定按钮的颜色
+        datepicker.yearLabelColor = [UIColor clearColor];//大号年份字体颜色
+        [datepicker show];
+        
+        return;
+    }
     
     if ([sender.currentTitle hasPrefix:@"K-"]) {
         YYKLineWebViewController *kWeb = [[YYKLineWebViewController alloc] init];
@@ -596,16 +651,16 @@
                 [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:dateStr];
                 
                 
-                if ([dateStr isEqualToString:@"2019-04-19"]) {//逆转？
-                    [self p_testLoaclNotification:@"视觉中国"];
-                }
+//                if ([dateStr isEqualToString:@"2019-04-19"]) {//逆转？
+//                    [self p_testLoaclNotification:@"视觉中国"];
+//                }
                 
                 if ([stockModel.bond_nm isEqualToString:@"平银转债"] && stockModel.full_price.integerValue < 115) {
                     [self p_testLoaclNotification:@"平银转债"];//
                 }
-                if (stockModel.full_price.integerValue < 110) {
-                        [self p_testLoaclNotification:@"全仓"];
-                    }
+//                if (stockModel.full_price.integerValue < 110) {
+//                        [self p_testLoaclNotification:@"全仓"];
+//                    }
                 
                 if ([dateStr isEqualToString:@"2019-07-25"] ) {
                     [self p_testLoaclNotification:@"平银转债"];
@@ -698,7 +753,7 @@
     localNote.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
     localNote.alertBody = @"八戒，来信息了";
     //设置其他信息
-    localNote.userInfo = @{@"content": modelName, @"type": @2};
+    localNote.userInfo = @{@"content": modelName, @"type": @1};
     [[UIApplication sharedApplication] scheduleLocalNotification:localNote];
 }
 

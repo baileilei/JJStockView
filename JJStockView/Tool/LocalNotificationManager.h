@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+//#import "yy"
 
 @interface LocalNotificationManager : NSObject
 
@@ -17,5 +18,26 @@
 + (LocalNotificationManager *)sharedNotificationManager;
 - (void)setAllEventForNotification;
 - (void)eventNotificationAlert:(UILocalNotification *)notifi;
+
+/**
+ *  添加一个本地通知
+ *
+ *  @param dmData MMHDrinkWaterDMData
+ */
++ (void)addLocalNotification:(NSString *)dmData;
+
++ (void)addLocalNotification:(NSString *)dmData withName:(NSString *)name;
+
+/**
+ *  取消一个本地通知
+ *
+ *  @param dmData MMHDrinkWaterDMData
+ */
++ (void)cancelLocalNotification:(NSString *)dmData;
+
+/**
+ *  取消所有的本地通知
+ */
++ (void)cancelAllLocalNotifications;
 
 @end

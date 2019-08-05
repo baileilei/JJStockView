@@ -11,6 +11,8 @@
 
 @interface YYStockModel : NSObject<XMGModelProtocol>
 
+@property (nonatomic,copy) NSString *noteDate;
+
 @property (nonatomic,assign) float ratio;
 
 @property (nonatomic,copy) NSString *active_fl;
