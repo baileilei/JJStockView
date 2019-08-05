@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-//#import "yy"
+#import "YYStockModel.h"
 
 @interface LocalNotificationManager : NSObject
 
@@ -27,6 +27,8 @@
 + (void)addLocalNotification:(NSString *)dmData;
 
 + (void)addLocalNotification:(NSString *)dmData withName:(NSString *)name;
+
++ (void)addLocalNotification:(NSString *)dmData withModel:(YYStockModel *)model;
 
 /**
  *  取消一个本地通知

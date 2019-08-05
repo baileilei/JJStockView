@@ -66,6 +66,8 @@
 		B671E57C22F82B4500483FBA /* WSDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E57822F82B4500483FBA /* WSDatePickerView.m */; };
 		B671E57D22F82B4500483FBA /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E57922F82B4500483FBA /* NSDate+Extension.m */; };
 		B671E57E22F82B4500483FBA /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E57A22F82B4500483FBA /* UIView+Extension.m */; };
+		B671E58122F84EAD00483FBA /* HWNetTools.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E58022F84EAD00483FBA /* HWNetTools.m */; };
+		B671E58422F8518D00483FBA /* YYRedeemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E58322F8518D00483FBA /* YYRedeemModel.m */; };
 		FD0E692F2236308800B1F67F /* XMGSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0E692E2236308800B1F67F /* XMGSessionManager.m */; };
 		FD0E693F223630E200B1F67F /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0E6935223630E200B1F67F /* AFURLResponseSerialization.m */; };
 		FD0E6940223630E200B1F67F /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0E6936223630E200B1F67F /* AFHTTPSessionManager.m */; };
@@ -222,6 +224,10 @@
 		B671E57822F82B4500483FBA /* WSDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSDatePickerView.m; sourceTree = "<group>"; };
 		B671E57922F82B4500483FBA /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		B671E57A22F82B4500483FBA /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		B671E57F22F84EAD00483FBA /* HWNetTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWNetTools.h; sourceTree = "<group>"; };
+		B671E58022F84EAD00483FBA /* HWNetTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWNetTools.m; sourceTree = "<group>"; };
+		B671E58222F8518D00483FBA /* YYRedeemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYRedeemModel.h; sourceTree = "<group>"; };
+		B671E58322F8518D00483FBA /* YYRedeemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYRedeemModel.m; sourceTree = "<group>"; };
 		FD0E692D2236308800B1F67F /* XMGSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGSessionManager.h; sourceTree = "<group>"; };
 		FD0E692E2236308800B1F67F /* XMGSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGSessionManager.m; sourceTree = "<group>"; };
 		FD0E6931223630E200B1F67F /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
@@ -321,6 +327,8 @@
 				060C4B7C222259DE004BA326 /* YYSqliteManager.m */,
 				060C4B79222259DE004BA326 /* YYStockDB.h */,
 				060C4B7E222259DE004BA326 /* YYStockDB.m */,
+				B671E58222F8518D00483FBA /* YYRedeemModel.h */,
+				B671E58322F8518D00483FBA /* YYRedeemModel.m */,
 			);
 			path = Stock;
 			sourceTree = "<group>";
@@ -601,6 +609,8 @@
 		FDF0B74D2223DF94003A6999 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				B671E57F22F84EAD00483FBA /* HWNetTools.h */,
+				B671E58022F84EAD00483FBA /* HWNetTools.m */,
 				B671E57322F82B4500483FBA /* WSDatePickerView */,
 				FD0E69452236381D00B1F67F /* BaseNetManager.h */,
 				FD0E69462236381E00B1F67F /* BaseNetManager.m */,
@@ -829,6 +839,7 @@
 				FD0E6941223630E200B1F67F /* AFURLSessionManager.m in Sources */,
 				FD0E692F2236308800B1F67F /* XMGSessionManager.m in Sources */,
 				060C4B8E222262A2004BA326 /* XMGSqliteModelTool.m in Sources */,
+				B671E58422F8518D00483FBA /* YYRedeemModel.m in Sources */,
 				060C4B80222259DE004BA326 /* YYSqliteManager.m in Sources */,
 				FDC46BA72223CA3300C58FA2 /* UIApplication+Swizzle.m in Sources */,
 				060C4B82222259DE004BA326 /* YYStockDB.m in Sources */,
@@ -836,6 +847,7 @@
 				06C5BBC92252FFD60037B993 /* YYSerachViewController.m in Sources */,
 				FD0E693F223630E200B1F67F /* AFURLResponseSerialization.m in Sources */,
 				B671E57D22F82B4500483FBA /* NSDate+Extension.m in Sources */,
+				B671E58122F84EAD00483FBA /* HWNetTools.m in Sources */,
 				06C5BBD02253318B0037B993 /* ActionEvent.m in Sources */,
 				FDC46B822223854200C58FA2 /* NTMonthYearPicker.m in Sources */,
 				61F13EAF1F91F6D4002F4681 /* JJStockViewCell.m in Sources */,

@@ -24,7 +24,7 @@
 #import "YYSerachViewController.h"
 #import "WSDatePickerView.h"
 #import "LocalNotificationManager.h"
-
+#import "YYSelfCollectViewController.h"
 
 #define columnCount 18
 #define kYYCachePath @"/Users/g/Desktop"
@@ -401,8 +401,7 @@
         
         WSDatePickerView *datepicker = [[WSDatePickerView alloc] initWithDateStyle:DateStyleShowYearMonthDayHourMinute scrollToDate:scrollToDate CompleteBlock:^(NSDate *selectDate) {
             
-            // 在数据更改之前先取消之前的通知
-//            [MMHDrinkWaterNotifyManager cancelLocalNotification:strongCell.dmData];
+            
             
             NSString *date = [selectDate stringWithFormat:@"yyyy-MM-dd HH:mm"];
             NSLog(@"选择的日期：%@",date);
@@ -413,6 +412,8 @@
             YYStockModel *model = self.stocks[sender.tag];
             
             model.noteDate = date;
+            // 在数据更改之前先取消之前的通知
+            [LocalNotificationManager cancelLocalNotification:model.noteDate];
             
             NSDate *currentDate = [NSDate date];
             NSString *dateStr = [YYDateUtil dateToString:currentDate andFormate:@"yyyy-MM-dd"];
@@ -580,6 +581,7 @@
 
 
 /**
+ https://www.jisilu.cn/data/cbnew/redeem_list/?___jsl=LST___t=1565004937374
  
  */
 - (void)requestData {
@@ -759,12 +761,14 @@
 
 -(void)p_redeem{
     
-//    YYRedeemViewController *Redeem = [[YYRedeemViewController alloc] init];
+    YYSelfCollectViewController *collectVC = [[YYSelfCollectViewController alloc] init];
+    
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"redeem_real_days > 0"];
     
-//    Redeem.stocks = [self.stocks filteredArrayUsingPredicate:predicate];
-//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:Redeem];
-//    [self presentViewController:nav animated:NO completion:nil];
+    
+//    [XMGSqliteModelTool saveOrUpdateModel:<#(id)#> uid:<#(NSString *)#>];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:collectVC];
+    [self presentViewController:nav animated:NO completion:nil];
     
 }
 
