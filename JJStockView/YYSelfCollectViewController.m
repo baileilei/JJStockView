@@ -16,6 +16,9 @@
 #import "LocalNotificationManager.h"
 #import "YYKLineWebViewController.h"
 
+#import "YYDateUtil.h"
+#import "YYStockModel.h"
+
 #define columnCount 18
 
 @interface YYSelfCollectViewController ()<StockViewDataSource,StockViewDelegate>
@@ -24,10 +27,11 @@
 
 @property (nonatomic,strong) NSMutableArray *stocks;
 
-
 @end
 
-@implementation YYSelfCollectViewController
+@implementation YYSelfCollectViewController{
+    JJStockView * _stockView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,34 +40,18 @@
     self.stockView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
     [self.view addSubview:self.stockView];
     
-    //https://www.jisilu.cn/data/cbnew/redeem_list/?___jsl=LST___t=1565004937374
-    [[HWNetTools shareNetTools] GET:@"https://www.jisilu.cn/data/cbnew/redeem_list/?___jsl=LST___t=1565004937374" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
-        NSLog(@"responseObject----%@",responseObject);
-        NSError *error = nil;
-        NSDictionary *dict = responseObject;//[NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
-        //        NSLog(@"dict-----%@",dict[@"rows"]);
-        
-        NSMutableArray *temp = [NSMutableArray array];
-        NSMutableArray *categoriStock = [NSMutableArray array];
-        NSMutableArray *ratioStock = [NSMutableArray array];
-        for (NSDictionary *dic in dict[@"rows"]) {
-            
-            YYRedeemModel *stockModel = [[YYRedeemModel alloc] init];
-            
-            [stockModel setValuesForKeysWithDictionary:dic[@"cell"]];
-            
-            
-            if (stockModel.redeem_real_days.integerValue > 0) {
-                [temp addObject:stockModel];
-                [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"myFocus"];
-            }
-        }
-        NSLog(@"");
-        self.stocks = temp;
-        [self.stockView reloadStockView];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+    [self requestRedeemData];
+    
+    self.stocks = [XMGSqliteModelTool queryAllModels:[YYRedeemModel class] uid:@"myFocus"].mutableCopy;
+    [self.stockView reloadStockView];
+    
+    
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:24 * 60 * 60 repeats:YES block:^(NSTimer * _Nonnull timer) {
+        [self requestRedeemData];
     }];
+    [timer fire];
+    
+   
 }
 
 #pragma mark - Stock DataSource
@@ -84,7 +72,7 @@
     label.textAlignment = NSTextAlignmentCenter;
     return label;
 }
-
+//内容
 - (UIView*)contentCellForStockView:(JJStockView*)stockView atRowPath:(NSUInteger)row{
     
     UIView* bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, columnCount * 100, 30)];
@@ -93,14 +81,15 @@
         UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(i * 100, 0, 100, 30)];
         YYRedeemModel *model = self.stocks[row];;
         NSString *btnTitle = nil;
+//        float ratio = (model.full_price.floatValue - model.convert_value.floatValue)/model.convert_value.floatValue;
         switch (i) {
             case 0:
                 //                btnTitle = [NSString stringWithFormat:@"%.2f%%",ratio * 100];
-                btnTitle = model.noteDate?model.noteDate : @"2019-";//[NSString stringWithFormat:model.noteDate];
+//                btnTitle = model.noteDate?model.noteDate : @"2019-";//[NSString stringWithFormat:model.noteDate];
                 
                 break;
             case 1:
-//                btnTitle = model.full_price;
+                 btnTitle = model.full_price;
                 break;
             case 2:
                 btnTitle = [NSString stringWithFormat:@"%@",model.redeem_real_days];
@@ -109,7 +98,7 @@
                 btnTitle = [NSString stringWithFormat:@"%@",model.curr_iss_amt];
                 break;
             case 4:
-//                btnTitle = [NSString stringWithFormat:@"%@",model.year_left];
+                btnTitle = [NSString stringWithFormat:@"%@",model.year_left];
                 break;
             case 5:
                 btnTitle = [NSString stringWithFormat:@"%.2f",model.convert_price.floatValue * 0.9];;//下调权    0.7回售义务
@@ -118,7 +107,7 @@
                 btnTitle = model.force_redeem_price;//[NSString stringWithFormat:@"%.2f",model.convert_price.floatValue * 1.3];;//强赎权
                 break;
             case 7:
-//                btnTitle = model.convert_value;
+                btnTitle = model.convert_value;
                 break;
             case 8:
                 btnTitle = model.convert_price;// 0.9   1.3
@@ -139,14 +128,14 @@
                 btnTitle = [NSString stringWithFormat:@"K-%@",model.bond_id];
                 break;
             case 14:
-//                btnTitle = model.stock_id;
+                btnTitle = model.stock_id;
                 break;
             case 15:
-//                btnTitle = [NSString stringWithFormat:@"SK-%@",model.stock_id];
+                btnTitle = [NSString stringWithFormat:@"SK-%@",model.stock_id];
                 break;
                 
             case 16:
-//                btnTitle = [NSString stringWithFormat:@"SC-%@",model.stock_id];;
+                btnTitle = [NSString stringWithFormat:@"SC-%@",model.stock_id];;
                 break;
                 
             default:
@@ -166,21 +155,19 @@
 //            [bg addSubview:button];
 //        }
         
-        
+        //关注- 上市日期在8天之内的
         //        model.issue_dt
 //        if (ABS(model.full_price.integerValue - 100) < 10 ) {//关注&& model.full_price.integerValue != 100
 //            //            label.backgroundColor = [UIColor orangeColor];
 //        }
         
-        
-        //关注- 上市日期在8天之内的    6个月的。      1年的
 //        if ([YYDateUtil toCurrentLessThan8Days:model.list_dt]) {//上市八天内的
 //            //            label.backgroundColor = [UIColor purpleColor];
 //        }
-//
-//        if (model.convert_dt && [YYDateUtil toCurrentLessThan8Days:model.convert_dt]) {//临近转股期的
-//            label.backgroundColor = [UIColor purpleColor];
-//        }
+        
+        if (model.convert_dt && [YYDateUtil toCurrentLessThan8Days:model.convert_dt]) {//临近转股期的
+            label.backgroundColor = [UIColor purpleColor];
+        }
         
         //        if (model.sprice.floatValue > model.convert_price.floatValue && ABS(model.full_price.integerValue - 100) < 10 && model.full_price.integerValue != 100) {//入场点
         //            label.backgroundColor = [UIColor redColor];
@@ -197,19 +184,12 @@
 //        if (ratio < 0 && ABS(model.full_price.integerValue - 100) < 8 && model.full_price.integerValue != 100) {
 //            //            label.backgroundColor = [UIColor orangeColor];//特别关注
 //        }
-        
-        //必然进入转股期的    触发了强赎价的     短暂回调的至115的
+//
+//        //必然进入转股期的    触发了强赎价的     短暂回调的至115的
 //        if (model.redeem_real_days.integerValue > 0 && model.full_price.integerValue < 115) {
 //            label.backgroundColor = [UIColor orangeColor];
 //            [self p_testLoaclNotification:model.bond_nm];
 //        }
-//
-        
-        
-        
-        
-        
-        
         
     }
     return bg;
@@ -313,8 +293,71 @@
 
 - (void)didSelect:(JJStockView*)stockView atRowPath:(NSUInteger)row{
     NSLog(@"DidSelect Row:%ld",row);
-    YYRedeemModel *stockModel = self.stocks[row];;
+   
 }
+
+#pragma mark - Get
+
+- (JJStockView*)stockView{
+    if(_stockView != nil){
+        return _stockView;
+    }
+    _stockView = [JJStockView new];
+    _stockView.dataSource = self;
+    _stockView.delegate = self;
+    return _stockView;
+}
+
+-(void)requestRedeemData{
+
+    //https://www.jisilu.cn/data/cbnew/redeem_list/?___jsl=LST___t=1565004937374
+    [[HWNetTools shareNetTools] GET:@"https://www.jisilu.cn/data/cbnew/redeem_list/?___jsl=LST___t=1565004937374" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
+        NSLog(@"responseObject----%@",responseObject);
+        NSError *error = nil;
+        NSDictionary *dict = responseObject;//[NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
+        //        NSLog(@"dict-----%@",dict[@"rows"]);
+        
+        NSMutableArray *temp = [NSMutableArray array];
+        NSMutableArray *categoriStock = [NSMutableArray array];
+        NSMutableArray *ratioStock = [NSMutableArray array];
+        for (NSDictionary *dic in dict[@"rows"]) {
+            
+            YYRedeemModel *stockModel = [[YYRedeemModel alloc] init];
+            
+            [stockModel setValuesForKeysWithDictionary:dic[@"cell"]];
+            NSDate *date = [NSDate date];
+            //                NSLog(@"%@",[YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"]);
+            NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
+            NSArray *originArray = [XMGSqliteModelTool queryAllModels:[YYStockModel class] uid:dateStr];
+            for (YYStockModel *m in originArray) {
+                if ([m.bond_id isEqualToString:stockModel.bond_id]) {
+                    stockModel.full_price = m.full_price;
+                    stockModel.convert_value = m.convert_value;
+                    stockModel.year_left = m.year_left;
+                    stockModel.stock_id = m.stock_id;
+                }
+            }
+            //            YYStockModel *sModel = [];
+            
+
+            
+            if (stockModel.redeem_real_days.integerValue > 0 || [stockModel.bond_nm isEqualToString:@"道氏转债"]) {
+                [temp addObject:stockModel];
+                [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"myFocus"];
+            }
+        }
+
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+}
+
+
+
+
+
+
 #pragma mark - Button Action
 
 - (void)buttonAction:(UIButton*)sender{
@@ -414,18 +457,6 @@
     web.stockID = sender.currentTitle;
     
     [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
-}
-
-#pragma mark - Get
-
-- (JJStockView*)stockView{
-    if(_stockView != nil){
-        return _stockView;
-    }
-    _stockView = [JJStockView new];
-    _stockView.dataSource = self;
-    _stockView.delegate = self;
-    return _stockView;
 }
 
 @end
