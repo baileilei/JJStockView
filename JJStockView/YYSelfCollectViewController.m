@@ -51,6 +51,17 @@ static int count = 1;
     self.stocks = [XMGSqliteModelTool queryAllModels:[YYRedeemModel class] uid:@"myFocus"].mutableCopy;
     [self.stockView reloadStockView];
     
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleDone target:self action:@selector(p_back)];
+    self.navigationItem.leftBarButtonItem = leftItem;
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"查看" style:UIBarButtonItemStyleDone target:self action:@selector(p_checkSum)];
+    
+    UIBarButtonItem *rightItem1 = [[UIBarButtonItem alloc] initWithTitle:@"刷新" style:UIBarButtonItemStyleDone target:self action:@selector(p_refresh)];
+    
+    UIBarButtonItem *rightItem2 = [[UIBarButtonItem alloc] initWithTitle:@"日历" style:UIBarButtonItemStyleDone target:self action:@selector(p_calenar)];
+    
+    self.navigationItem.rightBarButtonItems = @[rightItem,rightItem1,rightItem2];
+    
     
     [self.timer setFireDate:[NSDate date]];
     
@@ -88,7 +99,7 @@ static int count = 1;
         switch (i) {
             case 0:
                 //                btnTitle = [NSString stringWithFormat:@"%.2f%%",ratio * 100];
-//                btnTitle = model.noteDate?model.noteDate : @"2019-";//[NSString stringWithFormat:model.noteDate];
+                btnTitle = model.noteDate?model.noteDate : @"2019-";//[NSString stringWithFormat:model.noteDate];
                 
                 break;
             case 1:
@@ -154,9 +165,9 @@ static int count = 1;
         label.text = [NSString stringWithFormat:@"%@",btnTitle];
         label.textAlignment = NSTextAlignmentCenter;
         [bg addSubview:label];
-//        if ([btnTitle isEqualToString:model.stock_id] || [btnTitle isEqualToString:[NSString stringWithFormat:@"K-%@",model.bond_id]] ||  [btnTitle isEqualToString:[NSString stringWithFormat:@"SK-%@",model.stock_id]] || [btnTitle isEqualToString:[NSString stringWithFormat:@"SC-%@",model.stock_id]] || [btnTitle hasPrefix:@"2019"]) {
-//            [bg addSubview:button];
-//        }
+        if ([btnTitle isEqualToString:model.stock_id] || [btnTitle isEqualToString:[NSString stringWithFormat:@"K-%@",model.bond_id]] ||  [btnTitle isEqualToString:[NSString stringWithFormat:@"SK-%@",model.stock_id]] || [btnTitle isEqualToString:[NSString stringWithFormat:@"SC-%@",model.stock_id]] || [btnTitle hasPrefix:@"2019"]) {
+            [bg addSubview:button];
+        }
         
         //关注- 上市日期在8天之内的
         //        model.issue_dt
@@ -355,16 +366,17 @@ static int count = 1;
                     stockModel.convert_value = m.convert_value;
                     stockModel.year_left = m.year_left;
                     stockModel.stock_id = m.stock_id;
+                    stockModel.noteDate = @"2019-";
                 }
             }
             //            YYStockModel *sModel = [];
             
 
             
-            if (stockModel.redeem_real_days.integerValue > 0 || [stockModel.bond_nm isEqualToString:@"道氏转债"]) {
+//            if (stockModel.redeem_real_days.integerValue > 0 || [stockModel.bond_nm isEqualToString:@"道氏转债"] || [stockModel.bond_nm isEqualToString:@"杭电转债"]) {
 //                [temp addObject:stockModel];
                 [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"myFocus"];
-            }
+//            }
         }
 
 
@@ -477,6 +489,63 @@ static int count = 1;
     web.stockID = sender.currentTitle;
     
     [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
+}
+
+-(void)sort:(UIButton *)btn{
+    NSLog(@"%@",btn.currentTitle);
+    
+    if ([btn.currentTitle isEqualToString:@"现价"]) {
+        [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
+            return obj1.full_price.floatValue < obj2.full_price.floatValue;
+        }];
+    }
+    
+    if ([btn.currentTitle isEqualToString:@"上市日期"]) {
+        [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
+            return [[YYDateUtil stringToDate:obj2.issue_dt dateFormat:@"yyyy-MM-dd"] compare:[YYDateUtil stringToDate:obj1.issue_dt dateFormat:@"yyyy-MM-dd"]];
+            
+        }];
+    }
+    
+    if ([btn.currentTitle isEqualToString:@"溢价率"]) {
+        [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
+            return obj1.ratio > obj2.ratio;
+            
+        }];
+    }
+    
+    if ([btn.currentTitle isEqualToString:@"强天数"]) {
+        [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
+            return obj1.redeem_real_days < obj2.redeem_real_days;
+            
+        }];
+    }
+    
+    if ([btn.currentTitle isEqualToString:@"剩余年限"]) {
+        [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
+            return obj1.year_left.floatValue > obj2.year_left.floatValue;
+            
+        }];
+    }
+    
+    if ([btn.currentTitle isEqualToString:@"剩余规模"]) {
+        [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
+            return obj1.curr_iss_amt.floatValue < obj2.curr_iss_amt.floatValue;
+            
+        }];
+    }
+    
+    
+    [self.stockView reloadStockView];
+}
+
+-(void)p_refresh{
+    [self.stockView reloadStockView];
+}
+
+-(void)p_back{
+//    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
