@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "DemoViewController.h"
 
-@interface YYSelfCollectViewController : DemoViewController
+@interface YYSelfCollectViewController : UIViewController
 
 @end

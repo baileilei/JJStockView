@@ -36,8 +36,15 @@ NS_ASSUME_NONNULL_BEGIN
  "redeem_total_days" = 30;
  sprice = "10.50";
  */
-@property (nonatomic,copy) NSString *bond_id;//债券代码
-@property (nonatomic,copy) NSString *bond_nm;//债券名称
+
+
+
+@property (nonatomic,strong) NSMutableArray *beiWangImagePaths;
+@property (nonatomic,copy) NSString *noteDate;
+
+
+@property (nonatomic,copy) NSString *bond_id;//代码
+@property (nonatomic,copy) NSString *bond_nm;//名称
 @property (nonatomic,copy) NSString *btype;
 
 @property (nonatomic,copy) NSString *convert_dt;

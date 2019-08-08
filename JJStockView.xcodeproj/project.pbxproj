@@ -68,6 +68,8 @@
 		B671E57E22F82B4500483FBA /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E57A22F82B4500483FBA /* UIView+Extension.m */; };
 		B671E58122F84EAD00483FBA /* HWNetTools.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E58022F84EAD00483FBA /* HWNetTools.m */; };
 		B671E58422F8518D00483FBA /* YYRedeemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E58322F8518D00483FBA /* YYRedeemModel.m */; };
+		B671E58722F9333000483FBA /* NSString+storeImagePath.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E58622F9333000483FBA /* NSString+storeImagePath.m */; };
+		B671E58A22F951FE00483FBA /* UIViewController+printName.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E58922F951FE00483FBA /* UIViewController+printName.m */; };
 		FD0E692F2236308800B1F67F /* XMGSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0E692E2236308800B1F67F /* XMGSessionManager.m */; };
 		FD0E693F223630E200B1F67F /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0E6935223630E200B1F67F /* AFURLResponseSerialization.m */; };
 		FD0E6940223630E200B1F67F /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0E6936223630E200B1F67F /* AFHTTPSessionManager.m */; };
@@ -228,6 +230,10 @@
 		B671E58022F84EAD00483FBA /* HWNetTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWNetTools.m; sourceTree = "<group>"; };
 		B671E58222F8518D00483FBA /* YYRedeemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYRedeemModel.h; sourceTree = "<group>"; };
 		B671E58322F8518D00483FBA /* YYRedeemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYRedeemModel.m; sourceTree = "<group>"; };
+		B671E58522F9333000483FBA /* NSString+storeImagePath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+storeImagePath.h"; sourceTree = "<group>"; };
+		B671E58622F9333000483FBA /* NSString+storeImagePath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+storeImagePath.m"; sourceTree = "<group>"; };
+		B671E58822F951FE00483FBA /* UIViewController+printName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+printName.h"; sourceTree = "<group>"; };
+		B671E58922F951FE00483FBA /* UIViewController+printName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+printName.m"; sourceTree = "<group>"; };
 		FD0E692D2236308800B1F67F /* XMGSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGSessionManager.h; sourceTree = "<group>"; };
 		FD0E692E2236308800B1F67F /* XMGSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGSessionManager.m; sourceTree = "<group>"; };
 		FD0E6931223630E200B1F67F /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
@@ -602,6 +608,8 @@
 				FDC46B9F2223CA3300C58FA2 /* JRSwizzle.m */,
 				FDC46BA02223CA3300C58FA2 /* UIApplication+Swizzle.m */,
 				FDC46BA12223CA3300C58FA2 /* UIButton+Swizzle.h */,
+				B671E58822F951FE00483FBA /* UIViewController+printName.h */,
+				B671E58922F951FE00483FBA /* UIViewController+printName.m */,
 			);
 			path = Swizzle;
 			sourceTree = "<group>";
@@ -620,6 +628,8 @@
 				FDF0B7512223E2AF003A6999 /* LocalNotificationManager.m */,
 				FDF0B74E2223DFBD003A6999 /* YYDateUtil.h */,
 				FDF0B74F2223DFBD003A6999 /* YYDateUtil.m */,
+				B671E58522F9333000483FBA /* NSString+storeImagePath.h */,
+				B671E58622F9333000483FBA /* NSString+storeImagePath.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -829,6 +839,7 @@
 				060C4B982222741D004BA326 /* YYBuyintoStockModel.m in Sources */,
 				06C5BBD12253318B0037B993 /* ListenerBag.m in Sources */,
 				060C4B8F222262A2004BA326 /* XMGSqliteTool.m in Sources */,
+				B671E58A22F951FE00483FBA /* UIViewController+printName.m in Sources */,
 				FDC46BA32223CA3300C58FA2 /* NSDictionary+Swizzle.m in Sources */,
 				060C4B8D222262A2004BA326 /* XMGTableTool.m in Sources */,
 				060C4B9422226B9C004BA326 /* YYBuyIntoViewController.m in Sources */,
@@ -840,6 +851,7 @@
 				FD0E692F2236308800B1F67F /* XMGSessionManager.m in Sources */,
 				060C4B8E222262A2004BA326 /* XMGSqliteModelTool.m in Sources */,
 				B671E58422F8518D00483FBA /* YYRedeemModel.m in Sources */,
+				B671E58722F9333000483FBA /* NSString+storeImagePath.m in Sources */,
 				060C4B80222259DE004BA326 /* YYSqliteManager.m in Sources */,
 				FDC46BA72223CA3300C58FA2 /* UIApplication+Swizzle.m in Sources */,
 				060C4B82222259DE004BA326 /* YYStockDB.m in Sources */,

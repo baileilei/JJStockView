@@ -27,6 +27,7 @@
                                  formate:(NSString *)formate;
 
 
+//1-3   5-6
 + (NSInteger)ageFromBirthday:(NSDate *)birthdate;
 
 @end

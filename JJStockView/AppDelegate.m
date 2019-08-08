@@ -90,25 +90,25 @@
      */
     
     //根据传递数据跳转不同控制器
-    NSInteger type = [localNote.userInfo[@"type"] integerValue];
+//    NSInteger type = [localNote.userInfo[@"type"] integerValue];
     
-    if ([UIApplication sharedApplication].applicationState != UIApplicationStateActive) { //当应用不在前台时,进行界面跳转
-        
-        UITabBarController *tabBarVc =  (UITabBarController *)self.window.rootViewController;
-        switch (type) {
-            case 1:
-                tabBarVc.selectedIndex = 1;
-                break;
-            case 2:
-                tabBarVc.selectedIndex = 2;
-                break;
-            default:
-                break;
-        }
-    } else {
-        
-        NSLog(@"接收到索引:%zd", type);
-    }
+//    if ([UIApplication sharedApplication].applicationState != UIApplicationStateActive) { //当应用不在前台时,进行界面跳转
+//
+//        UITabBarController *tabBarVc =  (UITabBarController *)self.window.rootViewController;
+//        switch (type) {
+//            case 1:
+//                tabBarVc.selectedIndex = 1;
+//                break;
+//            case 2:
+//                tabBarVc.selectedIndex = 2;
+//                break;
+//            default:
+//                break;
+//        }
+//    } else {
+//
+//        NSLog(@"接收到索引:%zd", type);
+//    }
     
 }
 
