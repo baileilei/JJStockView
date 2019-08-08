@@ -21,11 +21,17 @@
 
 #define columnCount 18
 
+#define oneDay 24 * 60 * 60
+static int count = 1;
+
+
 @interface YYSelfCollectViewController ()<StockViewDataSource,StockViewDelegate>
 
 @property(nonatomic,readwrite,strong)JJStockView* stockView;
 
 @property (nonatomic,strong) NSMutableArray *stocks;
+
+@property (nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -46,10 +52,7 @@
     [self.stockView reloadStockView];
     
     
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:24 * 60 * 60 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        [self requestRedeemData];
-    }];
-    [timer fire];
+    [self.timer setFireDate:[NSDate date]];
     
    
 }
@@ -308,6 +311,23 @@
     return _stockView;
 }
 
+#pragma mark - 懒加载返回数据定时器
+- (NSTimer *)timer {
+    if (!_timer) {
+        _timer = [NSTimer scheduledTimerWithTimeInterval:oneDay target:self selector:@selector((onTimer:)) userInfo:nil repeats:YES];
+    }
+    return _timer;
+}
+
+-(void)onTimer:(NSTimer *)timer{
+    NSLog(@"%d",count++);
+    
+    // 保存的次数
+    [[NSUserDefaults standardUserDefaults] setInteger:count forKey:@"count"];
+    
+    [self requestRedeemData];
+}
+
 -(void)requestRedeemData{
 
     //https://www.jisilu.cn/data/cbnew/redeem_list/?___jsl=LST___t=1565004937374
@@ -342,7 +362,7 @@
 
             
             if (stockModel.redeem_real_days.integerValue > 0 || [stockModel.bond_nm isEqualToString:@"道氏转债"]) {
-                [temp addObject:stockModel];
+//                [temp addObject:stockModel];
                 [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"myFocus"];
             }
         }
