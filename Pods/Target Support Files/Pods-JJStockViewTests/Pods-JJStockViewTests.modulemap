@@ -1,0 +1,6 @@
+framework module Pods_JJStockViewTests {
+  umbrella header "Pods-JJStockViewTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

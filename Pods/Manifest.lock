@@ -1,0 +1,16 @@
+PODS:
+  - SYCacheFileViewController (1.2.9)
+
+DEPENDENCIES:
+  - SYCacheFileViewController
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SYCacheFileViewController
+
+SPEC CHECKSUMS:
+  SYCacheFileViewController: 730b27168fd5b054d0fe2eb0b38877c263de4437
+
+PODFILE CHECKSUM: df8682e3d7b1caca566b97bd714997c181e9cadf
+
+COCOAPODS: 1.7.1

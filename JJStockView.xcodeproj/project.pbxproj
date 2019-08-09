@@ -53,6 +53,8 @@
 		06D158ED225C81FB0040B6C6 /* StrongStocks.json in Resources */ = {isa = PBXBuildFile; fileRef = 06D158EC225C81FA0040B6C6 /* StrongStocks.json */; };
 		06D158F3225C84120040B6C6 /* YYStockViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D158F1225C84120040B6C6 /* YYStockViewCell.m */; };
 		06D158F4225C84120040B6C6 /* YYStockScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D158F2225C84120040B6C6 /* YYStockScrollView.m */; };
+		5171AAF02EDE61B9E5E640A8 /* Pods_MyselfFunction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C3405708353132BBD164EB8 /* Pods_MyselfFunction.framework */; };
+		5250CCD816F603E17FC5A542 /* Pods_JJStockView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E747CDF99F5250D8556A97D8 /* Pods_JJStockView.framework */; };
 		6186110E1F95E2F600E4E8B4 /* JJStockScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6186110D1F95E2F600E4E8B4 /* JJStockScrollView.m */; };
 		61F13E7A1F91F670002F4681 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13E791F91F670002F4681 /* AppDelegate.m */; };
 		61F13E7D1F91F670002F4681 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13E7C1F91F670002F4681 /* DemoViewController.m */; };
@@ -70,6 +72,8 @@
 		B671E58422F8518D00483FBA /* YYRedeemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E58322F8518D00483FBA /* YYRedeemModel.m */; };
 		B671E58722F9333000483FBA /* NSString+storeImagePath.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E58622F9333000483FBA /* NSString+storeImagePath.m */; };
 		B671E58A22F951FE00483FBA /* UIViewController+printName.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E58922F951FE00483FBA /* UIViewController+printName.m */; };
+		CA3E67123885F30DC034BA5F /* Pods_JJStockViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECD81FD3CF2763E1E549E37 /* Pods_JJStockViewTests.framework */; };
+		F536965EE630A3FA9DA68069 /* Pods_JJStockViewUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C93A9EA472081DE0D872CF1 /* Pods_JJStockViewUITests.framework */; };
 		FD0E692F2236308800B1F67F /* XMGSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0E692E2236308800B1F67F /* XMGSessionManager.m */; };
 		FD0E693F223630E200B1F67F /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0E6935223630E200B1F67F /* AFURLResponseSerialization.m */; };
 		FD0E6940223630E200B1F67F /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0E6936223630E200B1F67F /* AFHTTPSessionManager.m */; };
@@ -199,6 +203,10 @@
 		06D158F0225C84120040B6C6 /* YYStockScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYStockScrollView.h; sourceTree = "<group>"; };
 		06D158F1225C84120040B6C6 /* YYStockViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYStockViewCell.m; sourceTree = "<group>"; };
 		06D158F2225C84120040B6C6 /* YYStockScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYStockScrollView.m; sourceTree = "<group>"; };
+		0E82011F019E96F3DC7E4B94 /* Pods-JJStockViewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJStockViewUITests.debug.xcconfig"; path = "Target Support Files/Pods-JJStockViewUITests/Pods-JJStockViewUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		1C3405708353132BBD164EB8 /* Pods_MyselfFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyselfFunction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		245A624B532B30217F8FC787 /* Pods-JJStockViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJStockViewTests.release.xcconfig"; path = "Target Support Files/Pods-JJStockViewTests/Pods-JJStockViewTests.release.xcconfig"; sourceTree = "<group>"; };
+		2C93A9EA472081DE0D872CF1 /* Pods_JJStockViewUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JJStockViewUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6186110C1F95E2F600E4E8B4 /* JJStockScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJStockScrollView.h; sourceTree = "<group>"; };
 		6186110D1F95E2F600E4E8B4 /* JJStockScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJStockScrollView.m; sourceTree = "<group>"; };
 		61F13E751F91F670002F4681 /* JJStockView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JJStockView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +227,11 @@
 		61F13EAC1F91F6D3002F4681 /* JJStockViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJStockViewCell.h; sourceTree = "<group>"; };
 		61F13EAD1F91F6D4002F4681 /* JJStockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJStockView.m; sourceTree = "<group>"; };
 		61F13EAE1F91F6D4002F4681 /* JJStockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJStockView.h; sourceTree = "<group>"; };
+		6E6F5B2D97DA9F6A126F0884 /* Pods-MyselfFunction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyselfFunction.release.xcconfig"; path = "Target Support Files/Pods-MyselfFunction/Pods-MyselfFunction.release.xcconfig"; sourceTree = "<group>"; };
+		7ECD81FD3CF2763E1E549E37 /* Pods_JJStockViewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JJStockViewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		921806BF8F626BE56429F804 /* Pods-JJStockView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJStockView.debug.xcconfig"; path = "Target Support Files/Pods-JJStockView/Pods-JJStockView.debug.xcconfig"; sourceTree = "<group>"; };
+		923E9F7EC9FE139C225EA901 /* Pods-JJStockView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJStockView.release.xcconfig"; path = "Target Support Files/Pods-JJStockView/Pods-JJStockView.release.xcconfig"; sourceTree = "<group>"; };
+		B2E0C1ECEA684781F2B1548F /* Pods-JJStockViewUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJStockViewUITests.release.xcconfig"; path = "Target Support Files/Pods-JJStockViewUITests/Pods-JJStockViewUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B671E57422F82B4500483FBA /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
 		B671E57522F82B4500483FBA /* WSDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSDatePickerView.h; sourceTree = "<group>"; };
 		B671E57622F82B4500483FBA /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -234,6 +247,9 @@
 		B671E58622F9333000483FBA /* NSString+storeImagePath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+storeImagePath.m"; sourceTree = "<group>"; };
 		B671E58822F951FE00483FBA /* UIViewController+printName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+printName.h"; sourceTree = "<group>"; };
 		B671E58922F951FE00483FBA /* UIViewController+printName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+printName.m"; sourceTree = "<group>"; };
+		C2C2C12824F1BCF43EE78566 /* Pods-MyselfFunction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyselfFunction.debug.xcconfig"; path = "Target Support Files/Pods-MyselfFunction/Pods-MyselfFunction.debug.xcconfig"; sourceTree = "<group>"; };
+		C66ED7DCABC91A2E35C50F56 /* Pods-JJStockViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJStockViewTests.debug.xcconfig"; path = "Target Support Files/Pods-JJStockViewTests/Pods-JJStockViewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E747CDF99F5250D8556A97D8 /* Pods_JJStockView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JJStockView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD0E692D2236308800B1F67F /* XMGSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGSessionManager.h; sourceTree = "<group>"; };
 		FD0E692E2236308800B1F67F /* XMGSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGSessionManager.m; sourceTree = "<group>"; };
 		FD0E6931223630E200B1F67F /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
@@ -282,6 +298,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5171AAF02EDE61B9E5E640A8 /* Pods_MyselfFunction.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				047622BE22468379005CD02C /* libsqlite3.0.tbd in Frameworks */,
+				5250CCD816F603E17FC5A542 /* Pods_JJStockView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +315,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA3E67123885F30DC034BA5F /* Pods_JJStockViewTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +323,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F536965EE630A3FA9DA68069 /* Pods_JJStockViewUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +334,10 @@
 			isa = PBXGroup;
 			children = (
 				047622BD22468379005CD02C /* libsqlite3.0.tbd */,
+				E747CDF99F5250D8556A97D8 /* Pods_JJStockView.framework */,
+				7ECD81FD3CF2763E1E549E37 /* Pods_JJStockViewTests.framework */,
+				2C93A9EA472081DE0D872CF1 /* Pods_JJStockViewUITests.framework */,
+				1C3405708353132BBD164EB8 /* Pods_MyselfFunction.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -458,6 +482,22 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		22FDB20CB59FBE0A462EF766 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				921806BF8F626BE56429F804 /* Pods-JJStockView.debug.xcconfig */,
+				923E9F7EC9FE139C225EA901 /* Pods-JJStockView.release.xcconfig */,
+				C66ED7DCABC91A2E35C50F56 /* Pods-JJStockViewTests.debug.xcconfig */,
+				245A624B532B30217F8FC787 /* Pods-JJStockViewTests.release.xcconfig */,
+				0E82011F019E96F3DC7E4B94 /* Pods-JJStockViewUITests.debug.xcconfig */,
+				B2E0C1ECEA684781F2B1548F /* Pods-JJStockViewUITests.release.xcconfig */,
+				C2C2C12824F1BCF43EE78566 /* Pods-MyselfFunction.debug.xcconfig */,
+				6E6F5B2D97DA9F6A126F0884 /* Pods-MyselfFunction.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		61F13E6C1F91F670002F4681 = {
 			isa = PBXGroup;
 			children = (
@@ -467,6 +507,7 @@
 				06D158A5225C701B0040B6C6 /* MyselfFunction */,
 				61F13E761F91F670002F4681 /* Products */,
 				047622BC22468379005CD02C /* Frameworks */,
+				22FDB20CB59FBE0A462EF766 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -641,6 +682,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06D158B7225C701D0040B6C6 /* Build configuration list for PBXNativeTarget "MyselfFunction" */;
 			buildPhases = (
+				773072BDF7B6B921CEEBC89F /* [CP] Check Pods Manifest.lock */,
 				06D158A0225C701B0040B6C6 /* Sources */,
 				06D158A1225C701B0040B6C6 /* Frameworks */,
 				06D158A2225C701B0040B6C6 /* Resources */,
@@ -658,9 +700,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61F13EA11F91F670002F4681 /* Build configuration list for PBXNativeTarget "JJStockView" */;
 			buildPhases = (
+				F3975821A11DDF5B0759982B /* [CP] Check Pods Manifest.lock */,
 				61F13E711F91F670002F4681 /* Sources */,
 				61F13E721F91F670002F4681 /* Frameworks */,
 				61F13E731F91F670002F4681 /* Resources */,
+				9FE4517A75D3EF5666F94327 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -675,6 +719,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61F13EA41F91F670002F4681 /* Build configuration list for PBXNativeTarget "JJStockViewTests" */;
 			buildPhases = (
+				C834E27E27C9CB8D96744F5F /* [CP] Check Pods Manifest.lock */,
 				61F13E891F91F670002F4681 /* Sources */,
 				61F13E8A1F91F670002F4681 /* Frameworks */,
 				61F13E8B1F91F670002F4681 /* Resources */,
@@ -693,6 +738,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61F13EA71F91F670002F4681 /* Build configuration list for PBXNativeTarget "JJStockViewUITests" */;
 			buildPhases = (
+				9B7AB0A2CAC505ADA337D054 /* [CP] Check Pods Manifest.lock */,
 				61F13E941F91F670002F4681 /* Sources */,
 				61F13E951F91F670002F4681 /* Frameworks */,
 				61F13E961F91F670002F4681 /* Resources */,
@@ -799,6 +845,115 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		773072BDF7B6B921CEEBC89F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyselfFunction-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B7AB0A2CAC505ADA337D054 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JJStockViewUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9FE4517A75D3EF5666F94327 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JJStockView/Pods-JJStockView-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SYCacheFileViewController/SYCacheFileViewController.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SYCacheFileViewController.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JJStockView/Pods-JJStockView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C834E27E27C9CB8D96744F5F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JJStockViewTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3975821A11DDF5B0759982B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JJStockView-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		06D158A0225C701B0040B6C6 /* Sources */ = {
@@ -935,6 +1090,7 @@
 /* Begin XCBuildConfiguration section */
 		06D158B8225C701D0040B6C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2C2C12824F1BCF43EE78566 /* Pods-MyselfFunction.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -953,6 +1109,7 @@
 		};
 		06D158B9225C701D0040B6C6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E6F5B2D97DA9F6A126F0884 /* Pods-MyselfFunction.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1075,6 +1232,7 @@
 		};
 		61F13EA21F91F670002F4681 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 921806BF8F626BE56429F804 /* Pods-JJStockView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1095,6 +1253,7 @@
 		};
 		61F13EA31F91F670002F4681 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 923E9F7EC9FE139C225EA901 /* Pods-JJStockView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1114,6 +1273,7 @@
 		};
 		61F13EA51F91F670002F4681 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C66ED7DCABC91A2E35C50F56 /* Pods-JJStockViewTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1128,6 +1288,7 @@
 		};
 		61F13EA61F91F670002F4681 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 245A624B532B30217F8FC787 /* Pods-JJStockViewTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1142,6 +1303,7 @@
 		};
 		61F13EA81F91F670002F4681 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E82011F019E96F3DC7E4B94 /* Pods-JJStockViewUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = StockViewUITests/Info.plist;
@@ -1155,6 +1317,7 @@
 		};
 		61F13EA91F91F670002F4681 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2E0C1ECEA684781F2B1548F /* Pods-JJStockViewUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = StockViewUITests/Info.plist;

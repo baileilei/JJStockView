@@ -1,0 +1,1323 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		032A531B537CBF65AFCAC382FAD2F568 /* file_cacheFile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B208ABE84EF2E846B983EC47AA24A39E /* file_cacheFile@2x.png */; };
+		08050E76A6D5388BD19CC66F831A72CF /* pdf_cacheFile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCC1D589CF8D659EB7A86F743E6C59EA /* pdf_cacheFile@3x.png */; };
+		0905EA338BA03784987411DA62479D15 /* zip_cacheFile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9EC38D92C59A78E873725D35F8CF02E /* zip_cacheFile@3x.png */; };
+		0F737ED590E2EFF4DE273BF773D1A4C7 /* SYCacheFileVideo.h in Headers */ = {isa = PBXBuildFile; fileRef = 54E2282214CDFA9BCD4E77FB2766C519 /* SYCacheFileVideo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0FA7A21641D61C7B15A218CD0D174BA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8A34021FE5F294D73D3ED9A3A78E9E /* Foundation.framework */; };
+		10AF0A21DA9E4DC0A22CB0AAD2883785 /* line_cacheFile.png in Resources */ = {isa = PBXBuildFile; fileRef = D6706BEEE83FB6AEA7A6653F65E965DD /* line_cacheFile.png */; };
+		11A1C1BA8269FF265836D81299930E6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8A34021FE5F294D73D3ED9A3A78E9E /* Foundation.framework */; };
+		160A700A831E65630213047B412DD0BE /* SYCacheFileAudio.h in Headers */ = {isa = PBXBuildFile; fileRef = 3024BE543B5BE26FC394004428F93620 /* SYCacheFileAudio.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DAFF19253EA64B9C6475149F5CC6C36 /* SYCacheFileImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 71807F26DA87461D8313EE4203CBD078 /* SYCacheFileImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21078F9767BC1A0BCB915A826AF75164 /* apk_cacheFile.png in Resources */ = {isa = PBXBuildFile; fileRef = A54E6B14DD26574B8B62A8F397F82CA4 /* apk_cacheFile.png */; };
+		296311C0E33DAE29959055FC81D89B62 /* zip_cacheFile.png in Resources */ = {isa = PBXBuildFile; fileRef = 76BE3CE23587544EDE968B680EA98C24 /* zip_cacheFile.png */; };
+		2B58C96D89A64EE525397992A0463211 /* zip_cacheFile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CE4469475A74EE94146BDC8D7FFDD15 /* zip_cacheFile@2x.png */; };
+		2BBB3496717827D3280D21D2605522C0 /* doc_cacheFile.png in Resources */ = {isa = PBXBuildFile; fileRef = 31127558998F7F1518426EF6016BB036 /* doc_cacheFile.png */; };
+		2DE7386E9D5F56547DB722AF260016F3 /* xls_cacheFile.png in Resources */ = {isa = PBXBuildFile; fileRef = DDCF73468501D8751855794BFDA734D3 /* xls_cacheFile.png */; };
+		2EB559901BED0E47B51E3D8922C673CD /* audio_cacheFile.png in Resources */ = {isa = PBXBuildFile; fileRef = E2879CA02C2C1C28CCCC2B0D5624EFD6 /* audio_cacheFile.png */; };
+		35659CF8D358A9972B5416FD6BC6B31F /* video_cacheFile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 172E887114AB025D3F137E51453CB946 /* video_cacheFile@2x.png */; };
+		361F775859E36E52125D8DAAB4057112 /* SYCacheFileRead.h in Headers */ = {isa = PBXBuildFile; fileRef = BA7C6FF538F852EC8E79850CD0355D1A /* SYCacheFileRead.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		36E0A6E1C9B958E02ED9FB66A1A7E750 /* SYCacheFileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA6C50538EC10D9FA3D1808BB3E1E79 /* SYCacheFileCell.m */; };
+		377D19D72E7F0923E75C0855087EA0F0 /* SYCacheFileViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 40BEE28DE87BCDF65E768F7C4AA60FD4 /* SYCacheFileViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38214FDD1402EAED0BFFB6FA6725EF72 /* SYCacheFileModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 757E82369E7DE10E19ACEE97F031C214 /* SYCacheFileModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38B811F5FF668EBA255F8A50F9BE30EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8A34021FE5F294D73D3ED9A3A78E9E /* Foundation.framework */; };
+		3C2D2BF78CF7E53F5BDC764A2152E2E3 /* SYCacheFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C03ACA890BC5EEDDB0F7D48D1B7469C5 /* SYCacheFileViewController.m */; };
+		40EFAB97C49151BA5C9DC9F3ACF689DF /* SYCacheFileAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E1AA8A03F0C63E2FD048AB444D7A2D /* SYCacheFileAudio.m */; };
+		4118CB515CCBED4EB3408CEFE5770CBC /* SYCacheFileCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A0BF5548A9ED42214F069030C48CEB3 /* SYCacheFileCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41393BCA1D9C683FEE5F1D0D86367A36 /* SYCacheFileCell.h in Headers */ = {isa = PBXBuildFile; fileRef = F31F31A7425E728BB689E1225086996C /* SYCacheFileCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4188D71E712604EA3A893273052C03F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8A34021FE5F294D73D3ED9A3A78E9E /* Foundation.framework */; };
+		4570ECEC4D4D663C956F54982462A221 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8A34021FE5F294D73D3ED9A3A78E9E /* Foundation.framework */; };
+		4A31AAC184124AED361E2B25F0DF424F /* SYCacheFileTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A1B0492F65AD49011D126050B7C6C7 /* SYCacheFileTable.m */; };
+		4D530A0D51DE8EF4FB63BB1C4DA57FA5 /* SYCacheFileCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8F96ACFD0390E5EBD71419FB55861F /* SYCacheFileCollection.m */; };
+		5170AD58652EFD92D9F1A16523C32EFF /* SYCacheFileImage.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCAD4C14D1C0FE4D31FD97354BF7E11 /* SYCacheFileImage.m */; };
+		52732C1F494D87A327577B68D788F1EE /* Pods-JJStockViewTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFB6EC95FAD2056322407F56E221FC5 /* Pods-JJStockViewTests-dummy.m */; };
+		597202EB2E3A0B8896AA5A2488FF0EE0 /* SYCacheFileViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CD415D1C648E495BBD4EDB13ED2C999 /* SYCacheFileViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BAA9CCC38399F08C1D1B94A3B576CCF /* pdf_cacheFile.png in Resources */ = {isa = PBXBuildFile; fileRef = A444EB597D5CD0A3DB229A26A9B9412B /* pdf_cacheFile.png */; };
+		5C65C7487B704E4CAACF673910ECDEB8 /* Pods-JJStockViewUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF8321F1AEBEEB0582DE7C858A56234 /* Pods-JJStockViewUITests-dummy.m */; };
+		66E9DFD537804E512483410F84F3F323 /* folder_cacheFile.png in Resources */ = {isa = PBXBuildFile; fileRef = 19A1CDA730BA0811E902E1F5EEEF7E32 /* folder_cacheFile.png */; };
+		68E22ACFA98AD56D8315ADF7C7EC1E10 /* audio_cacheFile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A18CFA46A77383BBC2FE7A6F6EE6894D /* audio_cacheFile@2x.png */; };
+		6A7BF0E2A6FE3DF0A0777494C662C5B6 /* Pods-MyselfFunction-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AF5B946AF0EF1C03F7F184C1EB2BCC /* Pods-MyselfFunction-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		70D353AD0996459C9E31FCE04CCD201D /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE5ACF6FA66657000ED34CD2E6B88832 /* AVKit.framework */; };
+		74C89D843993EC8B1CF38D4AE9CA928F /* Pods-JJStockView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AFDE7338D87D320F197B855161E9324 /* Pods-JJStockView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		81ABD781CC3DEE4B90381FE2FE0B0D48 /* doc_cacheFile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CBA922336B646E699E82F000493A92B /* doc_cacheFile@2x.png */; };
+		82EEEED608E28E59A3D403CBF4E562B6 /* file_cacheFile.png in Resources */ = {isa = PBXBuildFile; fileRef = 0098343F1F046423BECF586791E160E7 /* file_cacheFile.png */; };
+		8424F2256BC645B1062DED986A5EBA6D /* ppt_cacheFile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D5761D709955055DBFB57D4B5C3D6E /* ppt_cacheFile@2x.png */; };
+		8583D8631CFB6494918CDBFECE552517 /* xls_cacheFile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1505C75FDE1A9179A00D41E6E8D139FC /* xls_cacheFile@3x.png */; };
+		86BF1CB3F712F454B0128B176DFCD42D /* SYCacheFileCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC77BCF1AA0A5F8607C06295A30DC8B /* SYCacheFileCollectionCell.m */; };
+		8A0021D92A20B325A61C22DA48AC783C /* SYCacheFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1358243DBA43CBC0EDEA36AE86A9661D /* SYCacheFileManager.m */; };
+		92014A09B7489F513AF8DF75B30DF848 /* SYCacheFileCollectionCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 83E6801B23C4ADFDB7C692B13B5E8DBD /* SYCacheFileCollectionCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95BC47E60F59DCDF15DCC29BCA84EC9B /* folder_cacheFile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B5ACEF3ED5380830163BDA75F2083AE0 /* folder_cacheFile@2x.png */; };
+		98C46781BEB30D71C9583239FE73A214 /* video_cacheFile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CCCDD4B41D2B36361F7338DD2A67087 /* video_cacheFile@3x.png */; };
+		99999321E4CBFC82AE343FF85E19DF03 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A729DA313897AF98F25D942B8CA0B61 /* AVFoundation.framework */; };
+		9E479666E521B923E694455662EDE1ED /* audio_cacheFile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD13BC14DD28F5DD9B4AF4DE8E7E060 /* audio_cacheFile@3x.png */; };
+		A1AD4323F9A0DDB99F26CA96FDEFC908 /* SYCacheFileTable.h in Headers */ = {isa = PBXBuildFile; fileRef = A8AA1D95844EBD97AAF3CF06B7A5A590 /* SYCacheFileTable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A23A49F8E258541959BAD3B91F09EC87 /* Pods-JJStockViewTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CE09D5C71DFDDC640A9E333256FB793 /* Pods-JJStockViewTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3E9B81AB0A667E3FB26A2E5B3C69AAB /* SYCacheFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DDB935BA60FED32279C5D20626961DA /* SYCacheFileManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A91F3656F2B6A825C563181509701B32 /* ppt_cacheFile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E833F6869CDE8E567F86CDB3EB36310 /* ppt_cacheFile@3x.png */; };
+		AB4CA0788AB196F1E67B18F678593AD9 /* SYCacheFileVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = DB920FEF195725639DAC82F9AB45C4B2 /* SYCacheFileVideo.m */; };
+		AC3FF2330F5A71769571EBE4ABC668E3 /* SYCacheFileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4E001D8D2AD0BDFD51ABC16B53FF3 /* SYCacheFileModel.m */; };
+		AFF957090536F2918BFD2609F3FCC45D /* image_cacheFile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E516EB246DADB096E6770FC6D1DE547 /* image_cacheFile@3x.png */; };
+		BC38CED4186369A95F731C58B48C015B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60DBF108DDFDCB91EEB1331200C5A464 /* UIKit.framework */; };
+		C2637F8E9D349F15C78E1830614FFED4 /* image_cacheFile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA4BC1A66E915A177D381DEA439E7D4 /* image_cacheFile@2x.png */; };
+		CF8041437E5CB41F92295D44C387BD95 /* xls_cacheFile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 300A3DD9E6E6FBA081D3A1E9A5F47CE3 /* xls_cacheFile@2x.png */; };
+		D0FB25F2EE5D19BC77BB9EB30259F6D5 /* SYCacheFileViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E4323457DB4413B904BBFE7749A8B3D8 /* SYCacheFileViewController-dummy.m */; };
+		D3BE11CA19AF256C664BF67511FAD382 /* Pods-JJStockView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EE3DD47AB898BC027AE71E364257A86D /* Pods-JJStockView-dummy.m */; };
+		E329C8D403E87C75268BE0473F64B19D /* image_cacheFile.png in Resources */ = {isa = PBXBuildFile; fileRef = 903CDF2BD399B9129CF91AA42EBFFE30 /* image_cacheFile.png */; };
+		E6EB4F698F560B2E605ACB40FDD652E3 /* SYCacheFileDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 39978DC24DF759B37D20CDD159DD92FD /* SYCacheFileDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E6F8C978728A44A51961086AFB52BDC2 /* Pods-MyselfFunction-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F0AD076E62EAC873ADA2F5E2F9890BD0 /* Pods-MyselfFunction-dummy.m */; };
+		E7B928708C01D4EA8EE313A80050953E /* doc_cacheFile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56F7A00C37969753B7E1364390542257 /* doc_cacheFile@3x.png */; };
+		EA1A5CB87F183F9405842EAB99487111 /* file_cacheFile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D51BF86412F601656C69B694C377D7F7 /* file_cacheFile@3x.png */; };
+		F634D7F6362F8A90E1F6F764CC0790AB /* folder_cacheFile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A8148D1E9563AA0CB7AFED6B0AF2831 /* folder_cacheFile@3x.png */; };
+		F9C0A77B84CAF53601DC532CD822C089 /* ppt_cacheFile.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E3066435F194FD14907A698130FCA60 /* ppt_cacheFile.png */; };
+		FA28ED8CFC7B64CABB9FC3D841C7BC7C /* SYCacheFileRead.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F0346C6EA77F387B7B558F7C7F1233 /* SYCacheFileRead.m */; };
+		FA5719675196C029A780D093ACCD6EB7 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D84930574935E787C0EAC5349BEEF13F /* QuickLook.framework */; };
+		FE00FE2454AEB12121028C0988CA98EC /* video_cacheFile.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D6F78CD71C7DBB9F229A841CFEBDF3 /* video_cacheFile.png */; };
+		FE81D4111BE8AA961BF0F4BB62C66F49 /* pdf_cacheFile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B510FE3BEA1424E98E8F016E2EC2D6E /* pdf_cacheFile@2x.png */; };
+		FE8DC3BE968BD74D84181E35213739CF /* Pods-JJStockViewUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 83225D18F95EA73B22D0746255F49384 /* Pods-JJStockViewUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1E88F6D4FE71151B3D2B9817D60F8714 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1C331C5614EA261B91816CA59867EE6;
+			remoteInfo = "Pods-JJStockView";
+		};
+		1F4E2C4953063E35DC068F8172A49630 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1C331C5614EA261B91816CA59867EE6;
+			remoteInfo = "Pods-JJStockView";
+		};
+		27B336D9DF3BB36FB26D3C8605D81DD2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 836F7A21D89FBC6F0AF2F09CFDD261D2;
+			remoteInfo = SYCacheFileViewController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0098343F1F046423BECF586791E160E7 /* file_cacheFile.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = file_cacheFile.png; path = SYCacheFileViewController/SYCacheFileImages/file_cacheFile.png; sourceTree = "<group>"; };
+		06D5761D709955055DBFB57D4B5C3D6E /* ppt_cacheFile@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ppt_cacheFile@2x.png"; path = "SYCacheFileViewController/SYCacheFileImages/ppt_cacheFile@2x.png"; sourceTree = "<group>"; };
+		087B0C3037E810DBBDCD474308CBCFB7 /* Pods-JJStockView-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JJStockView-frameworks.sh"; sourceTree = "<group>"; };
+		0CBA922336B646E699E82F000493A92B /* doc_cacheFile@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "doc_cacheFile@2x.png"; path = "SYCacheFileViewController/SYCacheFileImages/doc_cacheFile@2x.png"; sourceTree = "<group>"; };
+		0CD415D1C648E495BBD4EDB13ED2C999 /* SYCacheFileViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SYCacheFileViewController.h; path = SYCacheFileViewController/SYCacheFileViewController.h; sourceTree = "<group>"; };
+		0CE09D5C71DFDDC640A9E333256FB793 /* Pods-JJStockViewTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JJStockViewTests-umbrella.h"; sourceTree = "<group>"; };
+		0DD13BC14DD28F5DD9B4AF4DE8E7E060 /* audio_cacheFile@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "audio_cacheFile@3x.png"; path = "SYCacheFileViewController/SYCacheFileImages/audio_cacheFile@3x.png"; sourceTree = "<group>"; };
+		11D7DF82ED68A28F71BB2640BE39E4A8 /* Pods-JJStockView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JJStockView-Info.plist"; sourceTree = "<group>"; };
+		1358243DBA43CBC0EDEA36AE86A9661D /* SYCacheFileManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SYCacheFileManager.m; path = SYCacheFileViewController/SYCacheFileManager.m; sourceTree = "<group>"; };
+		1505C75FDE1A9179A00D41E6E8D139FC /* xls_cacheFile@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "xls_cacheFile@3x.png"; path = "SYCacheFileViewController/SYCacheFileImages/xls_cacheFile@3x.png"; sourceTree = "<group>"; };
+		172E887114AB025D3F137E51453CB946 /* video_cacheFile@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "video_cacheFile@2x.png"; path = "SYCacheFileViewController/SYCacheFileImages/video_cacheFile@2x.png"; sourceTree = "<group>"; };
+		19A1CDA730BA0811E902E1F5EEEF7E32 /* folder_cacheFile.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = folder_cacheFile.png; path = SYCacheFileViewController/SYCacheFileImages/folder_cacheFile.png; sourceTree = "<group>"; };
+		1A0BF5548A9ED42214F069030C48CEB3 /* SYCacheFileCollection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SYCacheFileCollection.h; path = SYCacheFileViewController/SYCacheFileCollection.h; sourceTree = "<group>"; };
+		1A729DA313897AF98F25D942B8CA0B61 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		1B75DE21899E3E29E8E8A36DCF8FA963 /* Pods-JJStockViewTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JJStockViewTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		1BA6C50538EC10D9FA3D1808BB3E1E79 /* SYCacheFileCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SYCacheFileCell.m; path = SYCacheFileViewController/SYCacheFileCell.m; sourceTree = "<group>"; };
+		2170BD2CAEBD9CC32FB2CF4D2D591970 /* Pods_JJStockView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_JJStockView.framework; path = "Pods-JJStockView.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EC77BCF1AA0A5F8607C06295A30DC8B /* SYCacheFileCollectionCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SYCacheFileCollectionCell.m; path = SYCacheFileViewController/SYCacheFileCollectionCell.m; sourceTree = "<group>"; };
+		300A3DD9E6E6FBA081D3A1E9A5F47CE3 /* xls_cacheFile@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "xls_cacheFile@2x.png"; path = "SYCacheFileViewController/SYCacheFileImages/xls_cacheFile@2x.png"; sourceTree = "<group>"; };
+		3024BE543B5BE26FC394004428F93620 /* SYCacheFileAudio.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SYCacheFileAudio.h; path = SYCacheFileViewController/SYCacheFileAudio.h; sourceTree = "<group>"; };
+		31127558998F7F1518426EF6016BB036 /* doc_cacheFile.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = doc_cacheFile.png; path = SYCacheFileViewController/SYCacheFileImages/doc_cacheFile.png; sourceTree = "<group>"; };
+		338CFE456912D7617EA9B6917866D525 /* Pods_MyselfFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MyselfFunction.framework; path = "Pods-MyselfFunction.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33D6F78CD71C7DBB9F229A841CFEBDF3 /* video_cacheFile.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = video_cacheFile.png; path = SYCacheFileViewController/SYCacheFileImages/video_cacheFile.png; sourceTree = "<group>"; };
+		35E1AA8A03F0C63E2FD048AB444D7A2D /* SYCacheFileAudio.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SYCacheFileAudio.m; path = SYCacheFileViewController/SYCacheFileAudio.m; sourceTree = "<group>"; };
+		39978DC24DF759B37D20CDD159DD92FD /* SYCacheFileDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SYCacheFileDefine.h; path = SYCacheFileViewController/SYCacheFileDefine.h; sourceTree = "<group>"; };
+		3AEF63768A9C6D1EA8D8026D02C52A8C /* Pods_JJStockViewUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_JJStockViewUITests.framework; path = "Pods-JJStockViewUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40BEE28DE87BCDF65E768F7C4AA60FD4 /* SYCacheFileViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SYCacheFileViewController-umbrella.h"; sourceTree = "<group>"; };
+		44718AD8AD54DA939BD9CE88E781DC94 /* Pods-MyselfFunction-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MyselfFunction-acknowledgements.markdown"; sourceTree = "<group>"; };
+		49BB1357D1B2603721AB992D328A5197 /* Pods-MyselfFunction-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyselfFunction-acknowledgements.plist"; sourceTree = "<group>"; };
+		4A0E988EA0092EF785619D10663A9A8F /* Pods-JJStockViewUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JJStockViewUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		4AFDE7338D87D320F197B855161E9324 /* Pods-JJStockView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JJStockView-umbrella.h"; sourceTree = "<group>"; };
+		4E3066435F194FD14907A698130FCA60 /* ppt_cacheFile.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = ppt_cacheFile.png; path = SYCacheFileViewController/SYCacheFileImages/ppt_cacheFile.png; sourceTree = "<group>"; };
+		53461CAEC04E28507A16C69F96440253 /* Pods-MyselfFunction.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MyselfFunction.modulemap"; sourceTree = "<group>"; };
+		543FB85115487B153FEC3710F1ECAF8D /* SYCacheFileViewController-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SYCacheFileViewController-Info.plist"; sourceTree = "<group>"; };
+		54E2282214CDFA9BCD4E77FB2766C519 /* SYCacheFileVideo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SYCacheFileVideo.h; path = SYCacheFileViewController/SYCacheFileVideo.h; sourceTree = "<group>"; };
+		56F7A00C37969753B7E1364390542257 /* doc_cacheFile@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "doc_cacheFile@3x.png"; path = "SYCacheFileViewController/SYCacheFileImages/doc_cacheFile@3x.png"; sourceTree = "<group>"; };
+		57AADF2D9EEAA2B069B89851158EDCA0 /* Pods-JJStockViewUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-JJStockViewUITests.modulemap"; sourceTree = "<group>"; };
+		5A8148D1E9563AA0CB7AFED6B0AF2831 /* folder_cacheFile@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "folder_cacheFile@3x.png"; path = "SYCacheFileViewController/SYCacheFileImages/folder_cacheFile@3x.png"; sourceTree = "<group>"; };
+		5A9B74B0AEDA058498D7D0F049089001 /* Pods-JJStockView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-JJStockView.modulemap"; sourceTree = "<group>"; };
+		60DBF108DDFDCB91EEB1331200C5A464 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		6324AEE3CE5D4669261DC1123C8DB2A7 /* Pods_JJStockViewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_JJStockViewTests.framework; path = "Pods-JJStockViewTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		63461153725A91BC525CC2A094F35E85 /* Pods-JJStockViewUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JJStockViewUITests-Info.plist"; sourceTree = "<group>"; };
+		6AC8D9B8C3A43989D1E7027B02FD66E5 /* Pods-JJStockViewTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-JJStockViewTests.modulemap"; sourceTree = "<group>"; };
+		6B7DDD0BF187EE60E634A26AA3826D1A /* SYCacheFileViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SYCacheFileViewController.modulemap; sourceTree = "<group>"; };
+		6CCCDD4B41D2B36361F7338DD2A67087 /* video_cacheFile@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "video_cacheFile@3x.png"; path = "SYCacheFileViewController/SYCacheFileImages/video_cacheFile@3x.png"; sourceTree = "<group>"; };
+		6DDB935BA60FED32279C5D20626961DA /* SYCacheFileManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SYCacheFileManager.h; path = SYCacheFileViewController/SYCacheFileManager.h; sourceTree = "<group>"; };
+		6DE28023243D6682E2389A97DE63416C /* SYCacheFileViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SYCacheFileViewController.framework; path = SYCacheFileViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E516EB246DADB096E6770FC6D1DE547 /* image_cacheFile@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "image_cacheFile@3x.png"; path = "SYCacheFileViewController/SYCacheFileImages/image_cacheFile@3x.png"; sourceTree = "<group>"; };
+		71807F26DA87461D8313EE4203CBD078 /* SYCacheFileImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SYCacheFileImage.h; path = SYCacheFileViewController/SYCacheFileImage.h; sourceTree = "<group>"; };
+		72842E4640D7EAE8DCCFE244505B79B2 /* Pods-JJStockView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JJStockView.debug.xcconfig"; sourceTree = "<group>"; };
+		757E82369E7DE10E19ACEE97F031C214 /* SYCacheFileModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SYCacheFileModel.h; path = SYCacheFileViewController/SYCacheFileModel.h; sourceTree = "<group>"; };
+		76BE3CE23587544EDE968B680EA98C24 /* zip_cacheFile.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = zip_cacheFile.png; path = SYCacheFileViewController/SYCacheFileImages/zip_cacheFile.png; sourceTree = "<group>"; };
+		78A26BC061C0D57C280ECCA4BE0491D8 /* Pods-MyselfFunction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyselfFunction.debug.xcconfig"; sourceTree = "<group>"; };
+		795C3FF222270807634E2E5EC0705634 /* Pods-MyselfFunction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyselfFunction.release.xcconfig"; sourceTree = "<group>"; };
+		7B0B28AF0D46555AD17A58A4EAF7751B /* Pods-JJStockView-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JJStockView-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7B510FE3BEA1424E98E8F016E2EC2D6E /* pdf_cacheFile@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "pdf_cacheFile@2x.png"; path = "SYCacheFileViewController/SYCacheFileImages/pdf_cacheFile@2x.png"; sourceTree = "<group>"; };
+		82A1B0492F65AD49011D126050B7C6C7 /* SYCacheFileTable.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SYCacheFileTable.m; path = SYCacheFileViewController/SYCacheFileTable.m; sourceTree = "<group>"; };
+		83225D18F95EA73B22D0746255F49384 /* Pods-JJStockViewUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JJStockViewUITests-umbrella.h"; sourceTree = "<group>"; };
+		83E6801B23C4ADFDB7C692B13B5E8DBD /* SYCacheFileCollectionCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SYCacheFileCollectionCell.h; path = SYCacheFileViewController/SYCacheFileCollectionCell.h; sourceTree = "<group>"; };
+		8CE4469475A74EE94146BDC8D7FFDD15 /* zip_cacheFile@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "zip_cacheFile@2x.png"; path = "SYCacheFileViewController/SYCacheFileImages/zip_cacheFile@2x.png"; sourceTree = "<group>"; };
+		8DF8321F1AEBEEB0582DE7C858A56234 /* Pods-JJStockViewUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JJStockViewUITests-dummy.m"; sourceTree = "<group>"; };
+		8E833F6869CDE8E567F86CDB3EB36310 /* ppt_cacheFile@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ppt_cacheFile@3x.png"; path = "SYCacheFileViewController/SYCacheFileImages/ppt_cacheFile@3x.png"; sourceTree = "<group>"; };
+		8EF86565F6E316EF7487EEFFC7D9EF62 /* Pods-JJStockViewUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JJStockViewUITests.release.xcconfig"; sourceTree = "<group>"; };
+		903CDF2BD399B9129CF91AA42EBFFE30 /* image_cacheFile.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = image_cacheFile.png; path = SYCacheFileViewController/SYCacheFileImages/image_cacheFile.png; sourceTree = "<group>"; };
+		93AF5B946AF0EF1C03F7F184C1EB2BCC /* Pods-MyselfFunction-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MyselfFunction-umbrella.h"; sourceTree = "<group>"; };
+		9A44C6B93C1E65807ED73CEB1F0D6829 /* Pods-JJStockViewTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JJStockViewTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9CD29164F7F214C20918FDD90E30B988 /* Pods-JJStockViewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JJStockViewUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A18CFA46A77383BBC2FE7A6F6EE6894D /* audio_cacheFile@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "audio_cacheFile@2x.png"; path = "SYCacheFileViewController/SYCacheFileImages/audio_cacheFile@2x.png"; sourceTree = "<group>"; };
+		A444EB597D5CD0A3DB229A26A9B9412B /* pdf_cacheFile.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = pdf_cacheFile.png; path = SYCacheFileViewController/SYCacheFileImages/pdf_cacheFile.png; sourceTree = "<group>"; };
+		A4C07E7DE134025DD208196615035DA9 /* Pods-JJStockViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JJStockViewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A54E6B14DD26574B8B62A8F397F82CA4 /* apk_cacheFile.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = apk_cacheFile.png; path = SYCacheFileViewController/SYCacheFileImages/apk_cacheFile.png; sourceTree = "<group>"; };
+		A5DD8912CCCB8D835D93F15A03232800 /* Pods-JJStockViewUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JJStockViewUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A8AA1D95844EBD97AAF3CF06B7A5A590 /* SYCacheFileTable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SYCacheFileTable.h; path = SYCacheFileViewController/SYCacheFileTable.h; sourceTree = "<group>"; };
+		ABCAD4C14D1C0FE4D31FD97354BF7E11 /* SYCacheFileImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SYCacheFileImage.m; path = SYCacheFileViewController/SYCacheFileImage.m; sourceTree = "<group>"; };
+		ACFB6EC95FAD2056322407F56E221FC5 /* Pods-JJStockViewTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JJStockViewTests-dummy.m"; sourceTree = "<group>"; };
+		B208ABE84EF2E846B983EC47AA24A39E /* file_cacheFile@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "file_cacheFile@2x.png"; path = "SYCacheFileViewController/SYCacheFileImages/file_cacheFile@2x.png"; sourceTree = "<group>"; };
+		B5ACEF3ED5380830163BDA75F2083AE0 /* folder_cacheFile@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "folder_cacheFile@2x.png"; path = "SYCacheFileViewController/SYCacheFileImages/folder_cacheFile@2x.png"; sourceTree = "<group>"; };
+		BA7C6FF538F852EC8E79850CD0355D1A /* SYCacheFileRead.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SYCacheFileRead.h; path = SYCacheFileViewController/SYCacheFileRead.h; sourceTree = "<group>"; };
+		BA8F96ACFD0390E5EBD71419FB55861F /* SYCacheFileCollection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SYCacheFileCollection.m; path = SYCacheFileViewController/SYCacheFileCollection.m; sourceTree = "<group>"; };
+		C03ACA890BC5EEDDB0F7D48D1B7469C5 /* SYCacheFileViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SYCacheFileViewController.m; path = SYCacheFileViewController/SYCacheFileViewController.m; sourceTree = "<group>"; };
+		CB353768206BDFC8CD3923F963EAB68B /* Pods-JJStockView-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JJStockView-acknowledgements.plist"; sourceTree = "<group>"; };
+		CE80E2BDBF33C0E4B0C80871BC476DE0 /* Pods-JJStockViewTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JJStockViewTests-Info.plist"; sourceTree = "<group>"; };
+		D1C7AFB481D07645C76B9676D6616CCD /* SYCacheFileViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SYCacheFileViewController.xcconfig; sourceTree = "<group>"; };
+		D51BF86412F601656C69B694C377D7F7 /* file_cacheFile@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "file_cacheFile@3x.png"; path = "SYCacheFileViewController/SYCacheFileImages/file_cacheFile@3x.png"; sourceTree = "<group>"; };
+		D6706BEEE83FB6AEA7A6653F65E965DD /* line_cacheFile.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = line_cacheFile.png; path = SYCacheFileViewController/SYCacheFileImages/line_cacheFile.png; sourceTree = "<group>"; };
+		D84930574935E787C0EAC5349BEEF13F /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/QuickLook.framework; sourceTree = DEVELOPER_DIR; };
+		D9EC38D92C59A78E873725D35F8CF02E /* zip_cacheFile@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "zip_cacheFile@3x.png"; path = "SYCacheFileViewController/SYCacheFileImages/zip_cacheFile@3x.png"; sourceTree = "<group>"; };
+		DA281074C2BEA0FE72D6BAA6A6C3F9EE /* SYCacheFileViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SYCacheFileViewController-prefix.pch"; sourceTree = "<group>"; };
+		DB920FEF195725639DAC82F9AB45C4B2 /* SYCacheFileVideo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SYCacheFileVideo.m; path = SYCacheFileViewController/SYCacheFileVideo.m; sourceTree = "<group>"; };
+		DDCF73468501D8751855794BFDA734D3 /* xls_cacheFile.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = xls_cacheFile.png; path = SYCacheFileViewController/SYCacheFileImages/xls_cacheFile.png; sourceTree = "<group>"; };
+		DE9AB634ED3EEE3A5AB4C5C8F9F71071 /* Pods-MyselfFunction-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyselfFunction-Info.plist"; sourceTree = "<group>"; };
+		DFA4BC1A66E915A177D381DEA439E7D4 /* image_cacheFile@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "image_cacheFile@2x.png"; path = "SYCacheFileViewController/SYCacheFileImages/image_cacheFile@2x.png"; sourceTree = "<group>"; };
+		E2879CA02C2C1C28CCCC2B0D5624EFD6 /* audio_cacheFile.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = audio_cacheFile.png; path = SYCacheFileViewController/SYCacheFileImages/audio_cacheFile.png; sourceTree = "<group>"; };
+		E4323457DB4413B904BBFE7749A8B3D8 /* SYCacheFileViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SYCacheFileViewController-dummy.m"; sourceTree = "<group>"; };
+		E4F0346C6EA77F387B7B558F7C7F1233 /* SYCacheFileRead.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SYCacheFileRead.m; path = SYCacheFileViewController/SYCacheFileRead.m; sourceTree = "<group>"; };
+		EC8A34021FE5F294D73D3ED9A3A78E9E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		ED309DB487A183C5131A2788163C7C9C /* Pods-JJStockView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JJStockView.release.xcconfig"; sourceTree = "<group>"; };
+		EE3DD47AB898BC027AE71E364257A86D /* Pods-JJStockView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JJStockView-dummy.m"; sourceTree = "<group>"; };
+		EE5ACF6FA66657000ED34CD2E6B88832 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/AVKit.framework; sourceTree = DEVELOPER_DIR; };
+		F0AD076E62EAC873ADA2F5E2F9890BD0 /* Pods-MyselfFunction-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MyselfFunction-dummy.m"; sourceTree = "<group>"; };
+		F31F31A7425E728BB689E1225086996C /* SYCacheFileCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SYCacheFileCell.h; path = SYCacheFileViewController/SYCacheFileCell.h; sourceTree = "<group>"; };
+		F8C98D58FBA5D254A3AF77CEDA526C23 /* Pods-JJStockViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JJStockViewTests.release.xcconfig"; sourceTree = "<group>"; };
+		FCA4E001D8D2AD0BDFD51ABC16B53FF3 /* SYCacheFileModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SYCacheFileModel.m; path = SYCacheFileViewController/SYCacheFileModel.m; sourceTree = "<group>"; };
+		FCC1D589CF8D659EB7A86F743E6C59EA /* pdf_cacheFile@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "pdf_cacheFile@3x.png"; path = "SYCacheFileViewController/SYCacheFileImages/pdf_cacheFile@3x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3D520FA3046895600404B552CE2A76BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4188D71E712604EA3A893273052C03F5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F3965F303047EED1E1CEDB2448AF17B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99999321E4CBFC82AE343FF85E19DF03 /* AVFoundation.framework in Frameworks */,
+				70D353AD0996459C9E31FCE04CCD201D /* AVKit.framework in Frameworks */,
+				4570ECEC4D4D663C956F54982462A221 /* Foundation.framework in Frameworks */,
+				FA5719675196C029A780D093ACCD6EB7 /* QuickLook.framework in Frameworks */,
+				BC38CED4186369A95F731C58B48C015B /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC9AF44E9DB6F356238172A48557423F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38B811F5FF668EBA255F8A50F9BE30EB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE41082FD547C6468782AD1C536026EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11A1C1BA8269FF265836D81299930E6A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F999A3BABD6CAE38B716D60C13344961 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FA7A21641D61C7B15A218CD0D174BA5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0D20C88B914A680FFB6515D87114E371 /* Pods-MyselfFunction */ = {
+			isa = PBXGroup;
+			children = (
+				53461CAEC04E28507A16C69F96440253 /* Pods-MyselfFunction.modulemap */,
+				44718AD8AD54DA939BD9CE88E781DC94 /* Pods-MyselfFunction-acknowledgements.markdown */,
+				49BB1357D1B2603721AB992D328A5197 /* Pods-MyselfFunction-acknowledgements.plist */,
+				F0AD076E62EAC873ADA2F5E2F9890BD0 /* Pods-MyselfFunction-dummy.m */,
+				DE9AB634ED3EEE3A5AB4C5C8F9F71071 /* Pods-MyselfFunction-Info.plist */,
+				93AF5B946AF0EF1C03F7F184C1EB2BCC /* Pods-MyselfFunction-umbrella.h */,
+				78A26BC061C0D57C280ECCA4BE0491D8 /* Pods-MyselfFunction.debug.xcconfig */,
+				795C3FF222270807634E2E5EC0705634 /* Pods-MyselfFunction.release.xcconfig */,
+			);
+			name = "Pods-MyselfFunction";
+			path = "Target Support Files/Pods-MyselfFunction";
+			sourceTree = "<group>";
+		};
+		24140DE338B25DFDDB4D270D1C9EB711 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A54E6B14DD26574B8B62A8F397F82CA4 /* apk_cacheFile.png */,
+				E2879CA02C2C1C28CCCC2B0D5624EFD6 /* audio_cacheFile.png */,
+				A18CFA46A77383BBC2FE7A6F6EE6894D /* audio_cacheFile@2x.png */,
+				0DD13BC14DD28F5DD9B4AF4DE8E7E060 /* audio_cacheFile@3x.png */,
+				31127558998F7F1518426EF6016BB036 /* doc_cacheFile.png */,
+				0CBA922336B646E699E82F000493A92B /* doc_cacheFile@2x.png */,
+				56F7A00C37969753B7E1364390542257 /* doc_cacheFile@3x.png */,
+				0098343F1F046423BECF586791E160E7 /* file_cacheFile.png */,
+				B208ABE84EF2E846B983EC47AA24A39E /* file_cacheFile@2x.png */,
+				D51BF86412F601656C69B694C377D7F7 /* file_cacheFile@3x.png */,
+				19A1CDA730BA0811E902E1F5EEEF7E32 /* folder_cacheFile.png */,
+				B5ACEF3ED5380830163BDA75F2083AE0 /* folder_cacheFile@2x.png */,
+				5A8148D1E9563AA0CB7AFED6B0AF2831 /* folder_cacheFile@3x.png */,
+				903CDF2BD399B9129CF91AA42EBFFE30 /* image_cacheFile.png */,
+				DFA4BC1A66E915A177D381DEA439E7D4 /* image_cacheFile@2x.png */,
+				6E516EB246DADB096E6770FC6D1DE547 /* image_cacheFile@3x.png */,
+				D6706BEEE83FB6AEA7A6653F65E965DD /* line_cacheFile.png */,
+				A444EB597D5CD0A3DB229A26A9B9412B /* pdf_cacheFile.png */,
+				7B510FE3BEA1424E98E8F016E2EC2D6E /* pdf_cacheFile@2x.png */,
+				FCC1D589CF8D659EB7A86F743E6C59EA /* pdf_cacheFile@3x.png */,
+				4E3066435F194FD14907A698130FCA60 /* ppt_cacheFile.png */,
+				06D5761D709955055DBFB57D4B5C3D6E /* ppt_cacheFile@2x.png */,
+				8E833F6869CDE8E567F86CDB3EB36310 /* ppt_cacheFile@3x.png */,
+				33D6F78CD71C7DBB9F229A841CFEBDF3 /* video_cacheFile.png */,
+				172E887114AB025D3F137E51453CB946 /* video_cacheFile@2x.png */,
+				6CCCDD4B41D2B36361F7338DD2A67087 /* video_cacheFile@3x.png */,
+				DDCF73468501D8751855794BFDA734D3 /* xls_cacheFile.png */,
+				300A3DD9E6E6FBA081D3A1E9A5F47CE3 /* xls_cacheFile@2x.png */,
+				1505C75FDE1A9179A00D41E6E8D139FC /* xls_cacheFile@3x.png */,
+				76BE3CE23587544EDE968B680EA98C24 /* zip_cacheFile.png */,
+				8CE4469475A74EE94146BDC8D7FFDD15 /* zip_cacheFile@2x.png */,
+				D9EC38D92C59A78E873725D35F8CF02E /* zip_cacheFile@3x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2519C3E58E5899CC8AB6C4C8289F2C62 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2170BD2CAEBD9CC32FB2CF4D2D591970 /* Pods_JJStockView.framework */,
+				6324AEE3CE5D4669261DC1123C8DB2A7 /* Pods_JJStockViewTests.framework */,
+				3AEF63768A9C6D1EA8D8026D02C52A8C /* Pods_JJStockViewUITests.framework */,
+				338CFE456912D7617EA9B6917866D525 /* Pods_MyselfFunction.framework */,
+				6DE28023243D6682E2389A97DE63416C /* SYCacheFileViewController.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6A247D436188EE93F19BFFE0B24E0B27 /* Pods-JJStockView */ = {
+			isa = PBXGroup;
+			children = (
+				5A9B74B0AEDA058498D7D0F049089001 /* Pods-JJStockView.modulemap */,
+				7B0B28AF0D46555AD17A58A4EAF7751B /* Pods-JJStockView-acknowledgements.markdown */,
+				CB353768206BDFC8CD3923F963EAB68B /* Pods-JJStockView-acknowledgements.plist */,
+				EE3DD47AB898BC027AE71E364257A86D /* Pods-JJStockView-dummy.m */,
+				087B0C3037E810DBBDCD474308CBCFB7 /* Pods-JJStockView-frameworks.sh */,
+				11D7DF82ED68A28F71BB2640BE39E4A8 /* Pods-JJStockView-Info.plist */,
+				4AFDE7338D87D320F197B855161E9324 /* Pods-JJStockView-umbrella.h */,
+				72842E4640D7EAE8DCCFE244505B79B2 /* Pods-JJStockView.debug.xcconfig */,
+				ED309DB487A183C5131A2788163C7C9C /* Pods-JJStockView.release.xcconfig */,
+			);
+			name = "Pods-JJStockView";
+			path = "Target Support Files/Pods-JJStockView";
+			sourceTree = "<group>";
+		};
+		7CD8A79BA1927DB7DF1585A05D864E53 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BF90A5AF5E1486963D42C129E1ADD08D /* SYCacheFileViewController */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7F8FD25E555787FA2D8BD92849EE541B /* Pods-JJStockViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				6AC8D9B8C3A43989D1E7027B02FD66E5 /* Pods-JJStockViewTests.modulemap */,
+				9A44C6B93C1E65807ED73CEB1F0D6829 /* Pods-JJStockViewTests-acknowledgements.markdown */,
+				1B75DE21899E3E29E8E8A36DCF8FA963 /* Pods-JJStockViewTests-acknowledgements.plist */,
+				ACFB6EC95FAD2056322407F56E221FC5 /* Pods-JJStockViewTests-dummy.m */,
+				CE80E2BDBF33C0E4B0C80871BC476DE0 /* Pods-JJStockViewTests-Info.plist */,
+				0CE09D5C71DFDDC640A9E333256FB793 /* Pods-JJStockViewTests-umbrella.h */,
+				A4C07E7DE134025DD208196615035DA9 /* Pods-JJStockViewTests.debug.xcconfig */,
+				F8C98D58FBA5D254A3AF77CEDA526C23 /* Pods-JJStockViewTests.release.xcconfig */,
+			);
+			name = "Pods-JJStockViewTests";
+			path = "Target Support Files/Pods-JJStockViewTests";
+			sourceTree = "<group>";
+		};
+		86FB5682EBF5E2629464AA22AE36D208 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6A247D436188EE93F19BFFE0B24E0B27 /* Pods-JJStockView */,
+				7F8FD25E555787FA2D8BD92849EE541B /* Pods-JJStockViewTests */,
+				A5E0657192F5BEC2C4F73F96E3DC2EB3 /* Pods-JJStockViewUITests */,
+				0D20C88B914A680FFB6515D87114E371 /* Pods-MyselfFunction */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		A5E0657192F5BEC2C4F73F96E3DC2EB3 /* Pods-JJStockViewUITests */ = {
+			isa = PBXGroup;
+			children = (
+				57AADF2D9EEAA2B069B89851158EDCA0 /* Pods-JJStockViewUITests.modulemap */,
+				A5DD8912CCCB8D835D93F15A03232800 /* Pods-JJStockViewUITests-acknowledgements.markdown */,
+				4A0E988EA0092EF785619D10663A9A8F /* Pods-JJStockViewUITests-acknowledgements.plist */,
+				8DF8321F1AEBEEB0582DE7C858A56234 /* Pods-JJStockViewUITests-dummy.m */,
+				63461153725A91BC525CC2A094F35E85 /* Pods-JJStockViewUITests-Info.plist */,
+				83225D18F95EA73B22D0746255F49384 /* Pods-JJStockViewUITests-umbrella.h */,
+				9CD29164F7F214C20918FDD90E30B988 /* Pods-JJStockViewUITests.debug.xcconfig */,
+				8EF86565F6E316EF7487EEFFC7D9EF62 /* Pods-JJStockViewUITests.release.xcconfig */,
+			);
+			name = "Pods-JJStockViewUITests";
+			path = "Target Support Files/Pods-JJStockViewUITests";
+			sourceTree = "<group>";
+		};
+		B94D7768568A9992200DB461E8CF687F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DF2861F42D7A8E4F0F1072A6E73A6D8D /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF90A5AF5E1486963D42C129E1ADD08D /* SYCacheFileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3024BE543B5BE26FC394004428F93620 /* SYCacheFileAudio.h */,
+				35E1AA8A03F0C63E2FD048AB444D7A2D /* SYCacheFileAudio.m */,
+				F31F31A7425E728BB689E1225086996C /* SYCacheFileCell.h */,
+				1BA6C50538EC10D9FA3D1808BB3E1E79 /* SYCacheFileCell.m */,
+				1A0BF5548A9ED42214F069030C48CEB3 /* SYCacheFileCollection.h */,
+				BA8F96ACFD0390E5EBD71419FB55861F /* SYCacheFileCollection.m */,
+				83E6801B23C4ADFDB7C692B13B5E8DBD /* SYCacheFileCollectionCell.h */,
+				2EC77BCF1AA0A5F8607C06295A30DC8B /* SYCacheFileCollectionCell.m */,
+				39978DC24DF759B37D20CDD159DD92FD /* SYCacheFileDefine.h */,
+				71807F26DA87461D8313EE4203CBD078 /* SYCacheFileImage.h */,
+				ABCAD4C14D1C0FE4D31FD97354BF7E11 /* SYCacheFileImage.m */,
+				6DDB935BA60FED32279C5D20626961DA /* SYCacheFileManager.h */,
+				1358243DBA43CBC0EDEA36AE86A9661D /* SYCacheFileManager.m */,
+				757E82369E7DE10E19ACEE97F031C214 /* SYCacheFileModel.h */,
+				FCA4E001D8D2AD0BDFD51ABC16B53FF3 /* SYCacheFileModel.m */,
+				BA7C6FF538F852EC8E79850CD0355D1A /* SYCacheFileRead.h */,
+				E4F0346C6EA77F387B7B558F7C7F1233 /* SYCacheFileRead.m */,
+				A8AA1D95844EBD97AAF3CF06B7A5A590 /* SYCacheFileTable.h */,
+				82A1B0492F65AD49011D126050B7C6C7 /* SYCacheFileTable.m */,
+				54E2282214CDFA9BCD4E77FB2766C519 /* SYCacheFileVideo.h */,
+				DB920FEF195725639DAC82F9AB45C4B2 /* SYCacheFileVideo.m */,
+				0CD415D1C648E495BBD4EDB13ED2C999 /* SYCacheFileViewController.h */,
+				C03ACA890BC5EEDDB0F7D48D1B7469C5 /* SYCacheFileViewController.m */,
+				24140DE338B25DFDDB4D270D1C9EB711 /* Resources */,
+				E18BE5416B0B82F66EEFAAA935ECECF8 /* Support Files */,
+			);
+			name = SYCacheFileViewController;
+			path = SYCacheFileViewController;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				B94D7768568A9992200DB461E8CF687F /* Frameworks */,
+				7CD8A79BA1927DB7DF1585A05D864E53 /* Pods */,
+				2519C3E58E5899CC8AB6C4C8289F2C62 /* Products */,
+				86FB5682EBF5E2629464AA22AE36D208 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		DF2861F42D7A8E4F0F1072A6E73A6D8D /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				1A729DA313897AF98F25D942B8CA0B61 /* AVFoundation.framework */,
+				EE5ACF6FA66657000ED34CD2E6B88832 /* AVKit.framework */,
+				EC8A34021FE5F294D73D3ED9A3A78E9E /* Foundation.framework */,
+				D84930574935E787C0EAC5349BEEF13F /* QuickLook.framework */,
+				60DBF108DDFDCB91EEB1331200C5A464 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		E18BE5416B0B82F66EEFAAA935ECECF8 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6B7DDD0BF187EE60E634A26AA3826D1A /* SYCacheFileViewController.modulemap */,
+				D1C7AFB481D07645C76B9676D6616CCD /* SYCacheFileViewController.xcconfig */,
+				E4323457DB4413B904BBFE7749A8B3D8 /* SYCacheFileViewController-dummy.m */,
+				543FB85115487B153FEC3710F1ECAF8D /* SYCacheFileViewController-Info.plist */,
+				DA281074C2BEA0FE72D6BAA6A6C3F9EE /* SYCacheFileViewController-prefix.pch */,
+				40BEE28DE87BCDF65E768F7C4AA60FD4 /* SYCacheFileViewController-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SYCacheFileViewController";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2AD730482897BD0D820BCFCBFB4C90D0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				160A700A831E65630213047B412DD0BE /* SYCacheFileAudio.h in Headers */,
+				41393BCA1D9C683FEE5F1D0D86367A36 /* SYCacheFileCell.h in Headers */,
+				4118CB515CCBED4EB3408CEFE5770CBC /* SYCacheFileCollection.h in Headers */,
+				92014A09B7489F513AF8DF75B30DF848 /* SYCacheFileCollectionCell.h in Headers */,
+				E6EB4F698F560B2E605ACB40FDD652E3 /* SYCacheFileDefine.h in Headers */,
+				1DAFF19253EA64B9C6475149F5CC6C36 /* SYCacheFileImage.h in Headers */,
+				A3E9B81AB0A667E3FB26A2E5B3C69AAB /* SYCacheFileManager.h in Headers */,
+				38214FDD1402EAED0BFFB6FA6725EF72 /* SYCacheFileModel.h in Headers */,
+				361F775859E36E52125D8DAAB4057112 /* SYCacheFileRead.h in Headers */,
+				A1AD4323F9A0DDB99F26CA96FDEFC908 /* SYCacheFileTable.h in Headers */,
+				0F737ED590E2EFF4DE273BF773D1A4C7 /* SYCacheFileVideo.h in Headers */,
+				377D19D72E7F0923E75C0855087EA0F0 /* SYCacheFileViewController-umbrella.h in Headers */,
+				597202EB2E3A0B8896AA5A2488FF0EE0 /* SYCacheFileViewController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EE00CB704D537807FE48FE35D90E285 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A23A49F8E258541959BAD3B91F09EC87 /* Pods-JJStockViewTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A104351A302A793543196EE9FB18577E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE8DC3BE968BD74D84181E35213739CF /* Pods-JJStockViewUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A65A1401C271ED56B03AF4DB7AFE3734 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A7BF0E2A6FE3DF0A0777494C662C5B6 /* Pods-MyselfFunction-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBD0664E4A711EA2493048AB4F1A7F18 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74C89D843993EC8B1CF38D4AE9CA928F /* Pods-JJStockView-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		18CE3063E2B3FDF4AF3153B4343C7F87 /* Pods-JJStockViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E16209118718F169C862A7A51D69092 /* Build configuration list for PBXNativeTarget "Pods-JJStockViewTests" */;
+			buildPhases = (
+				2EE00CB704D537807FE48FE35D90E285 /* Headers */,
+				D4391CCE6E6E51CFFC9AC2901CFA9565 /* Sources */,
+				F999A3BABD6CAE38B716D60C13344961 /* Frameworks */,
+				A6A826CF3C91C426D78DE72F69A18ED6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2917DE0561C97878497355AC0235515E /* PBXTargetDependency */,
+			);
+			name = "Pods-JJStockViewTests";
+			productName = "Pods-JJStockViewTests";
+			productReference = 6324AEE3CE5D4669261DC1123C8DB2A7 /* Pods_JJStockViewTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		64731B53D7E27CC61875ABA630B9D4EB /* Pods-JJStockViewUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 896FDBAC3D07E02DB79A1C47656184B9 /* Build configuration list for PBXNativeTarget "Pods-JJStockViewUITests" */;
+			buildPhases = (
+				A104351A302A793543196EE9FB18577E /* Headers */,
+				0F284391D1D70AE5959B4F559D346000 /* Sources */,
+				DE41082FD547C6468782AD1C536026EB /* Frameworks */,
+				84D98365AF60C01F284B31EA825D083B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6C8509DCFA466DDD886C57E262FEC411 /* PBXTargetDependency */,
+			);
+			name = "Pods-JJStockViewUITests";
+			productName = "Pods-JJStockViewUITests";
+			productReference = 3AEF63768A9C6D1EA8D8026D02C52A8C /* Pods_JJStockViewUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		836F7A21D89FBC6F0AF2F09CFDD261D2 /* SYCacheFileViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBF52DBD52AE42C8FCB9C9C88BF2B5EF /* Build configuration list for PBXNativeTarget "SYCacheFileViewController" */;
+			buildPhases = (
+				2AD730482897BD0D820BCFCBFB4C90D0 /* Headers */,
+				C20F6D6C762A76C29A08A97D81E7C6AB /* Sources */,
+				7F3965F303047EED1E1CEDB2448AF17B /* Frameworks */,
+				11885B20254925B987CF3D57BAE97517 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SYCacheFileViewController;
+			productName = SYCacheFileViewController;
+			productReference = 6DE28023243D6682E2389A97DE63416C /* SYCacheFileViewController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E1C331C5614EA261B91816CA59867EE6 /* Pods-JJStockView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEA0F73CA6FEDBC011AB5EB1C27D2942 /* Build configuration list for PBXNativeTarget "Pods-JJStockView" */;
+			buildPhases = (
+				CBD0664E4A711EA2493048AB4F1A7F18 /* Headers */,
+				F1A363FAFC3B0FA072867AEA93BE151C /* Sources */,
+				BC9AF44E9DB6F356238172A48557423F /* Frameworks */,
+				B6383955CE2BCE2299DF50C4038D8E41 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E8B46A70456D51CE3D0E04AF90C02B1B /* PBXTargetDependency */,
+			);
+			name = "Pods-JJStockView";
+			productName = "Pods-JJStockView";
+			productReference = 2170BD2CAEBD9CC32FB2CF4D2D591970 /* Pods_JJStockView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F3F88214000001C284953D0D0D031ECB /* Pods-MyselfFunction */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B26F64AC3D3734BD2E39BFC72FEFD50 /* Build configuration list for PBXNativeTarget "Pods-MyselfFunction" */;
+			buildPhases = (
+				A65A1401C271ED56B03AF4DB7AFE3734 /* Headers */,
+				B6C91A78E80779D35646DBAD98A78735 /* Sources */,
+				3D520FA3046895600404B552CE2A76BB /* Frameworks */,
+				191A04D7C59F4CEBF62F2E12B65D1844 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-MyselfFunction";
+			productName = "Pods-MyselfFunction";
+			productReference = 338CFE456912D7617EA9B6917866D525 /* Pods_MyselfFunction.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 2519C3E58E5899CC8AB6C4C8289F2C62 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E1C331C5614EA261B91816CA59867EE6 /* Pods-JJStockView */,
+				18CE3063E2B3FDF4AF3153B4343C7F87 /* Pods-JJStockViewTests */,
+				64731B53D7E27CC61875ABA630B9D4EB /* Pods-JJStockViewUITests */,
+				F3F88214000001C284953D0D0D031ECB /* Pods-MyselfFunction */,
+				836F7A21D89FBC6F0AF2F09CFDD261D2 /* SYCacheFileViewController */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		11885B20254925B987CF3D57BAE97517 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21078F9767BC1A0BCB915A826AF75164 /* apk_cacheFile.png in Resources */,
+				2EB559901BED0E47B51E3D8922C673CD /* audio_cacheFile.png in Resources */,
+				68E22ACFA98AD56D8315ADF7C7EC1E10 /* audio_cacheFile@2x.png in Resources */,
+				9E479666E521B923E694455662EDE1ED /* audio_cacheFile@3x.png in Resources */,
+				2BBB3496717827D3280D21D2605522C0 /* doc_cacheFile.png in Resources */,
+				81ABD781CC3DEE4B90381FE2FE0B0D48 /* doc_cacheFile@2x.png in Resources */,
+				E7B928708C01D4EA8EE313A80050953E /* doc_cacheFile@3x.png in Resources */,
+				82EEEED608E28E59A3D403CBF4E562B6 /* file_cacheFile.png in Resources */,
+				032A531B537CBF65AFCAC382FAD2F568 /* file_cacheFile@2x.png in Resources */,
+				EA1A5CB87F183F9405842EAB99487111 /* file_cacheFile@3x.png in Resources */,
+				66E9DFD537804E512483410F84F3F323 /* folder_cacheFile.png in Resources */,
+				95BC47E60F59DCDF15DCC29BCA84EC9B /* folder_cacheFile@2x.png in Resources */,
+				F634D7F6362F8A90E1F6F764CC0790AB /* folder_cacheFile@3x.png in Resources */,
+				E329C8D403E87C75268BE0473F64B19D /* image_cacheFile.png in Resources */,
+				C2637F8E9D349F15C78E1830614FFED4 /* image_cacheFile@2x.png in Resources */,
+				AFF957090536F2918BFD2609F3FCC45D /* image_cacheFile@3x.png in Resources */,
+				10AF0A21DA9E4DC0A22CB0AAD2883785 /* line_cacheFile.png in Resources */,
+				5BAA9CCC38399F08C1D1B94A3B576CCF /* pdf_cacheFile.png in Resources */,
+				FE81D4111BE8AA961BF0F4BB62C66F49 /* pdf_cacheFile@2x.png in Resources */,
+				08050E76A6D5388BD19CC66F831A72CF /* pdf_cacheFile@3x.png in Resources */,
+				F9C0A77B84CAF53601DC532CD822C089 /* ppt_cacheFile.png in Resources */,
+				8424F2256BC645B1062DED986A5EBA6D /* ppt_cacheFile@2x.png in Resources */,
+				A91F3656F2B6A825C563181509701B32 /* ppt_cacheFile@3x.png in Resources */,
+				FE00FE2454AEB12121028C0988CA98EC /* video_cacheFile.png in Resources */,
+				35659CF8D358A9972B5416FD6BC6B31F /* video_cacheFile@2x.png in Resources */,
+				98C46781BEB30D71C9583239FE73A214 /* video_cacheFile@3x.png in Resources */,
+				2DE7386E9D5F56547DB722AF260016F3 /* xls_cacheFile.png in Resources */,
+				CF8041437E5CB41F92295D44C387BD95 /* xls_cacheFile@2x.png in Resources */,
+				8583D8631CFB6494918CDBFECE552517 /* xls_cacheFile@3x.png in Resources */,
+				296311C0E33DAE29959055FC81D89B62 /* zip_cacheFile.png in Resources */,
+				2B58C96D89A64EE525397992A0463211 /* zip_cacheFile@2x.png in Resources */,
+				0905EA338BA03784987411DA62479D15 /* zip_cacheFile@3x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		191A04D7C59F4CEBF62F2E12B65D1844 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84D98365AF60C01F284B31EA825D083B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6A826CF3C91C426D78DE72F69A18ED6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6383955CE2BCE2299DF50C4038D8E41 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0F284391D1D70AE5959B4F559D346000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C65C7487B704E4CAACF673910ECDEB8 /* Pods-JJStockViewUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6C91A78E80779D35646DBAD98A78735 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6F8C978728A44A51961086AFB52BDC2 /* Pods-MyselfFunction-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C20F6D6C762A76C29A08A97D81E7C6AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40EFAB97C49151BA5C9DC9F3ACF689DF /* SYCacheFileAudio.m in Sources */,
+				36E0A6E1C9B958E02ED9FB66A1A7E750 /* SYCacheFileCell.m in Sources */,
+				4D530A0D51DE8EF4FB63BB1C4DA57FA5 /* SYCacheFileCollection.m in Sources */,
+				86BF1CB3F712F454B0128B176DFCD42D /* SYCacheFileCollectionCell.m in Sources */,
+				5170AD58652EFD92D9F1A16523C32EFF /* SYCacheFileImage.m in Sources */,
+				8A0021D92A20B325A61C22DA48AC783C /* SYCacheFileManager.m in Sources */,
+				AC3FF2330F5A71769571EBE4ABC668E3 /* SYCacheFileModel.m in Sources */,
+				FA28ED8CFC7B64CABB9FC3D841C7BC7C /* SYCacheFileRead.m in Sources */,
+				4A31AAC184124AED361E2B25F0DF424F /* SYCacheFileTable.m in Sources */,
+				AB4CA0788AB196F1E67B18F678593AD9 /* SYCacheFileVideo.m in Sources */,
+				D0FB25F2EE5D19BC77BB9EB30259F6D5 /* SYCacheFileViewController-dummy.m in Sources */,
+				3C2D2BF78CF7E53F5BDC764A2152E2E3 /* SYCacheFileViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4391CCE6E6E51CFFC9AC2901CFA9565 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52732C1F494D87A327577B68D788F1EE /* Pods-JJStockViewTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1A363FAFC3B0FA072867AEA93BE151C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3BE11CA19AF256C664BF67511FAD382 /* Pods-JJStockView-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2917DE0561C97878497355AC0235515E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-JJStockView";
+			target = E1C331C5614EA261B91816CA59867EE6 /* Pods-JJStockView */;
+			targetProxy = 1F4E2C4953063E35DC068F8172A49630 /* PBXContainerItemProxy */;
+		};
+		6C8509DCFA466DDD886C57E262FEC411 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-JJStockView";
+			target = E1C331C5614EA261B91816CA59867EE6 /* Pods-JJStockView */;
+			targetProxy = 1E88F6D4FE71151B3D2B9817D60F8714 /* PBXContainerItemProxy */;
+		};
+		E8B46A70456D51CE3D0E04AF90C02B1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SYCacheFileViewController;
+			target = 836F7A21D89FBC6F0AF2F09CFDD261D2 /* SYCacheFileViewController */;
+			targetProxy = 27B336D9DF3BB36FB26D3C8605D81DD2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		115A137789354C5F1236F7A34DFF7510 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1C7AFB481D07645C76B9676D6616CCD /* SYCacheFileViewController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SYCacheFileViewController/SYCacheFileViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SYCacheFileViewController/SYCacheFileViewController-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SYCacheFileViewController/SYCacheFileViewController.modulemap";
+				PRODUCT_MODULE_NAME = SYCacheFileViewController;
+				PRODUCT_NAME = SYCacheFileViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		29639D6E049F5BC0F165B4121EC045E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78A26BC061C0D57C280ECCA4BE0491D8 /* Pods-MyselfFunction.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MyselfFunction/Pods-MyselfFunction-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MyselfFunction/Pods-MyselfFunction.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		38468F564D5C693A29AD39B93F68CBC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EF86565F6E316EF7487EEFFC7D9EF62 /* Pods-JJStockViewUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-JJStockViewUITests/Pods-JJStockViewUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-JJStockViewUITests/Pods-JJStockViewUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		39BFCB28D2A470833AC09767F60C07BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72842E4640D7EAE8DCCFE244505B79B2 /* Pods-JJStockView.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-JJStockView/Pods-JJStockView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-JJStockView/Pods-JJStockView.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4BE66A09A74FD25164AAB3C2645B9B93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		748CCBD175837FFF3D4CFAFBA1368393 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED309DB487A183C5131A2788163C7C9C /* Pods-JJStockView.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-JJStockView/Pods-JJStockView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-JJStockView/Pods-JJStockView.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		78DA7399FB92EF95D4C23BCE28B919D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CD29164F7F214C20918FDD90E30B988 /* Pods-JJStockViewUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-JJStockViewUITests/Pods-JJStockViewUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-JJStockViewUITests/Pods-JJStockViewUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7EF7227D9B20A1D549000096ACCB23D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		B9BBA305C4B565980DBED46B73FD6EEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8C98D58FBA5D254A3AF77CEDA526C23 /* Pods-JJStockViewTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-JJStockViewTests/Pods-JJStockViewTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-JJStockViewTests/Pods-JJStockViewTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C05C38C0C44771A37A984AF6F7F73797 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1C7AFB481D07645C76B9676D6616CCD /* SYCacheFileViewController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SYCacheFileViewController/SYCacheFileViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SYCacheFileViewController/SYCacheFileViewController-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SYCacheFileViewController/SYCacheFileViewController.modulemap";
+				PRODUCT_MODULE_NAME = SYCacheFileViewController;
+				PRODUCT_NAME = SYCacheFileViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DA70AB965EC68077A0AE1CF6F5C9155B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4C07E7DE134025DD208196615035DA9 /* Pods-JJStockViewTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-JJStockViewTests/Pods-JJStockViewTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-JJStockViewTests/Pods-JJStockViewTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F6C44F71ACF3E2CD7D80D6CE62C0EFF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 795C3FF222270807634E2E5EC0705634 /* Pods-MyselfFunction.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MyselfFunction/Pods-MyselfFunction-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MyselfFunction/Pods-MyselfFunction.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EF7227D9B20A1D549000096ACCB23D7 /* Debug */,
+				4BE66A09A74FD25164AAB3C2645B9B93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		896FDBAC3D07E02DB79A1C47656184B9 /* Build configuration list for PBXNativeTarget "Pods-JJStockViewUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78DA7399FB92EF95D4C23BCE28B919D4 /* Debug */,
+				38468F564D5C693A29AD39B93F68CBC2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B26F64AC3D3734BD2E39BFC72FEFD50 /* Build configuration list for PBXNativeTarget "Pods-MyselfFunction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29639D6E049F5BC0F165B4121EC045E2 /* Debug */,
+				F6C44F71ACF3E2CD7D80D6CE62C0EFF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E16209118718F169C862A7A51D69092 /* Build configuration list for PBXNativeTarget "Pods-JJStockViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA70AB965EC68077A0AE1CF6F5C9155B /* Debug */,
+				B9BBA305C4B565980DBED46B73FD6EEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEA0F73CA6FEDBC011AB5EB1C27D2942 /* Build configuration list for PBXNativeTarget "Pods-JJStockView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39BFCB28D2A470833AC09767F60C07BD /* Debug */,
+				748CCBD175837FFF3D4CFAFBA1368393 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FBF52DBD52AE42C8FCB9C9C88BF2B5EF /* Build configuration list for PBXNativeTarget "SYCacheFileViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				115A137789354C5F1236F7A34DFF7510 /* Debug */,
+				C05C38C0C44771A37A984AF6F7F73797 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

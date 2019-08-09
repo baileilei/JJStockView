@@ -18,6 +18,12 @@
 
 #import "YYDateUtil.h"
 #import "YYStockModel.h"
+#import "NSString+storeImagePath.h"
+
+#import <Photos/Photos.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+#import "SYCacheFileViewController.h"
+#import "SYCacheFileManager.h"
 
 #define columnCount 18
 
@@ -32,6 +38,8 @@ static int count = 1;
 @property (nonatomic,strong) NSMutableArray *stocks;
 
 @property (nonatomic, strong) NSTimer *timer;
+
+@property (nonatomic,strong) YYRedeemModel *currentModel;
 
 @end
 
@@ -54,7 +62,7 @@ static int count = 1;
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleDone target:self action:@selector(p_back)];
     self.navigationItem.leftBarButtonItem = leftItem;
     
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"查看" style:UIBarButtonItemStyleDone target:self action:@selector(p_checkSum)];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"查看沙盒" style:UIBarButtonItemStyleDone target:self action:@selector(p_checkSum)];
     
     UIBarButtonItem *rightItem1 = [[UIBarButtonItem alloc] initWithTitle:@"刷新" style:UIBarButtonItemStyleDone target:self action:@selector(p_refresh)];
     
@@ -65,7 +73,12 @@ static int count = 1;
     
     [self.timer setFireDate:[NSDate date]];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toHandleImage) name:@"GetPicPath" object:nil];
    
+}
+
+-(void)toHandleImage{
+    
 }
 
 #pragma mark - Stock DataSource
@@ -100,6 +113,7 @@ static int count = 1;
             case 0:
                 //                btnTitle = [NSString stringWithFormat:@"%.2f%%",ratio * 100];
                 btnTitle = model.noteDate?model.noteDate : @"2019-";//[NSString stringWithFormat:model.noteDate];
+                btnTitle = @"添加图片";
                 
                 break;
             case 1:
@@ -133,7 +147,7 @@ static int count = 1;
 //                btnTitle = model.sprice;//输入框？
                 break;
             case 11:
-//                btnTitle = model.issue_dt;
+                btnTitle = @"查看图片";
                 break;
             case 12:
 //                btnTitle = model.list_dt.length > 0 ? model.list_dt : model.price_tips;//@"买入策略";//输入框？
@@ -165,7 +179,7 @@ static int count = 1;
         label.text = [NSString stringWithFormat:@"%@",btnTitle];
         label.textAlignment = NSTextAlignmentCenter;
         [bg addSubview:label];
-        if ([btnTitle isEqualToString:model.stock_id] || [btnTitle isEqualToString:[NSString stringWithFormat:@"K-%@",model.bond_id]] ||  [btnTitle isEqualToString:[NSString stringWithFormat:@"SK-%@",model.stock_id]] || [btnTitle isEqualToString:[NSString stringWithFormat:@"SC-%@",model.stock_id]] || [btnTitle hasPrefix:@"2019"]) {
+        if ([btnTitle isEqualToString:model.stock_id] || [btnTitle isEqualToString:[NSString stringWithFormat:@"K-%@",model.bond_id]] ||  [btnTitle isEqualToString:[NSString stringWithFormat:@"SK-%@",model.stock_id]] || [btnTitle isEqualToString:[NSString stringWithFormat:@"SC-%@",model.stock_id]] || [btnTitle hasPrefix:@"2019"]|| [btnTitle isEqualToString:@"添加图片"] || [btnTitle isEqualToString:@"查看图片"]) {
             [bg addSubview:button];
         }
         
@@ -373,10 +387,10 @@ static int count = 1;
             
 
             
-//            if (stockModel.redeem_real_days.integerValue > 0 || [stockModel.bond_nm isEqualToString:@"道氏转债"] || [stockModel.bond_nm isEqualToString:@"杭电转债"]) {
+            if (stockModel.redeem_real_days.integerValue > 0 || [stockModel.bond_nm isEqualToString:@"道氏转债"] || [stockModel.bond_nm isEqualToString:@"杭电转债"]) {
 //                [temp addObject:stockModel];
                 [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"myFocus"];
-//            }
+            }
         }
 
 
@@ -395,7 +409,20 @@ static int count = 1;
 - (void)buttonAction:(UIButton*)sender{
     NSLog(@"Button Row:%ld",sender.tag);
     
-    if ([sender.currentTitle hasPrefix:@"2019"]) {
+    if ([sender.currentTitle isEqualToString:@"查看图片"]) {
+        // 打开相册
+        self.currentModel = self.stocks[sender.tag];
+        
+       
+        
+        return;
+    }else if ([sender.currentTitle isEqualToString:@"添加图片"]) {
+        // 打开相册
+        self.currentModel = self.stocks[sender.tag];
+        [self setImageLimit];
+        
+        return;
+    }else if ([sender.currentTitle hasPrefix:@"2019"]) {
         
         NSDateFormatter *minDateFormater = [[NSDateFormatter alloc] init];
         [minDateFormater setDateFormat:@"yyyy-MM-dd HH:mm"];
@@ -548,4 +575,114 @@ static int count = 1;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(void)p_checkSum{
+    SYCacheFileViewController *cacheVC = [[SYCacheFileViewController alloc] init];
+
+    //    // 指定文件格式
+//    [SYCacheFileManager shareManager].cacheDocumentTypes = @[@".pages", @"wps", @".xls", @".pdf", @".rar",@".jpg"];
+//
+//    // 指定目录，或默认目录
+    NSString *path = [SYCacheFileManager libraryDirectoryPath];
+    NSString *imgPath = [path stringByAppendingString:@"/PlugImage"];
+    NSArray *array = [[SYCacheFileManager shareManager] fileModelsWithFilePath:imgPath];
+    cacheVC.cacheArray = [NSMutableArray arrayWithArray:array];
+
+    // 标题
+    cacheVC.cacheTitle = @"我的缓存文件";
+
+    // 单图或多图浏览
+    [SYCacheFileManager shareManager].showImageShuffling = YES;
+
+    // 文件浏览方式
+    [SYCacheFileManager shareManager].showDoucumentUI = YES;
+
+    // 列表，或九宫格显示
+//    cacheVC.showType = 1;
+    
+    //
+    [self.navigationController pushViewController:cacheVC animated:YES];
+}
+
+
+//相册权限
+- (void)setImageLimit {
+    __weak typeof (self)weakSelf = self;
+    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    if (status == PHAuthorizationStatusNotDetermined) {//用户第一次访问
+        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+            if (status == PHAuthorizationStatusAuthorized){//允许
+                [weakSelf chooseImages];
+            } else {//拒绝
+                
+            }
+        }];
+    }
+    else if (status == PHAuthorizationStatusAuthorized) {
+        [weakSelf chooseImages];
+    }
+    else {//用户拒绝授权
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"notice" message:@"tip_photoFail" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"confirm" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [weakSelf chooseImages];
+            
+        }];
+        [alertC addAction:sureAction];
+        [self presentViewController:alertC animated:YES completion:nil];
+    }
+    
+}
+
+// 图片选择
+- (void)chooseImages {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+    {
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        //  获取主框架的背景颜色
+        picker.navigationBar.barTintColor = self.navigationController.navigationBar.barTintColor;
+        //  获取主框架非title外的颜色
+        picker.navigationBar.tintColor = self.navigationController.navigationBar.tintColor;
+        //  获取主框架的title颜色
+        [picker.navigationBar setTitleTextAttributes:self.navigationController.navigationBar.titleTextAttributes];
+        //设置当前控制器为picker对象的代理
+        picker.delegate = self;
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [self presentViewController:picker animated:YES completion:nil];
+    }
+}
+
+#pragma mark - 选取图片的具体方法
+/**
+ *  从相册获取图片的方法
+ */
+- (void)selectFromPhotoAlbumWithUIImagePickerController:(UIImagePickerController *)imgPicker{
+    //  从现有的照片库取照片
+    imgPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:imgPicker animated:YES completion:nil];
+}
+
+#pragma mark UIImagePickerController的代理方法
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    UIImage *img = info[@"UIImagePickerControllerOriginalImage"];
+    // 压缩图片
+    //    UIImage *afterScalImg = [self imageWithImageSimple:img scaledToSize:CGSizeMake(210.0, 210.0)];
+    // 保存图片
+    NSString *imgPath = [NSString saveImg:img];
+    
+    [self.currentModel.beiWangImagePaths addObject:imgPath];
+    
+    [XMGSqliteModelTool saveOrUpdateModel:self.currentModel uid:@"myFocus"];
+    
+    //  退出
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"GetPicPath" object:imgPath];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+// 压缩图片
+- (UIImage *)imageWithImageSimple:(UIImage *)img scaledToSize:(CGSize)newSize{
+    UIGraphicsBeginImageContext(newSize);
+    [img drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
 @end
