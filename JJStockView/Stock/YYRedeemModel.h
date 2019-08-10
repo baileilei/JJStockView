@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) NSString *convert_value;//转股价值
 @property (nonatomic,copy) NSString *year_left;//剩余年限
 @property (nonatomic,copy) NSString *stock_id;//股票代码
-
+@property (nonatomic,copy) NSString *market;// sz
 /*
  "after_next_put_dt" = 0;
  "bond_id" = 128030;

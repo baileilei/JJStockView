@@ -88,7 +88,7 @@ static int count = 1;
         switch (i) {
             case 0:
                 //                btnTitle = [NSString stringWithFormat:@"%.2f%%",ratio * 100];
-//                btnTitle = model.noteDate?model.noteDate : @"2019-";//[NSString stringWithFormat:model.noteDate];
+                btnTitle = model.noteDate?model.noteDate : @"2019-";//[NSString stringWithFormat:model.noteDate];
                 
                 break;
             case 1:
@@ -154,9 +154,9 @@ static int count = 1;
         label.text = [NSString stringWithFormat:@"%@",btnTitle];
         label.textAlignment = NSTextAlignmentCenter;
         [bg addSubview:label];
-//        if ([btnTitle isEqualToString:model.stock_id] || [btnTitle isEqualToString:[NSString stringWithFormat:@"K-%@",model.bond_id]] ||  [btnTitle isEqualToString:[NSString stringWithFormat:@"SK-%@",model.stock_id]] || [btnTitle isEqualToString:[NSString stringWithFormat:@"SC-%@",model.stock_id]] || [btnTitle hasPrefix:@"2019"]) {
-//            [bg addSubview:button];
-//        }
+        if ([btnTitle isEqualToString:model.stock_id] || [btnTitle isEqualToString:[NSString stringWithFormat:@"K-%@",model.bond_id]] ||  [btnTitle isEqualToString:[NSString stringWithFormat:@"SK-%@",model.stock_id]] || [btnTitle isEqualToString:[NSString stringWithFormat:@"SC-%@",model.stock_id]] || [btnTitle hasPrefix:@"2019"]) {
+            [bg addSubview:button];
+        }
         
         //关注- 上市日期在8天之内的
         //        model.issue_dt
@@ -355,6 +355,8 @@ static int count = 1;
                     stockModel.convert_value = m.convert_value;
                     stockModel.year_left = m.year_left;
                     stockModel.stock_id = m.stock_id;
+                    stockModel.market = m.market;
+                    stockModel.noteDate = @"2019-";
                 }
             }
             //            YYStockModel *sModel = [];
@@ -426,7 +428,7 @@ static int count = 1;
         for (YYStockModel *m in self.stocks) {
             if ([m.bond_id isEqualToString:kWeb.stockID]) {
                 kWeb.market = m.market;
-                kWeb.bigPrice = [NSString stringWithFormat:@"%@---转股%@------强赎%@",m.list_dt,m.convert_dt,m.redeem_dt];
+                kWeb.bigPrice = [NSString stringWithFormat:@"---转股%@------强赎%@",m.convert_dt,m.redeem_dt];
             }
         }
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
