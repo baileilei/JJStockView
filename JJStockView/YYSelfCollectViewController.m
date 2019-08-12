@@ -115,7 +115,9 @@ static int count = 1;
         switch (i) {
             case 0:
                 //                btnTitle = [NSString stringWithFormat:@"%.2f%%",ratio * 100];
-                btnTitle = model.noteDate?model.noteDate : @"2019-";//[NSString stringWithFormat:model.noteDate];
+                // btnTitle = model.noteDate?model.noteDate : @"2019-";//[NSString stringWithFormat:model.noteDate];
+
+
                 btnTitle = @"添加图片";
                 
                 break;
@@ -183,6 +185,7 @@ static int count = 1;
         label.textAlignment = NSTextAlignmentCenter;
         [bg addSubview:label];
         if ([btnTitle isEqualToString:model.stock_id] || [btnTitle isEqualToString:[NSString stringWithFormat:@"K-%@",model.bond_id]] ||  [btnTitle isEqualToString:[NSString stringWithFormat:@"SK-%@",model.stock_id]] || [btnTitle isEqualToString:[NSString stringWithFormat:@"SC-%@",model.stock_id]] || [btnTitle hasPrefix:@"2019"]|| [btnTitle isEqualToString:@"添加图片"] || [btnTitle isEqualToString:@"查看图片"]) {
+
             [bg addSubview:button];
         }
         
@@ -383,6 +386,9 @@ static int count = 1;
                     stockModel.convert_value = m.convert_value;
                     stockModel.year_left = m.year_left;
                     stockModel.stock_id = m.stock_id;
+
+                    stockModel.market = m.market;
+
                     stockModel.noteDate = @"2019-";
                 }
             }
@@ -468,7 +474,7 @@ static int count = 1;
         for (YYStockModel *m in self.stocks) {
             if ([m.bond_id isEqualToString:kWeb.stockID]) {
                 kWeb.market = m.market;
-                kWeb.bigPrice = [NSString stringWithFormat:@"%@---转股%@------强赎%@",m.list_dt,m.convert_dt,m.redeem_dt];
+                kWeb.bigPrice = [NSString stringWithFormat:@"---转股%@------强赎%@",m.convert_dt,m.redeem_dt];
             }
         }
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
