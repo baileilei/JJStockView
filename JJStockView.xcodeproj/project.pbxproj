@@ -72,6 +72,7 @@
 		B671E58422F8518D00483FBA /* YYRedeemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E58322F8518D00483FBA /* YYRedeemModel.m */; };
 		B671E58722F9333000483FBA /* NSString+storeImagePath.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E58622F9333000483FBA /* NSString+storeImagePath.m */; };
 		B671E58A22F951FE00483FBA /* UIViewController+printName.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E58922F951FE00483FBA /* UIViewController+printName.m */; };
+		B6AAD1E5230102F40048ED8E /* YYCacheGroupTable.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AAD1E4230102F40048ED8E /* YYCacheGroupTable.m */; };
 		CA3E67123885F30DC034BA5F /* Pods_JJStockViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECD81FD3CF2763E1E549E37 /* Pods_JJStockViewTests.framework */; };
 		F536965EE630A3FA9DA68069 /* Pods_JJStockViewUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C93A9EA472081DE0D872CF1 /* Pods_JJStockViewUITests.framework */; };
 		FD0E692F2236308800B1F67F /* XMGSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0E692E2236308800B1F67F /* XMGSessionManager.m */; };
@@ -247,6 +248,8 @@
 		B671E58622F9333000483FBA /* NSString+storeImagePath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+storeImagePath.m"; sourceTree = "<group>"; };
 		B671E58822F951FE00483FBA /* UIViewController+printName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+printName.h"; sourceTree = "<group>"; };
 		B671E58922F951FE00483FBA /* UIViewController+printName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+printName.m"; sourceTree = "<group>"; };
+		B6AAD1E3230102F40048ED8E /* YYCacheGroupTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYCacheGroupTable.h; sourceTree = "<group>"; };
+		B6AAD1E4230102F40048ED8E /* YYCacheGroupTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYCacheGroupTable.m; sourceTree = "<group>"; };
 		C2C2C12824F1BCF43EE78566 /* Pods-MyselfFunction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyselfFunction.debug.xcconfig"; path = "Target Support Files/Pods-MyselfFunction/Pods-MyselfFunction.debug.xcconfig"; sourceTree = "<group>"; };
 		C66ED7DCABC91A2E35C50F56 /* Pods-JJStockViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJStockViewTests.debug.xcconfig"; path = "Target Support Files/Pods-JJStockViewTests/Pods-JJStockViewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E747CDF99F5250D8556A97D8 /* Pods_JJStockView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JJStockView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -494,7 +497,6 @@
 				C2C2C12824F1BCF43EE78566 /* Pods-MyselfFunction.debug.xcconfig */,
 				6E6F5B2D97DA9F6A126F0884 /* Pods-MyselfFunction.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -525,6 +527,7 @@
 		61F13E771F91F670002F4681 /* JJStockView */ = {
 			isa = PBXGroup;
 			children = (
+				B6AAD1E22301029B0048ED8E /* GroupTableView */,
 				06C5BBCA2253315D0037B993 /* UIEvent */,
 				06C5BBC62252FFB30037B993 /* search */,
 				06C5BBC32252F0900037B993 /* notes */,
@@ -602,6 +605,15 @@
 				B671E57A22F82B4500483FBA /* UIView+Extension.m */,
 			);
 			path = WSDatePickerView;
+			sourceTree = "<group>";
+		};
+		B6AAD1E22301029B0048ED8E /* GroupTableView */ = {
+			isa = PBXGroup;
+			children = (
+				B6AAD1E3230102F40048ED8E /* YYCacheGroupTable.h */,
+				B6AAD1E4230102F40048ED8E /* YYCacheGroupTable.m */,
+			);
+			path = GroupTableView;
 			sourceTree = "<group>";
 		};
 		FD0E6930223630E200B1F67F /* AFNetworking */ = {
@@ -1028,6 +1040,7 @@
 				060C4B90222262A2004BA326 /* XMGModelTool.m in Sources */,
 				FDC46BA42223CA3300C58FA2 /* UIButton+Swizzle.m in Sources */,
 				06D1589F225C6EFE0040B6C6 /* YYSelfDefineCategoryStock.m in Sources */,
+				B6AAD1E5230102F40048ED8E /* YYCacheGroupTable.m in Sources */,
 				FDF0B7502223DFBD003A6999 /* YYDateUtil.m in Sources */,
 				FD0E6940223630E200B1F67F /* AFHTTPSessionManager.m in Sources */,
 				FDC46BA62223CA3300C58FA2 /* JRSwizzle.m in Sources */,

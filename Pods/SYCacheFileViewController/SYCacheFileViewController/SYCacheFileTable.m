@@ -37,6 +37,14 @@
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return self.cacheDatas.count;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return @"test";
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.cacheDatas.count;

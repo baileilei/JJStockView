@@ -24,6 +24,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "SYCacheFileViewController.h"
 #import "SYCacheFileManager.h"
+#import "SYCacheFileModel.h"
 
 #define columnCount 18
 
@@ -40,6 +41,8 @@ static int count = 1;
 @property (nonatomic, strong) NSTimer *timer;
 
 @property (nonatomic,strong) YYRedeemModel *currentModel;
+
+@property (nonatomic,strong) NSArray *list;
 
 @end
 
@@ -585,6 +588,9 @@ static int count = 1;
     NSString *path = [SYCacheFileManager libraryDirectoryPath];
     NSString *imgPath = [path stringByAppendingString:@"/PlugImage"];
     NSArray *array = [[SYCacheFileManager shareManager] fileModelsWithFilePath:imgPath];
+    
+//    cacheVC.cacheArray = [self handleDATA:array].mutableCopy;
+    
     cacheVC.cacheArray = [NSMutableArray arrayWithArray:array];
 
     // 标题
@@ -601,6 +607,56 @@ static int count = 1;
     
     //
     [self.navigationController pushViewController:cacheVC animated:YES];
+}
+
+-(NSArray *)list{
+    if (!_list) {
+        NSArray *array = @[@2,@2,@4,@3,@5,@6,@3,@6,@5,@4];
+        _list = array;
+    }
+    return _list;
+}
+
+-(NSArray *)handleDATA:(NSArray *)array{
+    
+//    NSMutableSet *set=[NSMutableSet set];
+//    [_list enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//        [set addObject:obj[@"MeasureType"]];//利用set不重复的特性,得到有多少组,根据数组中的MeasureType字段
+//    }];
+//    [set enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {//遍历set数组
+//        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"MeasureType = %@", obj];//创建谓词筛选器
+//        NSArray *group = [_list filteredArrayUsingPredicate:predicate];//用数组的过滤方法得到新的数组,在添加的最终的数组_slices中<br>         [_slices addObject:group];<br>    }];
+//        NSLog(@"group-----%@",group);
+//    }];
+    
+    NSLog(@"array-------%@",array);
+    NSMutableArray *All = [NSMutableArray array];
+    NSMutableDictionary *tempDict = [NSMutableDictionary dictionary];
+    NSMutableSet *tempSet = [NSMutableSet set];
+    NSMutableArray *tempArray = [NSMutableArray array];
+    for (SYCacheFileModel *image in array) {
+        NSLog(@"image-----%@",image);
+        
+        if ([image.fileName substringFromIndex:[image.fileName rangeOfString:@"-"].location]) {
+            [tempSet addObject:image.fileName];
+        }
+    }
+    
+    [tempSet enumerateObjectsUsingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"fileName CONTAINS %@", obj];//创建谓词筛选器
+        NSArray *group = [array filteredArrayUsingPredicate:predicate];//用数组的过滤方法得到新的数组,在添加的最终的数组_slices中<br>         [_slices addObject:group];<br>    }];
+        
+        NSLog(@"group-----%@",group);
+        [tempArray addObject:group];
+    }];
+    
+    if (tempArray.count) {
+        [tempDict setObject:tempArray forKey:tempArray.firstObject];
+        
+        [All addObject:tempDict];
+    }
+    
+    return  All;
 }
 
 
@@ -666,7 +722,7 @@ static int count = 1;
     // 压缩图片
     //    UIImage *afterScalImg = [self imageWithImageSimple:img scaledToSize:CGSizeMake(210.0, 210.0)];
     // 保存图片
-    NSString *imgPath = [NSString saveImg:img];
+    NSString *imgPath = [NSString saveImg:img Name:self.currentModel.bond_nm];
     
     [self.currentModel.beiWangImagePaths addObject:imgPath];
     

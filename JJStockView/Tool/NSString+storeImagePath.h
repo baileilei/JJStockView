@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)saveImg:(UIImage *)tempImg;
 
++ (NSString *)saveImg:(UIImage *)tempImg Name:(NSString *)name;
+
 @end
 
 NS_ASSUME_NONNULL_END
