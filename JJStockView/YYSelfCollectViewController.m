@@ -29,6 +29,7 @@
 #define columnCount 18
 
 #define oneDay 24 * 60 * 60
+#define oneHour 60 * 60
 static int count = 1;
 
 
@@ -345,7 +346,7 @@ static int count = 1;
 #pragma mark - 懒加载返回数据定时器
 - (NSTimer *)timer {
     if (!_timer) {
-        _timer = [NSTimer scheduledTimerWithTimeInterval:oneDay target:self selector:@selector((onTimer:)) userInfo:nil repeats:YES];
+        _timer = [NSTimer scheduledTimerWithTimeInterval:oneHour target:self selector:@selector((onTimer:)) userInfo:nil repeats:YES];
     }
     return _timer;
 }
@@ -597,7 +598,7 @@ static int count = 1;
     
 //    cacheVC.cacheArray = [self handleDATA:array].mutableCopy;
     
-    cacheVC.cacheArray = [NSMutableArray arrayWithArray:array];
+    cacheVC.cacheArray = array.mutableCopy;//[NSMutableArray arrayWithArray:array];
 
     // 标题
     cacheVC.cacheTitle = @"我的缓存文件";

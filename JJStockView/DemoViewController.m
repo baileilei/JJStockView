@@ -29,6 +29,14 @@
 #define columnCount 18
 #define kYYCachePath @"/Users/g/Desktop"
 
+#define oneHour 60 * 60
+
+#define halfAnHour 60 * 30
+
+#define everyTenMinutes 60 * 10
+
+static int AllCount = 1;
+
 @interface DemoViewController ()<StockViewDataSource,StockViewDelegate,UISearchBarDelegate>
 
 
@@ -38,11 +46,28 @@
 
 @property (assign,nonatomic) BOOL isSearch;
 
+@property (nonatomic, strong) NSTimer *timer;
+
 @end
 
 @implementation DemoViewController
 
+#pragma mark - 懒加载返回数据定时器
+- (NSTimer *)timer {
+    if (!_timer) {
+        _timer = [NSTimer scheduledTimerWithTimeInterval:halfAnHour target:self selector:@selector((onTimer:)) userInfo:nil repeats:YES];
+    }
+    return _timer;
+}
 
+-(void)onTimer:(NSTimer *)timer{
+    NSLog(@"%d",AllCount++);
+    
+    // 保存的次数
+    [[NSUserDefaults standardUserDefaults] setInteger:AllCount forKey:@"AllCount"];
+    
+    [self requestData];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -72,7 +97,12 @@
     
      UIBarButtonItem *rightItem1 = [[UIBarButtonItem alloc] initWithTitle:@"强赎" style:UIBarButtonItemStyleDone target:self action:@selector(p_redeem)];
     
-    UIBarButtonItem *rightItem2 = [[UIBarButtonItem alloc] initWithTitle:@"日历" style:UIBarButtonItemStyleDone target:self action:@selector(p_calenar)];
+    NSString *resourceBundel = [[NSBundle mainBundle] pathForResource:@"Resource.bundle" ofType:nil];
+    NSString *pathStr = [[NSBundle bundleWithPath:resourceBundel] pathForResource:@"更新.png" ofType:nil inDirectory:@"images"];
+    NSLog(@"pathStr----%@",pathStr);
+    
+    UIBarButtonItem *rightItem2 = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:pathStr] style:UIBarButtonItemStyleDone target:self action:@selector(p_calenar)];
+    //[[UIBarButtonItem alloc] initWithTitle:@"日历" style:UIBarButtonItemStyleDone target:self action:@selector(p_calenar)];
     
     self.navigationItem.rightBarButtonItems = @[rightItem,rightItem1,rightItem2];
     
@@ -80,6 +110,8 @@
     self.navigationItem.leftBarButtonItem = leftItem;
     
     self.collectDict = [[NSMutableDictionary alloc] init];
+    
+    [self.timer setFireDate:[NSDate date]];
     
 //    UISearchBar *searchBar = [[UISearchBar alloc] init];
     
@@ -611,6 +643,10 @@
 //                stockModel.ratio = [NSString stringWithFormat:@"%.2f%%",ratio * 100];
 //            }
             
+            if ([stockModel.bond_nm isEqualToString:@"平银转债"] && stockModel.full_price.intValue < 123) {
+                [self p_testLoaclNotification:@"平银转债"];
+            }
+            
             NSMutableArray *tempC = [NSMutableArray array];
 
             if (stockModel.redeem_real_days >0) {
@@ -753,9 +789,9 @@
     
     UILocalNotification *localNote = [[UILocalNotification alloc] init];
     localNote.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
-    localNote.alertBody = @"八戒，来信息了";
+    localNote.alertBody = [NSString stringWithFormat:@"%@,来信息了",modelName];//@"八戒，来信息了";
     //设置其他信息
-    localNote.userInfo = @{@"content": modelName, @"type": @1};
+//    localNote.userInfo = @{@"content": modelName, @"type": @1};
     [[UIApplication sharedApplication] scheduleLocalNotification:localNote];
 }
 
