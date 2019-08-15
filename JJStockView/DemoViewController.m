@@ -26,6 +26,8 @@
 #import "LocalNotificationManager.h"
 #import "YYSelfCollectViewController.h"
 
+#import "HNNetworkFooterView.h"
+
 #define columnCount 18
 #define kYYCachePath @"/Users/g/Desktop"
 
@@ -91,6 +93,9 @@ static int AllCount = 1;
     
     
     self.stockView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+    HNNetworkFooterView *header = [[HNNetworkFooterView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 100)];
+    header.titleLable.text = @"看板";
+    self.stockView.jjStockTableView.tableHeaderView = header;
     [self.view addSubview:self.stockView];
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"查看" style:UIBarButtonItemStyleDone target:self action:@selector(p_checkSum)];

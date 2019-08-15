@@ -64,6 +64,18 @@
 		61F13E9D1F91F670002F4681 /* StockViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13E9C1F91F670002F4681 /* StockViewUITests.m */; };
 		61F13EAF1F91F6D4002F4681 /* JJStockViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13EAB1F91F6D3002F4681 /* JJStockViewCell.m */; };
 		61F13EB01F91F6D4002F4681 /* JJStockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13EAD1F91F6D4002F4681 /* JJStockView.m */; };
+		B63262EF2305132E003AEC58 /* HNNetworkFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B63262EB2305132E003AEC58 /* HNNetworkFooterView.m */; };
+		B63262F02305132E003AEC58 /* HNRecommendToolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B63262EC2305132E003AEC58 /* HNRecommendToolCell.m */; };
+		B632630B2305135F003AEC58 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B63262F32305135F003AEC58 /* NSLayoutConstraint+MASDebugAdditions.m */; };
+		B632630C2305135F003AEC58 /* HMTMASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = B63262F42305135F003AEC58 /* HMTMASViewConstraint.m */; };
+		B632630D2305135F003AEC58 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B63262FE2305135F003AEC58 /* ViewController+MASAdditions.m */; };
+		B632630E2305135F003AEC58 /* HMTMASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = B63262FF2305135F003AEC58 /* HMTMASCompositeConstraint.m */; };
+		B632630F2305135F003AEC58 /* HMTMASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = B63263022305135F003AEC58 /* HMTMASViewAttribute.m */; };
+		B63263102305135F003AEC58 /* HMTMASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = B63263032305135F003AEC58 /* HMTMASLayoutConstraint.m */; };
+		B63263112305135F003AEC58 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B63263042305135F003AEC58 /* NSArray+MASAdditions.m */; };
+		B63263122305135F003AEC58 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B63263052305135F003AEC58 /* View+MASAdditions.m */; };
+		B63263132305135F003AEC58 /* HMTMASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = B63263082305135F003AEC58 /* HMTMASConstraint.m */; };
+		B63263142305135F003AEC58 /* HMTMASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = B632630A2305135F003AEC58 /* HMTMASConstraintMaker.m */; };
 		B671E57B22F82B4500483FBA /* WSDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B671E57722F82B4500483FBA /* WSDatePickerView.xib */; };
 		B671E57C22F82B4500483FBA /* WSDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E57822F82B4500483FBA /* WSDatePickerView.m */; };
 		B671E57D22F82B4500483FBA /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E57922F82B4500483FBA /* NSDate+Extension.m */; };
@@ -255,6 +267,35 @@
 		921806BF8F626BE56429F804 /* Pods-JJStockView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJStockView.debug.xcconfig"; path = "Target Support Files/Pods-JJStockView/Pods-JJStockView.debug.xcconfig"; sourceTree = "<group>"; };
 		923E9F7EC9FE139C225EA901 /* Pods-JJStockView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJStockView.release.xcconfig"; path = "Target Support Files/Pods-JJStockView/Pods-JJStockView.release.xcconfig"; sourceTree = "<group>"; };
 		B2E0C1ECEA684781F2B1548F /* Pods-JJStockViewUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJStockViewUITests.release.xcconfig"; path = "Target Support Files/Pods-JJStockViewUITests/Pods-JJStockViewUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B63262EB2305132E003AEC58 /* HNNetworkFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNNetworkFooterView.m; sourceTree = "<group>"; };
+		B63262EC2305132E003AEC58 /* HNRecommendToolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNRecommendToolCell.m; sourceTree = "<group>"; };
+		B63262ED2305132E003AEC58 /* HNRecommendToolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNRecommendToolCell.h; sourceTree = "<group>"; };
+		B63262EE2305132E003AEC58 /* HNNetworkFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNNetworkFooterView.h; sourceTree = "<group>"; };
+		B63262F22305135F003AEC58 /* HMTMASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMTMASViewAttribute.h; sourceTree = "<group>"; };
+		B63262F32305135F003AEC58 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+		B63262F42305135F003AEC58 /* HMTMASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMTMASViewConstraint.m; sourceTree = "<group>"; };
+		B63262F52305135F003AEC58 /* HMTMASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMTMASCompositeConstraint.h; sourceTree = "<group>"; };
+		B63262F62305135F003AEC58 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		B63262F72305135F003AEC58 /* HMTMasonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMTMasonry.h; sourceTree = "<group>"; };
+		B63262F82305135F003AEC58 /* HMTMASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMTMASLayoutConstraint.h; sourceTree = "<group>"; };
+		B63262F92305135F003AEC58 /* HMTMASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMTMASConstraint.h; sourceTree = "<group>"; };
+		B63262FA2305135F003AEC58 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
+		B63262FB2305135F003AEC58 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		B63262FC2305135F003AEC58 /* HMTMASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMTMASUtilities.h; sourceTree = "<group>"; };
+		B63262FD2305135F003AEC58 /* HMTMASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMTMASConstraintMaker.h; sourceTree = "<group>"; };
+		B63262FE2305135F003AEC58 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		B63262FF2305135F003AEC58 /* HMTMASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMTMASCompositeConstraint.m; sourceTree = "<group>"; };
+		B63263002305135F003AEC58 /* HMTMASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMTMASViewConstraint.h; sourceTree = "<group>"; };
+		B63263012305135F003AEC58 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		B63263022305135F003AEC58 /* HMTMASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMTMASViewAttribute.m; sourceTree = "<group>"; };
+		B63263032305135F003AEC58 /* HMTMASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMTMASLayoutConstraint.m; sourceTree = "<group>"; };
+		B63263042305135F003AEC58 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MASAdditions.m"; sourceTree = "<group>"; };
+		B63263052305135F003AEC58 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
+		B63263062305135F003AEC58 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		B63263072305135F003AEC58 /* HMTMASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HMTMASConstraint+Private.h"; sourceTree = "<group>"; };
+		B63263082305135F003AEC58 /* HMTMASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMTMASConstraint.m; sourceTree = "<group>"; };
+		B63263092305135F003AEC58 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		B632630A2305135F003AEC58 /* HMTMASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMTMASConstraintMaker.m; sourceTree = "<group>"; };
 		B671E57422F82B4500483FBA /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
 		B671E57522F82B4500483FBA /* WSDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSDatePickerView.h; sourceTree = "<group>"; };
 		B671E57622F82B4500483FBA /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -629,6 +670,11 @@
 		61F13EAA1F91F6B1002F4681 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				B63262F12305135F003AEC58 /* HMTMasonry */,
+				B63262EE2305132E003AEC58 /* HNNetworkFooterView.h */,
+				B63262EB2305132E003AEC58 /* HNNetworkFooterView.m */,
+				B63262ED2305132E003AEC58 /* HNRecommendToolCell.h */,
+				B63262EC2305132E003AEC58 /* HNRecommendToolCell.m */,
 				61F13EAE1F91F6D4002F4681 /* JJStockView.h */,
 				61F13EAD1F91F6D4002F4681 /* JJStockView.m */,
 				61F13EAC1F91F6D3002F4681 /* JJStockViewCell.h */,
@@ -637,6 +683,38 @@
 				6186110D1F95E2F600E4E8B4 /* JJStockScrollView.m */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		B63262F12305135F003AEC58 /* HMTMasonry */ = {
+			isa = PBXGroup;
+			children = (
+				B63262F22305135F003AEC58 /* HMTMASViewAttribute.h */,
+				B63262F32305135F003AEC58 /* NSLayoutConstraint+MASDebugAdditions.m */,
+				B63262F42305135F003AEC58 /* HMTMASViewConstraint.m */,
+				B63262F52305135F003AEC58 /* HMTMASCompositeConstraint.h */,
+				B63262F62305135F003AEC58 /* NSArray+MASShorthandAdditions.h */,
+				B63262F72305135F003AEC58 /* HMTMasonry.h */,
+				B63262F82305135F003AEC58 /* HMTMASLayoutConstraint.h */,
+				B63262F92305135F003AEC58 /* HMTMASConstraint.h */,
+				B63262FA2305135F003AEC58 /* View+MASAdditions.h */,
+				B63262FB2305135F003AEC58 /* NSArray+MASAdditions.h */,
+				B63262FC2305135F003AEC58 /* HMTMASUtilities.h */,
+				B63262FD2305135F003AEC58 /* HMTMASConstraintMaker.h */,
+				B63262FE2305135F003AEC58 /* ViewController+MASAdditions.m */,
+				B63262FF2305135F003AEC58 /* HMTMASCompositeConstraint.m */,
+				B63263002305135F003AEC58 /* HMTMASViewConstraint.h */,
+				B63263012305135F003AEC58 /* NSLayoutConstraint+MASDebugAdditions.h */,
+				B63263022305135F003AEC58 /* HMTMASViewAttribute.m */,
+				B63263032305135F003AEC58 /* HMTMASLayoutConstraint.m */,
+				B63263042305135F003AEC58 /* NSArray+MASAdditions.m */,
+				B63263052305135F003AEC58 /* View+MASAdditions.m */,
+				B63263062305135F003AEC58 /* View+MASShorthandAdditions.h */,
+				B63263072305135F003AEC58 /* HMTMASConstraint+Private.h */,
+				B63263082305135F003AEC58 /* HMTMASConstraint.m */,
+				B63263092305135F003AEC58 /* ViewController+MASAdditions.h */,
+				B632630A2305135F003AEC58 /* HMTMASConstraintMaker.m */,
+			);
+			path = HMTMasonry;
 			sourceTree = "<group>";
 		};
 		B671E57322F82B4500483FBA /* WSDatePickerView */ = {
@@ -1101,6 +1179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B63263132305135F003AEC58 /* HMTMASConstraint.m in Sources */,
 				B671E57E22F82B4500483FBA /* UIView+Extension.m in Sources */,
 				06C5BBD42253319D0037B993 /* TFEvent.m in Sources */,
 				FDF0BEF72230E9490040A892 /* YYKLineWebViewController.m in Sources */,
@@ -1108,14 +1187,20 @@
 				61F13EB01F91F6D4002F4681 /* JJStockView.m in Sources */,
 				FDC46BA22223CA3300C58FA2 /* UIViewController+Swizzle.m in Sources */,
 				060C4B982222741D004BA326 /* YYBuyintoStockModel.m in Sources */,
+				B632630F2305135F003AEC58 /* HMTMASViewAttribute.m in Sources */,
+				B63263122305135F003AEC58 /* View+MASAdditions.m in Sources */,
 				06C5BBD12253318B0037B993 /* ListenerBag.m in Sources */,
 				060C4B8F222262A2004BA326 /* XMGSqliteTool.m in Sources */,
+				B63263102305135F003AEC58 /* HMTMASLayoutConstraint.m in Sources */,
 				B671E58A22F951FE00483FBA /* UIViewController+printName.m in Sources */,
 				FDC46BA32223CA3300C58FA2 /* NSDictionary+Swizzle.m in Sources */,
 				060C4B8D222262A2004BA326 /* XMGTableTool.m in Sources */,
 				060C4B9422226B9C004BA326 /* YYBuyIntoViewController.m in Sources */,
+				B63263142305135F003AEC58 /* HMTMASConstraintMaker.m in Sources */,
+				B632630B2305135F003AEC58 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				060C4B7F222259DE004BA326 /* YYStockModel.m in Sources */,
 				FD6916402228EC7F00DE3CD6 /* YYWebViewController.m in Sources */,
+				B632630D2305135F003AEC58 /* ViewController+MASAdditions.m in Sources */,
 				61F13E7D1F91F670002F4681 /* DemoViewController.m in Sources */,
 				FDC46BA52223CA3300C58FA2 /* NSArray+Swizzle.m in Sources */,
 				FD0E6941223630E200B1F67F /* AFURLSessionManager.m in Sources */,
@@ -1132,15 +1217,20 @@
 				B671E57D22F82B4500483FBA /* NSDate+Extension.m in Sources */,
 				B671E58122F84EAD00483FBA /* HWNetTools.m in Sources */,
 				06C5BBD02253318B0037B993 /* ActionEvent.m in Sources */,
+				B63262EF2305132E003AEC58 /* HNNetworkFooterView.m in Sources */,
+				B63263112305135F003AEC58 /* NSArray+MASAdditions.m in Sources */,
 				FDC46B822223854200C58FA2 /* NTMonthYearPicker.m in Sources */,
 				61F13EAF1F91F6D4002F4681 /* JJStockViewCell.m in Sources */,
 				B671E57C22F82B4500483FBA /* WSDatePickerView.m in Sources */,
 				06C307522266CACE00B08B4B /* YYSelfCollectViewController.m in Sources */,
 				FD0E6942223630E200B1F67F /* AFURLRequestSerialization.m in Sources */,
 				060C4B81222259DE004BA326 /* YYMenuLabel.m in Sources */,
+				B632630E2305135F003AEC58 /* HMTMASCompositeConstraint.m in Sources */,
+				B63262F02305132E003AEC58 /* HNRecommendToolCell.m in Sources */,
 				61F13E881F91F670002F4681 /* main.m in Sources */,
 				FD0E69472236381E00B1F67F /* BaseNetManager.m in Sources */,
 				FD0E6944223630E200B1F67F /* AFSecurityPolicy.m in Sources */,
+				B632630C2305135F003AEC58 /* HMTMASViewConstraint.m in Sources */,
 				060C4B90222262A2004BA326 /* XMGModelTool.m in Sources */,
 				FDC46BA42223CA3300C58FA2 /* UIButton+Swizzle.m in Sources */,
 				06D1589F225C6EFE0040B6C6 /* YYSelfDefineCategoryStock.m in Sources */,

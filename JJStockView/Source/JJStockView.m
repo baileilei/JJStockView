@@ -256,6 +256,7 @@ static NSString* const CellID = @"cellID";
     _stockTableView.dataSource = self;
     _stockTableView.delegate = self;
     _stockTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    _stockTableView.tableHeaderView = [UIButton buttonWithType:UIButtonTypeContactAdd];
     [_stockTableView registerClass:[JJStockViewCell class] forCellReuseIdentifier:CellID];
     
     return _stockTableView;
