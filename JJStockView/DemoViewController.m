@@ -643,6 +643,10 @@ static int AllCount = 1;
 //                stockModel.ratio = [NSString stringWithFormat:@"%.2f%%",ratio * 100];
 //            }
             
+            if ([stockModel.bond_nm isEqualToString:@"G三峡EB"] && stockModel.full_price.intValue < 107) {
+                [self p_testLoaclNotification:@"三峡债"];//相近的价格，相类似的走势。过往走势
+            }//蒙电 linglu
+            
             if ([stockModel.bond_nm isEqualToString:@"平银转债"] && stockModel.full_price.intValue < 123) {
                 [self p_testLoaclNotification:@"平银转债"];
             }
