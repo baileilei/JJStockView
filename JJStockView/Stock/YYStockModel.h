@@ -14,6 +14,7 @@
 @property (nonatomic,copy) NSString *noteDate;
 
 @property (nonatomic,assign) float ratio;
+@property (nonatomic,assign) float stockRatio;
 
 @property (nonatomic,copy) NSString *active_fl;
 @property (nonatomic,copy) NSString *adjust_tc;//条件

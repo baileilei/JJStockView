@@ -62,6 +62,7 @@ sqlite3 *ppDb = nil;
     // 参数5: 通过参数3, 取出参数2的长度字节之后, 剩下的字符串
     sqlite3_stmt *ppStmt = nil;
     if (sqlite3_prepare_v2(ppDb, sql.UTF8String, -1, &ppStmt, nil) != SQLITE_OK) {
+        NSLog(@"%@",sql);
         NSLog(@"准备语句编译失败");
         return nil;
     }

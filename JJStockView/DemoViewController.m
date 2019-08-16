@@ -94,7 +94,9 @@ static int AllCount = 1;
     
     self.stockView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
     HNNetworkFooterView *header = [[HNNetworkFooterView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 100)];
-    header.titleLable.text = @"看板";
+    //SELECT sprice - convert_price, bond_nm,full_price from YYStockModel where sprice - convert_price > 0 ORDER BY sprice - convert_price;
+    //投资模型！   变量因子：时间，股价差。 目的：转债。
+    header.titleLable.text = @"看板： 等待圣达回调 110。适当回调。 建立模型，125？估值？？？ 三峡？";
     self.stockView.jjStockTableView.tableHeaderView = header;
     [self.view addSubview:self.stockView];
     
@@ -188,6 +190,8 @@ static int AllCount = 1;
         YYStockModel *model = self.isSearch == YES? self.searchResults[row] : self.stocks[row];;
         NSString *btnTitle = nil;
         float ratio = (model.full_price.floatValue - model.convert_value.floatValue)/model.convert_value.floatValue;
+        
+        float stockRatio= (model.sprice.floatValue - model.convert_price.floatValue)/model.convert_price.floatValue;
         switch (i) {
             case 0:
 //                btnTitle = [NSString stringWithFormat:@"%.2f%%",ratio * 100];
@@ -643,6 +647,9 @@ static int AllCount = 1;
             [stockModel setValuesForKeysWithDictionary:dic[@"cell"]];
             float ratio = (stockModel.full_price.floatValue - stockModel.convert_value.floatValue)/stockModel.convert_value.floatValue;
             stockModel.ratio = ratio;
+            
+            float stockRatio= (stockModel.sprice.floatValue - stockModel.convert_price.floatValue)/stockModel.convert_price.floatValue;
+            stockModel.stockRatio = stockRatio;
             
 //            if (ratio < 0) {
 //                stockModel.ratio = [NSString stringWithFormat:@"%.2f%%",ratio * 100];
