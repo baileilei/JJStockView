@@ -16,6 +16,9 @@
 @property (nonatomic,assign) float ratio;
 @property (nonatomic,assign) float stockRatio;
 
+@property (nonatomic,copy) NSString *stockURL;
+@property (nonatomic,copy) NSString *bondURL;
+
 @property (nonatomic,copy) NSString *active_fl;
 @property (nonatomic,copy) NSString *adjust_tc;//条件
 @property (nonatomic,copy) NSString *adq_rating;

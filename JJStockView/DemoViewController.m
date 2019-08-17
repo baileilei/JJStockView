@@ -630,12 +630,12 @@ static int AllCount = 1;
     //    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     //如何快速测试一个网络请求
     [NSURLConnection sendAsynchronousRequest:request2 queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
-        //        NSLog(@"response -----%@",response);
+//             http://money.finance.sina.com.cn/bond/quotes/(null)110030.html   NSLog(@"response -----%@",response);
 //        NSLog(@"data ----%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
         
         NSError *error = nil;
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-//        NSLog(@"dict-----%@",dict[@"rows"]);
+        NSLog(@"dict-----%@",dict[@"rows"]);
         
         NSMutableArray *temp = [NSMutableArray array];
         NSMutableArray *categoriStock = [NSMutableArray array];
@@ -651,10 +651,10 @@ static int AllCount = 1;
             float stockRatio= (stockModel.sprice.floatValue - stockModel.convert_price.floatValue)/stockModel.convert_price.floatValue;
             stockModel.stockRatio = stockRatio;
             
-//            if (ratio < 0) {
-//                stockModel.ratio = [NSString stringWithFormat:@"%.2f%%",ratio * 100];
-//            }
-            
+
+             stockModel.stockURL = [NSString stringWithFormat:@"http://finance.sina.com.cn/realstock/company/%@/nc.shtml",stockModel.stock_id];
+            stockModel.bondURL = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/bond/quotes/%@.html",stockModel.pre_bond_id];
+           
             if ([stockModel.bond_nm isEqualToString:@"G三峡EB"] && stockModel.full_price.intValue < 107) {
                 [self p_testLoaclNotification:@"三峡债"];//相近的价格，相类似的走势。过往走势
             }//蒙电 linglu
