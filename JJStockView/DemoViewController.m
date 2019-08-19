@@ -28,6 +28,8 @@
 
 #import "HNNetworkFooterView.h"
 
+#import "YYBuyintoStockModel.h"
+
 #define columnCount 18
 #define kYYCachePath @"/Users/g/Desktop"
 
@@ -75,14 +77,15 @@ static int AllCount = 1;
     [super viewDidLoad];
     
 //    [self p_testLoaclNotification];
-    [self testResultOfAPI];
-//    .[self testAPIWithAFN];
+//    [self testResultOfAPI];
+//    [self testAPIWithAFN];
     self.searchResults = [NSMutableArray array];
     
     self.collectDict = [[NSMutableDictionary alloc] init];
     
     self.isSearch = NO;
     
+    [self testAPIWithAFN];
     [self requestData];
     self.navigationItem.title = @"股票表格";
     
@@ -635,7 +638,7 @@ static int AllCount = 1;
         
         NSError *error = nil;
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        NSLog(@"dict-----%@",dict[@"rows"]);
+//        NSLog(@"dict-----%@",dict[@"rows"]);
         
         NSMutableArray *temp = [NSMutableArray array];
         NSMutableArray *categoriStock = [NSMutableArray array];
@@ -783,10 +786,19 @@ static int AllCount = 1;
 }
 //http://www.sse.com.cn/market/bonddata/convertible/
 -(void)testAPIWithAFN{
-    
-    [[BaseNetManager defaultManager] GET:@"http://www.sse.com.cn/market/bonddata/convertible/" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"responseObject----%@",responseObject);
+    //发行流程：董事会预案 → 股东大会批准 → 证监会受理 → 发审委通过 → 证监会核准批文 → 发行公告
+    [[BaseNetManager defaultManager] GET:@"https://www.jisilu.cn/data/cbnew/pre_list/?___jsl=LST___t=1566207894005" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"AFN ----responseObject----%@",responseObject);
         
+        for (NSDictionary *dic in responseObject[@"rows"]) {
+            YYBuyintoStockModel *m = [[YYBuyintoStockModel alloc] init];
+            [m setValuesForKeysWithDictionary:dic];
+            
+            if (m.convert_price.floatValue < m.price.floatValue) {
+                [LocalNotificationManager addLocalNotification:m.progress_dt withModel:m];
+            }
+//            [XMGSqliteModelTool saveOrUpdateModel:m uid:<#(NSString *)#>];
+        }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (error) {

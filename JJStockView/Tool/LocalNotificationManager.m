@@ -122,7 +122,7 @@ NSString * const kDrinkWaterAlertBody = @"小喵提醒：主人记得喝水哟�
     localNotification.fireDate = date;
     
     // 设置通知的内容
-    localNotification.alertBody = [NSString stringWithFormat:@"%@ %@",model.bond_nm,model.full_price];
+    localNotification.alertBody = [NSString stringWithFormat:@"%@ %@",model.bond_nm,model.convert_price];
     
     // 设置提醒的声音，可以自己添加声音文件，这里设置为默认提示声
     localNotification.soundName = UILocalNotificationDefaultSoundName;

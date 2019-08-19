@@ -14,4 +14,10 @@
     return @"bond_id";
 }
 
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key{
+    if ([key isEqualToString:@"ratio"]) {
+        NSLog(@"没有这个key ratio");
+    }
+}
+
 @end

@@ -29,12 +29,12 @@
 - (IBAction)save:(id)sender {
     
     YYBuyintoStockModel *buyM = [[YYBuyintoStockModel alloc] init];
-    buyM.buyTime = self.buyIntoTime.text;//[NSDate date];//self.buyIntoTime.text;
-    buyM.bond_id = self.stockModel.bond_id;
-    buyM.bond_nm = self.stockModel.bond_nm;
-    buyM.TargetPrice = self.TargetPrice.text;
-    buyM.preSellTime = self.pre_sellTime.text;[NSDate date];//self.pre_sellTime.text;
-    buyM.buyDecisionComment = self.buyDecisionComment.text;
+//    buyM.buyTime = self.buyIntoTime.text;//[NSDate date];//self.buyIntoTime.text;
+//    buyM.bond_id = self.stockModel.bond_id;
+//    buyM.bond_nm = self.stockModel.bond_nm;
+//    buyM.TargetPrice = self.TargetPrice.text;
+//    buyM.preSellTime = self.pre_sellTime.text;[NSDate date];//self.pre_sellTime.text;
+//    buyM.buyDecisionComment = self.buyDecisionComment.text;
     
     [XMGSqliteModelTool saveOrUpdateModel:buyM uid:@"mybuy"];//Mystock
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -57,10 +57,10 @@
     NSLog(@"result---%@",result);
     if (result.count > 0) {
         YYBuyintoStockModel *buyM  = result.firstObject;
-        self.buyIntoTime.text = buyM.buyTime;
-        self.TargetPrice.text = buyM.TargetPrice;
-        self.pre_sellTime.text = buyM.preSellTime;
-        self.buyDecisionComment.text = buyM.buyDecisionComment;
+//        self.buyIntoTime.text = buyM.buyTime;
+//        self.TargetPrice.text = buyM.TargetPrice;
+//        self.pre_sellTime.text = buyM.preSellTime;
+//        self.buyDecisionComment.text = buyM.buyDecisionComment;
     }
 }
 
