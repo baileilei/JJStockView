@@ -30,6 +30,7 @@
 
 @property (nonatomic,copy) NSString *convert_cd;//转股代码------即过了转股起始期之后才会有的  //未到转股期
 @property (nonatomic,copy) NSString *convert_dt;//转股起始期
+@property (nonatomic,copy) NSString *passConvert_dt_days;//转股起始期
 @property (nonatomic,copy) NSString *convert_price;//转股价
 @property (nonatomic,copy) NSString *convert_value;//转股价值
 @property (nonatomic,copy) NSString *cpn_desc;//债券利息

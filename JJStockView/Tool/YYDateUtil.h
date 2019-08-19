@@ -27,6 +27,8 @@
                                  formate:(NSString *)formate;
 
 
++(long)calculateToTodayDays:(NSString *)convert_dt;
+
 //1-3   5-6
 + (NSInteger)ageFromBirthday:(NSDate *)birthdate;
 

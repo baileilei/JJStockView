@@ -10,6 +10,12 @@
 
 @implementation YYDateUtil
 
++(long)calculateToTodayDays:(NSString *)convert_dt{
+    NSDate *date = [self stringToDate:convert_dt dateFormat:@"yyyy-MM-dd"];
+    long timeToNow = [date timeIntervalSinceNow];
+    return -((long)timeToNow)/(3600*24);
+}
+
 +(BOOL)compareDate:(NSDate *)date{
     
     NSDate *date0 = [self stringToDate:date dateFormat:@"yyyy-MM-dd"];

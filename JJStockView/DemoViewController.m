@@ -654,6 +654,9 @@ static int AllCount = 1;
 
              stockModel.stockURL = [NSString stringWithFormat:@"http://finance.sina.com.cn/realstock/company/%@/nc.shtml",stockModel.stock_id];
             stockModel.bondURL = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/bond/quotes/%@.html",stockModel.pre_bond_id];
+            
+            
+            stockModel.passConvert_dt_days = [NSString stringWithFormat:@"%ld",[YYDateUtil calculateToTodayDays:stockModel.convert_dt]]; ;
            
             if ([stockModel.bond_nm isEqualToString:@"G三峡EB"] && stockModel.full_price.intValue < 107) {
                 [self p_testLoaclNotification:@"三峡债"];//相近的价格，相类似的走势。过往走势
