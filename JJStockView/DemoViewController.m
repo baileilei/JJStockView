@@ -666,9 +666,22 @@ static int AllCount = 1;
                 [self p_testLoaclNotification:@"三峡债"];//相近的价格，相类似的走势。过往走势
             }//蒙电 linglu
             
-            if ([stockModel.bond_nm isEqualToString:@"平银转债"] && stockModel.full_price.intValue < 123) {
-                [self p_testLoaclNotification:@"平银转债"];
+            
+            //监控利欧     周策略
+            if ([stockModel.bond_nm isEqualToString:@"利欧转债"] && stockModel.full_price.intValue < 110) {
+                [self p_testLoaclNotification:@"利欧转债"];
             }
+            
+            if ([stockModel.bond_nm isEqualToString:@"尚荣转债"] && stockModel.full_price.intValue < 109) {
+                [self p_testLoaclNotification:@"尚荣转债"];
+            }
+            
+            if ([stockModel.bond_nm isEqualToString:@"特一转债"] && stockModel.full_price.intValue < 108) {
+                [self p_testLoaclNotification:@"特一转债"];
+            }
+            
+            
+            
             
             NSMutableArray *tempC = [NSMutableArray array];
 
