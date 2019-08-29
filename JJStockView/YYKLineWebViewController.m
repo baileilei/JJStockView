@@ -24,15 +24,16 @@
     if ([self.stockID hasPrefix:@"sz"] || [self.stockID hasPrefix:@"sh"]) {//股票
         chartURL = [NSString stringWithFormat:@"http://finance.sina.com.cn/realstock/company/%@/nc.shtml",self.stockID];
     }else{//债券
-        if ([self.market isEqualToString:@"sh"]) {
-            //sina
-            chartURL = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/bond/quotes/sh%@.html",self.stockID];
-//            chartURL = [NSString stringWithFormat:@"http://quote.eastmoney.com/bond/sh%@.html",self.stockID];//东方财富网
-        }else{
-            //sina
-            chartURL = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/bond/quotes/sz%@.html",self.stockID];
-//            chartURL = [NSString stringWithFormat:@"http://quote.eastmoney.com/bond/sz%@.html",self.stockID];
-        }
+        chartURL = [NSString stringWithFormat:@"%@",self.bondURL];
+//        if ([self.market isEqualToString:@"sh"]) {
+//            //sina
+//            chartURL = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/bond/quotes/sh%@.html",self.stockID];
+////            chartURL = [NSString stringWithFormat:@"http://quote.eastmoney.com/bond/sh%@.html",self.stockID];//东方财富网
+//        }else{
+//            //sina
+//            chartURL = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/bond/quotes/sz%@.html",self.stockID];
+////            chartURL = [NSString stringWithFormat:@"http://quote.eastmoney.com/bond/sz%@.html",self.stockID];
+//        }
     }
     //    NSString *url = [NSString stringWithFormat:@"https://www.jisilu.cn/data/stock/600031"];
     NSLog(@"url-------%@",chartURL);

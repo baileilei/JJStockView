@@ -11,6 +11,11 @@
 
 @interface YYStockModel : NSObject<XMGModelProtocol>
 
+//重点指标：year_left。stockURL  bondURL  convert_dt passConvert_dt_days  convert_price  convert_value force_redeem_price full_price put_convert_price sprice volume
+
+//强赎区  突破区。 建仓区
+
+
 @property (nonatomic,copy) NSString *noteDate;
 
 @property (nonatomic,assign) float ratio;
@@ -36,7 +41,7 @@
 @property (nonatomic,copy) NSString *cpn_desc;//债券利息
 @property (nonatomic,copy) NSString *curr_iss_amt;//当前规模
 @property (nonatomic,copy) NSString *force_redeem;
-@property (nonatomic,copy) NSString *force_redeem_price;//强赎触发价
+@property (nonatomic,copy) NSString *force_redeem_price;//强赎触发价！！！！
 
 @property (nonatomic,copy) NSString *full_price;//债券现价
 @property (nonatomic,copy) NSString *guarantor;//无担保
@@ -59,7 +64,7 @@
 
 @property (nonatomic,copy) NSString *price;
 @property (nonatomic,copy) NSString *price_tips;//
-@property (nonatomic,copy) NSString *put_convert_price;//回售触发价
+@property (nonatomic,copy) NSString *put_convert_price;//回售触发价！！！！
 @property (nonatomic,copy) NSString *put_convert_price_ratio;
 @property (nonatomic,copy) NSString *put_count_days;
 @property (nonatomic,copy) NSString *put_dt;//回售日期

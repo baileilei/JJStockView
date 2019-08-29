@@ -11,6 +11,8 @@
 
 @interface YYWebViewController : UIViewController
 
+@property (nonatomic,copy) NSString *bondURL;
+
 @property (nonatomic,copy) NSString *stockID;
 
 @property (nonatomic,copy) NSString *market;

@@ -183,7 +183,7 @@ static int AllCount = 1;
     label.textAlignment = NSTextAlignmentCenter;
     return label;
 }
-//内容
+//内容   尚荣 利欧   特一    bug跳转      
 - (UIView*)contentCellForStockView:(JJStockView*)stockView atRowPath:(NSUInteger)row{
     
     UIView* bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, columnCount * 100, 30)];
@@ -497,6 +497,7 @@ static int AllCount = 1;
                 kWeb.bigPrice = [NSString stringWithFormat:@"%@---转股%@------强赎%@",m.list_dt,m.convert_dt,m.redeem_dt];
             }
         }
+        kWeb.bondURL = [self.stocks[sender.tag] valueForKey:@"bondURL"];
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
         
         return;
