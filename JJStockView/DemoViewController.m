@@ -681,6 +681,12 @@ static int AllCount = 1;
                 [self p_testLoaclNotification:@"特一转债"];
             }
             
+            //股价涨幅  远大于 债涨幅  启动迹象！！！
+            if (stockModel.sincrease_rt.floatValue - stockModel.increase_rt.floatValue > 5.00) {
+                [self p_testLoaclNotification:[stockModel.bond_nm stringByAppendingFormat:@"涨幅大于5"]];
+            }
+            
+            
             
             
             
@@ -807,12 +813,12 @@ static int AllCount = 1;
         
         for (NSDictionary *dic in responseObject[@"rows"]) {
             YYBuyintoStockModel *m = [[YYBuyintoStockModel alloc] init];
-            [m setValuesForKeysWithDictionary:dic];
+            [m setValuesForKeysWithDictionary:dic[@"cell"]];
             
             if (m.convert_price.floatValue < m.price.floatValue) {
                 [LocalNotificationManager addLocalNotification:m.progress_dt withModel:m];
             }
-//            [XMGSqliteModelTool saveOrUpdateModel:m uid:<#(NSString *)#>];
+            [XMGSqliteModelTool saveOrUpdateModel:m uid:@"willBond"];
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
