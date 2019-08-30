@@ -70,7 +70,7 @@
 - (NSMutableArray *)cacheDocumentArrayUsing
 {
     if (_cacheDocumentArrayUsing == nil) {
-        _cacheDocumentArrayUsing = [[NSMutableArray alloc] initWithObjects:@".txt", @".sh", @".doc", @".docx", @".xls", @".xlsx", @".pdf", @".hlp", @".wps", @".rtf", @".html", @".htm", @".iso", @".rar", @".zip", @".exe", @".mdf", @".ppt", @".pptx", @".apk", nil];
+        _cacheDocumentArrayUsing = [[NSMutableArray alloc] initWithObjects:@".txt", @".sh", @".doc", @".docx", @".xls", @".xlsx", @".pdf", @".hlp", @".wps", @".rtf", @".html", @".htm", @".iso", @".rar", @".zip", @".exe", @".mdf", @".ppt", @".pptx", @".apk",@".plist",@".sqlite", nil];
     }
     return _cacheDocumentArrayUsing;
 }

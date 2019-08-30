@@ -109,6 +109,8 @@
 		B692B0B22302D56C00E01511 /* 功能介绍.png in Resources */ = {isa = PBXBuildFile; fileRef = B692B09C2302D56C00E01511 /* 功能介绍.png */; };
 		B692B0B42302D68A00E01511 /* Resource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B692B0B32302D68A00E01511 /* Resource.bundle */; };
 		B6AAD1E5230102F40048ED8E /* YYCacheGroupTable.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AAD1E4230102F40048ED8E /* YYCacheGroupTable.m */; };
+		B6BD634D2318EA540071A980 /* SMLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BD634C2318EA540071A980 /* SMLogManager.m */; };
+		B6BD63502318EC3D0071A980 /* PrintBeautifulLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BD634F2318EC3D0071A980 /* PrintBeautifulLog.m */; };
 		CA3E67123885F30DC034BA5F /* Pods_JJStockViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECD81FD3CF2763E1E549E37 /* Pods_JJStockViewTests.framework */; };
 		F536965EE630A3FA9DA68069 /* Pods_JJStockViewUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C93A9EA472081DE0D872CF1 /* Pods_JJStockViewUITests.framework */; };
 		FD0E692F2236308800B1F67F /* XMGSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0E692E2236308800B1F67F /* XMGSessionManager.m */; };
@@ -341,6 +343,10 @@
 		B692B0B32302D68A00E01511 /* Resource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resource.bundle; sourceTree = "<group>"; };
 		B6AAD1E3230102F40048ED8E /* YYCacheGroupTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYCacheGroupTable.h; sourceTree = "<group>"; };
 		B6AAD1E4230102F40048ED8E /* YYCacheGroupTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYCacheGroupTable.m; sourceTree = "<group>"; };
+		B6BD634B2318EA540071A980 /* SMLogManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMLogManager.h; sourceTree = "<group>"; };
+		B6BD634C2318EA540071A980 /* SMLogManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMLogManager.m; sourceTree = "<group>"; };
+		B6BD634E2318EC3D0071A980 /* PrintBeautifulLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrintBeautifulLog.h; sourceTree = "<group>"; };
+		B6BD634F2318EC3D0071A980 /* PrintBeautifulLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrintBeautifulLog.m; sourceTree = "<group>"; };
 		C2C2C12824F1BCF43EE78566 /* Pods-MyselfFunction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyselfFunction.debug.xcconfig"; path = "Target Support Files/Pods-MyselfFunction/Pods-MyselfFunction.debug.xcconfig"; sourceTree = "<group>"; };
 		C66ED7DCABC91A2E35C50F56 /* Pods-JJStockViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJStockViewTests.debug.xcconfig"; path = "Target Support Files/Pods-JJStockViewTests/Pods-JJStockViewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E747CDF99F5250D8556A97D8 /* Pods_JJStockView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JJStockView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -694,7 +700,11 @@
 		B624A8F9230AA9F70093AF88 /* netLog */ = {
 			isa = PBXGroup;
 			children = (
+				B6BD634B2318EA540071A980 /* SMLogManager.h */,
+				B6BD634C2318EA540071A980 /* SMLogManager.m */,
 				B624A8FA230AA9F70093AF88 /* NSArray+HWLog.h */,
+				B6BD634E2318EC3D0071A980 /* PrintBeautifulLog.h */,
+				B6BD634F2318EC3D0071A980 /* PrintBeautifulLog.m */,
 				B624A8FB230AA9F70093AF88 /* NSDictionary+HMToChineseLog.m */,
 				B624A8FC230AA9F70093AF88 /* NSDictionary+HMToChineseLog.h */,
 				B624A8FD230AA9F70093AF88 /* NSArray+HWLog.m */,
@@ -1210,6 +1220,7 @@
 				06C5BBD12253318B0037B993 /* ListenerBag.m in Sources */,
 				060C4B8F222262A2004BA326 /* XMGSqliteTool.m in Sources */,
 				B63263102305135F003AEC58 /* HMTMASLayoutConstraint.m in Sources */,
+				B6BD634D2318EA540071A980 /* SMLogManager.m in Sources */,
 				B671E58A22F951FE00483FBA /* UIViewController+printName.m in Sources */,
 				FDC46BA32223CA3300C58FA2 /* NSDictionary+Swizzle.m in Sources */,
 				060C4B8D222262A2004BA326 /* XMGTableTool.m in Sources */,
@@ -1260,6 +1271,7 @@
 				FDC46BA62223CA3300C58FA2 /* JRSwizzle.m in Sources */,
 				FD0E6943223630E200B1F67F /* AFNetworkReachabilityManager.m in Sources */,
 				060A94AE2240C37E00F42A54 /* YYCheckWebViewController.m in Sources */,
+				B6BD63502318EC3D0071A980 /* PrintBeautifulLog.m in Sources */,
 				61F13E7A1F91F670002F4681 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

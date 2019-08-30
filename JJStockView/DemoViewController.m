@@ -70,6 +70,7 @@ static int AllCount = 1;
     // 保存的次数
     [[NSUserDefaults standardUserDefaults] setInteger:AllCount forKey:@"AllCount"];
     
+    
     [self requestData];
 }
 

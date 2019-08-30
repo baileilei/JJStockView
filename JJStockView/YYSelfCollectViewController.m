@@ -589,12 +589,12 @@ static int count = 1;
     SYCacheFileViewController *cacheVC = [[SYCacheFileViewController alloc] init];
 
     //    // 指定文件格式
-//    [SYCacheFileManager shareManager].cacheDocumentTypes = @[@".pages", @"wps", @".xls", @".pdf", @".rar",@".jpg"];
+    [SYCacheFileManager shareManager].cacheDocumentTypes = @[@".pages", @"wps", @".xls", @".pdf", @".rar",@".jpg",@".sqlite",@".plist"];
 //
 //    // 指定目录，或默认目录
     NSString *path = [SYCacheFileManager libraryDirectoryPath];
     NSString *imgPath = [path stringByAppendingString:@"/PlugImage"];
-    NSArray *array = [[SYCacheFileManager shareManager] fileModelsWithFilePath:imgPath];
+    NSArray *array = [[SYCacheFileManager shareManager] fileModelsWithFilePath:path];
     
 //    cacheVC.cacheArray = [self handleDATA:array].mutableCopy;
     
