@@ -99,7 +99,7 @@
             btnTitle = model.stock_id;
             break;
             case 2:
-            btnTitle = [NSString stringWithFormat:@"%@",model.stockURL];
+            btnTitle = [NSString stringWithFormat:@"%@",model.passAndFuture];
             break;
             case 3:
             btnTitle = [NSString stringWithFormat:@"%@",model.price];
@@ -304,11 +304,19 @@
             
             [stockModel setValuesForKeysWithDictionary:dic[@"cell"]];
             
+            if ([stockModel.stock_id hasPrefix:@"6"]) {
+                stockModel.stock_id = [NSString stringWithFormat:@"sh%@",stockModel.stock_id];
+            }else{// 0  3
+                 stockModel.stock_id = [NSString stringWithFormat:@"sz%@",stockModel.stock_id];
+            }
+            
+            stockModel.stockURL = [NSString stringWithFormat:@"http://finance.sina.com.cn/realstock/company/%@/nc.shtml",stockModel.stock_id];
             
             
             for (YYStockModel *m in originArray) {
                 if ([m.stock_id containsString:stockModel.stock_id]) {
                     stockModel.stockURL = m.stockURL;
+                    stockModel.passAndFuture = @"已发行";
                 }
             }
             [temp addObject:stockModel];
