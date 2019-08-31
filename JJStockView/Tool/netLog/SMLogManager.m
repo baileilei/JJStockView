@@ -9,6 +9,8 @@
 #import "SMLogManager.h"
 #import <UIKit/UIKit.h>
 
+
+
 @implementation SMLogManager
 
 + (instancetype)sharedManager {
@@ -19,6 +21,53 @@
     });
     return logManger;
 }
+
+
+#pragma mark - NSLog Save
+-(void)myFocusExceptionHandler:(YYStockModel *)stock count:(NSInteger)count
+{
+    NSLog(@"myFocusExceptionHandler Begin\r\n");
+    
+    NSString *name = stock.stock_nm;
+//    NSString *reason = [exception reason];
+//    NSArray *symbols = [exception callStackSymbols]; // 异常发生时的调用栈
+    
+    NSMutableString *strSymbols = [[NSMutableString alloc] init]; //将调用栈拼成输出日志的字符串
+//    for (NSString* item in symbols){
+//        [strSymbols appendString: item];
+//        [strSymbols appendString: @"\r\n"];
+//    }
+    
+    //将crash日志保存到Document目录下的Log文件夹下
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *logDirectory = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"FocusLog"];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:logDirectory]) {
+        [fileManager createDirectoryAtPath:logDirectory  withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    
+    NSString *logFilePath = [logDirectory stringByAppendingPathComponent:@"FocusLogException.txt"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"]];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *dateStr = [formatter stringFromDate:[NSDate date]];
+    
+    NSString *crashString = [NSString stringWithFormat:@"<- %@ ->[ Uncaught Exception ]\r\nName: %@, Reason: %@\r\n[ count == ]\r\n%ld[ Fe Symbols End ]\r\n\r\n", dateStr, name, stock.price, (long)count];
+    
+    //把错误日志写到文件中
+    if (![fileManager fileExistsAtPath:logFilePath]) {
+        [crashString writeToFile:logFilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    } else {
+        NSFileHandle *outFile = [NSFileHandle fileHandleForWritingAtPath:logFilePath];
+        [outFile seekToEndOfFile];
+        [outFile writeData:[crashString dataUsingEncoding:NSUTF8StringEncoding]];
+        [outFile closeFile];
+    }
+    
+    NSLog(@"myFocusExceptionHandler End\r\n");
+}
+
 
 #pragma mark - NSLog Save
 void UncaughtExceptionHandler(NSException *exception)
@@ -110,6 +159,8 @@ void UncaughtExceptionHandler(NSException *exception)
 - (void)setDefaultLog
 {
     [self redirectNSLogToDocumentFolder];
+    
+    
     
     //未捕获的Objective-C异常日志
     NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);

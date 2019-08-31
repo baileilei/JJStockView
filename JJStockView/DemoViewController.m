@@ -30,6 +30,8 @@
 
 #import "YYBuyintoStockModel.h"
 
+#import "SMLogManager.h"
+
 #define columnCount 18
 #define kYYCachePath @"/Users/g/Desktop"
 
@@ -69,6 +71,7 @@ static int AllCount = 1;
     
     // 保存的次数
     [[NSUserDefaults standardUserDefaults] setInteger:AllCount forKey:@"AllCount"];
+    
     
     
     [self requestData];
@@ -649,6 +652,9 @@ static int AllCount = 1;
             
             YYStockModel *stockModel = [[YYStockModel alloc] init];
             
+            if (stockModel.sincrease_rt.floatValue > 8) {
+                [[SMLogManager sharedManager] myFocusExceptionHandler:stockModel count:AllCount];
+            }
             [stockModel setValuesForKeysWithDictionary:dic[@"cell"]];
             float ratio = (stockModel.full_price.floatValue - stockModel.convert_value.floatValue)/stockModel.convert_value.floatValue;
             stockModel.ratio = ratio;
