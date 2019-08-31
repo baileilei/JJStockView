@@ -111,6 +111,7 @@
 		B6AAD1E5230102F40048ED8E /* YYCacheGroupTable.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AAD1E4230102F40048ED8E /* YYCacheGroupTable.m */; };
 		B6BD634D2318EA540071A980 /* SMLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BD634C2318EA540071A980 /* SMLogManager.m */; };
 		B6BD63502318EC3D0071A980 /* PrintBeautifulLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BD634F2318EC3D0071A980 /* PrintBeautifulLog.m */; };
+		B6D7E483231A79A300A8D8A7 /* WillBondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D7E482231A79A300A8D8A7 /* WillBondViewController.m */; };
 		CA3E67123885F30DC034BA5F /* Pods_JJStockViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECD81FD3CF2763E1E549E37 /* Pods_JJStockViewTests.framework */; };
 		F536965EE630A3FA9DA68069 /* Pods_JJStockViewUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C93A9EA472081DE0D872CF1 /* Pods_JJStockViewUITests.framework */; };
 		FD0E692F2236308800B1F67F /* XMGSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0E692E2236308800B1F67F /* XMGSessionManager.m */; };
@@ -347,6 +348,8 @@
 		B6BD634C2318EA540071A980 /* SMLogManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMLogManager.m; sourceTree = "<group>"; };
 		B6BD634E2318EC3D0071A980 /* PrintBeautifulLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrintBeautifulLog.h; sourceTree = "<group>"; };
 		B6BD634F2318EC3D0071A980 /* PrintBeautifulLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrintBeautifulLog.m; sourceTree = "<group>"; };
+		B6D7E481231A79A300A8D8A7 /* WillBondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WillBondViewController.h; sourceTree = "<group>"; };
+		B6D7E482231A79A300A8D8A7 /* WillBondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WillBondViewController.m; sourceTree = "<group>"; };
 		C2C2C12824F1BCF43EE78566 /* Pods-MyselfFunction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyselfFunction.debug.xcconfig"; path = "Target Support Files/Pods-MyselfFunction/Pods-MyselfFunction.debug.xcconfig"; sourceTree = "<group>"; };
 		C66ED7DCABC91A2E35C50F56 /* Pods-JJStockViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJStockViewTests.debug.xcconfig"; path = "Target Support Files/Pods-JJStockViewTests/Pods-JJStockViewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E747CDF99F5250D8556A97D8 /* Pods_JJStockView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JJStockView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -635,23 +638,8 @@
 				060C4B83222262A1004BA326 /* Classes */,
 				060C4B76222259DE004BA326 /* Stock */,
 				61F13EAA1F91F6B1002F4681 /* Source */,
-				61F13E781F91F670002F4681 /* AppDelegate.h */,
-				61F13E791F91F670002F4681 /* AppDelegate.m */,
-				61F13E7B1F91F670002F4681 /* DemoViewController.h */,
-				61F13E7C1F91F670002F4681 /* DemoViewController.m */,
-				06C307502266CACE00B08B4B /* YYSelfCollectViewController.h */,
-				06C307512266CACE00B08B4B /* YYSelfCollectViewController.m */,
-				06487AF22245BC2E0008A5F0 /* note&URS */,
-				060A94AC2240C37E00F42A54 /* YYCheckWebViewController.h */,
-				060A94AD2240C37E00F42A54 /* YYCheckWebViewController.m */,
-				FD69163E2228EC7F00DE3CD6 /* YYWebViewController.h */,
-				FD69163F2228EC7F00DE3CD6 /* YYWebViewController.m */,
-				FDF0BEF52230E9490040A892 /* YYKLineWebViewController.h */,
-				FDF0BEF62230E9490040A892 /* YYKLineWebViewController.m */,
-				060C4B9122226B9C004BA326 /* YYBuyIntoViewController.h */,
-				060C4B9222226B9C004BA326 /* YYBuyIntoViewController.m */,
-				060C4B9322226B9C004BA326 /* YYBuyIntoViewController.xib */,
 				047622BF224683D9005CD02C /* testForCheck.xib */,
+				B6D7E47E231A76D200A8D8A7 /* bond */,
 				61F13E811F91F670002F4681 /* Assets.xcassets */,
 				61F13E861F91F670002F4681 /* Info.plist */,
 				61F13E871F91F670002F4681 /* main.m */,
@@ -801,6 +789,39 @@
 				B6AAD1E4230102F40048ED8E /* YYCacheGroupTable.m */,
 			);
 			path = GroupTableView;
+			sourceTree = "<group>";
+		};
+		B6D7E47E231A76D200A8D8A7 /* bond */ = {
+			isa = PBXGroup;
+			children = (
+				B6D7E480231A773000A8D8A7 /* willBond */,
+				61F13E781F91F670002F4681 /* AppDelegate.h */,
+				61F13E791F91F670002F4681 /* AppDelegate.m */,
+				61F13E7B1F91F670002F4681 /* DemoViewController.h */,
+				61F13E7C1F91F670002F4681 /* DemoViewController.m */,
+				06C307502266CACE00B08B4B /* YYSelfCollectViewController.h */,
+				06C307512266CACE00B08B4B /* YYSelfCollectViewController.m */,
+				06487AF22245BC2E0008A5F0 /* note&URS */,
+				060A94AC2240C37E00F42A54 /* YYCheckWebViewController.h */,
+				060A94AD2240C37E00F42A54 /* YYCheckWebViewController.m */,
+				FD69163E2228EC7F00DE3CD6 /* YYWebViewController.h */,
+				FD69163F2228EC7F00DE3CD6 /* YYWebViewController.m */,
+				FDF0BEF52230E9490040A892 /* YYKLineWebViewController.h */,
+				FDF0BEF62230E9490040A892 /* YYKLineWebViewController.m */,
+				060C4B9122226B9C004BA326 /* YYBuyIntoViewController.h */,
+				060C4B9222226B9C004BA326 /* YYBuyIntoViewController.m */,
+				060C4B9322226B9C004BA326 /* YYBuyIntoViewController.xib */,
+			);
+			path = bond;
+			sourceTree = "<group>";
+		};
+		B6D7E480231A773000A8D8A7 /* willBond */ = {
+			isa = PBXGroup;
+			children = (
+				B6D7E481231A79A300A8D8A7 /* WillBondViewController.h */,
+				B6D7E482231A79A300A8D8A7 /* WillBondViewController.m */,
+			);
+			name = willBond;
 			sourceTree = "<group>";
 		};
 		FD0E6930223630E200B1F67F /* AFNetworking */ = {
@@ -1257,6 +1278,7 @@
 				060C4B81222259DE004BA326 /* YYMenuLabel.m in Sources */,
 				B632630E2305135F003AEC58 /* HMTMASCompositeConstraint.m in Sources */,
 				B63262F02305132E003AEC58 /* HNRecommendToolCell.m in Sources */,
+				B6D7E483231A79A300A8D8A7 /* WillBondViewController.m in Sources */,
 				61F13E881F91F670002F4681 /* main.m in Sources */,
 				FD0E69472236381E00B1F67F /* BaseNetManager.m in Sources */,
 				FD0E6944223630E200B1F67F /* AFSecurityPolicy.m in Sources */,

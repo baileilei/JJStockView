@@ -31,6 +31,7 @@
 #import "YYBuyintoStockModel.h"
 
 #import "SMLogManager.h"
+#import "WillBondViewController.h"
 
 #define columnCount 18
 #define kYYCachePath @"/Users/g/Desktop"
@@ -61,7 +62,7 @@ static int AllCount = 1;
 #pragma mark - 懒加载返回数据定时器
 - (NSTimer *)timer {
     if (!_timer) {
-        _timer = [NSTimer scheduledTimerWithTimeInterval:halfAnHour target:self selector:@selector((onTimer:)) userInfo:nil repeats:YES];
+        _timer = [NSTimer scheduledTimerWithTimeInterval:everyTenMinutes target:self selector:@selector((onTimer:)) userInfo:nil repeats:YES];
     }
     return _timer;
 }
@@ -89,8 +90,10 @@ static int AllCount = 1;
     
     self.isSearch = NO;
     
-    [self testAPIWithAFN];
     [self requestData];
+    
+    [self testAPIWithAFN];
+    
     self.navigationItem.title = @"股票表格";
     
     UISearchBar *searchBar = [[UISearchBar alloc] init];
@@ -198,7 +201,7 @@ static int AllCount = 1;
         NSString *btnTitle = nil;
         float ratio = (model.full_price.floatValue - model.convert_value.floatValue)/model.convert_value.floatValue;
         
-        float stockRatio= (model.sprice.floatValue - model.convert_price.floatValue)/model.convert_price.floatValue;
+//        float stockRatio= (model.sprice.floatValue - model.convert_price.floatValue)/model.convert_price.floatValue;
         switch (i) {
             case 0:
 //                btnTitle = [NSString stringWithFormat:@"%.2f%%",ratio * 100];
@@ -643,7 +646,7 @@ static int AllCount = 1;
         
         NSError *error = nil;
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-//        NSLog(@"dict-----%@",dict[@"rows"]);
+        NSLog(@"dict-----%@",dict[@"rows"]);
         
         NSMutableArray *temp = [NSMutableArray array];
         NSMutableArray *categoriStock = [NSMutableArray array];
@@ -652,9 +655,7 @@ static int AllCount = 1;
             
             YYStockModel *stockModel = [[YYStockModel alloc] init];
             
-            if (stockModel.sincrease_rt.floatValue > 8) {
-                [[SMLogManager sharedManager] myFocusExceptionHandler:stockModel count:AllCount];
-            }
+            
             [stockModel setValuesForKeysWithDictionary:dic[@"cell"]];
             float ratio = (stockModel.full_price.floatValue - stockModel.convert_value.floatValue)/stockModel.convert_value.floatValue;
             stockModel.ratio = ratio;
@@ -663,6 +664,11 @@ static int AllCount = 1;
             stockModel.stockRatio = stockRatio;
             
 
+            NSRange range = [stockModel.sincrease_rt rangeOfString:@"."];
+            float tempIncrease = [stockModel.sincrease_rt substringToIndex:range.location].floatValue;
+            if (tempIncrease > 8) {
+                [[SMLogManager sharedManager] myFocusExceptionHandler:stockModel count:AllCount];
+            }
              stockModel.stockURL = [NSString stringWithFormat:@"http://finance.sina.com.cn/realstock/company/%@/nc.shtml",stockModel.stock_id];
             stockModel.bondURL = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/bond/quotes/%@.html",stockModel.pre_bond_id];
             
@@ -686,6 +692,16 @@ static int AllCount = 1;
             if ([stockModel.bond_nm isEqualToString:@"特一转债"] && stockModel.full_price.intValue < 108) {
                 [self p_testLoaclNotification:@"特一转债"];
             }
+            
+            if ([stockModel.stock_nm isEqualToString:@"久其软件"] && stockModel.sprice.floatValue < 6.63) {
+                [self p_testLoaclNotification:@"久其价格低于 0.7了！！！"];
+            }
+            
+            //股价涨幅  远大于 债涨幅  启动迹象！！！
+            if (stockModel.sincrease_rt.floatValue - stockModel.increase_rt.floatValue > 5.00) {
+                [self p_testLoaclNotification:[stockModel.bond_nm stringByAppendingFormat:@"涨幅大于5"]];
+            }
+            
             
             
             
@@ -786,7 +802,7 @@ static int AllCount = 1;
     
     //如何快速测试一个网络请求
     [NSURLConnection sendAsynchronousRequest:request2 queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
-        NSLog(@"response -----%@",response);
+//        NSLog(@"response -----%@",response);
 //        NSLog(@"data ----%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
         
         NSError *error = nil;
@@ -813,12 +829,27 @@ static int AllCount = 1;
         
         for (NSDictionary *dic in responseObject[@"rows"]) {
             YYBuyintoStockModel *m = [[YYBuyintoStockModel alloc] init];
-            [m setValuesForKeysWithDictionary:dic];
+            [m setValuesForKeysWithDictionary:dic[@"cell"]];
+            
+            
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                
+                NSMutableArray *tempArray = [NSMutableArray array];
+                for (YYStockModel *m in self.stocks) {
+                    if (m.increase_rt.floatValue != 0) {
+                        [tempArray addObject:m];
+                    }
+                }
+                if([[tempArray valueForKey:@"stock_nm"] containsObject:m.stock_nm]){
+                    [[SMLogManager sharedManager] myFocusExceptionHandler:m comments:@"当前有转债也即将发售可转债-------lowInElement的要素"];
+                }
+            });
             
             if (m.convert_price.floatValue < m.price.floatValue) {
                 [LocalNotificationManager addLocalNotification:m.progress_dt withModel:m];
             }
-//            [XMGSqliteModelTool saveOrUpdateModel:m uid:<#(NSString *)#>];
+            [XMGSqliteModelTool saveOrUpdateModel:m uid:@"willBond"];
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -877,8 +908,8 @@ static int AllCount = 1;
 
 -(void)p_calenar{
     
-    YYWebViewController *web = [[YYWebViewController alloc] init];
-    web.targetUrl = @"https://www.jisilu.cn/data/calendar/";
+    WillBondViewController *web = [[WillBondViewController alloc] init];
+//    web.targetUrl = @"https://www.jisilu.cn/data/calendar/";
     [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
 }
 

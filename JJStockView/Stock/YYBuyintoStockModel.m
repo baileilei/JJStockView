@@ -11,7 +11,7 @@
 @implementation YYBuyintoStockModel
 
 +(NSString *)primaryKey{
-    return @"bond_id";
+    return @"stock_id";
 }
 
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key{

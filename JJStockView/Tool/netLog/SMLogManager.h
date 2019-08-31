@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "YYStockModel.h"
+#import "YYBuyintoStockModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)sharedManager;
 
 -(void)myFocusExceptionHandler:(YYStockModel *)stock count:(NSInteger)count;
+
+-(void)myFocusExceptionHandler:(YYBuyintoStockModel *)stock comments:(NSString *)comments;
 
 - (void)setDefaultLog;
 - (void)clearExpiredLog;

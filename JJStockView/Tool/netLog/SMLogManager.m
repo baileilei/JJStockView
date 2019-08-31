@@ -22,6 +22,36 @@
     return logManger;
 }
 
+-(void)myFocusExceptionHandler:(YYBuyintoStockModel *)stock comments:(NSString *)comments{
+    
+    //将crash日志保存到Document目录下的Log文件夹下
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *logDirectory = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"FocusLog"];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:logDirectory]) {
+        [fileManager createDirectoryAtPath:logDirectory  withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    
+    NSString *logFilePath = [logDirectory stringByAppendingPathComponent:@"lowInElement-willBond.txt"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"]];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *dateStr = [formatter stringFromDate:[NSDate date]];
+    
+    NSString *crashString = [NSString stringWithFormat:@"<- %@ ->[ Uncaught Exception ]\r\nName: %@, Reason: %@\r\n[ count == ]\r\n%@[ Fe Symbols End ]\r\n\r\n", dateStr, stock.stock_nm, stock.price, comments];
+    
+    //把错误日志写到文件中
+    if (![fileManager fileExistsAtPath:logFilePath]) {
+        [crashString writeToFile:logFilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    } else {
+        NSFileHandle *outFile = [NSFileHandle fileHandleForWritingAtPath:logFilePath];
+        [outFile seekToEndOfFile];
+        [outFile writeData:[crashString dataUsingEncoding:NSUTF8StringEncoding]];
+        [outFile closeFile];
+    }
+}
+
 
 #pragma mark - NSLog Save
 -(void)myFocusExceptionHandler:(YYStockModel *)stock count:(NSInteger)count
@@ -47,7 +77,7 @@
         [fileManager createDirectoryAtPath:logDirectory  withIntermediateDirectories:YES attributes:nil error:nil];
     }
     
-    NSString *logFilePath = [logDirectory stringByAppendingPathComponent:@"FocusLogException.txt"];
+    NSString *logFilePath = [logDirectory stringByAppendingPathComponent:@"lowInElement.txt"];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"]];
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];

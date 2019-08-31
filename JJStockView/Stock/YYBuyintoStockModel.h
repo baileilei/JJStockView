@@ -11,6 +11,10 @@
 
 @interface YYBuyintoStockModel : NSObject<XMGModelProtocol>
 
+@property (nonatomic,copy) NSString *stockURL;
+
+
+
 @property (nonatomic,copy) NSString *bond_id;//
 @property (nonatomic,copy) NSString *bond_nm;//
 
