@@ -250,9 +250,9 @@
 		06ED20FE231D499D00400C91 /* note201909 */ = {isa = PBXFileReference; lastKnownFileType = text; path = note201909; sourceTree = "<group>"; };
 		06ED2100231D4C4C00400C91 /* test.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = test.stringsdict; sourceTree = "<group>"; };
 		06ED2102231D4C8B00400C91 /* tests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = tests.plist; sourceTree = "<group>"; };
-		06ED2104231D4CCD00400C91 /* File.clp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.clips; path = File.clp; sourceTree = "<group>"; };
 		06ED2105231D4CF400400C91 /* File.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = File.strings; sourceTree = "<group>"; };
 		06ED2107231D4D0300400C91 /* Directions.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = Directions.geojson; sourceTree = "<group>"; };
+		06ED2109231D4E4300400C91 /* Table.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Table.md; sourceTree = "<group>"; };
 		0E82011F019E96F3DC7E4B94 /* Pods-JJStockViewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJStockViewUITests.debug.xcconfig"; path = "Target Support Files/Pods-JJStockViewUITests/Pods-JJStockViewUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1C3405708353132BBD164EB8 /* Pods_MyselfFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyselfFunction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		245A624B532B30217F8FC787 /* Pods-JJStockViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJStockViewTests.release.xcconfig"; path = "Target Support Files/Pods-JJStockViewTests/Pods-JJStockViewTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -500,9 +500,9 @@
 				06ED20FE231D499D00400C91 /* note201909 */,
 				06ED2100231D4C4C00400C91 /* test.stringsdict */,
 				06ED2102231D4C8B00400C91 /* tests.plist */,
-				06ED2104231D4CCD00400C91 /* File.clp */,
 				06ED2105231D4CF400400C91 /* File.strings */,
 				06ED2107231D4D0300400C91 /* Directions.geojson */,
+				06ED2109231D4E4300400C91 /* Table.md */,
 			);
 			path = notes;
 			sourceTree = "<group>";
