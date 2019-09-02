@@ -20,7 +20,6 @@
 @property (nonatomic,copy) NSString *bond_id;//
 @property (nonatomic,copy) NSString *bond_nm;//
 
-// buyTime   buyDecisionComment   TargetPrice  buyPrice  buyCount sellTime     sellDecisionComment
 @property (nonatomic,copy) NSString *stock_nm;
 @property (nonatomic,copy) NSString *stock_id;
 @property (nonatomic,copy) NSString *ma20_price;//

@@ -444,7 +444,7 @@ static int AllCount = 1;
 - (void)buttonAction:(UIButton*)sender{
     NSLog(@"Button Row:%ld",sender.tag);
     
-    YYStockModel *model = self.stocks[sender.tag];
+    YYStockModel *m = self.stocks[sender.tag];
     
     if ([sender.currentTitle hasPrefix:@"2019"]) {
         
@@ -453,8 +453,6 @@ static int AllCount = 1;
         NSDate *scrollToDate = [minDateFormater dateFromString:@"2019-08-01 11:11"];
         
         WSDatePickerView *datepicker = [[WSDatePickerView alloc] initWithDateStyle:DateStyleShowYearMonthDayHourMinute scrollToDate:scrollToDate CompleteBlock:^(NSDate *selectDate) {
-            
-            
             
             NSString *date = [selectDate stringWithFormat:@"yyyy-MM-dd HH:mm"];
             NSLog(@"选择的日期：%@",date);
@@ -473,19 +471,6 @@ static int AllCount = 1;
             [XMGSqliteModelTool saveOrUpdateModel:model uid:dateStr];
             
             [LocalNotificationManager addLocalNotification:date withName:model.bond_nm];
-            
-//            // 刷新 Cell 中的数据模型存储的时间 （因为 Cell中的数据模型是引用 dataArray 里的数据模型，所以Cell 中的数据模型存储的时间更改后，即更改了数据列表中存储的时间）
-//            strongCell.dmData.time = date;
-//            DLog(@"%@", strongSelf.dataArray[cell.tag].time);
-//
-//            // 数据列表中时间更改后，马上缓存到本地
-//            [strongSelf storageData];
-//
-//            // 添加到通知列表中
-//            MMHDrinkWaterDMData *dmData = [MMHDrinkWaterDMData new];
-//            dmData.time = date;
-//            dmData.isTurnOn = [kTurnOn integerValue];
-//            [MMHDrinkWaterNotifyManager addLocalNotification:dmData];
         }];
         //    datepicker.dateLabelColor = RGB(65, 188, 241);//年-月-日-时-分 颜色
         datepicker.datePickerColor = [UIColor blackColor];//滚轮日期颜色
@@ -498,79 +483,19 @@ static int AllCount = 1;
     
     if ([sender.currentTitle hasPrefix:@"K-"]) {
         YYKLineWebViewController *kWeb = [[YYKLineWebViewController alloc] init];
-        kWeb.stockID = [sender.currentTitle substringFromIndex:2];
-//        NSLog(@" 啥---%@",[self.stocks valueForKey:kWeb.stockID]);
-        for (YYStockModel *m in self.stocks) {
-            if ([m.bond_id isEqualToString:kWeb.stockID]) {
-                kWeb.market = m.market;
-                kWeb.bigPrice = [NSString stringWithFormat:@"%@---转股%@------强赎%@",m.list_dt,m.convert_dt,m.redeem_dt];
-            }
-        }
+        
+        kWeb.bigPrice = [NSString stringWithFormat:@"上市日期%@---转股%@------强赎%@",m.list_dt,m.convert_dt,m.redeem_dt];
         kWeb.bondURL = [self.stocks[sender.tag] valueForKey:@"bondURL"];
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
         
         return;
     }else if ([sender.currentTitle hasPrefix:@"SK-"]){
         YYKLineWebViewController *kWeb = [[YYKLineWebViewController alloc] init];
-        kWeb.stockID = [sender.currentTitle substringFromIndex:3];
-        for (YYStockModel *m in self.stocks) {
-            if ([m.stock_id isEqualToString:kWeb.stockID]) {
-                kWeb.bigPrice = [NSString stringWithFormat:@"回售价%.2f-------下调价%.2f----%@天-----转股价%.2f--------强赎价%.2f,--------currentPrice%@",m.convert_price.floatValue * 0.7,m.convert_price.floatValue * 0.9,m.redeem_real_days,m.convert_price.floatValue,m.convert_price.floatValue * 1.3,m.full_price];;
-            }
-        }
-        NSLog(@" 啥------%@",kWeb.stockID);
-        for (YYStockModel *m in self.stocks) {
-            if ([m.bond_id isEqualToString:kWeb.stockID]) {
-                kWeb.market = m.market;
-            }
-        }
+        kWeb.bigPrice = [NSString stringWithFormat:@"回售价%.2f-------下调价%.2f----%@天-----转股价%.2f--------强赎价%.2f,--------currentPrice%@",m.convert_price.floatValue * 0.7,m.convert_price.floatValue * 0.9,m.redeem_real_days,m.convert_price.floatValue,m.convert_price.floatValue * 1.3,m.full_price];;
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
         
         return;
-    }else if ([sender.currentTitle hasPrefix:@"SC-"]){
-        NSMutableArray *temp = [NSMutableArray array];
-        NSString *stockID = [sender.currentTitle substringFromIndex:3];
-        for (YYStockModel *m in self.stocks) {
-            if ([m.stock_id isEqualToString:stockID]) {
-                if (m.redeem_real_days >0) {
-                    [temp addObject:m.stock_id];
-                    [self.collectDict setObject:temp.copy forKey:@"强赎期"];
-                }
-                
-                if ([YYDateUtil toCurrentLessThan8Days:m.convert_dt]) {
-                    [self.collectDict setObject:temp.copy forKey:@"转股临近期"];
-                }
-            }
-        }
-        //数组中的对象如何存储？？？？      转股期
-        //打新策略---非转股期-首日下午或者第二天卖出
-        
-        
-        //下调转修     一个利好     ------ 假设前提：大股东可以操作股价的！！！   ---6个月到2年。
-        //强赎     --------------3个月到6个月   如果回调严重，可以加仓，至少有大股东在维持此标的。
-        
-        //这种假设前提下， 其实利好的季度公告是可以被大股东操作的。
-        
-        //道氏   在第14天的时候卖出。      特别低的就是有大股东在专门打压，专门回调。   心态取决于仓位。
-        
-        //数量大，仓位30%          真跌到110   加仓？？   所谓的环境又变了。。。
-        
-        
-        NSString *path = [kYYCachePath stringByAppendingPathComponent:@"collect.plist"];
-
-        
-        [self.collectDict writeToFile:[self filePathWithFileName:@"collect.plist"] atomically:YES];
-        [self.collectDict writeToFile:path atomically:YES];
-        
-        
-        
-        return;
     }
-    
-    YYWebViewController *web = [[YYWebViewController alloc] init];
-    web.stockID = sender.currentTitle;
-    
-    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
 }
 
 -(void)sort:(UIButton *)btn{
@@ -877,8 +802,6 @@ static int AllCount = 1;
     UILocalNotification *localNote = [[UILocalNotification alloc] init];
     localNote.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
     localNote.alertBody = [NSString stringWithFormat:@"%@,来信息了",modelName];//@"八戒，来信息了";
-    //设置其他信息
-//    localNote.userInfo = @{@"content": modelName, @"type": @1};
     [[UIApplication sharedApplication] scheduleLocalNotification:localNote];
 }
 
@@ -888,8 +811,6 @@ static int AllCount = 1;
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"redeem_real_days > 0"];
     
-    
-//    [XMGSqliteModelTool saveOrUpdateModel:<#(id)#> uid:<#(NSString *)#>];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:collectVC];
     [self presentViewController:nav animated:NO completion:nil];
     
@@ -913,7 +834,6 @@ static int AllCount = 1;
 -(void)p_calenar{
     
     WillBondViewController *web = [[WillBondViewController alloc] init];
-//    web.targetUrl = @"https://www.jisilu.cn/data/calendar/";
     [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
 }
 

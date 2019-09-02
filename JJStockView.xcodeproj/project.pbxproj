@@ -700,6 +700,38 @@
 			path = netLog;
 			sourceTree = "<group>";
 		};
+		B631FD28231CF06B001ED114 /* Redeem */ = {
+			isa = PBXGroup;
+			children = (
+				06C307502266CACE00B08B4B /* YYSelfCollectViewController.h */,
+				06C307512266CACE00B08B4B /* YYSelfCollectViewController.m */,
+			);
+			path = Redeem;
+			sourceTree = "<group>";
+		};
+		B631FD29231CF0BE001ED114 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				060A94AC2240C37E00F42A54 /* YYCheckWebViewController.h */,
+				060A94AD2240C37E00F42A54 /* YYCheckWebViewController.m */,
+				060C4B9122226B9C004BA326 /* YYBuyIntoViewController.h */,
+				060C4B9222226B9C004BA326 /* YYBuyIntoViewController.m */,
+				060C4B9322226B9C004BA326 /* YYBuyIntoViewController.xib */,
+			);
+			name = test;
+			sourceTree = "<group>";
+		};
+		B631FD2A231CF0D6001ED114 /* Webview */ = {
+			isa = PBXGroup;
+			children = (
+				FD69163E2228EC7F00DE3CD6 /* YYWebViewController.h */,
+				FD69163F2228EC7F00DE3CD6 /* YYWebViewController.m */,
+				FDF0BEF52230E9490040A892 /* YYKLineWebViewController.h */,
+				FDF0BEF62230E9490040A892 /* YYKLineWebViewController.m */,
+			);
+			name = Webview;
+			sourceTree = "<group>";
+		};
 		B63262F12305135F003AEC58 /* HMTMasonry */ = {
 			isa = PBXGroup;
 			children = (
@@ -794,23 +826,15 @@
 		B6D7E47E231A76D200A8D8A7 /* bond */ = {
 			isa = PBXGroup;
 			children = (
+				B631FD2A231CF0D6001ED114 /* Webview */,
+				B631FD29231CF0BE001ED114 /* test */,
+				B631FD28231CF06B001ED114 /* Redeem */,
 				B6D7E480231A773000A8D8A7 /* willBond */,
 				61F13E781F91F670002F4681 /* AppDelegate.h */,
 				61F13E791F91F670002F4681 /* AppDelegate.m */,
 				61F13E7B1F91F670002F4681 /* DemoViewController.h */,
 				61F13E7C1F91F670002F4681 /* DemoViewController.m */,
-				06C307502266CACE00B08B4B /* YYSelfCollectViewController.h */,
-				06C307512266CACE00B08B4B /* YYSelfCollectViewController.m */,
 				06487AF22245BC2E0008A5F0 /* note&URS */,
-				060A94AC2240C37E00F42A54 /* YYCheckWebViewController.h */,
-				060A94AD2240C37E00F42A54 /* YYCheckWebViewController.m */,
-				FD69163E2228EC7F00DE3CD6 /* YYWebViewController.h */,
-				FD69163F2228EC7F00DE3CD6 /* YYWebViewController.m */,
-				FDF0BEF52230E9490040A892 /* YYKLineWebViewController.h */,
-				FDF0BEF62230E9490040A892 /* YYKLineWebViewController.m */,
-				060C4B9122226B9C004BA326 /* YYBuyIntoViewController.h */,
-				060C4B9222226B9C004BA326 /* YYBuyIntoViewController.m */,
-				060C4B9322226B9C004BA326 /* YYBuyIntoViewController.xib */,
 			);
 			path = bond;
 			sourceTree = "<group>";
