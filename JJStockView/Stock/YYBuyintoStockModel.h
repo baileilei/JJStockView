@@ -12,7 +12,7 @@
 @interface YYBuyintoStockModel : NSObject<XMGModelProtocol>
 
 @property (nonatomic,copy) NSString *stockURL;
-@property (nonatomic,copy) NSString *passAndFuture;
+@property (nonatomic,copy) NSString *passAndFuture;//已发行且将要发行
 
 
 

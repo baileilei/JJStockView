@@ -13,11 +13,13 @@
 @interface LocalNotificationManager : NSObject
 
 @property (strong, nonatomic) UILocalNotification *notification;;
-
+-(void)Tool_testLoaclNotification:(NSString *)noteName;
 
 + (LocalNotificationManager *)sharedNotificationManager;
 - (void)setAllEventForNotification;
 - (void)eventNotificationAlert:(UILocalNotification *)notifi;
+
+
 
 /**
  *  添加一个本地通知

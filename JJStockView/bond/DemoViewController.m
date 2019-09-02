@@ -444,6 +444,8 @@ static int AllCount = 1;
 - (void)buttonAction:(UIButton*)sender{
     NSLog(@"Button Row:%ld",sender.tag);
     
+    YYStockModel *model = self.stocks[sender.tag];
+    
     if ([sender.currentTitle hasPrefix:@"2019"]) {
         
         NSDateFormatter *minDateFormater = [[NSDateFormatter alloc] init];
@@ -700,6 +702,8 @@ static int AllCount = 1;
             //股价涨幅  远大于 债涨幅  启动迹象！！！
             if (stockModel.sincrease_rt.floatValue - stockModel.increase_rt.floatValue > 5.00) {
                 [self p_testLoaclNotification:[stockModel.bond_nm stringByAppendingFormat:@"涨幅大于5"]];
+                
+                [[SMLogManager sharedManager] myFocusExceptionHandler:stockModel comments:@"涨幅大于5"];
             }
             
             

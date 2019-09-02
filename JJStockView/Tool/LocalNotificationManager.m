@@ -20,6 +20,19 @@ NSString * const kDrinkWaterAlertBody = @"小喵提醒：主人记得喝水哟�
 
 @implementation LocalNotificationManager
 
+-(void)Tool_testLoaclNotification:(NSString *)modelName{
+    
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge |UIUserNotificationTypeSound categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    
+    UILocalNotification *localNote = [[UILocalNotification alloc] init];
+    localNote.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
+    localNote.alertBody = [NSString stringWithFormat:@"%@,来信息了",modelName];//@"八戒，来信息了";
+    //设置其他信息
+    //    localNote.userInfo = @{@"content": modelName, @"type": @1};
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNote];
+}
+
 + (LocalNotificationManager *)sharedNotificationManager{
     static LocalNotificationManager *sharedInstance;
     @synchronized(self){

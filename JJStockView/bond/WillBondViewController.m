@@ -14,6 +14,7 @@
 #import "YYDateUtil.h"
 #import "XMGSqliteModelTool.h"
 #import "YYStockModel.h"
+#import "LocalNotificationManager.h"
 
 #define columnCount 18
 
@@ -99,7 +100,7 @@
             btnTitle = model.stock_id;
             break;
             case 2:
-            btnTitle = [NSString stringWithFormat:@"%@",model.passAndFuture];
+                btnTitle = [NSString stringWithFormat:@"%@",model.passAndFuture];
             break;
             case 3:
             btnTitle = [NSString stringWithFormat:@"%@",model.price];
@@ -312,6 +313,9 @@
             
             stockModel.stockURL = [NSString stringWithFormat:@"http://finance.sina.com.cn/realstock/company/%@/nc.shtml",stockModel.stock_id];
             
+            if ([stockModel.stock_nm isEqualToString:@"龙大肉食"] && stockModel.price.intValue < 9.21) {
+                [[LocalNotificationManager sharedNotificationManager] Tool_testLoaclNotification:@"龙大肉食"];//相近的价格，相类似的走势。过往走势
+            }
             
             for (YYStockModel *m in originArray) {
                 if ([m.stock_id containsString:stockModel.stock_id]) {
