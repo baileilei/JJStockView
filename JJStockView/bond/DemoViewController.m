@@ -577,8 +577,6 @@ static int AllCount = 1;
         NSLog(@"dict-----%@",dict[@"rows"]);
         
         NSMutableArray *temp = [NSMutableArray array];
-        NSMutableArray *categoriStock = [NSMutableArray array];
-        NSMutableArray *ratioStock = [NSMutableArray array];
         for (NSDictionary *dic in dict[@"rows"]) {
             
             YYStockModel *stockModel = [[YYStockModel alloc] init];
@@ -594,8 +592,8 @@ static int AllCount = 1;
 
             NSRange range = [stockModel.sincrease_rt rangeOfString:@"."];
             float tempIncrease = [stockModel.sincrease_rt substringToIndex:range.location].floatValue;
-            if (tempIncrease > 8) {
-                [[SMLogManager sharedManager] Tool_logPlanName:@"SI大于8" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice whenToVerify:@"一周内" comments:@"行情启动or挖坑"];
+            if (tempIncrease > 5 && stockModel.full_price.floatValue < 110) {
+                [[SMLogManager sharedManager] Tool_logPlanName:@"SI大于5&BP<110" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一周内" comments:@"行情启动or挖坑"];
             }
              stockModel.stockURL = [NSString stringWithFormat:@"http://finance.sina.com.cn/realstock/company/%@/nc.shtml",stockModel.stock_id];
             stockModel.bondURL = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/bond/quotes/%@.html",stockModel.pre_bond_id];
@@ -626,14 +624,16 @@ static int AllCount = 1;
             }
             
             //股价涨幅  远大于 债涨幅  启动迹象！！！
-            if (stockModel.sincrease_rt.floatValue - stockModel.increase_rt.floatValue > 5.00 && stockModel.full_price.floatValue < 110) {
-                [self p_testLoaclNotification:[stockModel.bond_nm stringByAppendingFormat:@"涨幅大于5"]];
+            if (stockModel.sprice.floatValue - stockModel.convert_price.floatValue < 1.00
+                && stockModel.sprice.floatValue - stockModel.convert_price.floatValue > 0
+                && stockModel.full_price.floatValue < 110) {
+//                [self p_testLoaclNotification:[stockModel.bond_nm stringByAppendingFormat:@"涨幅大于5"]];//无需及时
                 //选债四步1：面值附近攻防兼备， 铁律：110以下！
                 //第二步：转股价接近正股价，上涨给力！！
 //                第3步：一般都是2，3年，大股东会整很多概念！ 好多利好消息。
 //                第4步：小盘债比大盘债弹性大！！！相对确定！ 顶：公告+140     底部：100，110以下。    ------吉视
                 //代码化
-//                [[SMLogManager sharedManager] myFocusExceptionHandler:stockModel comments:@"涨幅大于5,而后观察持续性。。。"];
+                [[SMLogManager sharedManager] Tool_logPlanName:@"0<SP-CP<1&BP<110" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一周内" comments:@"行情启动or挖坑"];
             }
             
             NSMutableArray *tempC = [NSMutableArray array];

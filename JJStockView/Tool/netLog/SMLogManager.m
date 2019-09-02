@@ -22,7 +22,7 @@
     return logManger;
 }
 
--(void)Tool_logPlanName:(NSString *)planName targetStockName:(NSString *)targetStockName currentStockPrice:(NSString *)currentStockPrice whenToVerify:(NSString *)whenToVerify comments:(NSString *)comments{
+-(void)Tool_logPlanName:(NSString *)planName targetStockName:(NSString *)targetStockName currentStockPrice:(NSString *)currentStockPrice currentBondPrice:(NSString *)currentBondPrice whenToVerify:(NSString *)whenToVerify comments:(NSString *)comments{
     //将crash日志保存到Document目录下的Log文件夹下
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
     NSString *logDirectory = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"FocusLog"];
@@ -38,7 +38,7 @@
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *dateStr = [formatter stringFromDate:[NSDate date]];
     
-    NSString *crashString = [NSString stringWithFormat:@"<- %@ ->[ Uncaught Exception ]\r\nName: %@, Price: %@\r\n[ whenToVerify == %@]\r\ncomments == %@[ Fe Symbols End ]\r\n\r\n", dateStr, targetStockName, currentStockPrice, whenToVerify,comments];
+    NSString *crashString = [NSString stringWithFormat:@"<- %@ ->[ Uncaught Exception ]\r\nName: %@, [Price: %@\r\n bondPrice:%@ whenToVerify == %@]\r\ncomments == %@[ Fe Symbols End ]\r\n\r\n", dateStr, targetStockName, currentStockPrice, currentBondPrice,whenToVerify,comments];
     
     //把错误日志写到文件中
     if (![fileManager fileExistsAtPath:logFilePath]) {

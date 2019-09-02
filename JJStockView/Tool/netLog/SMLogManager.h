@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 //planName  targetStockName  currentStockPrice  whenToVerify:
 //whenToVerify:     BuyDecisionComment    TargetPrice
--(void)Tool_logPlanName:(NSString *)planName targetStockName:(NSString *)targetStockName currentStockPrice:(NSString *)currentStockPrice whenToVerify:(NSString *)whenToVerify comments:(NSString *)comments;
+-(void)Tool_logPlanName:(NSString *)planName targetStockName:(NSString *)targetStockName currentStockPrice:(NSString *)currentStockPrice currentBondPrice:(NSString *)currentBondPrice whenToVerify:(NSString *)whenToVerify comments:(NSString *)comments;
 
 - (void)setDefaultLog;
 - (void)clearExpiredLog;
