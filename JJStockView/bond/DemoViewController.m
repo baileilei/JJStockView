@@ -443,8 +443,10 @@ static int AllCount = 1;
 
 - (void)buttonAction:(UIButton*)sender{
     NSLog(@"Button Row:%ld",sender.tag);
-    
-    YYStockModel *m = self.stocks[sender.tag];
+    if (self.isSearch) {
+        
+    }
+    YYStockModel *m =self.isSearch? self.searchResults[sender.tag]:self.stocks[sender.tag];
     
     if ([sender.currentTitle hasPrefix:@"2019"]) {
         
@@ -593,7 +595,7 @@ static int AllCount = 1;
             NSRange range = [stockModel.sincrease_rt rangeOfString:@"."];
             float tempIncrease = [stockModel.sincrease_rt substringToIndex:range.location].floatValue;
             if (tempIncrease > 5 && stockModel.full_price.floatValue < 110) {
-                [[SMLogManager sharedManager] Tool_logPlanName:@"SI大于5&BP<110" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一周内" comments:@"行情启动or挖坑"];
+                [[SMLogManager sharedManager] Tool_logPlanName:@"SI大于5&BP<110" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一月内" comments:@"  行情启动or挖坑"];
             }
              stockModel.stockURL = [NSString stringWithFormat:@"http://finance.sina.com.cn/realstock/company/%@/nc.shtml",stockModel.stock_id];
             stockModel.bondURL = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/bond/quotes/%@.html",stockModel.pre_bond_id];
@@ -633,7 +635,7 @@ static int AllCount = 1;
 //                第3步：一般都是2，3年，大股东会整很多概念！ 好多利好消息。
 //                第4步：小盘债比大盘债弹性大！！！相对确定！ 顶：公告+140     底部：100，110以下。    ------吉视
                 //代码化
-                [[SMLogManager sharedManager] Tool_logPlanName:@"0<SP-CP<1&BP<110" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一周内" comments:@"行情启动or挖坑"];
+                [[SMLogManager sharedManager] Tool_logPlanName:@"0<SP-CP<1&BP<110" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一周内" comments:@"尚荣转债108.8比吉视101要好一点！都启动了 尚荣的走势更好一点，医疗概念也更好一点"];
             }
             
             NSMutableArray *tempC = [NSMutableArray array];
