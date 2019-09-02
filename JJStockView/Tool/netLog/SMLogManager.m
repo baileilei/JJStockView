@@ -22,6 +22,36 @@
     return logManger;
 }
 
+-(void)Tool_logPlanName:(NSString *)planName targetStockName:(NSString *)targetStockName currentStockPrice:(NSString *)currentStockPrice whenToVerify:(NSString *)whenToVerify comments:(NSString *)comments{
+    //将crash日志保存到Document目录下的Log文件夹下
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *logDirectory = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"FocusLog"];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:logDirectory]) {
+        [fileManager createDirectoryAtPath:logDirectory  withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    
+    NSString *logFilePath = [logDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.txt",planName]];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"]];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *dateStr = [formatter stringFromDate:[NSDate date]];
+    
+    NSString *crashString = [NSString stringWithFormat:@"<- %@ ->[ Uncaught Exception ]\r\nName: %@, Price: %@\r\n[ whenToVerify == %@]\r\ncomments == %@[ Fe Symbols End ]\r\n\r\n", dateStr, targetStockName, currentStockPrice, whenToVerify,comments];
+    
+    //把错误日志写到文件中
+    if (![fileManager fileExistsAtPath:logFilePath]) {
+        [crashString writeToFile:logFilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    } else {
+        NSFileHandle *outFile = [NSFileHandle fileHandleForWritingAtPath:logFilePath];
+        [outFile seekToEndOfFile];
+        [outFile writeData:[crashString dataUsingEncoding:NSUTF8StringEncoding]];
+        [outFile closeFile];
+    }
+
+}
+
 -(void)myFocusExceptionHandler:(YYBuyintoStockModel *)stock comments:(NSString *)comments{
     
     //将crash日志保存到Document目录下的Log文件夹下
@@ -59,14 +89,8 @@
     NSLog(@"myFocusExceptionHandler Begin\r\n");
     
     NSString *name = stock.stock_nm;
-//    NSString *reason = [exception reason];
-//    NSArray *symbols = [exception callStackSymbols]; // 异常发生时的调用栈
     
     NSMutableString *strSymbols = [[NSMutableString alloc] init]; //将调用栈拼成输出日志的字符串
-//    for (NSString* item in symbols){
-//        [strSymbols appendString: item];
-//        [strSymbols appendString: @"\r\n"];
-//    }
     
     //将crash日志保存到Document目录下的Log文件夹下
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);

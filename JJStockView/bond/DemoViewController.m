@@ -595,7 +595,7 @@ static int AllCount = 1;
             NSRange range = [stockModel.sincrease_rt rangeOfString:@"."];
             float tempIncrease = [stockModel.sincrease_rt substringToIndex:range.location].floatValue;
             if (tempIncrease > 8) {
-                [[SMLogManager sharedManager] myFocusExceptionHandler:stockModel count:AllCount];
+                [[SMLogManager sharedManager] Tool_logPlanName:@"SI大于8" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice whenToVerify:@"一周内" comments:@"行情启动or挖坑"];
             }
              stockModel.stockURL = [NSString stringWithFormat:@"http://finance.sina.com.cn/realstock/company/%@/nc.shtml",stockModel.stock_id];
             stockModel.bondURL = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/bond/quotes/%@.html",stockModel.pre_bond_id];

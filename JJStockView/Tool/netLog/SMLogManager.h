@@ -18,9 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)myFocusExceptionHandler:(YYStockModel *)stock count:(NSInteger)count;
 
+//待发转债
 -(void)myFocusExceptionHandler:(YYBuyintoStockModel *)stock comments:(NSString *)comments;
 
--(void)Tool_log:(id)model comments:(NSString *)comments;
+//planName  targetStockName  currentStockPrice  whenToVerify:
+//whenToVerify:     BuyDecisionComment    TargetPrice
+-(void)Tool_logPlanName:(NSString *)planName targetStockName:(NSString *)targetStockName currentStockPrice:(NSString *)currentStockPrice whenToVerify:(NSString *)whenToVerify comments:(NSString *)comments;
 
 - (void)setDefaultLog;
 - (void)clearExpiredLog;
