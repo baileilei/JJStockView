@@ -491,6 +491,7 @@ static int AllCount = 1;
         return;
     }else if ([sender.currentTitle hasPrefix:@"SK-"]){
         YYKLineWebViewController *kWeb = [[YYKLineWebViewController alloc] init];
+        kWeb.stockURL = m.stockURL;
         kWeb.bigPrice = [NSString stringWithFormat:@"回售价%.2f-------下调价%.2f----%@天-----转股价%.2f--------强赎价%.2f,--------currentPrice%@",m.convert_price.floatValue * 0.7,m.convert_price.floatValue * 0.9,m.redeem_real_days,m.convert_price.floatValue,m.convert_price.floatValue * 1.3,m.full_price];;
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
         
@@ -625,15 +626,15 @@ static int AllCount = 1;
             }
             
             //股价涨幅  远大于 债涨幅  启动迹象！！！
-            if (stockModel.sincrease_rt.floatValue - stockModel.increase_rt.floatValue > 5.00) {
+            if (stockModel.sincrease_rt.floatValue - stockModel.increase_rt.floatValue > 5.00 && stockModel.full_price.floatValue < 110) {
                 [self p_testLoaclNotification:[stockModel.bond_nm stringByAppendingFormat:@"涨幅大于5"]];
-                
-                [[SMLogManager sharedManager] myFocusExceptionHandler:stockModel comments:@"涨幅大于5"];
+                //选债四步1：面值附近攻防兼备， 铁律：110以下！
+                //第二步：转股价接近正股价，上涨给力！！
+//                第3步：一般都是2，3年，大股东会整很多概念！ 好多利好消息。
+//                第4步：小盘债比大盘债弹性大！！！相对确定！ 顶：公告+140     底部：100，110以下。    ------吉视
+                //代码化
+//                [[SMLogManager sharedManager] myFocusExceptionHandler:stockModel comments:@"涨幅大于5,而后观察持续性。。。"];
             }
-            
-            
-            
-            
             
             NSMutableArray *tempC = [NSMutableArray array];
 
@@ -672,21 +673,12 @@ static int AllCount = 1;
             [temp addObject:stockModel];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 NSDate *date = [NSDate date];
-//                NSLog(@"%@",[YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"]);
                 NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
                 [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:dateStr];
-                
-                
-//                if ([dateStr isEqualToString:@"2019-04-19"]) {//逆转？
-//                    [self p_testLoaclNotification:@"视觉中国"];
-//                }
                 
                 if ([stockModel.bond_nm isEqualToString:@"平银转债"] && stockModel.full_price.integerValue < 115) {
                     [self p_testLoaclNotification:@"平银转债"];//
                 }
-//                if (stockModel.full_price.integerValue < 110) {
-//                        [self p_testLoaclNotification:@"全仓"];
-//                    }
                 
                 if ([dateStr isEqualToString:@"2019-07-25"] ) {
                     [self p_testLoaclNotification:@"平银转债"];
@@ -826,8 +818,8 @@ static int AllCount = 1;
 -(void)p_caledar{
     
     YYWebViewController *web = [[YYWebViewController alloc] init];
-    web.targetUrl = @"https://www.jisilu.cn/data/calendar/";
-    web.bigPrice = @"下调转修会";
+//    web.targetUrl = @"https://www.jisilu.cn/data/calendar/";
+//    web.bigPrice = @"下调转修会";
     [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
 }
 

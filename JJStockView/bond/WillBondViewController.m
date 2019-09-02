@@ -287,11 +287,8 @@
         NSLog(@"responseObject----%@",responseObject);
         NSError *error = nil;
         NSDictionary *dict = responseObject;//[NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
-        //        NSLog(@"dict-----%@",dict[@"rows"]);
         
         NSMutableArray *temp = [NSMutableArray array];
-        NSMutableArray *categoriStock = [NSMutableArray array];
-        NSMutableArray *ratioStock = [NSMutableArray array];
         
         NSDate *date = [NSDate date];
         //                NSLog(@"%@",[YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"]);
@@ -347,63 +344,23 @@
 - (void)buttonAction:(UIButton*)sender{
     NSLog(@"Button Row:%ld",sender.tag);
     
-    YYBuyintoStockModel *model = self.stocks[sender.tag];
-    
-    if ([sender.currentTitle hasPrefix:@"2019"]) {
-        
-        NSDateFormatter *minDateFormater = [[NSDateFormatter alloc] init];
-        [minDateFormater setDateFormat:@"yyyy-MM-dd HH:mm"];
-        NSDate *scrollToDate = [minDateFormater dateFromString:@"2019-08-01 11:11"];
-        
-        return;
-    }
+    YYBuyintoStockModel *m = self.stocks[sender.tag];
     
     if ([sender.currentTitle hasPrefix:@"K-"]) {
         YYKLineWebViewController *kWeb = [[YYKLineWebViewController alloc] init];
-        kWeb.bondURL = model.stockURL;
-        kWeb.stockID = [sender.currentTitle substringFromIndex:2];
-        //        NSLog(@" 啥---%@",[self.stocks valueForKey:kWeb.stockID]);
-        for (YYBuyintoStockModel *m in self.stocks) {
-            if ([m.bond_id isEqualToString:kWeb.stockID]) {
-//                kWeb.market = m.market;
-//                kWeb.bigPrice = [NSString stringWithFormat:@"---转股%@------强赎%@",m.convert_dt,m.redeem_dt];
-            }
-        }
+        kWeb.bondURL = m.stockURL;
+        kWeb.bigPrice = [NSString stringWithFormat:@"---转股日期------强赎"];
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
         
         return;
     }else if ([sender.currentTitle hasPrefix:@"SK-"]){
         YYKLineWebViewController *kWeb = [[YYKLineWebViewController alloc] init];
-        kWeb.bondURL = model.stockURL;
-        kWeb.stockID = [sender.currentTitle substringFromIndex:3];
-        for (YYBuyintoStockModel *m in self.stocks) {
-            if ([m.stock_id isEqualToString:kWeb.stockID]) {
-//                kWeb.bigPrice = [NSString stringWithFormat:@"回售价%.2f-------下调价%.2f----%@天-----转股价%.2f--------强赎价%.2f,--------currentPrice%@",m.convert_price.floatValue * 0.7,m.convert_price.floatValue * 0.9,m.redeem_real_days,m.convert_price.floatValue,m.convert_price.floatValue * 1.3,m.full_price];;
-            }
-        }
+        kWeb.bondURL = m.stockURL;
+        kWeb.bigPrice = [NSString stringWithFormat:@"回售价%.2f-------下调价%.2f--------转股价%.2f--------强赎价%.2f,--------currentPrice%@",m.convert_price.floatValue * 0.7,m.convert_price.floatValue * 0.9,m.convert_price.floatValue,m.convert_price.floatValue * 1.3,m.price];;
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
         
         return;
-    }else if ([sender.currentTitle hasPrefix:@"SC-"]){
-        NSMutableArray *temp = [NSMutableArray array];
-        NSString *stockID = [sender.currentTitle substringFromIndex:3];
-        //数组中的对象如何存储？？？？      转股期
-        //打新策略---非转股期-首日下午或者第二天卖出
-        
-        
-        //下调转修     一个利好     ------ 假设前提：大股东可以操作股价的！！！   ---6个月到2年。
-        //强赎     --------------3个月到6个月   如果回调严重，可以加仓，至少有大股东在维持此标的。
-        //这种假设前提下， 其实利好的季度公告是可以被大股东操作的。
-        
-        //道氏   在第14天的时候卖出。      特别低的就是有大股东在专门打压，专门回调。   心态取决于仓位。
-        //数量大，仓位30%          真跌到110   加仓？？   所谓的环境又变了。。。
-        return;
     }
-    
-    YYWebViewController *web = [[YYWebViewController alloc] init];
-    web.stockID = sender.currentTitle;
-    
-    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
 }
 
 -(void)sort:(UIButton *)btn{
@@ -417,7 +374,6 @@
 }
 
 -(void)p_back{
-    //    [self.navigationController popViewControllerAnimated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

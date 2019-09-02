@@ -16,7 +16,6 @@
 @implementation YYWebViewController
 
 -(void)back{
-//    [self.navigationController popViewControllerAnimated:YES];
     if ([self.webView canGoBack]) {
         [self.webView goBack];
     }else{
@@ -39,20 +38,6 @@
     [self.view addSubview:self.webView];
     self.webView.delegate = self;
     
-    NSString *url;
-    if (self.stockID) {
-        url = [NSString stringWithFormat:@"https://www.jisilu.cn/data/stock/%@",[self.stockID substringFromIndex:2] ];
-    }else{
-        url = self.targetUrl;
-    }
-//    NSString *chartURL = [NSString stringWithFormat:@"http://finance.sina.com.cn/realstock/company/%@/nc.shtml?from=BaiduAladin",self.stockID];
-//    NSString *url = [NSString stringWithFormat:@"https://www.jisilu.cn/data/stock/600031"];
-    NSLog(@"url--%@-----%@",url,self);
-    
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    [self.webView loadRequest:request];
-    
     self.title = self.bigPrice;
 }
 
@@ -67,9 +52,6 @@
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     NSLog(@"%s",__func__);
-    
-//    "item_row";
-    //document.getElementsByClassName('item_row')[0].remove();
    
     return  YES;
 }

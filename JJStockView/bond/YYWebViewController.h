@@ -15,14 +15,9 @@
 
 @property (nonatomic,copy) NSString *bondURL;
 
-@property (nonatomic,copy) NSString *stockID;
+@property (nonatomic,copy) NSString *stockURL;
 
-@property (nonatomic,copy) NSString *market;
-
-
+//父类 统一处理标题 和 webView的初始化
 @property (strong,nonatomic) UIWebView *webView;
-
-@property (copy,nonatomic) NSString *targetUrl;
-
 @property (nonatomic,copy) NSString *bigPrice;
 @end

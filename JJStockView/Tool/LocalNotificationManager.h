@@ -13,6 +13,7 @@
 @interface LocalNotificationManager : NSObject
 
 @property (strong, nonatomic) UILocalNotification *notification;;
+//
 -(void)Tool_testLoaclNotification:(NSString *)noteName;
 
 + (LocalNotificationManager *)sharedNotificationManager;

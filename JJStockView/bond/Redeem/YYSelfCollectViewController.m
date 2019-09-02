@@ -419,6 +419,7 @@ static int count = 1;
 - (void)buttonAction:(UIButton*)sender{
     NSLog(@"Button Row:%ld",sender.tag);
     
+    YYStockModel *m = self.stocks[sender.tag];
     if ([sender.currentTitle isEqualToString:@"查看图片"]) {
         // 打开相册
         self.currentModel = self.stocks[sender.tag];
@@ -470,49 +471,17 @@ static int count = 1;
     
     if ([sender.currentTitle hasPrefix:@"K-"]) {
         YYKLineWebViewController *kWeb = [[YYKLineWebViewController alloc] init];
-        kWeb.stockID = [sender.currentTitle substringFromIndex:2];
-        //        NSLog(@" 啥---%@",[self.stocks valueForKey:kWeb.stockID]);
-        for (YYStockModel *m in self.stocks) {
-            if ([m.bond_id isEqualToString:kWeb.stockID]) {
-                kWeb.market = m.market;
-                kWeb.bigPrice = [NSString stringWithFormat:@"---转股%@------强赎%@",m.convert_dt,m.redeem_dt];
-            }
-        }
+        kWeb.bigPrice = [NSString stringWithFormat:@"---转股%@------强赎%@",m.convert_dt,m.redeem_dt];
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
         
         return;
     }else if ([sender.currentTitle hasPrefix:@"SK-"]){
         YYKLineWebViewController *kWeb = [[YYKLineWebViewController alloc] init];
-        kWeb.stockID = [sender.currentTitle substringFromIndex:3];
-        for (YYStockModel *m in self.stocks) {
-            if ([m.stock_id isEqualToString:kWeb.stockID]) {
-                kWeb.bigPrice = [NSString stringWithFormat:@"回售价%.2f-------下调价%.2f----%@天-----转股价%.2f--------强赎价%.2f,--------currentPrice%@",m.convert_price.floatValue * 0.7,m.convert_price.floatValue * 0.9,m.redeem_real_days,m.convert_price.floatValue,m.convert_price.floatValue * 1.3,m.full_price];;
-            }
-        }
-        NSLog(@" 啥------%@",kWeb.stockID);
-        for (YYStockModel *m in self.stocks) {
-            if ([m.bond_id isEqualToString:kWeb.stockID]) {
-                kWeb.market = m.market;
-            }
-        }
+        kWeb.bigPrice = [NSString stringWithFormat:@"回售价%.2f-------下调价%.2f----%@天-----转股价%.2f--------强赎价%.2f,--------currentPrice%@",m.convert_price.floatValue * 0.7,m.convert_price.floatValue * 0.9,m.redeem_real_days,m.convert_price.floatValue,m.convert_price.floatValue * 1.3,m.full_price];;
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
         
         return;
     }else if ([sender.currentTitle hasPrefix:@"SC-"]){
-        NSMutableArray *temp = [NSMutableArray array];
-        NSString *stockID = [sender.currentTitle substringFromIndex:3];
-        for (YYStockModel *m in self.stocks) {
-            if ([m.stock_id isEqualToString:stockID]) {
-                if (m.redeem_real_days >0) {
-                    [temp addObject:m.stock_id];
-                    
-                }
-            }
-        }
-        //数组中的对象如何存储？？？？      转股期
-        //打新策略---非转股期-首日下午或者第二天卖出
-        
-        
         //下调转修     一个利好     ------ 假设前提：大股东可以操作股价的！！！   ---6个月到2年。
         //强赎     --------------3个月到6个月   如果回调严重，可以加仓，至少有大股东在维持此标的。
         //这种假设前提下， 其实利好的季度公告是可以被大股东操作的。
@@ -521,11 +490,6 @@ static int count = 1;
         //数量大，仓位30%          真跌到110   加仓？？   所谓的环境又变了。。。
         return;
     }
-    
-    YYWebViewController *web = [[YYWebViewController alloc] init];
-    web.stockID = sender.currentTitle;
-    
-    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
 }
 
 -(void)sort:(UIButton *)btn{
@@ -625,16 +589,6 @@ static int count = 1;
 }
 
 -(NSArray *)handleDATA:(NSArray *)array{
-    
-//    NSMutableSet *set=[NSMutableSet set];
-//    [_list enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-//        [set addObject:obj[@"MeasureType"]];//利用set不重复的特性,得到有多少组,根据数组中的MeasureType字段
-//    }];
-//    [set enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {//遍历set数组
-//        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"MeasureType = %@", obj];//创建谓词筛选器
-//        NSArray *group = [_list filteredArrayUsingPredicate:predicate];//用数组的过滤方法得到新的数组,在添加的最终的数组_slices中<br>         [_slices addObject:group];<br>    }];
-//        NSLog(@"group-----%@",group);
-//    }];
     
     NSLog(@"array-------%@",array);
     NSMutableArray *All = [NSMutableArray array];

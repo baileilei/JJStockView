@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)myFocusExceptionHandler:(YYBuyintoStockModel *)stock comments:(NSString *)comments;
 
+-(void)Tool_log:(id)model comments:(NSString *)comments;
+
 - (void)setDefaultLog;
 - (void)clearExpiredLog;
 
