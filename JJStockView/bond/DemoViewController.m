@@ -106,7 +106,7 @@ static int AllCount = 1;
     HNNetworkFooterView *header = [[HNNetworkFooterView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 100)];
     //SELECT sprice - convert_price, bond_nm,full_price from YYStockModel where sprice - convert_price > 0 ORDER BY sprice - convert_price;
     //投资模型！   变量因子：时间，股价差。 目的：转债。
-    header.titleLable.text = @"看板：圆通转债 9个月了  等待圣达回调 110。适当回调。 建立模型，125？估值？？？ 三峡？";
+    header.titleLable.text = @"看板：近期热点：垃圾分类 /深圳概念/ 猪概念---------急涨抛，急跌吸---------圆通转债 9个月了  等待圣达回调 110。适当回调。 建立模型，125？估值？？？ 三峡？";
     self.stockView.jjStockTableView.tableHeaderView = header;
     [self.view addSubview:self.stockView];
     

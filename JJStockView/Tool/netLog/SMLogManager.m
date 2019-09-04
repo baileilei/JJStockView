@@ -238,7 +238,7 @@ void UncaughtExceptionHandler(NSException *exception)
             
             NSTimeInterval second = currTime - oldTime;
             int day = (int)second / (24 * 3600);
-            if (day >= 7) {
+            if (day >= 7) {//研究一下该清除机制！！！
                 // 删除该文件
                 [[NSFileManager defaultManager] removeItemAtPath:[NSString stringWithFormat:@"%@/%@", logDirectory,file] error:nil];
                 
