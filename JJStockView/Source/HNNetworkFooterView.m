@@ -52,6 +52,7 @@ static NSString *const FooterViewCellID = @"FooterViewCellID";
     [titleLable mas_makeConstraints:^(HMTMASConstraintMaker *make) {
         make.top.equalTo(self.mas_top).offset(32 * WIDTH_PROPORTION);
         make.leading.equalTo(self.mas_leading).offset(36 * WIDTH_PROPORTION);
+        make.width.equalTo(self);
     }];
     titleLable.font = [UIFont systemFontOfSize:24 * WIDTH_PROPORTION];
 //    titleLable.textColor = [UIColor CustomColorByStr:@"#212121"];

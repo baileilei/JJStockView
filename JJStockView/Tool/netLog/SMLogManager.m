@@ -49,7 +49,7 @@
         NSFileHandle *readFile = [NSFileHandle fileHandleForReadingAtPath:logFilePath];
         NSData *currentData = [readFile readDataToEndOfFile];
         NSString *currentStr = [[NSString alloc] initWithData:currentData encoding:NSUTF8StringEncoding];
-        if ([currentStr containsString:[dateStr substringToIndex:@"yyyy-MM-dd".length]]) {
+        if ([currentStr containsString:[dateStr substringToIndex:@"yyyy-MM-dd".length] ] && [currentStr containsString:targetStockName]) {
             NSLog(@"dateStr  已打印哈哈");
             return;
         }

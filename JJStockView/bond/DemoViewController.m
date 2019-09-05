@@ -106,7 +106,7 @@ static int AllCount = 1;
     HNNetworkFooterView *header = [[HNNetworkFooterView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 100)];
     //SELECT sprice - convert_price, bond_nm,full_price from YYStockModel where sprice - convert_price > 0 ORDER BY sprice - convert_price;
     //投资模型！   变量因子：时间，股价差。 目的：转债。
-    header.titleLable.text = @"看板：近期热点：垃圾分类 /深圳概念/ 猪概念(高抛低吸)---------急涨抛，急跌吸---------圆通转债 9个月了  等待圣达回调 110。适当回调。 建立模型，125？估值？？？ 三峡？";
+    header.titleLable.text = @"看板：近期热点：垃圾分类 /深圳概念/ 猪概念(高抛低吸)---------急涨抛，急跌吸---------";
     self.stockView.jjStockTableView.tableHeaderView = header;
     [self.view addSubview:self.stockView];
     
@@ -169,6 +169,7 @@ static int AllCount = 1;
     [self.view endEditing:YES];
     [searchBar resignFirstResponder];
     searchBar.text = nil;
+    [self.searchResults removeAllObjects];
 }
 //-searchbare
 
@@ -487,7 +488,7 @@ static int AllCount = 1;
         YYKLineWebViewController *kWeb = [[YYKLineWebViewController alloc] init];
         
         kWeb.bigPrice = [NSString stringWithFormat:@"上市日期%@---转股%@------强赎%@",m.list_dt,m.convert_dt,m.redeem_dt];
-        kWeb.bondURL = [self.stocks[sender.tag] valueForKey:@"bondURL"];
+        kWeb.bondURL = m.bondURL;
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
         
         return;
@@ -594,8 +595,18 @@ static int AllCount = 1;
 
             NSRange range = [stockModel.sincrease_rt rangeOfString:@"."];
             float tempIncrease = [stockModel.sincrease_rt substringToIndex:range.location].floatValue;
-            if (tempIncrease > 5 && stockModel.full_price.floatValue < 110) {
-                [[SMLogManager sharedManager] Tool_logPlanName:@"SI大于5&BP<110" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一月内" comments:@"  行情启动or挖坑"];
+            if (tempIncrease > 5 && stockModel.full_price.floatValue < 115) {
+                [[SMLogManager sharedManager] Tool_logPlanName:@"SI大于5&BP<115" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一月内" comments:@" 不要追涨？  要高抛  行情启动or挖坑 115为蓝思"];
+            }
+            
+            if (tempIncrease <= -5) {
+                [[SMLogManager sharedManager] Tool_logPlanName:@"SI小于负5&BP<110" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一月内" comments:@"过激反应？ 不要杀跌   要低吸 "];
+            }
+            
+            NSRange Brange = [stockModel.increase_rt rangeOfString:@"."];
+            float tempBI = [stockModel.increase_rt substringToIndex:Brange.location].floatValue;
+            if (tempIncrease - tempBI > 2) {
+                 [[SMLogManager sharedManager] Tool_logPlanName:@"EveryDayTop&BP<110" targetStockName:stockModel.bond_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一月内" comments:@"股票涨幅比债涨幅大于两个点"];
             }
              stockModel.stockURL = [NSString stringWithFormat:@"http://finance.sina.com.cn/realstock/company/%@/nc.shtml",stockModel.stock_id];
             stockModel.bondURL = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/bond/quotes/%@.html",stockModel.pre_bond_id];
