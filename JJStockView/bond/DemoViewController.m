@@ -90,7 +90,7 @@ static int AllCount = 1;
     
     self.isSearch = NO;
     
-    [self requestData];
+//    [self requestData];
     
     [self testAPIWithAFN];
     
@@ -106,7 +106,7 @@ static int AllCount = 1;
     HNNetworkFooterView *header = [[HNNetworkFooterView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 100)];
     //SELECT sprice - convert_price, bond_nm,full_price from YYStockModel where sprice - convert_price > 0 ORDER BY sprice - convert_price;
     //投资模型！   变量因子：时间，股价差。 目的：转债。
-    header.titleLable.text = @"看板：近期热点：垃圾分类 /深圳概念/ 猪概念---------急涨抛，急跌吸---------圆通转债 9个月了  等待圣达回调 110。适当回调。 建立模型，125？估值？？？ 三峡？";
+    header.titleLable.text = @"看板：近期热点：垃圾分类 /深圳概念/ 猪概念(高抛低吸)---------急涨抛，急跌吸---------圆通转债 9个月了  等待圣达回调 110。适当回调。 建立模型，125？估值？？？ 三峡？";
     self.stockView.jjStockTableView.tableHeaderView = header;
     [self.view addSubview:self.stockView];
     
@@ -635,7 +635,7 @@ static int AllCount = 1;
 //                第3步：一般都是2，3年，大股东会整很多概念！ 好多利好消息。
 //                第4步：小盘债比大盘债弹性大！！！相对确定！ 顶：公告+140     底部：100，110以下。    ------吉视
                 //代码化
-                [[SMLogManager sharedManager] Tool_logPlanName:@"0<SP-CP<1&BP<110" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一周内" comments:@"尚荣转债108.8比吉视101要好一点！都启动了 尚荣的走势更好一点，医疗概念也更好一点"];
+                [[SMLogManager sharedManager] Tool_logPlanName:@"0<SP-CP<1&BP<110" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一周内" comments:@"热点板块叠加！"];
             }
             
             NSMutableArray *tempC = [NSMutableArray array];

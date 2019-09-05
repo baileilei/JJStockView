@@ -1,6 +1,13 @@
-{
-    "type": "MultiPolygon",
-    "coordinates": [
-        
-    ]
+//策略 + 热点
+{// tpye: TacticType    BuySellDecisionType      ExperienceLessonType
+    "0901":{
+        "type": "TacticType",
+        "0901-tactic": "凡是在涨的好的时候买进的个股，都在站岗！ 如龙大，",
+        "0901-buySellDecision": "龙大 持续性热点，后续可期。 可转债公告和年底前"
+    },
+    "0905":{
+        "type": "ExperienceLessonType",
+        "0905-ExperienceLesson": "知行合一？？？-所谓高抛低吸的策略，就是高价委托卖！ 低价委托买！！！",
+        "0905-buySellDecision": "龙大 急跌买入，急涨卖出。  也符合委托策略！"
+    },
 }

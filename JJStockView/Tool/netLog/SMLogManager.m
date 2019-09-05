@@ -5,6 +5,7 @@
 //  Created by Smart Wi-Fi on 2019/8/19.
 //  Copyright © 2019 Smart Wi-Fi. All rights reserved.
 // 将count在txt中输出！  以及关心的信息！！！ 定制的消息。
+// 
 
 #import "SMLogManager.h"
 #import <UIKit/UIKit.h>
@@ -38,13 +39,23 @@
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *dateStr = [formatter stringFromDate:[NSDate date]];
     
+    
     NSString *crashString = [NSString stringWithFormat:@"<- %@ ->[ Uncaught Exception ]\r\nName: %@, [Price: %@\r\n bondPrice:%@ whenToVerify == %@]\r\ncomments == %@[ Fe Symbols End ]\r\n\r\n", dateStr, targetStockName, currentStockPrice, currentBondPrice,whenToVerify,comments];
     
     //把错误日志写到文件中
     if (![fileManager fileExistsAtPath:logFilePath]) {
         [crashString writeToFile:logFilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
     } else {
+        NSFileHandle *readFile = [NSFileHandle fileHandleForReadingAtPath:logFilePath];
+        NSData *currentData = [readFile readDataToEndOfFile];
+        NSString *currentStr = [[NSString alloc] initWithData:currentData encoding:NSUTF8StringEncoding];
+        if ([currentStr containsString:[dateStr substringToIndex:@"yyyy-MM-dd".length]]) {
+            NSLog(@"dateStr  已打印哈哈");
+            return;
+        }
+        
         NSFileHandle *outFile = [NSFileHandle fileHandleForWritingAtPath:logFilePath];
+        
         [outFile seekToEndOfFile];
         [outFile writeData:[crashString dataUsingEncoding:NSUTF8StringEncoding]];
         [outFile closeFile];
@@ -114,6 +125,12 @@
         [crashString writeToFile:logFilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
     } else {
         NSFileHandle *outFile = [NSFileHandle fileHandleForWritingAtPath:logFilePath];
+        NSData *currentData = [outFile readDataToEndOfFile];
+        NSString *currentStr = [[NSString alloc] initWithData:currentData encoding:NSUTF8StringEncoding];
+        if ([currentStr containsString:[dateStr substringToIndex:@"yyyy-MM-dd".length]]) {
+            NSLog(@"dateStr  已打印哈哈");
+            return;
+        }
         [outFile seekToEndOfFile];
         [outFile writeData:[crashString dataUsingEncoding:NSUTF8StringEncoding]];
         [outFile closeFile];
@@ -230,7 +247,7 @@ void UncaughtExceptionHandler(NSException *exception)
     NSString *logDirectory = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Log"];
     //获取日志目录下的所有文件
     NSArray* files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:logDirectory error:nil];
-    for (NSString *file in files) {
+    for (NSString *file in files) {//根据文件的创建日期
         NSDate *creatDate = [formatter dateFromString:file];
         if (creatDate) {
             NSTimeInterval oldTime = [creatDate timeIntervalSince1970];

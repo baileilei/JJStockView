@@ -55,6 +55,7 @@ static NSString *const FooterViewCellID = @"FooterViewCellID";
     }];
     titleLable.font = [UIFont systemFontOfSize:24 * WIDTH_PROPORTION];
 //    titleLable.textColor = [UIColor CustomColorByStr:@"#212121"];
+    titleLable.numberOfLines = 0;
     titleLable.text = @"快捷功能";
     self.titleLable = titleLable;
     
