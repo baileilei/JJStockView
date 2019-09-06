@@ -70,6 +70,8 @@
 		61F13EB01F91F6D4002F4681 /* JJStockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13EAD1F91F6D4002F4681 /* JJStockView.m */; };
 		B624A8FE230AA9F70093AF88 /* NSDictionary+HMToChineseLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B624A8FB230AA9F70093AF88 /* NSDictionary+HMToChineseLog.m */; };
 		B624A8FF230AA9F70093AF88 /* NSArray+HWLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B624A8FD230AA9F70093AF88 /* NSArray+HWLog.m */; };
+		B631FD2C23222DC5001ED114 /* functionDesign in Resources */ = {isa = PBXBuildFile; fileRef = B631FD2B23222DC5001ED114 /* functionDesign */; };
+		B631FD2F23223114001ED114 /* YYMockBuyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B631FD2E23223114001ED114 /* YYMockBuyModel.m */; };
 		B63262EF2305132E003AEC58 /* HNNetworkFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B63262EB2305132E003AEC58 /* HNNetworkFooterView.m */; };
 		B63262F02305132E003AEC58 /* HNRecommendToolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B63262EC2305132E003AEC58 /* HNRecommendToolCell.m */; };
 		B632630B2305135F003AEC58 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B63262F32305135F003AEC58 /* NSLayoutConstraint+MASDebugAdditions.m */; };
@@ -286,6 +288,9 @@
 		B624A8FB230AA9F70093AF88 /* NSDictionary+HMToChineseLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+HMToChineseLog.m"; sourceTree = "<group>"; };
 		B624A8FC230AA9F70093AF88 /* NSDictionary+HMToChineseLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HMToChineseLog.h"; sourceTree = "<group>"; };
 		B624A8FD230AA9F70093AF88 /* NSArray+HWLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+HWLog.m"; sourceTree = "<group>"; };
+		B631FD2B23222DC5001ED114 /* functionDesign */ = {isa = PBXFileReference; lastKnownFileType = text; path = functionDesign; sourceTree = "<group>"; };
+		B631FD2D23223114001ED114 /* YYMockBuyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYMockBuyModel.h; sourceTree = "<group>"; };
+		B631FD2E23223114001ED114 /* YYMockBuyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYMockBuyModel.m; sourceTree = "<group>"; };
 		B63262EB2305132E003AEC58 /* HNNetworkFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNNetworkFooterView.m; sourceTree = "<group>"; };
 		B63262EC2305132E003AEC58 /* HNRecommendToolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNRecommendToolCell.m; sourceTree = "<group>"; };
 		B63262ED2305132E003AEC58 /* HNRecommendToolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNRecommendToolCell.h; sourceTree = "<group>"; };
@@ -459,6 +464,8 @@
 			isa = PBXGroup;
 			children = (
 				060C4B962222741D004BA326 /* YYBuyintoStockModel.h */,
+				B631FD2D23223114001ED114 /* YYMockBuyModel.h */,
+				B631FD2E23223114001ED114 /* YYMockBuyModel.m */,
 				060C4B972222741D004BA326 /* YYBuyintoStockModel.m */,
 				060C4B7B222259DE004BA326 /* YYStockModel.h */,
 				06D1589D225C6EFE0040B6C6 /* YYSelfDefineCategoryStock.h */,
@@ -498,11 +505,12 @@
 			children = (
 				06C5BBC42252F0A90037B993 /* note201904 */,
 				06ED20FE231D499D00400C91 /* note201909 */,
-				06ED2100231D4C4C00400C91 /* test.stringsdict */,
-				06ED2102231D4C8B00400C91 /* celue.plist */,
-				06ED2105231D4CF400400C91 /* File.strings */,
 				06ED2107231D4D0300400C91 /* Directions.geojson */,
 				06ED2109231D4E4300400C91 /* Table.md */,
+				06ED2102231D4C8B00400C91 /* celue.plist */,
+				06ED2105231D4CF400400C91 /* File.strings */,
+				06ED2100231D4C4C00400C91 /* test.stringsdict */,
+				B631FD2B23222DC5001ED114 /* functionDesign */,
 			);
 			path = notes;
 			sourceTree = "<group>";
@@ -704,14 +712,14 @@
 		B624A8F9230AA9F70093AF88 /* netLog */ = {
 			isa = PBXGroup;
 			children = (
-				B6BD634B2318EA540071A980 /* SMLogManager.h */,
-				B6BD634C2318EA540071A980 /* SMLogManager.m */,
 				B624A8FA230AA9F70093AF88 /* NSArray+HWLog.h */,
+				B624A8FD230AA9F70093AF88 /* NSArray+HWLog.m */,
+				B624A8FC230AA9F70093AF88 /* NSDictionary+HMToChineseLog.h */,
+				B624A8FB230AA9F70093AF88 /* NSDictionary+HMToChineseLog.m */,
 				B6BD634E2318EC3D0071A980 /* PrintBeautifulLog.h */,
 				B6BD634F2318EC3D0071A980 /* PrintBeautifulLog.m */,
-				B624A8FB230AA9F70093AF88 /* NSDictionary+HMToChineseLog.m */,
-				B624A8FC230AA9F70093AF88 /* NSDictionary+HMToChineseLog.h */,
-				B624A8FD230AA9F70093AF88 /* NSArray+HWLog.m */,
+				B6BD634B2318EA540071A980 /* SMLogManager.h */,
+				B6BD634C2318EA540071A980 /* SMLogManager.m */,
 			);
 			path = netLog;
 			sourceTree = "<group>";
@@ -1087,6 +1095,7 @@
 				B692B0A32302D56C00E01511 /* menu_setting@2x.png in Resources */,
 				61F13E821F91F670002F4681 /* Assets.xcassets in Resources */,
 				06ED2106231D4CF400400C91 /* File.strings in Resources */,
+				B631FD2C23222DC5001ED114 /* functionDesign in Resources */,
 				B692B0A42302D56C00E01511 /* zhinengwangzu@2x.png in Resources */,
 				06ED2103231D4C8B00400C91 /* celue.plist in Resources */,
 				06C5BBC52252F0A90037B993 /* note201904 in Resources */,
@@ -1284,6 +1293,7 @@
 				B63263122305135F003AEC58 /* View+MASAdditions.m in Sources */,
 				06C5BBD12253318B0037B993 /* ListenerBag.m in Sources */,
 				060C4B8F222262A2004BA326 /* XMGSqliteTool.m in Sources */,
+				B631FD2F23223114001ED114 /* YYMockBuyModel.m in Sources */,
 				B63263102305135F003AEC58 /* HMTMASLayoutConstraint.m in Sources */,
 				B6BD634D2318EA540071A980 /* SMLogManager.m in Sources */,
 				B671E58A22F951FE00483FBA /* UIViewController+printName.m in Sources */,

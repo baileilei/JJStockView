@@ -4,7 +4,7 @@
 //
 //  Created by Jezz on 2017/10/14.
 //  Copyright © 2017年 Jezz. All rights reserved.
-//
+// 模拟交易功能
 
 #import "DemoViewController.h"
 #import "YYStockModel.h"
@@ -48,7 +48,7 @@ static int AllCount = 1;
 @interface DemoViewController ()<StockViewDataSource,StockViewDelegate,UISearchBarDelegate>
 
 
-@property (nonatomic,strong) NSMutableArray *watchPond;
+@property (nonatomic,strong) NSMutableArray *watchPond;//监控池功能
 
 @property (nonatomic, strong) NSMutableArray *searchResults;
 
