@@ -81,7 +81,7 @@ static int AllCount = 1;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [self p_testLoaclNotification];
+
 //    [self testResultOfAPI];
 //    [self testAPIWithAFN];
     self.searchResults = [NSMutableArray array];
@@ -302,13 +302,7 @@ static int AllCount = 1;
         if (model.convert_dt && [YYDateUtil toCurrentLessThan8Days:model.convert_dt]) {//临近转股期的   
             label.backgroundColor = [UIColor purpleColor];
         }
-        
-//        if (model.sprice.floatValue > model.convert_price.floatValue && ABS(model.full_price.integerValue - 100) < 10 && model.full_price.integerValue != 100) {//入场点
-//            label.backgroundColor = [UIColor redColor];
-//        }
        
-        
-        
 //        策略2-----经济整体周期进入了衰退期   债券和黄金为主要标的  所以可以放宽一点  从周期把握趋势
         if (ratio < 0 && ABS(model.full_price.integerValue - 100) < 10) {//特别关注
 //            label.backgroundColor = [UIColor magentaColor];
@@ -319,11 +313,6 @@ static int AllCount = 1;
 //            label.backgroundColor = [UIColor orangeColor];//特别关注
         }
         
-        //必然进入转股期的    触发了强赎价的     短暂回调的至115的     
-        if (model.redeem_real_days.integerValue > 0 && model.full_price.integerValue < 115) {
-            label.backgroundColor = [UIColor orangeColor];
-            [self p_testLoaclNotification:model.bond_nm];
-        }
         
         
         
@@ -615,32 +604,20 @@ static int AllCount = 1;
             stockModel.passConvert_dt_days = [NSString stringWithFormat:@"%ld",[YYDateUtil calculateToTodayDays:stockModel.convert_dt]]; ;
            
             if ([stockModel.bond_nm isEqualToString:@"G三峡EB"] && stockModel.full_price.intValue < 107) {
-                [self p_testLoaclNotification:@"三峡债"];//相近的价格，相类似的走势。过往走势
+                [[LocalNotificationManager sharedNotificationManager] Tool_testLoaclNotification:@"三峡债"];//相近的价格，相类似的走势。过往走势
             }//蒙电 linglu
             
             
             //监控利欧     周策略
             if ([stockModel.bond_nm isEqualToString:@"利欧转债"] && stockModel.full_price.intValue < 110) {
-                [self p_testLoaclNotification:@"利欧转债"];
-            }
-            
-            if ([stockModel.bond_nm isEqualToString:@"尚荣转债"] && stockModel.full_price.intValue < 109) {
-                [self p_testLoaclNotification:@"尚荣转债"];
-            }
-            
-            if ([stockModel.bond_nm isEqualToString:@"特一转债"] && stockModel.full_price.intValue < 108) {
-                [self p_testLoaclNotification:@"特一转债"];
-            }
-            
-            if ([stockModel.stock_nm isEqualToString:@"久其软件"] && stockModel.sprice.floatValue < 6.63) {
-                [self p_testLoaclNotification:@"久其价格低于 0.7了！！！"];
+                [[LocalNotificationManager sharedNotificationManager] Tool_testLoaclNotification:@"利欧转债"];
             }
             
             //股价涨幅  远大于 债涨幅  启动迹象！！！
             if (stockModel.sprice.floatValue - stockModel.convert_price.floatValue < 1.00
                 && stockModel.sprice.floatValue - stockModel.convert_price.floatValue > 0
                 && stockModel.full_price.floatValue < 110) {
-//                [self p_testLoaclNotification:[stockModel.bond_nm stringByAppendingFormat:@"涨幅大于5"]];//无需及时
+//               //无需及时
                 //选债四步1：面值附近攻防兼备， 铁律：110以下！
                 //第二步：转股价接近正股价，上涨给力！！
 //                第3步：一般都是2，3年，大股东会整很多概念！ 好多利好消息。
@@ -688,25 +665,11 @@ static int AllCount = 1;
                 NSDate *date = [NSDate date];
                 NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
                 [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:dateStr];
-                
-                if ([stockModel.bond_nm isEqualToString:@"平银转债"] && stockModel.full_price.integerValue < 115) {
-                    [self p_testLoaclNotification:@"平银转债"];//
-                }
-                
-                if ([dateStr isEqualToString:@"2019-07-25"] ) {
-                    [self p_testLoaclNotification:@"平银转债"];
-                }
-                //伊力策略-----一旦低于110就加仓   甚至重仓
-                
                 //
                 
                 if ([YYDateUtil toCurrentLessThan8Days:stockModel.convert_dt]) {
                     NSString *sql = [NSString stringWithFormat:@"select full_price from YYStockModel where bond_id = %@;",stockModel.bond_id];
                     NSArray *nearConvertArray = [XMGSqliteModelTool queryModels:[YYStockModel class] WithSql:sql uid:stockModel.convert_dt];
-//                    NSArray *nearConvertArray = [XMGSqliteModelTool queryModels:[YYStockModel class] WithSql:sql uid:dateStr];//测试用
-                    if (nearConvertArray.count > 0) {
-                        [self p_testLoaclNotification:stockModel.stock_nm];
-                    }
                 }
             });
         }
@@ -797,17 +760,6 @@ static int AllCount = 1;
 -(void)p_checkSum{
     YYCheckWebViewController *checkVC = [[YYCheckWebViewController alloc] init];
     [self presentViewController:[[UINavigationController alloc] initWithRootViewController:checkVC] animated:YES completion:nil];
-}
-
--(void)p_testLoaclNotification:(NSString *)modelName{
-    
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge |UIUserNotificationTypeSound categories:nil];
-    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-    
-    UILocalNotification *localNote = [[UILocalNotification alloc] init];
-    localNote.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
-    localNote.alertBody = [NSString stringWithFormat:@"%@,来信息了",modelName];//@"八戒，来信息了";
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNote];
 }
 
 -(void)p_redeem{

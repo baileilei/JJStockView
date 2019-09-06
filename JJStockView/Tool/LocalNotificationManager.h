@@ -13,7 +13,7 @@
 @interface LocalNotificationManager : NSObject
 
 @property (strong, nonatomic) UILocalNotification *notification;;
-//
+//[self p_testLoaclNotification:[stockModel.bond_nm stringByAppendingFormat:@"涨幅大于5"]]
 -(void)Tool_testLoaclNotification:(NSString *)noteName;
 
 + (LocalNotificationManager *)sharedNotificationManager;
