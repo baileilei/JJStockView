@@ -605,7 +605,7 @@ static int AllCount = 1;
            
             if ([stockModel.bond_nm isEqualToString:@"G三峡EB"] && stockModel.full_price.intValue < 107) {
                 [[LocalNotificationManager sharedNotificationManager] Tool_testLoaclNotification:@"三峡债"];//相近的价格，相类似的走势。过往走势
-            }//蒙电 linglu
+            }
             
             
             //监控利欧     周策略
@@ -624,6 +624,11 @@ static int AllCount = 1;
 //                第4步：小盘债比大盘债弹性大！！！相对确定！ 顶：公告+140     底部：100，110以下。    ------吉视
                 //代码化
                 [[SMLogManager sharedManager] Tool_logPlanName:@"0<SP-CP<1&BP<110" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一周内" comments:@"热点板块叠加！"];
+            }
+            
+            //卖出通知
+            if ([stockModel.bond_nm isEqualToString:@"圣达转债"] && stockModel.full_price.floatValue * stockModel.increase_rt.floatValue < -10) {
+                [[LocalNotificationManager sharedNotificationManager] Tool_testLoaclNotification:@"圣达---降幅大于了10"];
             }
             
             NSMutableArray *tempC = [NSMutableArray array];
