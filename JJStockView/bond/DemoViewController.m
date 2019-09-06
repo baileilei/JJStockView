@@ -44,10 +44,11 @@
 
 static int AllCount = 1;
 
+
 @interface DemoViewController ()<StockViewDataSource,StockViewDelegate,UISearchBarDelegate>
 
 
-@property (nonatomic,strong) NSMutableDictionary *collectDict;
+@property (nonatomic,strong) NSMutableArray *watchPond;
 
 @property (nonatomic, strong) NSMutableArray *searchResults;
 
@@ -86,8 +87,6 @@ static int AllCount = 1;
 //    [self testAPIWithAFN];
     self.searchResults = [NSMutableArray array];
     
-    self.collectDict = [[NSMutableDictionary alloc] init];
-    
     self.isSearch = NO;
     
 //    [self requestData];
@@ -125,8 +124,6 @@ static int AllCount = 1;
     
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"刷新" style:UIBarButtonItemStyleDone target:self action:@selector(p_refresh)];
     self.navigationItem.leftBarButtonItem = leftItem;
-    
-    self.collectDict = [[NSMutableDictionary alloc] init];
     
     [self.timer setFireDate:[NSDate date]];
     
@@ -206,7 +203,7 @@ static int AllCount = 1;
         switch (i) {
             case 0:
 //                btnTitle = [NSString stringWithFormat:@"%.2f%%",ratio * 100];
-                btnTitle = model.noteDate?model.noteDate : @"2019-";//[NSString stringWithFormat:model.noteDate];
+                btnTitle = model.noteDate?model.noteDate : @"添加监控";//[NSString stringWithFormat:model.noteDate];
                 
                 break;
             case 1:
@@ -272,7 +269,7 @@ static int AllCount = 1;
         label.text = [NSString stringWithFormat:@"%@",btnTitle];
         label.textAlignment = NSTextAlignmentCenter;
         [bg addSubview:label];
-        if ([btnTitle isEqualToString:model.stock_id] || [btnTitle isEqualToString:[NSString stringWithFormat:@"K-%@",model.bond_id]] ||  [btnTitle isEqualToString:[NSString stringWithFormat:@"SK-%@",model.stock_id]] || [btnTitle isEqualToString:[NSString stringWithFormat:@"SC-%@",model.stock_id]] || [btnTitle hasPrefix:@"2019"]) {
+        if ([btnTitle isEqualToString:model.stock_id] || [btnTitle isEqualToString:[NSString stringWithFormat:@"K-%@",model.bond_id]] ||  [btnTitle isEqualToString:[NSString stringWithFormat:@"SK-%@",model.stock_id]] || [btnTitle isEqualToString:[NSString stringWithFormat:@"SC-%@",model.stock_id]] || [btnTitle hasPrefix:@"添加监控"]) {
             [bg addSubview:button];
         }
         
@@ -438,37 +435,39 @@ static int AllCount = 1;
     }
     YYStockModel *m =self.isSearch? self.searchResults[sender.tag]:self.stocks[sender.tag];
     
-    if ([sender.currentTitle hasPrefix:@"2019"]) {
+    if ([sender.currentTitle hasPrefix:@"添加监控"]) {
         
-        NSDateFormatter *minDateFormater = [[NSDateFormatter alloc] init];
-        [minDateFormater setDateFormat:@"yyyy-MM-dd HH:mm"];
-        NSDate *scrollToDate = [minDateFormater dateFromString:@"2019-08-01 11:11"];
+        [self.watchPond addObject:m.bond_nm];
         
-        WSDatePickerView *datepicker = [[WSDatePickerView alloc] initWithDateStyle:DateStyleShowYearMonthDayHourMinute scrollToDate:scrollToDate CompleteBlock:^(NSDate *selectDate) {
-            
-            NSString *date = [selectDate stringWithFormat:@"yyyy-MM-dd HH:mm"];
-            NSLog(@"选择的日期：%@",date);
-
-            [sender setTitle:@"" forState:UIControlStateNormal];
-            [sender setTitle:date forState:UIControlStateNormal];
-            
-            YYStockModel *model = self.stocks[sender.tag];
-            
-            model.noteDate = date;
-            // 在数据更改之前先取消之前的通知
-            [LocalNotificationManager cancelLocalNotification:model.noteDate];
-            
-            NSDate *currentDate = [NSDate date];
-            NSString *dateStr = [YYDateUtil dateToString:currentDate andFormate:@"yyyy-MM-dd"];
-            [XMGSqliteModelTool saveOrUpdateModel:model uid:dateStr];
-            
-            [LocalNotificationManager addLocalNotification:date withName:model.bond_nm];
-        }];
-        //    datepicker.dateLabelColor = RGB(65, 188, 241);//年-月-日-时-分 颜色
-        datepicker.datePickerColor = [UIColor blackColor];//滚轮日期颜色
-        //    datepicker.doneButtonColor = RGB(65, 188, 241);//确定按钮的颜色
-        datepicker.yearLabelColor = [UIColor clearColor];//大号年份字体颜色
-        [datepicker show];
+//        NSDateFormatter *minDateFormater = [[NSDateFormatter alloc] init];
+//        [minDateFormater setDateFormat:@"yyyy-MM-dd HH:mm"];
+//        NSDate *scrollToDate = [minDateFormater dateFromString:@"2019-08-01 11:11"];
+//
+//        WSDatePickerView *datepicker = [[WSDatePickerView alloc] initWithDateStyle:DateStyleShowYearMonthDayHourMinute scrollToDate:scrollToDate CompleteBlock:^(NSDate *selectDate) {
+//
+//            NSString *date = [selectDate stringWithFormat:@"yyyy-MM-dd HH:mm"];
+//            NSLog(@"选择的日期：%@",date);
+//
+//            [sender setTitle:@"" forState:UIControlStateNormal];
+//            [sender setTitle:date forState:UIControlStateNormal];
+//
+//            YYStockModel *model = self.stocks[sender.tag];
+//
+//            model.noteDate = date;
+//            // 在数据更改之前先取消之前的通知
+//            [LocalNotificationManager cancelLocalNotification:model.noteDate];
+//
+//            NSDate *currentDate = [NSDate date];
+//            NSString *dateStr = [YYDateUtil dateToString:currentDate andFormate:@"yyyy-MM-dd"];
+//            [XMGSqliteModelTool saveOrUpdateModel:model uid:dateStr];
+//
+//            [LocalNotificationManager addLocalNotification:date withName:model.bond_nm];
+//        }];
+//        //    datepicker.dateLabelColor = RGB(65, 188, 241);//年-月-日-时-分 颜色
+//        datepicker.datePickerColor = [UIColor blackColor];//滚轮日期颜色
+//        //    datepicker.doneButtonColor = RGB(65, 188, 241);//确定按钮的颜色
+//        datepicker.yearLabelColor = [UIColor clearColor];//大号年份字体颜色
+//        [datepicker show];
         
         return;
     }
@@ -627,20 +626,11 @@ static int AllCount = 1;
             }
             
             //卖出通知
-            if ([stockModel.bond_nm isEqualToString:@"圣达转债"] && stockModel.full_price.floatValue * stockModel.increase_rt.floatValue < -10) {
-                [[LocalNotificationManager sharedNotificationManager] Tool_testLoaclNotification:@"圣达---降幅大于了10"];
+            if ([self.watchPond containsObject:stockModel.bond_nm] && stockModel.full_price.floatValue * stockModel.increase_rt.floatValue < -10) {
+                [[LocalNotificationManager sharedNotificationManager] Tool_testLoaclNotification:[stockModel.bond_nm stringByAppendingString:@"%@---降幅大于了10"]];
             }
             
-            NSMutableArray *tempC = [NSMutableArray array];
-
-            if (stockModel.redeem_real_days >0) {
-                [tempC addObject:stockModel.stock_id];
-                [self.collectDict setObject:tempC.copy forKey:@"强赎期"];
-            }
-            
-            if ([YYDateUtil toCurrentLessThan8Days:stockModel.convert_dt]) {
-                [self.collectDict setObject:tempC.copy forKey:@"转股临近期"];
-            }//日历
+           //日历
             
             //策略：非转股期的最高价？    当前的价格比较低的标的？？？    利尔？
             //数组中的对象如何存储？？？？      转股期
@@ -656,13 +646,6 @@ static int AllCount = 1;
             //属于强赎的     -----确保了强势的！
             //价格最低的。。。 -----成本低。
             //回调到110，大盘比较弱 + 盈利预期不好？  大股东故意释放的利空消息？  道氏 利空，却涨停。
-            
-            
-            
-            NSString *path = [kYYCachePath stringByAppendingPathComponent:@"collect.plist"];
-            
-            [self.collectDict writeToFile:[self filePathWithFileName:@"collect.plist"] atomically:YES];
-            [self.collectDict writeToFile:path atomically:YES];
             
             
             [temp addObject:stockModel];
@@ -811,6 +794,14 @@ static int AllCount = 1;
     // 3.返回
     return filePath;
     
+}
+
+
+-(NSMutableArray *)watchPond{
+    if (!_watchPond) {
+        _watchPond = [NSMutableArray arrayWithObjects:@"圣达转债", nil];
+    }
+    return _watchPond;
 }
 
 
