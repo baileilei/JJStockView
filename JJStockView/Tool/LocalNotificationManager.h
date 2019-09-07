@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) UILocalNotification *notification;;
 //[self p_testLoaclNotification:[stockModel.bond_nm stringByAppendingFormat:@"涨幅大于5"]]
+//条件：   回调10的时候。从最高价
 -(void)Tool_testLoaclNotification:(NSString *)noteName;
 
 + (LocalNotificationManager *)sharedNotificationManager;

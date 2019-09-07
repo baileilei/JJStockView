@@ -630,6 +630,8 @@ static int AllCount = 1;
                 [[LocalNotificationManager sharedNotificationManager] Tool_testLoaclNotification:[stockModel.bond_nm stringByAppendingString:@"%@---降幅大于了10"]];
             }
             
+            
+            
            //日历
             
             //策略：非转股期的最高价？    当前的价格比较低的标的？？？    利尔？
@@ -649,16 +651,55 @@ static int AllCount = 1;
             
             
             [temp addObject:stockModel];
+            
+            NSDate *date = [NSDate date];
+            NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
+            
+            //总表存储  ------FMDB
+//            dispatch_queue_t queue = dispatch_queue_create("com.leopardpan.HotspotHelper", 0);
+//            dispatch_async(queue, ^{
+            
+                stockModel.bond_id = [NSString stringWithFormat:@"%@-%@",stockModel.bond_id,dateStr];
+                NSString *sql = [NSString stringWithFormat:@"select stockMostPrice,bondMostPrice from YYStockModel where bond_id = %@;",stockModel.bond_id];
+                NSArray *mostPriceS = [XMGSqliteModelTool queryModels:[YYStockModel class] WithSql:sql uid:@"allData"];
+                if (mostPriceS.count > 0 && [[[mostPriceS valueForKey:@"sprice"] firstObject] floatValue] < stockModel.sprice.floatValue) {
+                    stockModel.stockMostPrice = stockModel.sprice;
+                }else{
+                    stockModel.stockMostPrice = stockModel.sprice;
+                }
+                if (mostPriceS.count > 0 && [[[mostPriceS valueForKey:@"price"] firstObject] floatValue] < stockModel.price.floatValue) {
+                    stockModel.bondMostPrice = stockModel.price;
+                }else{
+                    stockModel.bondMostPrice = stockModel.price;
+                }
+                [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"allData"];
+//            });
+            
+            
+            
+            //日期分库存储
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                NSDate *date = [NSDate date];
-                NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
                 [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:dateStr];
                 //
                 
-                if ([YYDateUtil toCurrentLessThan8Days:stockModel.convert_dt]) {
-                    NSString *sql = [NSString stringWithFormat:@"select full_price from YYStockModel where bond_id = %@;",stockModel.bond_id];
-                    NSArray *nearConvertArray = [XMGSqliteModelTool queryModels:[YYStockModel class] WithSql:sql uid:stockModel.convert_dt];
+                NSArray *sqliteArray = @[@"2019-09-06",@"2019-09-02",@"2019-09-03",@"2019-09-04",@"2019-09-05",];
+                
+                //对既有的历史数据作一些统计----------耗时操作
+//                for (NSString *uid in sqliteArray) {
+//                    NSArray *uidArray = [XMGSqliteModelTool queryAllModels:[YYStockModel class] uid:uid];
+//                    for (YYStockModel *m in uidArray) {
+//                        if (m.sincrease_rt.floatValue > m.increase_rt.floatValue) {
+//                            m.bond_id = [NSString stringWithFormat:@"%@-%@",m.bond_id,uid];
+//                            [XMGSqliteModelTool saveOrUpdateModel:m uid:@"SIFasterBI"];
+//                        }
+//                    }
+//                }
+                
+                if (stockModel.sincrease_rt.floatValue > stockModel.increase_rt.floatValue) {
+                    stockModel.bond_id = [NSString stringWithFormat:@"%@-%@",stockModel.bond_id,dateStr];
+                    [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"SIFasterBI"];
                 }
+                
             });
         }
         

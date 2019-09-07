@@ -9,7 +9,8 @@
 #import "XMGSqliteTool.h"
 #import "sqlite3.h"
 
-#define kCachePath NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject
+//NSDocumentDirectory  NSCachesDirectory
+#define kCachePath NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject
 //#define kCachePath @"/Users/xiaomage/Desktop"
 
 @implementation XMGSqliteTool
@@ -27,6 +28,9 @@ sqlite3 *ppDb = nil;
  @return 是否处理成功
  */
 + (BOOL)deal:(NSString *)sql uid:(NSString *)uid {
+    
+    NSHomeDirectory();
+    NSCachesDirectory;
     
     // 1. 打开数据库
     if (![self openDB:uid]) {
