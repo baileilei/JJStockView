@@ -33,6 +33,8 @@
 #import "SMLogManager.h"
 #import "WillBondViewController.h"
 
+#import "FMDB.h"//多线程 处理数据库的问题
+
 #define columnCount 18
 #define kYYCachePath @"/Users/g/Desktop"
 
@@ -657,24 +659,27 @@ static int AllCount = 1;
             
             //总表存储  ------FMDB
 //            dispatch_queue_t queue = dispatch_queue_create("com.leopardpan.HotspotHelper", 0);
-//            dispatch_async(queue, ^{
-            
-                stockModel.bond_id = [NSString stringWithFormat:@"%@-%@",stockModel.bond_id,dateStr];
-                NSString *sql = [NSString stringWithFormat:@"select stockMostPrice,bondMostPrice from YYStockModel where bond_id = %@;",stockModel.bond_id];
-                NSArray *mostPriceS = [XMGSqliteModelTool queryModels:[YYStockModel class] WithSql:sql uid:@"allData"];
-                if (mostPriceS.count > 0 && [[[mostPriceS valueForKey:@"sprice"] firstObject] floatValue] < stockModel.sprice.floatValue) {
-                    stockModel.stockMostPrice = stockModel.sprice;
-                }else{
-                    stockModel.stockMostPrice = stockModel.sprice;
-                }
-                if (mostPriceS.count > 0 && [[[mostPriceS valueForKey:@"price"] firstObject] floatValue] < stockModel.price.floatValue) {
-                    stockModel.bondMostPrice = stockModel.price;
-                }else{
-                    stockModel.bondMostPrice = stockModel.price;
-                }
-                [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"allData"];
+//            dispatch_group_t group = dispatch_group_create();
+//            dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
+//            dispatch_group_async(group,queue, ^{
+//
+//                stockModel.bond_id = [NSString stringWithFormat:@"%@-%@",stockModel.bond_id,dateStr];
+//                NSString *sql = [NSString stringWithFormat:@"select stockMostPrice,bondMostPrice from YYStockModel where bond_id = %@;",stockModel.bond_id];
+//                NSArray *mostPriceS = [XMGSqliteModelTool queryModels:[YYStockModel class] WithSql:sql uid:@"allData"];
+//                if (mostPriceS.count > 0 && [[[mostPriceS valueForKey:@"sprice"] firstObject] floatValue] < stockModel.sprice.floatValue) {
+//                    stockModel.stockMostPrice = stockModel.sprice;
+//                }else{
+//                    stockModel.stockMostPrice = stockModel.sprice;
+//                }
+//                if (mostPriceS.count > 0 && [[[mostPriceS valueForKey:@"price"] firstObject] floatValue] < stockModel.price.floatValue) {
+//                    stockModel.bondMostPrice = stockModel.price;
+//                }else{
+//                    stockModel.bondMostPrice = stockModel.price;
+//                }
+//                //BUG IN CLIENT OF sqlite3.dylib: illegal multi-threaded access to database connection
+////                [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"allData"];
 //            });
-            
+            [self handleMutilLine:stockModel];
             
             
             //日期分库存储
@@ -708,6 +713,81 @@ static int AllCount = 1;
         
         [self.stockView reloadStockView];
     }];
+}
+
+- (void)handleMutilLine:(YYStockModel *) stockModel{//处理写入和读取导致的问题
+    NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSString *dbPath = [documentPath stringByAppendingPathComponent:@"test2.db"];
+    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+    [db open];
+    if (![db isOpen]) {
+        return;
+    }
+    BOOL result = [db executeUpdate:@"CREATE TABLE YYStockModel(stock_nm text,put_price text,stock_cd text,sqflg text,year_left text,stockURL text,bond_id text,repo_valid_from text,list_dt text,put_total_days text,full_price text,active_fl text,redeem_count_days text,ration_cd text,convert_cd text,put_count_days text,ratio real,qflag text,bondURL text,curr_iss_amt text,maturity_dt text,redeem_dt text,redeem_real_days text,volume text,btype text,put_inc_cpn_fl text,issue_dt text,next_put_dt text,force_redeem text,ration text,put_convert_price_ratio text,force_redeem_price text,price text,redeem_tc text,owned text,passConvert_dt_days text,pre_bond_id text,adq_rating text,stock_id text,put_real_days text,ytm_rt text,convert_price text,repo_cd text,ytm_rt_tax text,bond_nm text,noteDate text,repo_valid_to text,redeem_price_ratio text,convert_dt text,rating_cd text,stockRatio real,convert_amt_ratio text,cpn_desc text,left_put_year text,ration_rt text,guarantor text,redeem_total_days text,repo_discount_rt text,repo_valid text,put_tc text,redeem_price text,increase_rt text,premium_rt text,convert_value text,market text,price_tips text,adjust_tc text,pb text,real_force_redeem_price text,short_maturity_dt text,last_time text,stock_amt text,put_dt text,sincrease_rt text,stock_net_value text,pinyin text,sprice text,apply_cd text,orig_iss_amt text,online_offline_ratio text,redeem_inc_cpn_fl text,put_convert_price text, primary key(bond_id));"];
+    if (!result) {
+        return;
+    }
+    NSLog(@"create table = %@",[NSThread currentThread]);
+    
+    NSDate *date = [NSDate date];
+    NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
+    //测试开启多个线程操作数据库
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
+    dispatch_group_async(group, queue, ^{
+        
+        stockModel.bond_id = [NSString stringWithFormat:@"%@-%@",stockModel.bond_id,dateStr];
+        NSString *sql = [NSString stringWithFormat:@"select stockMostPrice,bondMostPrice from YYStockModel where bond_id = %@;",stockModel.bond_id];
+        NSArray *mostPriceS = [XMGSqliteModelTool queryModels:[YYStockModel class] WithSql:sql uid:@"allData"];
+        if (mostPriceS.count > 0 && [[[mostPriceS valueForKey:@"sprice"] firstObject] floatValue] < stockModel.sprice.floatValue) {
+            stockModel.stockMostPrice = stockModel.sprice;
+        }else{
+            stockModel.stockMostPrice = stockModel.sprice;
+        }
+        
+        [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"test2.db"];
+        
+//        BOOL result = [db executeUpdate:@"insert into text3(ID,name,age) values(:ID,:name,:age)" withParameterDictionary:@{@"ID":@10,@"name":@"10",@"age":@10}];
+//        if (result) {
+//            NSLog(@"在group insert 10 success");
+//        }
+        NSLog(@"current thread = %@",[NSThread currentThread]);
+        
+    });
+    dispatch_group_async(group, queue, ^{
+        BOOL result = [db executeUpdate:@"insert into text3(ID,name,age) values(:ID,:name,:age)" withParameterDictionary:@{@"ID":@11,@"name":@"11",@"age":@11}];
+        if (result) {
+            NSLog(@"在group insert 11 success");
+        }
+        NSLog(@"current thread = %@",[NSThread currentThread]);
+        
+    });
+    dispatch_group_async(group, queue, ^{
+        BOOL result = [db executeUpdate:@"insert into text3(ID,name,age) values(:ID,:name,:age)" withParameterDictionary:@{@"ID":@12,@"name":@"12",@"age":@12}];
+        if (result) {
+            NSLog(@"在group insert 12 success");
+        }
+        NSLog(@"current thread = %@",[NSThread currentThread]);
+        
+    });
+    dispatch_group_notify(group, queue, ^{
+        NSLog(@"done");
+        NSLog(@"current thread = %@",[NSThread currentThread]);
+        BOOL result = [db executeQuery:@"select * from text3 where ID = ?",@(10)];
+        if (result) {
+            NSLog(@"query 10 success");
+        }
+        BOOL result2 = [db executeQuery:@"select * from text3 where ID = ?",@(11)];
+        if (result2) {
+            NSLog(@"query 11 success");
+        }
+        BOOL result3 = [db executeQuery:@"select * from text3 where ID = ?",@(12)];
+        if (result3) {
+            NSLog(@"query 12 success");
+        }
+        
+    });
+    
 }
 
 //https://xian.newhouse.fang.com/sales/

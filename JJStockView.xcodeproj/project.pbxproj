@@ -72,6 +72,11 @@
 		B624A8FF230AA9F70093AF88 /* NSArray+HWLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B624A8FD230AA9F70093AF88 /* NSArray+HWLog.m */; };
 		B631FD2C23222DC5001ED114 /* functionDesign in Resources */ = {isa = PBXBuildFile; fileRef = B631FD2B23222DC5001ED114 /* functionDesign */; };
 		B631FD2F23223114001ED114 /* YYMockBuyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B631FD2E23223114001ED114 /* YYMockBuyModel.m */; };
+		B631FD3C2325E997001ED114 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B631FD322325E997001ED114 /* FMDatabaseQueue.m */; };
+		B631FD3D2325E997001ED114 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B631FD352325E997001ED114 /* FMDatabaseAdditions.m */; };
+		B631FD3E2325E997001ED114 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = B631FD362325E997001ED114 /* FMDatabase.m */; };
+		B631FD3F2325E997001ED114 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = B631FD3A2325E997001ED114 /* FMDatabasePool.m */; };
+		B631FD402325E997001ED114 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B631FD3B2325E997001ED114 /* FMResultSet.m */; };
 		B63262EF2305132E003AEC58 /* HNNetworkFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B63262EB2305132E003AEC58 /* HNNetworkFooterView.m */; };
 		B63262F02305132E003AEC58 /* HNRecommendToolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B63262EC2305132E003AEC58 /* HNRecommendToolCell.m */; };
 		B632630B2305135F003AEC58 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B63262F32305135F003AEC58 /* NSLayoutConstraint+MASDebugAdditions.m */; };
@@ -291,6 +296,17 @@
 		B631FD2B23222DC5001ED114 /* functionDesign */ = {isa = PBXFileReference; lastKnownFileType = text; path = functionDesign; sourceTree = "<group>"; };
 		B631FD2D23223114001ED114 /* YYMockBuyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYMockBuyModel.h; sourceTree = "<group>"; };
 		B631FD2E23223114001ED114 /* YYMockBuyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYMockBuyModel.m; sourceTree = "<group>"; };
+		B631FD312325E997001ED114 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		B631FD322325E997001ED114 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		B631FD332325E997001ED114 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		B631FD342325E997001ED114 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		B631FD352325E997001ED114 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		B631FD362325E997001ED114 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		B631FD372325E997001ED114 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		B631FD382325E997001ED114 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		B631FD392325E997001ED114 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		B631FD3A2325E997001ED114 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		B631FD3B2325E997001ED114 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		B63262EB2305132E003AEC58 /* HNNetworkFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNNetworkFooterView.m; sourceTree = "<group>"; };
 		B63262EC2305132E003AEC58 /* HNRecommendToolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNRecommendToolCell.m; sourceTree = "<group>"; };
 		B63262ED2305132E003AEC58 /* HNRecommendToolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNRecommendToolCell.h; sourceTree = "<group>"; };
@@ -486,6 +502,7 @@
 		060C4B83222262A1004BA326 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B631FD302325E997001ED114 /* fmdb */,
 				FDC46B7F2223854200C58FA2 /* packageView */,
 				060C4B84222262A1004BA326 /* XMGModelProtocol.h */,
 				060C4B85222262A1004BA326 /* XMGTableTool.m */,
@@ -754,6 +771,24 @@
 				FDF0BEF62230E9490040A892 /* YYKLineWebViewController.m */,
 			);
 			name = Webview;
+			sourceTree = "<group>";
+		};
+		B631FD302325E997001ED114 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				B631FD312325E997001ED114 /* FMDatabase.h */,
+				B631FD322325E997001ED114 /* FMDatabaseQueue.m */,
+				B631FD332325E997001ED114 /* FMResultSet.h */,
+				B631FD342325E997001ED114 /* FMDatabasePool.h */,
+				B631FD352325E997001ED114 /* FMDatabaseAdditions.m */,
+				B631FD362325E997001ED114 /* FMDatabase.m */,
+				B631FD372325E997001ED114 /* FMDatabaseQueue.h */,
+				B631FD382325E997001ED114 /* FMDB.h */,
+				B631FD392325E997001ED114 /* FMDatabaseAdditions.h */,
+				B631FD3A2325E997001ED114 /* FMDatabasePool.m */,
+				B631FD3B2325E997001ED114 /* FMResultSet.m */,
+			);
+			path = fmdb;
 			sourceTree = "<group>";
 		};
 		B63262F12305135F003AEC58 /* HMTMasonry */ = {
@@ -1294,12 +1329,14 @@
 				06C5BBD12253318B0037B993 /* ListenerBag.m in Sources */,
 				060C4B8F222262A2004BA326 /* XMGSqliteTool.m in Sources */,
 				B631FD2F23223114001ED114 /* YYMockBuyModel.m in Sources */,
+				B631FD3F2325E997001ED114 /* FMDatabasePool.m in Sources */,
 				B63263102305135F003AEC58 /* HMTMASLayoutConstraint.m in Sources */,
 				B6BD634D2318EA540071A980 /* SMLogManager.m in Sources */,
 				B671E58A22F951FE00483FBA /* UIViewController+printName.m in Sources */,
 				FDC46BA32223CA3300C58FA2 /* NSDictionary+Swizzle.m in Sources */,
 				060C4B8D222262A2004BA326 /* XMGTableTool.m in Sources */,
 				060C4B9422226B9C004BA326 /* YYBuyIntoViewController.m in Sources */,
+				B631FD3D2325E997001ED114 /* FMDatabaseAdditions.m in Sources */,
 				B63263142305135F003AEC58 /* HMTMASConstraintMaker.m in Sources */,
 				B632630B2305135F003AEC58 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				060C4B7F222259DE004BA326 /* YYStockModel.m in Sources */,
@@ -1316,6 +1353,7 @@
 				060C4B80222259DE004BA326 /* YYSqliteManager.m in Sources */,
 				FDC46BA72223CA3300C58FA2 /* UIApplication+Swizzle.m in Sources */,
 				060C4B82222259DE004BA326 /* YYStockDB.m in Sources */,
+				B631FD3C2325E997001ED114 /* FMDatabaseQueue.m in Sources */,
 				6186110E1F95E2F600E4E8B4 /* JJStockScrollView.m in Sources */,
 				06C5BBC92252FFD60037B993 /* YYSerachViewController.m in Sources */,
 				FD0E693F223630E200B1F67F /* AFURLResponseSerialization.m in Sources */,
@@ -1329,7 +1367,9 @@
 				B671E57C22F82B4500483FBA /* WSDatePickerView.m in Sources */,
 				06C307522266CACE00B08B4B /* YYSelfCollectViewController.m in Sources */,
 				FD0E6942223630E200B1F67F /* AFURLRequestSerialization.m in Sources */,
+				B631FD402325E997001ED114 /* FMResultSet.m in Sources */,
 				060C4B81222259DE004BA326 /* YYMenuLabel.m in Sources */,
+				B631FD3E2325E997001ED114 /* FMDatabase.m in Sources */,
 				B632630E2305135F003AEC58 /* HMTMASCompositeConstraint.m in Sources */,
 				B63262F02305132E003AEC58 /* HNRecommendToolCell.m in Sources */,
 				B6D7E483231A79A300A8D8A7 /* WillBondViewController.m in Sources */,
