@@ -67,7 +67,7 @@ static int count = 1;
 }
 
 -(NSMutableArray *)secondGroupOneToSixMonths{
-    if (!_secondGroupOneToSixMonths) {
+    if (!_secondGroupOneToSixMonths) {//兄弟  岱勒    中环环保      圣达
         _secondGroupOneToSixMonths = [NSMutableArray arrayWithObjects:@"道氏转债",@"杭电转债",@"长城转债",@"创维转债", nil];
     }
     return _secondGroupOneToSixMonths;
