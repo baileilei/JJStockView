@@ -65,3 +65,6 @@ fastlane/test_output
 iOSInjectionProject/
 #*.xlsx
 JJStockView/note&URS
+JJStockView/.DS_Store
+JJStockView/Tool/.DS_Store
+*.DS_Store

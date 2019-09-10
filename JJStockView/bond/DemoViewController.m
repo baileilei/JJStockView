@@ -608,6 +608,10 @@ static int AllCount = 1;
             if (tempIncrease - tempBI > 2) {
                  [[SMLogManager sharedManager] Tool_logPlanName:@"EveryDayTop&BP<110" targetStockName:stockModel.bond_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一月内" comments:@"股票涨幅比债涨幅大于两个点"];
             }
+            
+            if (tempIncrease > 9) {
+                [[SMLogManager sharedManager] Tool_logPlanName:@"SI > 9 history" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.price whenToVerify:@"两三天内回调" comments:@"两三天后回调低吸 华通！"];
+            }
              stockModel.stockURL = [NSString stringWithFormat:@"http://finance.sina.com.cn/realstock/company/%@/nc.shtml",stockModel.stock_id];
             stockModel.bondURL = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/bond/quotes/%@.html",stockModel.pre_bond_id];
             
