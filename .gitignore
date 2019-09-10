@@ -28,7 +28,7 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 *.xlsx
-data/*.xlsx
+#data/*.xlsx
 
 # CocoaPods
 #
