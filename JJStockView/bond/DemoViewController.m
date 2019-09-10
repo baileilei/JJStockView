@@ -160,15 +160,15 @@ static int AllCount = 1;
 }
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    NSLog(@"%@",self.searchResults);
+    searchBar.text = nil;
+   
     
 //    self.searchResults = [XMGSqliteModelTool queryModels:[YYStockModel class] columnName:@"full_price" relation:ColumnNameToValueRelationTypeEqual value:searchBar.text uid:@"Mystock"];
     
     [self.stockView reloadStockView];
     [self.view endEditing:YES];
     [searchBar resignFirstResponder];
-    searchBar.text = nil;
-    [self.searchResults removeAllObjects];
+    
 }
 //-searchbare
 
@@ -489,7 +489,17 @@ static int AllCount = 1;
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
         
         return;
+    }else if ([sender.currentTitle hasPrefix:@"SC"]){
+        
+        YYWebViewController *web = [[YYWebViewController alloc] init];
+        
+        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
+        return;
     }
+    
+    [self.searchResults removeAllObjects];
+    NSLog(@"%@",self.searchResults);
+    
 }
 
 -(void)sort:(UIButton *)btn{

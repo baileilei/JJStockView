@@ -12,6 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YYRedeemModel : NSObject
 
+//关注的指标
+@property (nonatomic,copy) NSString *stockURL;
+@property (nonatomic,copy) NSString *bondURL;
+@property (nonatomic,copy) NSString *increase_rt;//债券涨跌幅   单日
+@property (nonatomic,copy) NSString *sincrease_rt;//债券涨跌幅   单日
+
+
+
 @property (nonatomic,copy) NSString *noteDate;
 
 @property (nonatomic,copy) NSString *full_price;//债券现价

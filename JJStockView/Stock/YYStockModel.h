@@ -10,7 +10,7 @@
 #import "XMGModelProtocol.h"
 
 @interface YYStockModel : NSObject<XMGModelProtocol>
-//increase_rt  sincrease_rt
+//increase_rt  sincrease_rt  volume
 //重点指标：year_left。stockURL  bondURL  convert_dt passConvert_dt_days  convert_price  convert_value force_redeem_price full_price put_convert_price sprice volume
 
 //强赎区  突破区。 建仓区

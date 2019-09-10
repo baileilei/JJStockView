@@ -10,7 +10,7 @@
 #import "sqlite3.h"
 
 //NSDocumentDirectory  NSCachesDirectory
-#define kCachePath NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject
+#define kCachePath NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject
 //#define kCachePath @"/Users/xiaomage/Desktop"
 
 @implementation XMGSqliteTool

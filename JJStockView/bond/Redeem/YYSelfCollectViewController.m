@@ -39,6 +39,14 @@ static int count = 1;
 
 @property (nonatomic,strong) NSMutableArray *stocks;
 
+@property (nonatomic,strong) NSMutableArray *firstGroupRedeemDays;
+
+@property (nonatomic,strong) NSMutableArray *secondGroupOneToSixMonths;
+
+
+@property (nonatomic,strong) NSMutableArray *thirdGroupSixMonthToDoubleSix;
+
+
 @property (nonatomic, strong) NSTimer *timer;
 
 @property (nonatomic,strong) YYRedeemModel *currentModel;
@@ -51,6 +59,27 @@ static int count = 1;
     JJStockView * _stockView;
 }
 
+-(NSMutableArray *)firstGroupRedeemDays{
+    if (!_firstGroupRedeemDays) {
+        _firstGroupRedeemDays = [NSMutableArray arrayWithObjects:@"圣达转债", nil];
+    }
+    return _firstGroupRedeemDays;
+}
+
+-(NSMutableArray *)secondGroupOneToSixMonths{
+    if (!_secondGroupOneToSixMonths) {
+        _secondGroupOneToSixMonths = [NSMutableArray arrayWithObjects:@"道氏转债",@"杭电转债",@"长城转债",@"创维转债", nil];
+    }
+    return _secondGroupOneToSixMonths;
+}
+
+-(NSMutableArray *)thirdGroupSixMonthToDoubleSix{
+    if (!_thirdGroupSixMonthToDoubleSix) {
+        _thirdGroupSixMonthToDoubleSix = [NSMutableArray arrayWithObjects:@"久其转债",@"亚太转债", nil];
+    }
+    return _thirdGroupSixMonthToDoubleSix;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"自选池";
@@ -59,9 +88,6 @@ static int count = 1;
     [self.view addSubview:self.stockView];
     
     [self requestRedeemData];
-    
-    self.stocks = [XMGSqliteModelTool queryAllModels:[YYRedeemModel class] uid:@"myFocus"].mutableCopy;
-    [self.stockView reloadStockView];
     
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleDone target:self action:@selector(p_back)];
     self.navigationItem.leftBarButtonItem = leftItem;
@@ -95,7 +121,6 @@ static int count = 1;
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
     
     YYRedeemModel *model = self.stocks[row];
-    //    label.text = [NSString stringWithFormat:@"标题:%ld",row];
     label.text = [NSString stringWithFormat:@"%@",model.bond_nm];
     
     label.textColor = [UIColor grayColor];
@@ -119,20 +144,20 @@ static int count = 1;
                 // btnTitle = model.noteDate?model.noteDate : @"2019-";//[NSString stringWithFormat:model.noteDate];
 
 
-                btnTitle = @"添加图片";
+                btnTitle = model.sincrease_rt;
                 
                 break;
             case 1:
-                 btnTitle = model.full_price;
+                 btnTitle = model.increase_rt;
                 break;
             case 2:
-                btnTitle = [NSString stringWithFormat:@"%@",model.redeem_real_days];
+                btnTitle = [NSString stringWithFormat:@"%@",model.full_price];
                 break;
             case 3:
-                btnTitle = [NSString stringWithFormat:@"%@",model.curr_iss_amt];
+                btnTitle = [NSString stringWithFormat:@"%@",model.redeem_real_days];
                 break;
             case 4:
-                btnTitle = [NSString stringWithFormat:@"%@",model.year_left];
+                btnTitle = [NSString stringWithFormat:@"%@-%@",model.year_left,model.curr_iss_amt];
                 break;
             case 5:
                 btnTitle = [NSString stringWithFormat:@"%.2f",model.convert_price.floatValue * 0.9];;//下调权    0.7回售义务
@@ -189,16 +214,6 @@ static int count = 1;
 
             [bg addSubview:button];
         }
-        
-        //关注- 上市日期在8天之内的
-        //        model.issue_dt
-//        if (ABS(model.full_price.integerValue - 100) < 10 ) {//关注&& model.full_price.integerValue != 100
-//            //            label.backgroundColor = [UIColor orangeColor];
-//        }
-        
-//        if ([YYDateUtil toCurrentLessThan8Days:model.list_dt]) {//上市八天内的
-//            //            label.backgroundColor = [UIColor purpleColor];
-//        }
         
         if (model.convert_dt && [YYDateUtil toCurrentLessThan8Days:model.convert_dt]) {//临近转股期的
             label.backgroundColor = [UIColor purpleColor];
@@ -257,20 +272,20 @@ static int count = 1;
         
         switch (i) {
             case 0:
-                //                label.text = @"溢价率";
-                label.text = @"添加通知";
+                //                label.text = @"溢价率";   指标？？？
+                label.text = @"SI";
                 break;
             case 1:
-                label.text = @"现价";
+                label.text = @"BI";
                 break;
             case 2:
-                label.text = @"强天数";
+                label.text = @"现价";
                 break;
             case 3:
-                label.text = @"剩余规模";
+                label.text = @"强天数";
                 break;
             case 4:
-                label.text = @"剩余年限";
+                label.text = @"剩余年限-规模";
                 break;
             case 5:
                 label.text = @"最底价";
@@ -317,7 +332,6 @@ static int count = 1;
         [button setTitle:label.text forState:UIControlStateNormal];
         [button addTarget:self action:@selector(sort:) forControlEvents:UIControlEventTouchUpInside];
         [bg addSubview:button];
-        //        [bg addSubview:label];
     }
     return bg;
 }
@@ -378,7 +392,6 @@ static int count = 1;
             
             [stockModel setValuesForKeysWithDictionary:dic[@"cell"]];
             NSDate *date = [NSDate date];
-            //                NSLog(@"%@",[YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"]);
             NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
             NSArray *originArray = [XMGSqliteModelTool queryAllModels:[YYStockModel class] uid:dateStr];
             for (YYStockModel *m in originArray) {
@@ -389,20 +402,30 @@ static int count = 1;
                     stockModel.stock_id = m.stock_id;
 
                     stockModel.market = m.market;
+                    
+                    stockModel.bondURL = m.bondURL;
+                    stockModel.stockURL = m.stockURL;
+                    stockModel.sincrease_rt = m.sincrease_rt;
+                    stockModel.increase_rt = m.increase_rt;
 
-                    stockModel.noteDate = @"2019-";
                 }
             }
-            //            YYStockModel *sModel = [];
             
 
-            
-            if (stockModel.redeem_real_days.integerValue > 0 || [stockModel.bond_nm isEqualToString:@"道氏转债"] || [stockModel.bond_nm isEqualToString:@"杭电转债"]) {
-//                [temp addObject:stockModel];
+            //第一梯队。（1个月）     第二梯队（1个月到6个月）。  第三梯队（6个月～12个月）
+            if (stockModel.redeem_real_days.integerValue > 0 || [self.firstGroupRedeemDays containsObject:stockModel.bond_nm] || [self.secondGroupOneToSixMonths containsObject:stockModel.bond_nm]||  [stockModel.bond_nm isEqualToString:@"长城转债"]||  [stockModel.bond_nm isEqualToString:@"创维转债"]) {
+                [temp addObject:stockModel];
                 [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"myFocus"];
+                
             }
+            
+            
+            
         }
 
+        
+        self.stocks = temp;
+        [self.stockView reloadStockView];
 
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -471,12 +494,14 @@ static int count = 1;
     
     if ([sender.currentTitle hasPrefix:@"K-"]) {
         YYKLineWebViewController *kWeb = [[YYKLineWebViewController alloc] init];
+        kWeb.bondURL = m.bondURL;
         kWeb.bigPrice = [NSString stringWithFormat:@"---转股%@------强赎%@",m.convert_dt,m.redeem_dt];
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
         
         return;
     }else if ([sender.currentTitle hasPrefix:@"SK-"]){
         YYKLineWebViewController *kWeb = [[YYKLineWebViewController alloc] init];
+        kWeb.bondURL = m.bondURL;
         kWeb.bigPrice = [NSString stringWithFormat:@"回售价%.2f-------下调价%.2f----%@天-----转股价%.2f--------强赎价%.2f,--------currentPrice%@",m.convert_price.floatValue * 0.7,m.convert_price.floatValue * 0.9,m.redeem_real_days,m.convert_price.floatValue,m.convert_price.floatValue * 1.3,m.full_price];;
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
         
@@ -702,4 +727,6 @@ static int count = 1;
     UIGraphicsEndImageContext();
     return newImage;
 }
+
+
 @end
