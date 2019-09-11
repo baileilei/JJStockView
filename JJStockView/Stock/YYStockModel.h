@@ -27,6 +27,8 @@
 @property (nonatomic,copy) NSString *stockMostPrice;//总库
 @property (nonatomic,copy) NSString *bondMostPrice;//总库 但是。  SIFasteBI的主键好像没起作用???
 
+@property (nonatomic,copy) NSString *saveDate;//总表用
+
 
 @property (nonatomic,copy) NSString *active_fl;
 @property (nonatomic,copy) NSString *adjust_tc;//条件

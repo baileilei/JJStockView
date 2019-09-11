@@ -74,7 +74,7 @@
         [fileManager createDirectoryAtPath:logDirectory  withIntermediateDirectories:YES attributes:nil error:nil];
     }
     
-    NSString *logFilePath = [logDirectory stringByAppendingPathComponent:@"lowInElement-willBond.txt"];
+    NSString *logFilePath = [logDirectory stringByAppendingPathComponent:@""];//清理掉 一类参考
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"]];
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
@@ -112,7 +112,7 @@
         [fileManager createDirectoryAtPath:logDirectory  withIntermediateDirectories:YES attributes:nil error:nil];
     }
     
-    NSString *logFilePath = [logDirectory stringByAppendingPathComponent:@"lowInElement.txt"];
+    NSString *logFilePath = [logDirectory stringByAppendingPathComponent:@""];//这个清理掉
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"]];
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];

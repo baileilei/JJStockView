@@ -107,7 +107,7 @@ static int AllCount = 1;
     HNNetworkFooterView *header = [[HNNetworkFooterView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 100)];
     //SELECT sprice - convert_price, bond_nm,full_price from YYStockModel where sprice - convert_price > 0 ORDER BY sprice - convert_price;
     //投资模型！   变量因子：时间，股价差。 目的：转债。
-    header.titleLable.text = @"看板：近期热点：垃圾分类 /深圳概念/ 猪概念(高抛低吸)---------急涨抛，急跌吸---------";
+    header.titleLable.text = @"看板：工业大麻--三力士 近期热点：垃圾分类 /深圳概念/ 猪概念(高抛低吸)---------急涨抛，急跌吸---------";
     self.stockView.jjStockTableView.tableHeaderView = header;
     [self.view addSubview:self.stockView];
     
@@ -592,7 +592,12 @@ static int AllCount = 1;
             float stockRatio= (stockModel.sprice.floatValue - stockModel.convert_price.floatValue)/stockModel.convert_price.floatValue;
             stockModel.stockRatio = stockRatio;
             
-
+            stockModel.passConvert_dt_days = [NSString stringWithFormat:@"%ld",[YYDateUtil calculateToTodayDays:stockModel.convert_dt]]; ;
+            
+            stockModel.stockURL = [NSString stringWithFormat:@"http://finance.sina.com.cn/realstock/company/%@/nc.shtml",stockModel.stock_id];
+            stockModel.bondURL = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/bond/quotes/%@.html",stockModel.pre_bond_id];
+            
+ /*************************************日志管理********1.SI > 9************************************/
             NSRange range = [stockModel.sincrease_rt rangeOfString:@"."];
             float tempIncrease = [stockModel.sincrease_rt substringToIndex:range.location].floatValue;
             if (tempIncrease > 5 && stockModel.full_price.floatValue < 115) {
@@ -603,42 +608,32 @@ static int AllCount = 1;
                 [[SMLogManager sharedManager] Tool_logPlanName:@"SI小于负5&BP<110" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一月内" comments:@"过激反应？ 不要杀跌   要低吸 "];
             }
             
-            NSRange Brange = [stockModel.increase_rt rangeOfString:@"."];
-            float tempBI = [stockModel.increase_rt substringToIndex:Brange.location].floatValue;
-            if (tempIncrease - tempBI > 2) {
-                 [[SMLogManager sharedManager] Tool_logPlanName:@"EveryDayTop&BP<110" targetStockName:stockModel.bond_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一月内" comments:@"股票涨幅比债涨幅大于两个点"];
-            }
-            
-            if (tempIncrease > 9) {
+            if (tempIncrease >= 9) {
                 [[SMLogManager sharedManager] Tool_logPlanName:@"SI > 9 history" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.price whenToVerify:@"两三天内回调" comments:@"两三天后回调低吸 华通！"];
             }
-             stockModel.stockURL = [NSString stringWithFormat:@"http://finance.sina.com.cn/realstock/company/%@/nc.shtml",stockModel.stock_id];
-            stockModel.bondURL = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/bond/quotes/%@.html",stockModel.pre_bond_id];
-            
-            
-            stockModel.passConvert_dt_days = [NSString stringWithFormat:@"%ld",[YYDateUtil calculateToTodayDays:stockModel.convert_dt]]; ;
            
-            if ([stockModel.bond_nm isEqualToString:@"G三峡EB"] && stockModel.full_price.intValue < 107) {
-                [[LocalNotificationManager sharedNotificationManager] Tool_testLoaclNotification:@"三峡债"];//相近的价格，相类似的走势。过往走势
-            }
-            
-            
-            //监控利欧     周策略
-            if ([stockModel.bond_nm isEqualToString:@"利欧转债"] && stockModel.full_price.intValue < 110) {
-                [[LocalNotificationManager sharedNotificationManager] Tool_testLoaclNotification:@"利欧转债"];
-            }
-            
             //股价涨幅  远大于 债涨幅  启动迹象！！！
             if (stockModel.sprice.floatValue - stockModel.convert_price.floatValue < 1.00
                 && stockModel.sprice.floatValue - stockModel.convert_price.floatValue > 0
                 && stockModel.full_price.floatValue < 110) {
-//               //无需及时
+                //               //无需及时
                 //选债四步1：面值附近攻防兼备， 铁律：110以下！
                 //第二步：转股价接近正股价，上涨给力！！
-//                第3步：一般都是2，3年，大股东会整很多概念！ 好多利好消息。
-//                第4步：小盘债比大盘债弹性大！！！相对确定！ 顶：公告+140     底部：100，110以下。    ------吉视
+                //                第3步：一般都是2，3年，大股东会整很多概念！ 好多利好消息。
+                //                第4步：小盘债比大盘债弹性大！！！相对确定！ 顶：公告+140     底部：100，110以下。    ------吉视
                 //代码化
                 [[SMLogManager sharedManager] Tool_logPlanName:@"0<SP-CP<1&BP<110" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一周内" comments:@"热点板块叠加！"];
+            }
+            
+            
+            /*************************************通知管理********************************************/
+            if ([stockModel.bond_nm isEqualToString:@"G三峡EB"] && stockModel.full_price.intValue < 107) {
+                [[LocalNotificationManager sharedNotificationManager] Tool_testLoaclNotification:@"三峡债"];//相近的价格，相类似的走势。过往走势
+            }
+            
+            //监控利欧     周策略
+            if ([stockModel.bond_nm isEqualToString:@"利欧转债"] && stockModel.full_price.intValue < 110) {
+                [[LocalNotificationManager sharedNotificationManager] Tool_testLoaclNotification:@"利欧转债"];
             }
             
             //卖出通知
@@ -646,7 +641,7 @@ static int AllCount = 1;
                 [[LocalNotificationManager sharedNotificationManager] Tool_testLoaclNotification:[stockModel.bond_nm stringByAppendingString:@"%@---降幅大于了10"]];
             }
             
-            
+             /*************************************通知管理********************************************/
             
            //日历
             
@@ -695,6 +690,13 @@ static int AllCount = 1;
 //            });
             [self handleMutilLine:stockModel];
             
+            //所有的数据存在一个库里
+            {
+                //主键的唯一性----------查询历史价格， 趋势， 比分库查询应该会好很多。特别是个股走势！
+                stockModel.bond_id = stockModel.bond_id = [NSString stringWithFormat:@"%@-%@",stockModel.bond_id,dateStr];
+                stockModel.saveDate = dateStr;
+                [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"allBondData"];
+            }
             
             //日期分库存储
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -862,7 +864,7 @@ static int AllCount = 1;
                     }
                 }
                 if([[tempArray valueForKey:@"stock_nm"] containsObject:m.stock_nm]){
-                    [[SMLogManager sharedManager] myFocusExceptionHandler:m comments:@"当前有转债也即将发售可转债-------lowInElement的要素"];
+//                    [[SMLogManager sharedManager] myFocusExceptionHandler:m comments:@"当前有转债也即将发售可转债-------三类参考"];//一次性的，所以无需写入日志
                 }
             });
             

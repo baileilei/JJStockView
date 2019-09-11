@@ -78,6 +78,7 @@
 		B631FD3F2325E997001ED114 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = B631FD3A2325E997001ED114 /* FMDatabasePool.m */; };
 		B631FD402325E997001ED114 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B631FD3B2325E997001ED114 /* FMResultSet.m */; };
 		B631FD422327485F001ED114 /* xinDe.plist in Resources */ = {isa = PBXBuildFile; fileRef = B631FD412327485F001ED114 /* xinDe.plist */; };
+		B631FD4423289AD1001ED114 /* logManager.geojson in Resources */ = {isa = PBXBuildFile; fileRef = B631FD4323289AD1001ED114 /* logManager.geojson */; };
 		B63262EF2305132E003AEC58 /* HNNetworkFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B63262EB2305132E003AEC58 /* HNNetworkFooterView.m */; };
 		B63262F02305132E003AEC58 /* HNRecommendToolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B63262EC2305132E003AEC58 /* HNRecommendToolCell.m */; };
 		B632630B2305135F003AEC58 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B63262F32305135F003AEC58 /* NSLayoutConstraint+MASDebugAdditions.m */; };
@@ -309,6 +310,7 @@
 		B631FD3A2325E997001ED114 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
 		B631FD3B2325E997001ED114 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		B631FD412327485F001ED114 /* xinDe.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = xinDe.plist; sourceTree = "<group>"; };
+		B631FD4323289AD1001ED114 /* logManager.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = logManager.geojson; sourceTree = "<group>"; };
 		B63262EB2305132E003AEC58 /* HNNetworkFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNNetworkFooterView.m; sourceTree = "<group>"; };
 		B63262EC2305132E003AEC58 /* HNRecommendToolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNRecommendToolCell.m; sourceTree = "<group>"; };
 		B63262ED2305132E003AEC58 /* HNRecommendToolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNRecommendToolCell.h; sourceTree = "<group>"; };
@@ -525,6 +527,7 @@
 				06C5BBC42252F0A90037B993 /* note201904 */,
 				06ED20FE231D499D00400C91 /* note201909 */,
 				06ED2107231D4D0300400C91 /* Directions.geojson */,
+				B631FD4323289AD1001ED114 /* logManager.geojson */,
 				06ED2109231D4E4300400C91 /* Table.md */,
 				06ED2102231D4C8B00400C91 /* celue.plist */,
 				B631FD412327485F001ED114 /* xinDe.plist */,
@@ -1159,6 +1162,7 @@
 				B692B0A82302D56C00E01511 /* rightarrow@2x.png in Resources */,
 				B631FD422327485F001ED114 /* xinDe.plist in Resources */,
 				B692B0B12302D56C00E01511 /* 语言设置.png in Resources */,
+				B631FD4423289AD1001ED114 /* logManager.geojson in Resources */,
 				06ED20FF231D499D00400C91 /* note201909 in Resources */,
 				06ED2101231D4C4C00400C91 /* test.stringsdict in Resources */,
 				B692B0A92302D56C00E01511 /* 0-01首页_MarkMan.png in Resources */,

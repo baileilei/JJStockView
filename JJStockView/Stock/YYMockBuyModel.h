@@ -20,8 +20,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) NSString *buyIntoTime;
 @property (nonatomic,copy) NSString *buyPrice;
 
+@property (nonatomic,copy) NSString *buyDecesionElements; //买入因素。支撑位？？？
+@property (nonatomic,copy) NSString *fupan; //。支撑位？？？  
+
 @property (nonatomic,copy) NSString *nowprice;
 @property (nonatomic,copy) NSString *updateTime;
+
+
 
 
 @property (nonatomic,copy) NSString *buyDesitionComment;

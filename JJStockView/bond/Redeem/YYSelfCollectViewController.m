@@ -58,10 +58,10 @@ static int count = 1;
 @implementation YYSelfCollectViewController{
     JJStockView * _stockView;
 }
-
+//梳理所有转债的热点--------是否有重合，特别是关注的几只转债的热点概念！
 -(NSMutableArray *)firstGroupRedeemDays{
     if (!_firstGroupRedeemDays) {
-        _firstGroupRedeemDays = [NSMutableArray arrayWithObjects:@"圣达转债", nil];
+        _firstGroupRedeemDays = [NSMutableArray arrayWithObjects:@"久其转债",@"亚太转债", nil];
     }
     return _firstGroupRedeemDays;
 }
@@ -75,7 +75,7 @@ static int count = 1;
 
 -(NSMutableArray *)thirdGroupSixMonthToDoubleSix{
     if (!_thirdGroupSixMonthToDoubleSix) {
-        _thirdGroupSixMonthToDoubleSix = [NSMutableArray arrayWithObjects:@"久其转债",@"亚太转债", nil];
+        _thirdGroupSixMonthToDoubleSix = [NSMutableArray arrayWithObjects:@"圣达转债", nil];
     }
     return _thirdGroupSixMonthToDoubleSix;
 }
@@ -501,7 +501,7 @@ static int count = 1;
         return;
     }else if ([sender.currentTitle hasPrefix:@"SK-"]){
         YYKLineWebViewController *kWeb = [[YYKLineWebViewController alloc] init];
-        kWeb.bondURL = m.bondURL;
+        kWeb.stockURL = m.stockURL;
         kWeb.bigPrice = [NSString stringWithFormat:@"回售价%.2f-------下调价%.2f----%@天-----转股价%.2f--------强赎价%.2f,--------currentPrice%@",m.convert_price.floatValue * 0.7,m.convert_price.floatValue * 0.9,m.redeem_real_days,m.convert_price.floatValue,m.convert_price.floatValue * 1.3,m.full_price];;
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
         
