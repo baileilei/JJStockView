@@ -321,7 +321,7 @@ static int count = 1;
                 label.text = @"S-K线图";
                 break;
             case 16:
-                label.text = @"收藏";
+                label.text = @"相关概念";
                 break;
                 
             default:
@@ -513,6 +513,10 @@ static int count = 1;
         
         //道氏   在第14天的时候卖出。      特别低的就是有大股东在专门打压，专门回调。   心态取决于仓位。
         //数量大，仓位30%          真跌到110   加仓？？   所谓的环境又变了。。。
+        YYKLineWebViewController *web = [[YYKLineWebViewController alloc] init];
+        web.bondURL =[NSString stringWithFormat:@"http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/%@/menu_num/5.phtml",m.stock_id]; ;
+        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
+        return;
         return;
     }
 }

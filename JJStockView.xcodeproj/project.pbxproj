@@ -79,6 +79,9 @@
 		B631FD402325E997001ED114 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B631FD3B2325E997001ED114 /* FMResultSet.m */; };
 		B631FD422327485F001ED114 /* xinDe.plist in Resources */ = {isa = PBXBuildFile; fileRef = B631FD412327485F001ED114 /* xinDe.plist */; };
 		B631FD4423289AD1001ED114 /* logManager.geojson in Resources */ = {isa = PBXBuildFile; fileRef = B631FD4323289AD1001ED114 /* logManager.geojson */; };
+		B631FD472329CBCE001ED114 /* HMTHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = B631FD462329CBCD001ED114 /* HMTHintView.m */; };
+		B631FD4A2329D8A5001ED114 /* changeHoldingMomo.geojson in Resources */ = {isa = PBXBuildFile; fileRef = B631FD492329D8A5001ED114 /* changeHoldingMomo.geojson */; };
+		B631FD4C2329EC5B001ED114 /* conceptAnalise.plist in Resources */ = {isa = PBXBuildFile; fileRef = B631FD4B2329EC5B001ED114 /* conceptAnalise.plist */; };
 		B63262EF2305132E003AEC58 /* HNNetworkFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B63262EB2305132E003AEC58 /* HNNetworkFooterView.m */; };
 		B63262F02305132E003AEC58 /* HNRecommendToolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B63262EC2305132E003AEC58 /* HNRecommendToolCell.m */; };
 		B632630B2305135F003AEC58 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B63262F32305135F003AEC58 /* NSLayoutConstraint+MASDebugAdditions.m */; };
@@ -311,6 +314,11 @@
 		B631FD3B2325E997001ED114 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		B631FD412327485F001ED114 /* xinDe.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = xinDe.plist; sourceTree = "<group>"; };
 		B631FD4323289AD1001ED114 /* logManager.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = logManager.geojson; sourceTree = "<group>"; };
+		B631FD452329CBCD001ED114 /* HMTHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMTHintView.h; sourceTree = "<group>"; };
+		B631FD462329CBCD001ED114 /* HMTHintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMTHintView.m; sourceTree = "<group>"; };
+		B631FD482329CF47001ED114 /* APPJJScotk.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPJJScotk.pch; sourceTree = "<group>"; };
+		B631FD492329D8A5001ED114 /* changeHoldingMomo.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = changeHoldingMomo.geojson; sourceTree = "<group>"; };
+		B631FD4B2329EC5B001ED114 /* conceptAnalise.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = conceptAnalise.plist; sourceTree = "<group>"; };
 		B63262EB2305132E003AEC58 /* HNNetworkFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNNetworkFooterView.m; sourceTree = "<group>"; };
 		B63262EC2305132E003AEC58 /* HNRecommendToolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNRecommendToolCell.m; sourceTree = "<group>"; };
 		B63262ED2305132E003AEC58 /* HNRecommendToolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNRecommendToolCell.h; sourceTree = "<group>"; };
@@ -528,9 +536,11 @@
 				06ED20FE231D499D00400C91 /* note201909 */,
 				06ED2107231D4D0300400C91 /* Directions.geojson */,
 				B631FD4323289AD1001ED114 /* logManager.geojson */,
+				B631FD492329D8A5001ED114 /* changeHoldingMomo.geojson */,
 				06ED2109231D4E4300400C91 /* Table.md */,
 				06ED2102231D4C8B00400C91 /* celue.plist */,
 				B631FD412327485F001ED114 /* xinDe.plist */,
+				B631FD4B2329EC5B001ED114 /* conceptAnalise.plist */,
 				06ED2105231D4CF400400C91 /* File.strings */,
 				06ED2100231D4C4C00400C91 /* test.stringsdict */,
 				B631FD2B23222DC5001ED114 /* functionDesign */,
@@ -550,6 +560,8 @@
 		06C5BBCA2253315D0037B993 /* UIEvent */ = {
 			isa = PBXGroup;
 			children = (
+				B631FD452329CBCD001ED114 /* HMTHintView.h */,
+				B631FD462329CBCD001ED114 /* HMTHintView.m */,
 				06C5BBD32253319D0037B993 /* TFEvent.h */,
 				06C5BBD22253319C0037B993 /* TFEvent.m */,
 				06C5BBCC2253318A0037B993 /* ActionEvent.h */,
@@ -691,6 +703,7 @@
 				61F13E861F91F670002F4681 /* Info.plist */,
 				61F13E871F91F670002F4681 /* main.m */,
 				FDC46BA82223CE7700C58FA2 /* APPConstant.h */,
+				B631FD482329CF47001ED114 /* APPJJScotk.pch */,
 				B692B0B32302D68A00E01511 /* Resource.bundle */,
 			);
 			path = JJStockView;
@@ -1134,6 +1147,7 @@
 				B692B0AB2302D56C00E01511 /* menubtn@2x.png in Resources */,
 				B692B0B42302D68A00E01511 /* Resource.bundle in Resources */,
 				B692B0A32302D56C00E01511 /* menu_setting@2x.png in Resources */,
+				B631FD4A2329D8A5001ED114 /* changeHoldingMomo.geojson in Resources */,
 				61F13E821F91F670002F4681 /* Assets.xcassets in Resources */,
 				06ED2106231D4CF400400C91 /* File.strings in Resources */,
 				B631FD2C23222DC5001ED114 /* functionDesign in Resources */,
@@ -1165,6 +1179,7 @@
 				B631FD4423289AD1001ED114 /* logManager.geojson in Resources */,
 				06ED20FF231D499D00400C91 /* note201909 in Resources */,
 				06ED2101231D4C4C00400C91 /* test.stringsdict in Resources */,
+				B631FD4C2329EC5B001ED114 /* conceptAnalise.plist in Resources */,
 				B692B0A92302D56C00E01511 /* 0-01首页_MarkMan.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1347,6 +1362,7 @@
 				B631FD3D2325E997001ED114 /* FMDatabaseAdditions.m in Sources */,
 				B63263142305135F003AEC58 /* HMTMASConstraintMaker.m in Sources */,
 				B632630B2305135F003AEC58 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				B631FD472329CBCE001ED114 /* HMTHintView.m in Sources */,
 				060C4B7F222259DE004BA326 /* YYStockModel.m in Sources */,
 				FD6916402228EC7F00DE3CD6 /* YYWebViewController.m in Sources */,
 				B632630D2305135F003AEC58 /* ViewController+MASAdditions.m in Sources */,

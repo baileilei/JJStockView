@@ -7,6 +7,7 @@
 //
 
 #import "HWNetTools.h"
+#import "HMTHintView.h"
 
 
 @implementation HWNetTools
@@ -47,6 +48,9 @@ static NSString *nstrPublicUrl = @"https://w3m.huawei.com/mcloud/umag/fg/FreePro
     [self GET:URLString parameters:parames success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (error.code == -1009 || error.code == -1005 || error.code == -1003 || error.code == -1004 || error.code == -1001) {
+            [HMTHintView alertWithView:nil message:error.userInfo[NSLocalizedDescriptionKey]];
+        }
         failure(error);
     }];
     
