@@ -32,13 +32,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSString *url = [NSString stringWithFormat:@"http://www.sse.com.cn/market/bonddata/convertible/"];
+    NSString *url = [NSString stringWithFormat:@"http://vip.stock.finance.sina.com.cn/mkt/#chgn_700234"];
     //    NSString *chartURL = [NSString stringWithFormat:@"http://finance.sina.com.cn/realstock/company/%@/nc.shtml?from=BaiduAladin",self.stockID];
     //    NSString *url = [NSString stringWithFormat:@"https://www.jisilu.cn/data/stock/600031"];
     NSLog(@"url--%@-----%@",url,self);
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [self.webView loadRequest:request];
     
+}
+
+-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+    NSLog(@"request.URL----%@",request.URL);
+    return YES;
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{

@@ -1,0 +1,1524 @@
+{
+    "RECORDS": [
+        {
+            "progress_nm": "2019-08-29申购<br>申购代码370655",
+            "amount": "1.85",
+            "stock_nm": "晶瑞股份",
+            "convert_price": "18.38",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300655/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300655/menu_num/5.phtml"
+            "concept":"小盘/光刻胶/宁德时代概念"
+        },
+        {
+            "progress_nm": "2019-09-16上市",
+            "amount": "5.96",
+            "stock_nm": "合兴包装",
+            "convert_price": "4.38",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002228/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002228/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "10.00",
+            "stock_nm": "瀚蓝环境",
+            "convert_price": "18.06",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh600323/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/600323/menu_num/5.phtml"
+            "concept":"粤港澳/垃圾分类/富时罗素概念"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "20.00",
+            "stock_nm": "龙净环保",
+            "convert_price": "10.76",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh600388/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/600388/menu_num/5.phtml"
+            "concept":"PM2.5/空气治理/富时罗素概念"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "2.00",
+            "stock_nm": "德创环保",
+            "convert_price": "11.34",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh603177/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603177/menu_num/5.phtml"
+            "concept":"小盘/PM2.5/固废处理/节能环保"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "4.00",
+            "stock_nm": "龙蟠科技",
+            "convert_price": "10.50",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh603906/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603906/menu_num/5.phtml"
+            "concept":"小盘/节能环保/燃料电池/尾气处理"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "11.00",
+            "stock_nm": "小商品城",
+            "convert_price": "3.85",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh600415/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/600415/menu_num/5.phtml"
+            "concept":"内贸规划/电商概念/富时罗素概念/5G/MSCI中国"//看好股票！   建仓？ 配售？ 有炒作的可能。
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "7.00",
+            "stock_nm": "昆药集团",
+            "convert_price": "11.60",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh600422/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/600422/menu_num/5.phtml"
+            "concept":"小盘/工业4.0/工业大麻/富时罗素概念/仿制药/青蒿素"//VS  三力士
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "22.00",
+            "stock_nm": "深高速",
+            "convert_price": "9.56",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh600548/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/600548/menu_num/5.phtml"
+            "concept":"深圳本地/粤港澳/高派息/富时罗素概念/增持回购/价值成长[!!!]"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "26.56",
+            "stock_nm": "山鹰纸业",
+            "convert_price": "3.14",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh600567/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/600567/menu_num/5.phtml"
+            "concept":"垃圾发电/低价/富时罗素概念/增持回购/[可关注-会炒作？]"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "24.00",
+            "stock_nm": "盛屯矿业",
+            "convert_price": "5.70",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh600711/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/600711/menu_num/5.phtml"
+            "concept":"黄金概念/期货概念/富时罗素概念/钴镍/[与华钰矿业类似]"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "7.20",
+            "stock_nm": "湖南盐业",
+            "convert_price": "7.31",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh600929/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/600929/menu_num/5.phtml"
+            "concept":"次新股/小盘/盐化工/融资融券（大股东炒作）/[炒作过后的低价阶段]"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "14.60",
+            "stock_nm": "广西广电",
+            "convert_price": "4.22",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh600936/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/600936/menu_num/5.phtml"
+            "concept":"次新股/小盘/融资融券（大股东炒作）/[炒作过后的低价阶段]"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "5.00",
+            "stock_nm": "东风股份",
+            "convert_price": "7.55",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh601515/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/601515/menu_num/5.phtml"
+            "concept":"电子烟"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "45.00",
+            "stock_nm": "紫金银行",
+            "convert_price": "6.57",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh601860/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/601860/menu_num/5.phtml"
+            "concept":"次新股/银行？？？/增持回购"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "7.20",
+            "stock_nm": "全筑股份",
+            "convert_price": "5.80",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh603030/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603030/menu_num/5.phtml"
+            "concept":"小盘/智能机器/互联网家装"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "11.90",
+            "stock_nm": "渤海轮渡",
+            "convert_price": "9.20",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh603167/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603167/menu_num/5.phtml"
+            "concept":"小盘/中韩自贸区/东亚自贸/增持回购"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "5.20",
+            "stock_nm": "起步股份",
+            "convert_price": "8.33",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh603557/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603557/menu_num/5.phtml"
+            "concept":"小盘/二胎/电子商务/"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "2.30",
+            "stock_nm": "华体科技",
+            "convert_price": "39.37",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh603679/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603679/menu_num/5.phtml"
+            "concept":"小盘/华为概念/5G/智慧停车/LED"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "6.00",
+            "stock_nm": "塞力斯",
+            "convert_price": "17.14",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh603716/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603716/menu_num/5.phtml"
+            "concept":"小盘/工业大麻/蚂蚁金服/体外诊断/医疗器械"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "10.00",
+            "stock_nm": "桃李面包",
+            "convert_price": "47.38",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh603866/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603866/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "7.94",
+            "stock_nm": "博敏电子",
+            "convert_price": "21.42",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh603936/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603936/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "15.81",
+            "stock_nm": "益丰药房",
+            "convert_price": "76.38",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh603939/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603939/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "8.50",
+            "stock_nm": "*ST神城",
+            "convert_price": "1.03",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz000018/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/000018/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "5.50",
+            "stock_nm": "特发信息",
+            "convert_price": "12.90",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz000070/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/000070/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "35.00",
+            "stock_nm": "东旭光电",
+            "convert_price": "4.89",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz000413/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/000413/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "6.21",
+            "stock_nm": "张家界",
+            "convert_price": "5.42",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz000430/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/000430/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "20.00",
+            "stock_nm": "鄂武商A",
+            "convert_price": "10.05",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz000501/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/000501/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "18.00",
+            "stock_nm": "红太阳",
+            "convert_price": "11.61",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz000525/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/000525/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "12.10",
+            "stock_nm": "金圆股份",
+            "convert_price": "9.44",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz000546/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/000546/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "20.00",
+            "stock_nm": "恒逸石化",
+            "convert_price": "12.09",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz000703/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/000703/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "60.00",
+            "stock_nm": "国元证券",
+            "convert_price": "8.87",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz000728/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/000728/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "10.00",
+            "stock_nm": "万年青",
+            "convert_price": "9.45",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz000789/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/000789/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "20.00",
+            "stock_nm": "北京文化",
+            "convert_price": "9.05",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz000802/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/000802/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "12.00",
+            "stock_nm": "中嘉博创",
+            "convert_price": "9.24",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz000889/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/000889/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "12.00",
+            "stock_nm": "大亚圣象",
+            "convert_price": "10.91",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz000910/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/000910/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "9.94",
+            "stock_nm": "科华生物",
+            "convert_price": "9.69",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002022/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002022/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "14.50",
+            "stock_nm": "旺能环境",
+            "convert_price": "15.36",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002034/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002034/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "3.00",
+            "stock_nm": "联创电子",
+            "convert_price": "12.79",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002036/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002036/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "25.00",
+            "stock_nm": "华孚时尚",
+            "convert_price": "7.29",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002042/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002042/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "6.00",
+            "stock_nm": "宝鹰股份",
+            "convert_price": "5.26",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002047/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002047/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "25.00",
+            "stock_nm": "浙江交科",
+            "convert_price": "5.40",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002061/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002061/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "7.51",
+            "stock_nm": "远光软件",
+            "convert_price": "9.92",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002063/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002063/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "20.00",
+            "stock_nm": "国轩高科",
+            "convert_price": "12.85",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002074/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002074/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "10.00",
+            "stock_nm": "太阳纸业",
+            "convert_price": "7.68",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002078/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002078/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "7.88",
+            "stock_nm": "孚日股份",
+            "convert_price": "5.85",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002083/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002083/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "5.70",
+            "stock_nm": "新野纺织",
+            "convert_price": "3.59",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002087/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002087/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "10.00",
+            "stock_nm": "广东鸿图",
+            "convert_price": "6.86",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002101/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002101/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "12.00",
+            "stock_nm": "中核钛白",
+            "convert_price": "4.05",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002145/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002145/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "16.00",
+            "stock_nm": "正邦科技",
+            "convert_price": "18.25",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002157/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002157/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "48.00",
+            "stock_nm": "大华股份",
+            "convert_price": "17.02",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002236/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002236/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "17.30",
+            "stock_nm": "世联行",
+            "convert_price": "4.15",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002285/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002285/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "34.21",
+            "stock_nm": "海大集团",
+            "convert_price": "32.18",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002311/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002311/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "6.88",
+            "stock_nm": "英威腾",
+            "convert_price": "5.15",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002334/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002334/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "10.00",
+            "stock_nm": "慈文传媒",
+            "convert_price": "8.07",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002343/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002343/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "9.10",
+            "stock_nm": "精华制药",
+            "convert_price": "5.65",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002349/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002349/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "18.13",
+            "stock_nm": "天神娱乐",
+            "convert_price": "3.05",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002354/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002354/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "16.00",
+            "stock_nm": "森源电气",
+            "convert_price": "8.29",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002358/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002358/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "3.00",
+            "stock_nm": "同德化工",
+            "convert_price": "5.28",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002360/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002360/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "29.90",
+            "stock_nm": "齐翔腾达",
+            "convert_price": "7.02",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002408/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002408/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "16.00",
+            "stock_nm": "延安必康",
+            "convert_price": "17.21",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002411/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002411/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "10.23",
+            "stock_nm": "巨星科技",
+            "convert_price": "11.02",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002444/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002444/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "6.89",
+            "stock_nm": "ST中南",
+            "convert_price": "1.40",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002445/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002445/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "5.20",
+            "stock_nm": "百川股份",
+            "convert_price": "6.78",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002455/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002455/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "21.50",
+            "stock_nm": "赣锋锂业",
+            "convert_price": "21.67",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002460/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002460/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "50.00",
+            "stock_nm": "天齐锂业",
+            "convert_price": "23.87",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002466/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002466/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "30.00",
+            "stock_nm": "立讯精密",
+            "convert_price": "24.85",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002475/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002475/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "30.00",
+            "stock_nm": "山西证券",
+            "convert_price": "7.96",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002500/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002500/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "11.00",
+            "stock_nm": "搜于特",
+            "convert_price": "2.39",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002503/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002503/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "4.71",
+            "stock_nm": "天汽模",
+            "convert_price": "3.83",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002510/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002510/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "8.70",
+            "stock_nm": "唐人神",
+            "convert_price": "11.96",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002567/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002567/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "10.00",
+            "stock_nm": "索菲亚",
+            "convert_price": "18.27",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002572/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002572/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "7.20",
+            "stock_nm": "万安科技",
+            "convert_price": "7.19",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002590/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002590/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "18.53",
+            "stock_nm": "龙蟒佰利",
+            "convert_price": "13.49",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002601/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002601/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "11.50",
+            "stock_nm": "跨境通",
+            "convert_price": "7.78",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002640/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002640/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "7.00",
+            "stock_nm": "永高股份",
+            "convert_price": "4.49",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002641/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002641/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "8.00",
+            "stock_nm": "东诚药业",
+            "convert_price": "13.21",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002675/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002675/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "13.00",
+            "stock_nm": "奋达科技",
+            "convert_price": "4.51",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002681/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002681/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "6.00",
+            "stock_nm": "金河生物",
+            "convert_price": "5.62",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002688/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002688/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "11.00",
+            "stock_nm": "奥瑞金",
+            "convert_price": "4.93",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002701/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002701/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "11.40",
+            "stock_nm": "天赐材料",
+            "convert_price": "17.06",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002709/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002709/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "7.70",
+            "stock_nm": "思美传媒",
+            "convert_price": "7.01",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002712/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002712/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "8.75",
+            "stock_nm": "龙大肉食",
+            "convert_price": "9.46",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002726/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002726/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "8.00",
+            "stock_nm": "中矿资源",
+            "convert_price": "16.94",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002738/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002738/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "40.00",
+            "stock_nm": "万达电影",
+            "convert_price": "15.72",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002739/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002739/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "3.30",
+            "stock_nm": "国光股份",
+            "convert_price": "11.39",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002749/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002749/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "8.00",
+            "stock_nm": "永兴材料",
+            "convert_price": "13.84",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002756/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002756/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "3.29",
+            "stock_nm": "金发拉比",
+            "convert_price": "5.40",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002762/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002762/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "16.30",
+            "stock_nm": "康弘药业",
+            "convert_price": "35.41",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002773/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002773/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "9.50",
+            "stock_nm": "文科园林",
+            "convert_price": "6.06",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002775/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002775/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "16.00",
+            "stock_nm": "恩捷股份",
+            "convert_price": "31.28",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002812/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002812/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "14.00",
+            "stock_nm": "裕同科技",
+            "convert_price": "20.19",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002831/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002831/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "3.60",
+            "stock_nm": "道恩股份",
+            "convert_price": "13.17",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002838/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002838/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "5.50",
+            "stock_nm": "华统股份",
+            "convert_price": "17.07",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002840/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002840/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "2.00",
+            "stock_nm": "泰嘉股份",
+            "convert_price": "8.18",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002843/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002843/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "3.90",
+            "stock_nm": "同兴达",
+            "convert_price": "18.86",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002845/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002845/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "6.55",
+            "stock_nm": "麦格米特",
+            "convert_price": "21.33",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002851/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002851/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "7.50",
+            "stock_nm": "道道全",
+            "convert_price": "13.52",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002852/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002852/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "1.60",
+            "stock_nm": "力盛赛车",
+            "convert_price": "21.17",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002858/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002858/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "2.80",
+            "stock_nm": "星帅尔",
+            "convert_price": "20.18",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002860/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002860/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "1.77",
+            "stock_nm": "新天药业",
+            "convert_price": "15.38",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002873/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002873/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "2.60",
+            "stock_nm": "沃特股份",
+            "convert_price": "23.42",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002886/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002886/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "7.12",
+            "stock_nm": "绿茵生态",
+            "convert_price": "15.86",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002887/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002887/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "4.00",
+            "stock_nm": "庄园牧场",
+            "convert_price": "12.46",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002910/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002910/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "15.20",
+            "stock_nm": "深南电路",
+            "convert_price": "134.46",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002916/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002916/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "2.60",
+            "stock_nm": "联诚精密",
+            "convert_price": "19.10",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002921/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002921/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "6.70",
+            "stock_nm": "宏川智慧",
+            "convert_price": "14.69",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002930/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002930/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "8.50",
+            "stock_nm": "新疆交建",
+            "convert_price": "23.97",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002941/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002941/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "50.00",
+            "stock_nm": "青农商行",
+            "convert_price": "6.37",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002958/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002958/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "10.42",
+            "stock_nm": "特锐德",
+            "convert_price": "16.72",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300001/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300001/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "10.50",
+            "stock_nm": "乐普医疗",
+            "convert_price": "26.51",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300003/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300003/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "5.00",
+            "stock_nm": "新宁物流",
+            "convert_price": "8.93",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300013/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300013/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "13.00",
+            "stock_nm": "银江股份",
+            "convert_price": "8.86",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300020/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300020/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "8.70",
+            "stock_nm": "赛为智能",
+            "convert_price": "7.68",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300044/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300044/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "29.00",
+            "stock_nm": "东方日升",
+            "convert_price": "11.86",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300118/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300118/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "4.00",
+            "stock_nm": "新国都",
+            "convert_price": "17.52",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300130/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300130/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "6.80",
+            "stock_nm": "晨光生物",
+            "convert_price": "7.14",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300138/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300138/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "16.95",
+            "stock_nm": "中金环境",
+            "convert_price": "3.70",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300145/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300145/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "8.40",
+            "stock_nm": "腾邦国际",
+            "convert_price": "6.45",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300178/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300178/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "6.22",
+            "stock_nm": "通裕重工",
+            "convert_price": "1.87",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300185/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300185/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "12.00",
+            "stock_nm": "维尔利",
+            "convert_price": "7.64",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300190/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300190/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "11.20",
+            "stock_nm": "欣旺达",
+            "convert_price": "13.22",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300207/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300207/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "4.25",
+            "stock_nm": "银信科技",
+            "convert_price": "7.47",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300231/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300231/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "4.68",
+            "stock_nm": "瑞丰光电",
+            "convert_price": "7.44",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300241/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300241/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "3.00",
+            "stock_nm": "依米康",
+            "convert_price": "6.50",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300249/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300249/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "2.80",
+            "stock_nm": "新莱应材",
+            "convert_price": "12.18",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300260/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300260/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "12.00",
+            "stock_nm": "兴源环境",
+            "convert_price": "3.89",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300266/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300266/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "3.00",
+            "stock_nm": "蓝英装备",
+            "convert_price": "8.08",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300293/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300293/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "7.24",
+            "stock_nm": "聚飞光电",
+            "convert_price": "3.77",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300303/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300303/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "2.37",
+            "stock_nm": "硕贝德",
+            "convert_price": "18.76",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300322/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300322/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "4.00",
+            "stock_nm": "斯莱克",
+            "convert_price": "5.44",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300382/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300382/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "8.03",
+            "stock_nm": "红相股份",
+            "convert_price": "14.36",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300427/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300427/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "8.90",
+            "stock_nm": "鹏辉能源",
+            "convert_price": "16.91",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300438/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300438/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "7.30",
+            "stock_nm": "美康生物",
+            "convert_price": "14.81",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300439/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300439/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "1.85",
+            "stock_nm": "信息发展",
+            "convert_price": "15.22",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300469/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300469/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "6.70",
+            "stock_nm": "华自科技",
+            "convert_price": "10.93",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300490/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300490/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "2.45",
+            "stock_nm": "海波重科",
+            "convert_price": "14.28",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300517/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300517/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "8.19",
+            "stock_nm": "中国应急",
+            "convert_price": "14.29",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300527/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300527/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "7.00",
+            "stock_nm": "天能重工",
+            "convert_price": "14.79",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300569/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300569/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "2.54",
+            "stock_nm": "开润股份",
+            "convert_price": "33.67",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300577/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300577/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "2.50",
+            "stock_nm": "美联新材",
+            "convert_price": "12.90",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300586/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300586/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "4.08",
+            "stock_nm": "天铁股份",
+            "convert_price": "11.53",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300587/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300587/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "1.80",
+            "stock_nm": "万里马",
+            "convert_price": "6.96",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300591/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300591/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "1.67",
+            "stock_nm": "金银河",
+            "convert_price": "23.67",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300619/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300619/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "2.54",
+            "stock_nm": "久吾高科",
+            "convert_price": "17.71",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300631/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300631/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "2.32",
+            "stock_nm": "正元智慧",
+            "convert_price": "15.24",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300645/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300645/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "2.88",
+            "stock_nm": "雷迪克",
+            "convert_price": "20.43",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300652/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300652/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "1.80",
+            "stock_nm": "飞鹿股份",
+            "convert_price": "10.36",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300665/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300665/menu_num/5.phtml"
+        },
+        {
+            "progress_nm": "股东大会通过",
+            "amount": "2.85",
+            "stock_nm": "聚灿光电",
+            "convert_price": "15.63",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300708/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300708/menu_num/5.phtml"
+        },
+        
+        
+    ]
+    "董事会预案":[{
+        "progress_nm": "董事会预案",
+        "amount": "45.00",
+        "stock_nm": "国投资本",
+        "convert_price": "13.35",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sh600061/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/600061/menu_num/5.phtml"
+        "concept":"上海自贸/MSCI中国/期货概念/信托概念/富时罗素概念/增持回购"
+    },
+    {
+        "progress_nm": "董事会预案",
+        "amount": "10.00",
+        "stock_nm": "一拖股份",
+        "convert_price": "7.16",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sh601038/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/601038/menu_num/5.phtml"
+        "concept":"小盘/昨日涨停/华为概念/生态农业/富时罗素概念/乡村振兴"
+    },
+    {
+        "progress_nm": "董事会预案",
+        "amount": "2.95",
+        "stock_nm": "江化微",
+        "convert_price": "27.16",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sh603078/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603078/menu_num/5.phtml"
+        "concept":"小盘/光刻胶/增持回购/中芯国际概念VS [晶锐国际！！！]"
+    },
+    {
+        "progress_nm": "董事会预案",
+        "amount": "3.75",
+        "stock_nm": "长白山",
+        "convert_price": "9.42",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sh603099/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603099/menu_num/5.phtml"
+        "concept":"小盘/旅游酒店/冰雪产业/朝鲜改革！]"
+    },
+    {
+        "progress_nm": "董事会预案",
+        "amount": "20.00",
+        "stock_nm": "神州高铁",
+        "convert_price": "3.57",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sz000008/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/000008/menu_num/5.phtml"
+        "concept":"小盘/深圳本地/业绩预升/富时罗素概念！-----炒作？]"
+    },
+    {
+        "progress_nm": "董事会预案",
+        "amount": "40.00",
+        "stock_nm": "皖能电力",
+        "convert_price": "4.79",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sz000543/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/000543/menu_num/5.phtml"
+    },
+    {
+        "progress_nm": "董事会预案",
+        "amount": "20.00",
+        "stock_nm": "大族激光",
+        "convert_price": "32.14",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sz002008/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002008/menu_num/5.phtml"
+    },
+    {
+        "progress_nm": "董事会预案",
+        "amount": "40.00",
+        "stock_nm": "歌尔股份",
+        "convert_price": "13.93",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sz002241/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002241/menu_num/5.phtml"
+    },
+    {
+        "progress_nm": "董事会预案",
+        "amount": "4.00",
+        "stock_nm": "久其软件",
+        "convert_price": "6.69",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sz002279/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002279/menu_num/5.phtml"
+    },
+    {
+        "progress_nm": "董事会预案",
+        "amount": "6.89",
+        "stock_nm": "比音勒芬",
+        "convert_price": "24.69",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sz002832/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002832/menu_num/5.phtml"
+    },
+    {
+        "progress_nm": "董事会预案",
+        "amount": "50.00",
+        "stock_nm": "蓝思科技",
+        "convert_price": "9.16",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sz300433/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300433/menu_num/5.phtml"
+        "concept":"小盘/全面屏/业绩预升/富时罗素概念！-----炒作？]"
+    },
+    {
+        "progress_nm": "董事会预案",
+        "amount": "5.90",
+        "stock_nm": "雪榕生物",
+        "convert_price": "8.05",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sz300511/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300511/menu_num/5.phtml"
+    },
+    {
+        "progress_nm": "董事会预案",
+        "amount": "3.08",
+        "stock_nm": "今天国际",
+        "convert_price": "12.85",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sz300532/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300532/menu_num/5.phtml"
+    },
+    {
+        "progress_nm": "董事会预案",
+        "amount": "2.00",
+        "stock_nm": "联得装备",
+        "convert_price": "27.61",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sz300545/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300545/menu_num/5.phtml"
+    },
+    {
+        "progress_nm": "董事会预案",
+        "amount": "2.71",
+        "stock_nm": "思特奇",
+        "convert_price": "17.60",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sz300608/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300608/menu_num/5.phtml"
+        
+    },],
+    "证监会发审通过":[{
+        "progress_nm": "证监会发审通过",
+        "amount": "11.22",
+        "stock_nm": "西藏天路",
+        "convert_price": "6.98",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sh600326/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/600326/menu_num/5.phtml"
+    },
+    {
+        "progress_nm": "证监会发审通过",
+        "amount": "6.00",
+        "stock_nm": "森特股份",
+        "convert_price": "11.81",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sh603098/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603098/menu_num/5.phtml"
+        "concept":"/小盘/雄安基建/------10.5元可以低吸。"
+    },
+    {
+        "progress_nm": "证监会发审通过",
+        "amount": "3.00",
+        "stock_nm": "天目湖",
+        "convert_price": "21.84",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sh603136/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603136/menu_num/5.phtml"
+        "concept":"/小盘/高派息/旅游酒店/QFII持股!------20元可以低吸， 酒店10月、炒作明显。"
+    },
+    {
+        "progress_nm": "证监会发审通过",
+        "amount": "3.92",
+        "stock_nm": "金牌厨柜",
+        "convert_price": "57.20",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sh603180/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603180/menu_num/5.phtml"
+        "concept":"/小盘/高派息/定制家居/【欧派家居、好莱客】! 压力位 14吧。 10.5的时候，低吸？？？"
+    },
+    {
+        "progress_nm": "证监会发审通过",
+        "amount": "9.45",
+        "stock_nm": "索通发展",
+        "convert_price": "11.09",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sh603612/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603612/menu_num/5.phtml"
+        "concept":"/小盘/富时罗素概念/很活跃/次新股!! 压力位 14吧。 10.5的时候，低吸？？？"
+    },
+    {
+        "progress_nm": "证监会发审通过",
+        "amount": "5.51",
+        "stock_nm": "苏州科达",
+        "convert_price": "12.95",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sh603660/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603660/menu_num/5.phtml"
+        "concept":"安防/小盘/无感支付/增持回购/!! 压力位 14吧。 11.5的时候，低吸？？？"
+    },
+    {
+        "progress_nm": "证监会发审通过",
+        "amount": "50.00",
+        "stock_nm": "新希望",
+        "convert_price": "18.56",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sz000876/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/000876/menu_num/5.phtml"
+        "concept":"猪肉概念/中盘/智慧农业/富时罗素概念/!! VS---圣达生物？？？"
+    },
+    {
+        "progress_nm": "证监会发审通过",
+        "amount": "22.00",
+        "stock_nm": "鸿达兴业",
+        "convert_price": "4.67",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sz002002/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002002/menu_num/5.phtml"
+        "concept":"稀土永磁/中盘/预盈预增/节能环保/氢能源/土壤修复!!! 6.88可低吸"
+    },
+    {
+        "progress_nm": "证监会发审通过",
+        "amount": "65.00",
+        "stock_nm": "顺丰控股",
+        "convert_price": "39.30",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sz002352/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002352/menu_num/5.phtml"
+    },
+    {
+        "progress_nm": "证监会发审通过",
+        "amount": "8.00",
+        "stock_nm": "长青集团",
+        "convert_price": "6.88",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sz002616/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002616/menu_num/5.phtml"
+        "concept":"生物质能/小盘/预盈预增/节能环保/垃圾发电/固废处理!!! 4.88可低吸"
+    },
+    {
+        "progress_nm": "证监会发审通过",
+        "amount": "4.80",
+        "stock_nm": "华锋股份",
+        "convert_price": "15.93",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sz002806/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002806/menu_num/5.phtml"
+        "concept":"氢能源/小盘/污水处理/节能环保"
+    },
+    {
+        "progress_nm": "证监会发审通过",
+        "amount": "8.00",
+        "stock_nm": "利亚德",
+        "convert_price": "6.90",
+        "stockURL": "http://finance.sina.com.cn/realstock/company/sz300296/nc.shtml",
+        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300296/menu_num/5.phtml"
+        "concept":"MSCI中国/富时罗素概念/虚拟现实/LED"
+    },],
+    "证监会核准批文": [
+        {
+            "progress_nm": "证监会核准批文",
+            "amount": "33.64",
+            "stock_nm": "烽火通信",
+            "convert_price": "28.70",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh600498/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/600498/menu_num/5.phtml"
+            "concept":"宽带提速/5G概念/海底光缆/IPV6/富时罗素概念/信息安全"
+        },
+        {
+            "progress_nm": "证监会核准批文",
+            "amount": "15.00",
+            "stock_nm": "金能科技",
+            "convert_price": "10.92",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh603113/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603113/menu_num/5.phtml"
+            "concept":"小盘/煤化工/氢能源/甲醇概念/富时罗素概念[道氏科技]"
+        },
+        {
+            "progress_nm": "证监会核准批文",
+            "amount": "5.12",
+            "stock_nm": "永创智能",
+            "convert_price": "7.71",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh603901/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603901/menu_num/5.phtml"
+            "concept":"小盘/智能机器"
+        },
+        {
+            "progress_nm": "证监会核准批文",
+            "amount": "5.78",
+            "stock_nm": "北方国际",
+            "convert_price": "9.10",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz000065/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/000065/menu_num/5.phtml"
+            "concept":"小盘/国防军工"
+        },
+        {
+            "progress_nm": "证监会核准批文",
+            "amount": "9.44",
+            "stock_nm": "远东传动",
+            "convert_price": "5.76",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002406/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002406/menu_num/5.phtml"
+            "concept":"小盘/国防军工"
+        },
+        {
+            "progress_nm": "证监会核准批文",
+            "amount": "2.14",
+            "stock_nm": "英联股份",
+            "convert_price": "12.51",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002846/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002846/menu_num/5.phtml"
+            "concept":"小盘/粤港澳/增持回购"
+        },
+        {
+            "progress_nm": "证监会核准批文",
+            "amount": "2.86",
+            "stock_nm": "通光线缆",
+            "convert_price": "8.18",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300265/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300265/menu_num/5.phtml"
+            "concept":"小盘/国防军工/航天军工/5G/海底光缆"
+        },
+        {
+            "progress_nm": "证监会核准批文",
+            "amount": "1.38",
+            "stock_nm": "熙菱信息",
+            "convert_price": "11.79",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300588/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300588/menu_num/5.phtml"
+            "concept":"小盘/华为概念/华为鲲鹏/生物识别/安防"
+        }
+    ]
+}

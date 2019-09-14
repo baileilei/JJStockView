@@ -13,9 +13,11 @@
 
 @property (nonatomic,copy) NSString *stockURL;
 @property (nonatomic,copy) NSString *passAndFuture;//已发行且将要发行
+@property (nonatomic,copy) NSString *stockConceptURL;
 
+@property (nonatomic,copy) NSString *sConcept;//备用
 
-
+@property (nonatomic,copy) NSString *amount;//amount
 
 @property (nonatomic,copy) NSString *bond_id;//
 @property (nonatomic,copy) NSString *bond_nm;//

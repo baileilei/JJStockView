@@ -107,11 +107,11 @@ static int AllCount = 1;
     HNNetworkFooterView *header = [[HNNetworkFooterView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 100)];
     //SELECT sprice - convert_price, bond_nm,full_price from YYStockModel where sprice - convert_price > 0 ORDER BY sprice - convert_price;
     //投资模型！   变量因子：时间，股价差。 目的：转债。
-    header.titleLable.text = @"看板：工业大麻--三力士 近期热点：垃圾分类 /深圳概念/ 猪概念(高抛低吸)---------急涨抛，急跌吸---------";
+    header.titleLable.text = @"看板：未来热点：环保，大气污染（12月）工业大麻--三力士 近期热点：垃圾分类 /深圳概念/ 猪概念(高抛低吸)---------急涨抛，急跌吸---------";
     self.stockView.jjStockTableView.tableHeaderView = header;
     [self.view addSubview:self.stockView];
     
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"查看" style:UIBarButtonItemStyleDone target:self action:@selector(p_checkSum)];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"涨停热点" style:UIBarButtonItemStyleDone target:self action:@selector(p_checkSum)];
     
      UIBarButtonItem *rightItem1 = [[UIBarButtonItem alloc] initWithTitle:@"强赎" style:UIBarButtonItemStyleDone target:self action:@selector(p_redeem)];
     
@@ -199,7 +199,9 @@ static int AllCount = 1;
         UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(i * 100, 0, 100, 30)];
         YYStockModel *model = self.isSearch == YES? self.searchResults[row] : self.stocks[row];;
         NSString *btnTitle = nil;
-        float ratio = (model.full_price.floatValue - model.convert_value.floatValue)/model.convert_value.floatValue;
+        float ratio = (model.full_price.floatValue - model.convert_value.floatValue)/model.convert_value.floatValue;//BRatio
+        
+        
         
 //        float stockRatio= (model.sprice.floatValue - model.convert_price.floatValue)/model.convert_price.floatValue;
         switch (i) {
@@ -568,12 +570,13 @@ static int AllCount = 1;
  
  */
 - (void)requestData {
+//    NSMutableURLRequest *request2 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://www.jisilu.cn/data/cbnew/cb_list/?___jsl=LST___t=1550727503725"]];
     NSMutableURLRequest *request2 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://www.jisilu.cn/data/cbnew/cb_list/?___jsl=LST___t=1550727503725"]];
     //    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     //如何快速测试一个网络请求
     [NSURLConnection sendAsynchronousRequest:request2 queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
 //             http://money.finance.sina.com.cn/bond/quotes/(null)110030.html   NSLog(@"response -----%@",response);
-//        NSLog(@"data ----%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+        NSLog(@"data ----%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
         
         NSError *error = nil;
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
@@ -588,6 +591,8 @@ static int AllCount = 1;
             [stockModel setValuesForKeysWithDictionary:dic[@"cell"]];
             float ratio = (stockModel.full_price.floatValue - stockModel.convert_value.floatValue)/stockModel.convert_value.floatValue;
             stockModel.ratio = ratio;
+            
+            
             
             float stockRatio= (stockModel.sprice.floatValue - stockModel.convert_price.floatValue)/stockModel.convert_price.floatValue;
             stockModel.stockRatio = stockRatio;
@@ -690,7 +695,7 @@ static int AllCount = 1;
 //                //BUG IN CLIENT OF sqlite3.dylib: illegal multi-threaded access to database connection
 ////                [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"allData"];
 //            });
-            [self handleMutilLine:stockModel];
+//            [self handleMutilLine:stockModel];
             
             //所有的数据存在一个库里
             {
@@ -820,7 +825,7 @@ static int AllCount = 1;
     //http://finance.sina.com.cn/realstock/company/sh600031/nc.shtml?from=BaiduAladin
     //https://www.jisilu.cn/data/cbnew/redeem_list/?___jsl=LST___t=1554699154321
     //https://stock.xueqiu.com/v5/stock/f10/cn/holders.json?symbol=SH600031&extend=true&page=1&size=10  股东人数
-    NSMutableURLRequest *request2 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://www.jisilu.cn/data/calendar/"]];
+    NSMutableURLRequest *request2 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData?page=1&num=40&sort=symbol&asc=1&node=chgn_700234&symbol&_s_r_a=init"]];
     [request2 setValue:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36" forHTTPHeaderField:@"User-Agent"];
     //    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
@@ -846,35 +851,40 @@ static int AllCount = 1;
     }];
 }
 //http://www.sse.com.cn/market/bonddata/convertible/
+//http://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData?page=1&num=40&sort=symbol&asc=1&node=chgn_700234&symbol&_s_r_a=init
 -(void)testAPIWithAFN{
     //发行流程：董事会预案 → 股东大会批准 → 证监会受理 → 发审委通过 → 证监会核准批文 → 发行公告
-    [[BaseNetManager defaultManager] GET:@"https://www.jisilu.cn/data/cbnew/pre_list/?___jsl=LST___t=1566207894005" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    //https://www.jisilu.cn/data/cbnew/pre_list/?___jsl=LST___t=1566207894005
+    [[BaseNetManager defaultManager] GET:@"http://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData?page=1&num=5&sort=changepercent&asc=0&node=sh_a&symbol=" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"AFN ----responseObject----%@",responseObject);
         
-        for (NSDictionary *dic in responseObject[@"rows"]) {
-            YYBuyintoStockModel *m = [[YYBuyintoStockModel alloc] init];
-            [m setValuesForKeysWithDictionary:dic[@"cell"]];
-            
-            
-            
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                
-                NSMutableArray *tempArray = [NSMutableArray array];
-                for (YYStockModel *m in self.stocks) {
-                    if (m.increase_rt.floatValue != 0) {
-                        [tempArray addObject:m];
-                    }
-                }
-                if([[tempArray valueForKey:@"stock_nm"] containsObject:m.stock_nm]){
-//                    [[SMLogManager sharedManager] myFocusExceptionHandler:m comments:@"当前有转债也即将发售可转债-------三类参考"];//一次性的，所以无需写入日志
-                }
-            });
-            
-            if (m.convert_price.floatValue < m.price.floatValue) {
-                [LocalNotificationManager addLocalNotification:m.progress_dt withModel:m];
-            }
-            [XMGSqliteModelTool saveOrUpdateModel:m uid:@"willBond"];
-        }
+        NSLog(@"%@",[[NSString alloc] initWithData:responseObject encoding:nil]);
+        
+        NSString *str = [[NSString alloc] initWithData:responseObject encoding:nil];
+        NSData *jsonData = [str dataUsingEncoding:NSUTF8StringEncoding];
+        
+        
+        id json = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
+        NSLog(@"json-----%@",json);
+        
+//        for (NSDictionary *dic in responseObject[@"rows"]) {
+//            YYBuyintoStockModel *m = [[YYBuyintoStockModel alloc] init];
+//            [m setValuesForKeysWithDictionary:dic[@"cell"]];
+//
+//
+//
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//
+//                NSMutableArray *tempArray = [NSMutableArray array];
+//                for (YYStockModel *m in self.stocks) {
+//                    if (m.increase_rt.floatValue != 0) {
+//                        [tempArray addObject:m];
+//                    }
+//                }
+//            });
+//
+//            [XMGSqliteModelTool saveOrUpdateModel:m uid:@"willBond"];
+//        }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (error) {
@@ -885,8 +895,26 @@ static int AllCount = 1;
 }
 
 -(void)p_checkSum{
+    
     YYCheckWebViewController *checkVC = [[YYCheckWebViewController alloc] init];
     [self presentViewController:[[UINavigationController alloc] initWithRootViewController:checkVC] animated:YES completion:nil];
+    //http://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData?page=1&num=5&sort=changepercent&asc=0&node=sh_a&symbol=
+    
+//    NSDictionary *param = @{
+//                            @"page":@"1",
+//                            @"num":@"40",
+//                            @"sort":@"symbol",
+//                            @"asc":@"1",
+//                            @"node":@"chgn_700234",
+//                            @"symbol":@"_s_r_a",
+//                            @"_s_r_a":@"init"
+//                            };
+//
+    [[BaseNetManager defaultManager] GET:@" hhttp://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData?page=1&num=5&sort=changepercent&asc=0&node=sh_a&symbol=" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"responseObject----%@",responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+
+    }];
 }
 
 -(void)p_redeem{

@@ -302,6 +302,8 @@
             
             [stockModel setValuesForKeysWithDictionary:dic[@"cell"]];
             
+             stockModel.stockConceptURL = [NSString stringWithFormat:@"http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/%@/menu_num/5.phtml",stockModel.stock_id ];
+            
             if ([stockModel.stock_id hasPrefix:@"6"]) {
                 stockModel.stock_id = [NSString stringWithFormat:@"sh%@",stockModel.stock_id];
             }else{// 0  3
@@ -309,19 +311,21 @@
             }
             
             stockModel.stockURL = [NSString stringWithFormat:@"http://finance.sina.com.cn/realstock/company/%@/nc.shtml",stockModel.stock_id];
+           
             
             if ([stockModel.stock_nm isEqualToString:@"龙大肉食"] && stockModel.price.intValue < 9.21) {
                 [[LocalNotificationManager sharedNotificationManager] Tool_testLoaclNotification:@"龙大肉食"];//相近的价格，相类似的走势。过往走势
             }
             
-            for (YYStockModel *m in originArray) {
-                if ([m.stock_id containsString:stockModel.stock_id]) {
-                    stockModel.stockURL = m.stockURL;
-                    stockModel.passAndFuture = @"已发行";
-                }
-            }
+//            for (YYStockModel *m in originArray) {
+//                if ([m.stock_id containsString:stockModel.stock_id]) {
+//                    stockModel.stockURL = m.stockURL;
+//                    stockModel.passAndFuture = @"已发行";
+//                    stockModel.stockConceptURL = m.stockConceptURL;
+//                }
+//            }
             [temp addObject:stockModel];
-            [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"willBond.sqlite"];
+            [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"willBondForConcept"];
         }
         [temp sortUsingComparator:^NSComparisonResult(YYBuyintoStockModel * obj1, YYBuyintoStockModel * obj2) {
             return obj1.progress_dt.floatValue < obj2.progress_dt.floatValue;

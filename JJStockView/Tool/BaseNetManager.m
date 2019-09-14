@@ -17,6 +17,9 @@ static AFHTTPSessionManager *manager = nil;
         manager = [AFHTTPSessionManager manager];
         // 设置接受解析的内容类型
         manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/json",@"text/plain",@"text/javascript",@"application/json", nil];
+        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        [manager.responseSerializer setStringEncoding:NSUTF8StringEncoding];
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     });
     return manager;
 }
