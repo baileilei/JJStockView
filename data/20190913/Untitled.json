@@ -1,0 +1,97 @@
+{
+    "RECORDS": [
+        {
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/sz002863/menu_num/5.phtml",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002863/nc.shtml",
+            "sincrease_rt": "-0.66%",
+            "sprice": "6.01",
+            "convert_price": "6.780",
+            "convert_dt": "2019-09-06",
+            "stock_nm": "今飞凯达",
+            "full_price": "102.994",
+            "SV": "-0.77",
+            "stock_id": "sz002863",
+            "BV": "2.994"
+        },
+        {
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/sz002877/menu_num/5.phtml",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002877/nc.shtml",
+            "sincrease_rt": "-0.11%",
+            "sprice": "8.70",
+            "convert_price": "9.550",
+            "convert_dt": "2020-01-08",
+            "stock_nm": "智能自控",
+            "full_price": "104.350",
+            "SV": "-0.850000000000001",
+            "stock_id": "sz002877",
+            "BV": "4.34999999999999"
+        },
+        {
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/sz002787/menu_num/5.phtml",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002787/nc.shtml",
+            "sincrease_rt": "0.44%",
+            "sprice": "6.92",
+            "convert_price": "7.520",
+            "convert_dt": "2019-06-03",
+            "stock_nm": "华源控股",
+            "full_price": "103.872",
+            "SV": "-0.6",
+            "stock_id": "sz002787",
+            "BV": "3.872"
+        },
+        {
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/sz002538/menu_num/5.phtml",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002538/nc.shtml",
+            "sincrease_rt": "0.95%",
+            "sprice": "5.30",
+            "convert_price": "6.150",
+            "convert_dt": "2019-10-14",
+            "stock_nm": "司尔特",
+            "full_price": "102.900",
+            "SV": "-0.850000000000001",
+            "stock_id": "sz002538",
+            "BV": "2.90000000000001"
+        },
+        {
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/sh603618/menu_num/5.phtml",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh603618/nc.shtml",
+            "sincrease_rt": "0.96%",
+            "sprice": "6.33",
+            "convert_price": "7.240",
+            "convert_dt": "2018-09-12",
+            "stock_nm": "杭电股份",
+            "full_price": "104.580",
+            "SV": "-0.91",
+            "stock_id": "sh603618",
+            "BV": "4.58"
+        },
+        {
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/sz002717/menu_num/5.phtml",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002717/nc.shtml",
+            "sincrease_rt": "1.02%",
+            "sprice": "4.95",
+            "convert_price": "5.920",
+            "convert_dt": "2019-02-20",
+            "stock_nm": "岭南股份",
+            "full_price": "103.658",
+            "SV": "-0.97",
+            "stock_id": "sz002717",
+            "BV": "3.658"
+            "concept":"[【CP=5.92/SV=-0.97】小盘/土壤修复/粤港澳/富时罗素概念]",
+        },
+        {
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/sz300197/menu_num/5.phtml",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz300197/nc.shtml",
+            "sincrease_rt": "1.18%",
+            "sprice": "3.43",
+            "convert_price": "3.980",
+            "convert_dt": "2018-06-22",
+            "stock_nm": "铁汉生态",
+            "full_price": "103.222",
+            "SV": "-0.55",
+            "stock_id": "sz300197",
+            "BV": "3.22199999999999",
+            "concept":"[【CP=3.98/SV=-0.55】小盘/土壤修复]",
+        }
+    ]
+}

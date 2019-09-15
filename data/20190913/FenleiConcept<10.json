@@ -1214,7 +1214,17 @@
         
         
     ]
-    "董事会预案":[{
+    "董事会预案":[
+        {
+            "progress_nm": "董事会预案",
+            "amount": "20.00",
+            "stock_nm": "神州高铁",
+            "convert_price": "3.57",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz000008/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/000008/menu_num/5.phtml"
+            "concept":"小盘/深圳本地/业绩预升/富时罗素概念！-----炒作？3.5~3.62底部区域！ 建仓！！！]"
+        },
+        {
         "progress_nm": "董事会预案",
         "amount": "45.00",
         "stock_nm": "国投资本",
@@ -1249,15 +1259,6 @@
         "stockURL": "http://finance.sina.com.cn/realstock/company/sh603099/nc.shtml",
         "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603099/menu_num/5.phtml"
         "concept":"小盘/旅游酒店/冰雪产业/朝鲜改革！]"
-    },
-    {
-        "progress_nm": "董事会预案",
-        "amount": "20.00",
-        "stock_nm": "神州高铁",
-        "convert_price": "3.57",
-        "stockURL": "http://finance.sina.com.cn/realstock/company/sz000008/nc.shtml",
-        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/000008/menu_num/5.phtml"
-        "concept":"小盘/深圳本地/业绩预升/富时罗素概念！-----炒作？]"
     },
     {
         "progress_nm": "董事会预案",
@@ -1341,7 +1342,53 @@
         "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/300608/menu_num/5.phtml"
         
     },],
-    "证监会发审通过":[{
+    "证监会发审通过":[
+        {
+            "progress_nm": "证监会核准批文",
+            "amount": "15.00",
+            "stock_nm": "金能科技",
+            "convert_price": "10.92",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh603113/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603113/menu_num/5.phtml"
+            "concept":"小盘/煤化工/氢能源/甲醇概念/富时罗素概念[道氏科技]"
+        },
+        {
+            "progress_nm": "证监会发审通过",
+            "amount": "8.00",
+            "stock_nm": "长青集团",
+            "convert_price": "6.88",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002616/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002616/menu_num/5.phtml"
+            "concept":"生物质能/小盘/预盈预增/节能环保/垃圾发电/固废处理!!! 4.88可低吸 类似环境转债！！！"
+        },
+        {
+            "progress_nm": "证监会发审通过",
+            "amount": "50.00",
+            "stock_nm": "新希望",
+            "convert_price": "18.56",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz000876/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/000876/menu_num/5.phtml"
+            "concept":"猪肉概念/中盘/智慧农业/富时罗素概念/!! VS---圣达生物？？？"
+        },
+        {
+            "progress_nm": "证监会发审通过",
+            "amount": "22.00",
+            "stock_nm": "鸿达兴业",
+            "convert_price": "4.67",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sz002002/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002002/menu_num/5.phtml"
+            "concept":"稀土永磁/中盘/预盈预增/节能环保/氢能源/土壤修复!!! 6.88可低吸"
+        },
+        {
+            "progress_nm": "证监会发审通过",
+            "amount": "3.92",
+            "stock_nm": "金牌厨柜",
+            "convert_price": "57.20",
+            "stockURL": "http://finance.sina.com.cn/realstock/company/sh603180/nc.shtml",
+            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603180/menu_num/5.phtml"
+            "concept":"/小盘/高派息/定制家居/【欧派家居、好莱客】! 压力位 14吧。 10.5的时候，低吸？？？"
+        },
+        {
         "progress_nm": "证监会发审通过",
         "amount": "11.22",
         "stock_nm": "西藏天路",
@@ -1369,15 +1416,6 @@
     },
     {
         "progress_nm": "证监会发审通过",
-        "amount": "3.92",
-        "stock_nm": "金牌厨柜",
-        "convert_price": "57.20",
-        "stockURL": "http://finance.sina.com.cn/realstock/company/sh603180/nc.shtml",
-        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603180/menu_num/5.phtml"
-        "concept":"/小盘/高派息/定制家居/【欧派家居、好莱客】! 压力位 14吧。 10.5的时候，低吸？？？"
-    },
-    {
-        "progress_nm": "证监会发审通过",
         "amount": "9.45",
         "stock_nm": "索通发展",
         "convert_price": "11.09",
@@ -1396,38 +1434,11 @@
     },
     {
         "progress_nm": "证监会发审通过",
-        "amount": "50.00",
-        "stock_nm": "新希望",
-        "convert_price": "18.56",
-        "stockURL": "http://finance.sina.com.cn/realstock/company/sz000876/nc.shtml",
-        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/000876/menu_num/5.phtml"
-        "concept":"猪肉概念/中盘/智慧农业/富时罗素概念/!! VS---圣达生物？？？"
-    },
-    {
-        "progress_nm": "证监会发审通过",
-        "amount": "22.00",
-        "stock_nm": "鸿达兴业",
-        "convert_price": "4.67",
-        "stockURL": "http://finance.sina.com.cn/realstock/company/sz002002/nc.shtml",
-        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002002/menu_num/5.phtml"
-        "concept":"稀土永磁/中盘/预盈预增/节能环保/氢能源/土壤修复!!! 6.88可低吸"
-    },
-    {
-        "progress_nm": "证监会发审通过",
         "amount": "65.00",
         "stock_nm": "顺丰控股",
         "convert_price": "39.30",
         "stockURL": "http://finance.sina.com.cn/realstock/company/sz002352/nc.shtml",
         "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002352/menu_num/5.phtml"
-    },
-    {
-        "progress_nm": "证监会发审通过",
-        "amount": "8.00",
-        "stock_nm": "长青集团",
-        "convert_price": "6.88",
-        "stockURL": "http://finance.sina.com.cn/realstock/company/sz002616/nc.shtml",
-        "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002616/menu_num/5.phtml"
-        "concept":"生物质能/小盘/预盈预增/节能环保/垃圾发电/固废处理!!! 4.88可低吸"
     },
     {
         "progress_nm": "证监会发审通过",
@@ -1456,15 +1467,6 @@
             "stockURL": "http://finance.sina.com.cn/realstock/company/sh600498/nc.shtml",
             "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/600498/menu_num/5.phtml"
             "concept":"宽带提速/5G概念/海底光缆/IPV6/富时罗素概念/信息安全"
-        },
-        {
-            "progress_nm": "证监会核准批文",
-            "amount": "15.00",
-            "stock_nm": "金能科技",
-            "convert_price": "10.92",
-            "stockURL": "http://finance.sina.com.cn/realstock/company/sh603113/nc.shtml",
-            "stockConceptURL": "http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/603113/menu_num/5.phtml"
-            "concept":"小盘/煤化工/氢能源/甲醇概念/富时罗素概念[道氏科技]"
         },
         {
             "progress_nm": "证监会核准批文",

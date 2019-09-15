@@ -25,7 +25,7 @@
 @property (nonatomic,copy) NSString *stockConceptURL;//http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002822/menu_num/5.phtml
 @property (nonatomic,copy) NSString *bondURL;
 
-
+@property (nonatomic,assign) float ma20_SI;//Sprice /convert_price
 
 @property (nonatomic,copy) NSString *stockMostPrice;//总库
 @property (nonatomic,copy) NSString *bondMostPrice;//总库 但是。  SIFasteBI的主键好像没起作用???
