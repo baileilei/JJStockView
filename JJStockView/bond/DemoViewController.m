@@ -627,8 +627,9 @@ static int AllCount = 1;
                 [[SMLogManager sharedManager] Tool_logPlanName:@"SI小于负5&BP<110" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一月内" comments:@"过激反应？ 不要杀跌   要低吸 "];
             }
             
-            if (tempIncrease >= 9) {
-                [[SMLogManager sharedManager] Tool_logPlanName:@"SI > 9 history" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.price whenToVerify:@"两三天内回调" comments:@"两三天后回调低吸 华通！"];
+            if (tempIncrease >= 9 && stockModel.full_price.floatValue < 110) {
+                [[SMLogManager sharedManager] Tool_logPlanName:@"SI > 9 history" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.price whenToVerify:@"两三天内回调" comments:@"两三天后回调低吸 华通and三力，即便诱多价也在110以下！ 三力-确实工业大麻很给力，老挝。  华通？确实有公告！ 二者在110以下都可以建仓，都是小盘，都很活跃！！！ 看到9.29！ 亚太、久其"];
+                //按照该策略，可以建仓亚太了！   股价涨停，有预期。-----内部有大的利好，还未公布而已！一月可期！ 而转债回调了第4天了。刚好回调到了30%。
             }
            
             //股价涨幅  远大于 债涨幅  启动迹象！！！
