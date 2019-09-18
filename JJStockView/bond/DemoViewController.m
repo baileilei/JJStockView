@@ -34,6 +34,7 @@
 #import "WillBondViewController.h"
 
 #import "FMDB.h"//多线程 处理数据库的问题
+#import "YYAnotherWatchPondStock.h"
 
 #define columnCount 18
 #define kYYCachePath @"/Users/g/Desktop"
@@ -876,7 +877,7 @@ static int AllCount = 1;
 -(void)testAPIWithAFN{
     //发行流程：董事会预案 → 股东大会批准 → 证监会受理 → 发审委通过 → 证监会核准批文 → 发行公告
     //https://www.jisilu.cn/data/cbnew/pre_list/?___jsl=LST___t=1566207894005
-    [[BaseNetManager defaultManager] GET:@"http://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData?page=1&num=5&sort=changepercent&asc=0&node=sh_a&symbol=" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[BaseNetManager defaultManager] GET:@"https://www.jisilu.cn/jisiludata/safe_stock.php?___jsl=LST___t=1568810772785" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"AFN ----responseObject----%@",responseObject);
         
         NSLog(@"%@",[[NSString alloc] initWithData:responseObject encoding:nil]);
@@ -888,24 +889,16 @@ static int AllCount = 1;
         id json = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
         NSLog(@"json-----%@",json);
         
-//        for (NSDictionary *dic in responseObject[@"rows"]) {
-//            YYBuyintoStockModel *m = [[YYBuyintoStockModel alloc] init];
-//            [m setValuesForKeysWithDictionary:dic[@"cell"]];
-//
-//
-//
-//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//
-//                NSMutableArray *tempArray = [NSMutableArray array];
-//                for (YYStockModel *m in self.stocks) {
-//                    if (m.increase_rt.floatValue != 0) {
-//                        [tempArray addObject:m];
-//                    }
-//                }
-//            });
-//
-//            [XMGSqliteModelTool saveOrUpdateModel:m uid:@"willBond"];
-//        }
+        for (NSDictionary *dic in json[@"rows"]) {
+            YYAnotherWatchPondStock *m = [[YYAnotherWatchPondStock alloc] init];
+            [m setValuesForKeysWithDictionary:dic[@"cell"]];
+
+            //中百 < 7建仓。     6.5 加仓2成。     6加仓 5成
+            if ([m.stock_nm isEqualToString:@"中百集团"] && m.price.floatValue < 7.0) {
+                [LocalNotificationManager addLocalNotification:[NSString stringWithFormat:@"中百 股价 到了 %@",m.price]];
+            }
+            [XMGSqliteModelTool saveOrUpdateModel:m uid:@"yaoyue"];
+        }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (error) {
