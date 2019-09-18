@@ -49,7 +49,7 @@ static int AllCount = 1;
 
 @interface DemoViewController ()<StockViewDataSource,StockViewDelegate,UISearchBarDelegate>
 
-
+@property (nonatomic,strong) NSMutableArray *holdingPonds;
 @property (nonatomic,strong) NSMutableArray *watchPond;//监控池功能
 
 @property (nonatomic, strong) NSMutableArray *searchResults;
@@ -583,6 +583,8 @@ static int AllCount = 1;
         NSLog(@"dict-----%@",dict[@"rows"]);
         
         NSMutableArray *temp = [NSMutableArray array];
+        NSMutableDictionary *dictToPlist = [NSMutableDictionary dictionary];
+        NSMutableDictionary *allToPlist = [NSMutableDictionary dictionary];
         for (NSDictionary *dic in dict[@"rows"]) {
             
             YYStockModel *stockModel = [[YYStockModel alloc] init];
@@ -605,6 +607,13 @@ static int AllCount = 1;
             //
             stockModel.bondURL = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/bond/quotes/%@.html",stockModel.pre_bond_id];
             
+            if ([self.holdingPonds containsObject:stockModel.bond_nm]) {
+                NSString *keyElements = [NSString stringWithFormat:@"[m20_SI=%f/CP=%@/BP=%@]",stockModel.ma20_SI,stockModel.convert_price,stockModel.full_price];
+                [dictToPlist setValue:keyElements forKey:stockModel.bond_nm];
+            }
+            
+            NSString *keyElements = [NSString stringWithFormat:@"[m20_SI=%f/CP=%@/BP=%@]",stockModel.ma20_SI,stockModel.convert_price,stockModel.full_price];
+            [allToPlist setValue:keyElements forKey:stockModel.bond_nm];
  /*************************************日志管理********1.SI > 9************************************/
             NSRange range = [stockModel.sincrease_rt rangeOfString:@"."];
             float tempIncrease = [stockModel.sincrease_rt substringToIndex:range.location].floatValue;
@@ -731,6 +740,16 @@ static int AllCount = 1;
                 
             });
         }
+        
+//        NSString *path = [[NSBundle mainBundle] pathForResource:@"holdingPlist" ofType:@"plist"];
+        NSArray *libPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+        NSString *holdingDirectory = [[libPath objectAtIndex:0] stringByAppendingPathComponent:@"FocusLog"];
+        NSString *holdingFilePath = [holdingDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"holding.plist"]];
+        [dictToPlist writeToFile:holdingFilePath atomically:YES];
+
+        NSString *allFilePath = [holdingDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"all.plist"]];
+        [allToPlist writeToFile:allFilePath atomically:YES];
+
         
         self.stocks = temp;
         
@@ -973,5 +992,10 @@ static int AllCount = 1;
 }
 
 
-
+-(NSMutableArray *)holdingPonds{
+    if (!_holdingPonds) {//下一个利欧 or 圣达  111
+        _holdingPonds = [NSMutableArray arrayWithObjects:@"圣达转债",@"利欧转债",@"杭电转债",@"道氏转债", nil];
+    }
+    return _holdingPonds;
+}
 @end

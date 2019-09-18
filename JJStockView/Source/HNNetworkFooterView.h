@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SMEditLabel.h"
+
 @class HNToolModel;
 //推荐网络工具点击事件
 typedef void(^ToolButtonClick)(HNToolModel *tool);
@@ -15,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HNNetworkFooterView : UIView
 
-@property (nonatomic,weak) UILabel *titleLable;
+@property (nonatomic,weak) SMEditLabel *titleLable;
 //推荐网络工具点击事件block
 @property(nonatomic, copy) ToolButtonClick toolButtonClick;
 

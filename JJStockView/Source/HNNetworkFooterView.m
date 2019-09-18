@@ -47,7 +47,7 @@ static NSString *const FooterViewCellID = @"FooterViewCellID";
 #pragma mark - 创建子控件
 - (void)creatChildViewToNetworkFooterView {
     //1.创建标题lable
-    UILabel *titleLable = [[UILabel alloc] init];
+    SMEditLabel *titleLable = [[SMEditLabel alloc] init];
     [self addSubview:titleLable];
     [titleLable mas_makeConstraints:^(HMTMASConstraintMaker *make) {
         make.top.equalTo(self.mas_top).offset(32 * WIDTH_PROPORTION);

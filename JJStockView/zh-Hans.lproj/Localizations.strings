@@ -1,0 +1,12 @@
+/* 
+  Localizations.strings
+  JJStockView
+
+  Created by smart-wift on 2019/9/18.
+  Copyright © 2019 Jezz. All rights reserved.
+*/
+
+"ids_tip_ip_empty" = "ip不能为空";
+"new_cloud_ip" = "云平台IP";
+"hint_input_server_ip"="请输入云平台IP";
+"check_ip" = "请输入正确的ip";

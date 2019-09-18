@@ -82,6 +82,7 @@
 		B631FD472329CBCE001ED114 /* HMTHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = B631FD462329CBCD001ED114 /* HMTHintView.m */; };
 		B631FD4A2329D8A5001ED114 /* changeHoldingMomo.geojson in Resources */ = {isa = PBXBuildFile; fileRef = B631FD492329D8A5001ED114 /* changeHoldingMomo.geojson */; };
 		B631FD4C2329EC5B001ED114 /* conceptAnalise.plist in Resources */ = {isa = PBXBuildFile; fileRef = B631FD4B2329EC5B001ED114 /* conceptAnalise.plist */; };
+		B631FD51232F490D001ED114 /* holdingPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = B631FD50232F490D001ED114 /* holdingPlist.plist */; };
 		B63262EF2305132E003AEC58 /* HNNetworkFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B63262EB2305132E003AEC58 /* HNNetworkFooterView.m */; };
 		B63262F02305132E003AEC58 /* HNRecommendToolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B63262EC2305132E003AEC58 /* HNRecommendToolCell.m */; };
 		B632630B2305135F003AEC58 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B63262F32305135F003AEC58 /* NSLayoutConstraint+MASDebugAdditions.m */; };
@@ -124,6 +125,10 @@
 		B692B0B12302D56C00E01511 /* 语言设置.png in Resources */ = {isa = PBXBuildFile; fileRef = B692B09B2302D56C00E01511 /* 语言设置.png */; };
 		B692B0B22302D56C00E01511 /* 功能介绍.png in Resources */ = {isa = PBXBuildFile; fileRef = B692B09C2302D56C00E01511 /* 功能介绍.png */; };
 		B692B0B42302D68A00E01511 /* Resource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B692B0B32302D68A00E01511 /* Resource.bundle */; };
+		B695EE36233224B70094F717 /* SMEditLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B695EE32233224B70094F717 /* SMEditLabel.m */; };
+		B695EE37233224B70094F717 /* HNNoPasteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B695EE35233224B70094F717 /* HNNoPasteTextField.m */; };
+		B695EE3A233225820094F717 /* HNLoginIPView.m in Sources */ = {isa = PBXBuildFile; fileRef = B695EE38233225820094F717 /* HNLoginIPView.m */; };
+		B695EE4123322B230094F717 /* Localizations.strings in Resources */ = {isa = PBXBuildFile; fileRef = B695EE4323322B230094F717 /* Localizations.strings */; };
 		B6AAD1E5230102F40048ED8E /* YYCacheGroupTable.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AAD1E4230102F40048ED8E /* YYCacheGroupTable.m */; };
 		B6BD634D2318EA540071A980 /* SMLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BD634C2318EA540071A980 /* SMLogManager.m */; };
 		B6BD63502318EC3D0071A980 /* PrintBeautifulLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BD634F2318EC3D0071A980 /* PrintBeautifulLog.m */; };
@@ -319,6 +324,7 @@
 		B631FD482329CF47001ED114 /* APPJJScotk.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPJJScotk.pch; sourceTree = "<group>"; };
 		B631FD492329D8A5001ED114 /* changeHoldingMomo.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = changeHoldingMomo.geojson; sourceTree = "<group>"; };
 		B631FD4B2329EC5B001ED114 /* conceptAnalise.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = conceptAnalise.plist; sourceTree = "<group>"; };
+		B631FD50232F490D001ED114 /* holdingPlist.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = holdingPlist.plist; sourceTree = "<group>"; };
 		B63262EB2305132E003AEC58 /* HNNetworkFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNNetworkFooterView.m; sourceTree = "<group>"; };
 		B63262EC2305132E003AEC58 /* HNRecommendToolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNRecommendToolCell.m; sourceTree = "<group>"; };
 		B63262ED2305132E003AEC58 /* HNRecommendToolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNRecommendToolCell.h; sourceTree = "<group>"; };
@@ -385,6 +391,19 @@
 		B692B09B2302D56C00E01511 /* 语言设置.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "语言设置.png"; sourceTree = "<group>"; };
 		B692B09C2302D56C00E01511 /* 功能介绍.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "功能介绍.png"; sourceTree = "<group>"; };
 		B692B0B32302D68A00E01511 /* Resource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resource.bundle; sourceTree = "<group>"; };
+		B695EE32233224B70094F717 /* SMEditLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMEditLabel.m; sourceTree = "<group>"; };
+		B695EE33233224B70094F717 /* HNNoPasteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNNoPasteTextField.h; sourceTree = "<group>"; };
+		B695EE34233224B70094F717 /* SMEditLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMEditLabel.h; sourceTree = "<group>"; };
+		B695EE35233224B70094F717 /* HNNoPasteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNNoPasteTextField.m; sourceTree = "<group>"; };
+		B695EE38233225820094F717 /* HNLoginIPView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNLoginIPView.m; sourceTree = "<group>"; };
+		B695EE39233225820094F717 /* HNLoginIPView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNLoginIPView.h; sourceTree = "<group>"; };
+		B695EE3B233229CE0094F717 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		B695EE3C233229CE0094F717 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		B695EE3D23322A8E0094F717 /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/Main.strings"; sourceTree = "<group>"; };
+		B695EE3E23322A8E0094F717 /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		B695EE4223322B230094F717 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizations.strings"; sourceTree = "<group>"; };
+		B695EE4423322B430094F717 /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/Localizations.strings"; sourceTree = "<group>"; };
+		B695EE4523322B4A0094F717 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizations.strings; sourceTree = "<group>"; };
 		B6AAD1E3230102F40048ED8E /* YYCacheGroupTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYCacheGroupTable.h; sourceTree = "<group>"; };
 		B6AAD1E4230102F40048ED8E /* YYCacheGroupTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYCacheGroupTable.m; sourceTree = "<group>"; };
 		B6BD634B2318EA540071A980 /* SMLogManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMLogManager.h; sourceTree = "<group>"; };
@@ -544,6 +563,7 @@
 				06ED2105231D4CF400400C91 /* File.strings */,
 				06ED2100231D4C4C00400C91 /* test.stringsdict */,
 				B631FD2B23222DC5001ED114 /* functionDesign */,
+				B631FD50232F490D001ED114 /* holdingPlist.plist */,
 			);
 			path = notes;
 			sourceTree = "<group>";
@@ -702,6 +722,7 @@
 				61F13E811F91F670002F4681 /* Assets.xcassets */,
 				61F13E861F91F670002F4681 /* Info.plist */,
 				61F13E871F91F670002F4681 /* main.m */,
+				B695EE4323322B230094F717 /* Localizations.strings */,
 				FDC46BA82223CE7700C58FA2 /* APPConstant.h */,
 				B631FD482329CF47001ED114 /* APPJJScotk.pch */,
 				B692B0B32302D68A00E01511 /* Resource.bundle */,
@@ -892,6 +913,19 @@
 			path = "首页切图标注@2x";
 			sourceTree = "<group>";
 		};
+		B695EE31233224B70094F717 /* myOwnView */ = {
+			isa = PBXGroup;
+			children = (
+				B695EE32233224B70094F717 /* SMEditLabel.m */,
+				B695EE33233224B70094F717 /* HNNoPasteTextField.h */,
+				B695EE34233224B70094F717 /* SMEditLabel.h */,
+				B695EE35233224B70094F717 /* HNNoPasteTextField.m */,
+				B695EE39233225820094F717 /* HNLoginIPView.h */,
+				B695EE38233225820094F717 /* HNLoginIPView.m */,
+			);
+			path = myOwnView;
+			sourceTree = "<group>";
+		};
 		B6AAD1E22301029B0048ED8E /* GroupTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -980,6 +1014,7 @@
 		FDF0B74D2223DF94003A6999 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				B695EE31233224B70094F717 /* myOwnView */,
 				B624A8F9230AA9F70093AF88 /* netLog */,
 				B671E57F22F84EAD00483FBA /* HWNetTools.h */,
 				B671E58022F84EAD00483FBA /* HWNetTools.m */,
@@ -1112,6 +1147,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				"zh-HK",
 			);
 			mainGroup = 61F13E6C1F91F670002F4681;
 			productRefGroup = 61F13E761F91F670002F4681 /* Products */;
@@ -1157,6 +1194,7 @@
 				B692B0AD2302D56C00E01511 /* home_bgimg@2x.png in Resources */,
 				B692B0AA2302D56C00E01511 /* 0-01首页-菜单展开_MarkMan.png in Resources */,
 				B692B09E2302D56C00E01511 /* 关于.png in Resources */,
+				B631FD51232F490D001ED114 /* holdingPlist.plist in Resources */,
 				06487AF32245BC2E0008A5F0 /* note&URS in Resources */,
 				047622C0224683D9005CD02C /* testForCheck.xib in Resources */,
 				B692B0A72302D56C00E01511 /* menu_tool@2x.png in Resources */,
@@ -1168,6 +1206,7 @@
 				B692B0B02302D56C00E01511 /* 二维码.png in Resources */,
 				B692B0A02302D56C00E01511 /* 开放源代码.png in Resources */,
 				060C4B9522226B9C004BA326 /* YYBuyIntoViewController.xib in Resources */,
+				B695EE4123322B230094F717 /* Localizations.strings in Resources */,
 				B692B0A22302D56C00E01511 /* myproject@2x.png in Resources */,
 				B692B0A52302D56C00E01511 /* Default_avatar_circular@2x.png in Resources */,
 				B692B0A12302D56C00E01511 /* 隐私声明.png in Resources */,
@@ -1399,6 +1438,7 @@
 				B6D7E483231A79A300A8D8A7 /* WillBondViewController.m in Sources */,
 				61F13E881F91F670002F4681 /* main.m in Sources */,
 				FD0E69472236381E00B1F67F /* BaseNetManager.m in Sources */,
+				B695EE37233224B70094F717 /* HNNoPasteTextField.m in Sources */,
 				FD0E6944223630E200B1F67F /* AFSecurityPolicy.m in Sources */,
 				B632630C2305135F003AEC58 /* HMTMASViewConstraint.m in Sources */,
 				060C4B90222262A2004BA326 /* XMGModelTool.m in Sources */,
@@ -1406,6 +1446,7 @@
 				FDC46BA42223CA3300C58FA2 /* UIButton+Swizzle.m in Sources */,
 				06D1589F225C6EFE0040B6C6 /* YYSelfDefineCategoryStock.m in Sources */,
 				B6AAD1E5230102F40048ED8E /* YYCacheGroupTable.m in Sources */,
+				B695EE36233224B70094F717 /* SMEditLabel.m in Sources */,
 				FDF0B7502223DFBD003A6999 /* YYDateUtil.m in Sources */,
 				FD0E6940223630E200B1F67F /* AFHTTPSessionManager.m in Sources */,
 				FDC46BA62223CA3300C58FA2 /* JRSwizzle.m in Sources */,
@@ -1413,6 +1454,7 @@
 				060A94AE2240C37E00F42A54 /* YYCheckWebViewController.m in Sources */,
 				B6BD63502318EC3D0071A980 /* PrintBeautifulLog.m in Sources */,
 				61F13E7A1F91F670002F4681 /* AppDelegate.m in Sources */,
+				B695EE3A233225820094F717 /* HNLoginIPView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1452,6 +1494,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				06D158AD225C701B0040B6C6 /* Base */,
+				B695EE3B233229CE0094F717 /* zh-Hans */,
+				B695EE3D23322A8E0094F717 /* zh-HK */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1460,8 +1504,20 @@
 			isa = PBXVariantGroup;
 			children = (
 				06D158B2225C701D0040B6C6 /* Base */,
+				B695EE3C233229CE0094F717 /* zh-Hans */,
+				B695EE3E23322A8E0094F717 /* zh-HK */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		B695EE4323322B230094F717 /* Localizations.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B695EE4223322B230094F717 /* zh-Hans */,
+				B695EE4423322B430094F717 /* zh-HK */,
+				B695EE4523322B4A0094F717 /* en */,
+			);
+			name = Localizations.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1509,6 +1565,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1564,6 +1621,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1622,7 +1680,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/JJStockView/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = JJStockView.com.aaaa;
+				PRODUCT_BUNDLE_IDENTIFIER = JJStockView.com.bbb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1643,7 +1701,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/JJStockView/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = JJStockView.com.aaaa;
+				PRODUCT_BUNDLE_IDENTIFIER = JJStockView.com.bbb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
