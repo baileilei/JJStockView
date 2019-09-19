@@ -190,7 +190,7 @@ static int AllCount = 1;
     
 }
 //-searchbare
-
+#pragma mark Stock DataSource
 #pragma mark - Stock DataSource
 //多少行
 - (NSUInteger)countForStockView:(JJStockView*)stockView{

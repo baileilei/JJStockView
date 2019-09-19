@@ -32,7 +32,7 @@
     self.navigationItem.title = self.bigPrice;
 }
 
-
+#pragma mark - UIWebViewDelegate
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     NSString *str = @"document.getElementsByClassName('wrap topAD')[0].remove();";
     [webView stringByEvaluatingJavaScriptFromString:str];

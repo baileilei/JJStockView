@@ -2,8 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>SI&gt;9&amp;&amp;BP&lt;110---急涨出！10%/d</key>
+	<key>SI&gt;9&amp;&amp;BP&lt;110---</key>
 	<array>
+		<dict>
+			<key>0</key>
+			<string>两三天后低吸。  持有一个月吧，出仓：急涨的时候出仓！  因为低风险，所以可承受。</string>
+			<key>11</key>
+			<string>该策略有效利用了债反应滞后的策略，虽然当时确实有反应，但是缩量涨停必然是因为内因，或许未公告！ 如华通。</string>
+			<key>12</key>
+			<string>两三天后是因为勿追高，可低吸。 看好未来一个月的该股行情</string>
+			<key>1</key>
+			<string>该策略可以有效避免高位诱多的情形出现。   比如凯发电气。</string>
+			<key>2</key>
+			<string>急涨出！10%/d-----（S几个涨停？）</string>
+		</dict>
 		<dict>
 			<key>亚太转债---0919</key>
 			<string>两三天后低吸。  持有一个月吧，出仓：急涨的时候出仓！  因为低风险，所以可承受。</string>
@@ -13,8 +25,12 @@
 			<string></string>
 		</dict>
 	</array>
-	<key>SH指数 回调&gt;1%时，自选池中跌不动的标的</key>
+	<key>SH指数  回调&gt;1%时</key>
 	<array>
+		<dict>
+			<key>伊力转债</key>
+			<string>回调&gt;1%时，自选池中跌不动的标的</string>
+		</dict>
 		<dict>
 			<key>伊力转债</key>
 			<string>价格：110</string>
