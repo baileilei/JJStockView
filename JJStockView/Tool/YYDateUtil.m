@@ -23,7 +23,7 @@
     return [self compareDate:date0];
 }
 
-+(BOOL)toCurrentLessThan8Days:(NSString *)dateStr{
++(BOOL)toCurrentLessThan3Days:(NSString *)dateStr{
     if (dateStr.length == 0) {
         return NO;
     }
@@ -46,7 +46,7 @@
     NSInteger issuemonth=[issuecomponents month];
     NSInteger issueday=[issuecomponents day];
 //     NSLog(@"issueDate = %@ ,issueyear = %ld ,issuemonth=%ld, issueday=%ld",issueDate,issuetyear,issuemonth,issueday);
-    if (currentyear == issuetyear && currentmonth == issuemonth && abs(currentday - issueday) < 8) {
+    if (currentyear == issuetyear && currentmonth == issuemonth && labs(currentday - issueday) < 3) {
         return YES;
     }
     

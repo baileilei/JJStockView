@@ -12,7 +12,7 @@
 
 +(BOOL)compareDate:(NSString *)date;
 
-+(BOOL)toCurrentLessThan8Days:(NSString *)dateStr;
++(BOOL)toCurrentLessThan3Days:(NSString *)dateStr;
 
 + (NSString *)dateToString:(NSDate *)date
                 andFormate:(NSString *)formate;

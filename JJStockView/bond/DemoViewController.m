@@ -132,6 +132,24 @@ static int AllCount = 1;
     
 //    UISearchBar *searchBar = [[UISearchBar alloc] init];
     
+    NSArray *libPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *holdingDirectory = [[libPath objectAtIndex:0] stringByAppendingPathComponent:@"FocusLog"];
+    NSString *SIBigger10FilePath = [holdingDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"SIBigger10.plist"]];
+    
+    
+//    NSString *path = [SIBigger10FilePath pathForResource:holdingDirectory ofType:@"plist"];
+    NSDictionary *keyDict = [[NSDictionary alloc] initWithContentsOfFile:SIBigger10FilePath];
+    
+    NSLog(@"keyDict-%@---%@",SIBigger10FilePath,keyDict);
+    
+    for (NSString *key in keyDict.allKeys) {
+        NSString *dtStr = [key substringFromIndex:@"哈哈哈哈".length];
+        if ([YYDateUtil toCurrentLessThan3Days:dtStr]) {
+//            [LocalNotificationManager addLocalNotification:dtStr withName:[NSString stringWithFormat:@"%@昨日SI>9",key]];
+            [[SMLogManager sharedManager] Tool_logPlanName:@"今日关注.txt" targetStockName:[keyDict.allKeys componentsJoinedByString:@","] currentStockPrice:[keyDict.allValues componentsJoinedByString:@","] currentBondPrice:@"" whenToVerify:@"第三天回调？" comments:@"低吸？"];
+        }
+    }
+    
 }
 
 #pragma mark - UISearchBarDelegate
@@ -295,14 +313,6 @@ static int AllCount = 1;
         //        model.issue_dt
         if (ABS(model.full_price.integerValue - 100) < 10 ) {//关注&& model.full_price.integerValue != 100
 //            label.backgroundColor = [UIColor orangeColor];
-        }
-        
-        if ([YYDateUtil toCurrentLessThan8Days:model.list_dt]) {//上市八天内的
-//            label.backgroundColor = [UIColor purpleColor];
-        }
-        
-        if (model.convert_dt && [YYDateUtil toCurrentLessThan8Days:model.convert_dt]) {//临近转股期的   
-            label.backgroundColor = [UIColor purpleColor];
         }
        
 //        策略2-----经济整体周期进入了衰退期   债券和黄金为主要标的  所以可以放宽一点  从周期把握趋势
@@ -583,9 +593,13 @@ static int AllCount = 1;
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         NSLog(@"dict-----%@",dict[@"rows"]);
         
+        NSDate *date = [NSDate date];
+        NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
+        
         NSMutableArray *temp = [NSMutableArray array];
         NSMutableDictionary *dictToPlist = [NSMutableDictionary dictionary];
         NSMutableDictionary *allToPlist = [NSMutableDictionary dictionary];
+        NSMutableDictionary *SIBigger10dictPlist = [NSMutableDictionary dictionary];
         for (NSDictionary *dic in dict[@"rows"]) {
             
             YYStockModel *stockModel = [[YYStockModel alloc] init];
@@ -616,6 +630,7 @@ static int AllCount = 1;
             
             NSString *keyElements = [NSString stringWithFormat:@"[m20_SI=%f/CP=%@/BP=%@]",stockModel.ma20_SI,stockModel.convert_price,stockModel.full_price];
             [allToPlist setValue:keyElements forKey:stockModel.bond_nm];
+            
  /*************************************日志管理********1.SI > 9************************************/
             NSRange range = [stockModel.sincrease_rt rangeOfString:@"."];
             float tempIncrease = [stockModel.sincrease_rt substringToIndex:range.location].floatValue;
@@ -630,6 +645,11 @@ static int AllCount = 1;
             if (tempIncrease >= 9 && stockModel.full_price.floatValue < 110) {
                 [[SMLogManager sharedManager] Tool_logPlanName:@"SI > 9 history" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.price whenToVerify:@"两三天内回调" comments:@"两三天后回调低吸 华通and三力，即便诱多价也在110以下！ 三力-确实工业大麻很给力，老挝。  华通？确实有公告！ 二者在110以下都可以建仓，都是小盘，都很活跃！！！ 看到9.29！ 亚太、久其"];
                 //按照该策略，可以建仓亚太了！   股价涨停，有预期。-----内部有大的利好，还未公布而已！一月可期！ 而转债回调了第4天了。刚好回调到了30%。
+            }
+            
+            if (tempIncrease >=9.00) {
+                NSString *keyInfo = [NSString stringWithFormat:@"BP=%@",stockModel.full_price];
+                [SIBigger10dictPlist setValue:keyInfo forKey:[stockModel.stock_nm stringByAppendingString:dateStr]];
             }
            
             //股价涨幅  远大于 债涨幅  启动迹象！！！
@@ -683,32 +703,6 @@ static int AllCount = 1;
             
             [temp addObject:stockModel];
             
-            NSDate *date = [NSDate date];
-            NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
-            
-            //总表存储  ------FMDB
-//            dispatch_queue_t queue = dispatch_queue_create("com.leopardpan.HotspotHelper", 0);
-//            dispatch_group_t group = dispatch_group_create();
-//            dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
-//            dispatch_group_async(group,queue, ^{
-//
-//                stockModel.bond_id = [NSString stringWithFormat:@"%@-%@",stockModel.bond_id,dateStr];
-//                NSString *sql = [NSString stringWithFormat:@"select stockMostPrice,bondMostPrice from YYStockModel where bond_id = %@;",stockModel.bond_id];
-//                NSArray *mostPriceS = [XMGSqliteModelTool queryModels:[YYStockModel class] WithSql:sql uid:@"allData"];
-//                if (mostPriceS.count > 0 && [[[mostPriceS valueForKey:@"sprice"] firstObject] floatValue] < stockModel.sprice.floatValue) {
-//                    stockModel.stockMostPrice = stockModel.sprice;
-//                }else{
-//                    stockModel.stockMostPrice = stockModel.sprice;
-//                }
-//                if (mostPriceS.count > 0 && [[[mostPriceS valueForKey:@"price"] firstObject] floatValue] < stockModel.price.floatValue) {
-//                    stockModel.bondMostPrice = stockModel.price;
-//                }else{
-//                    stockModel.bondMostPrice = stockModel.price;
-//                }
-//                //BUG IN CLIENT OF sqlite3.dylib: illegal multi-threaded access to database connection
-////                [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"allData"];
-//            });
-//            [self handleMutilLine:stockModel];
             
             //所有的数据存在一个库里
             {
@@ -744,7 +738,6 @@ static int AllCount = 1;
             });
         }
         
-//        NSString *path = [[NSBundle mainBundle] pathForResource:@"holdingPlist" ofType:@"plist"];
         NSArray *libPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
         NSString *holdingDirectory = [[libPath objectAtIndex:0] stringByAppendingPathComponent:@"FocusLog"];
         NSString *holdingFilePath = [holdingDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"holding.plist"]];
@@ -753,6 +746,8 @@ static int AllCount = 1;
         NSString *allFilePath = [holdingDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"all.plist"]];
         [allToPlist writeToFile:allFilePath atomically:YES];
 
+        NSString *SIBigger10FilePath = [holdingDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"SIBigger10.plist"]];
+        [SIBigger10dictPlist writeToFile:SIBigger10FilePath atomically:YES];
         
         self.stocks = temp;
         
