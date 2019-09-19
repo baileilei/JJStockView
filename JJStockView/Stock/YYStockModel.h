@@ -25,6 +25,8 @@
 @property (nonatomic,copy) NSString *stockConceptURL;//http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002822/menu_num/5.phtml
 //http://www.aichagu.com/zy/603915.html
 @property (nonatomic,copy) NSString *stockMainBusinessURL;
+//https://www.jisilu.cn/data/stock/002402
+@property (nonatomic,copy) NSString *stockGongGaoURL;
 @property (nonatomic,copy) NSString *bondURL;
 
 @property (nonatomic,assign) float ma20_SI;//Sprice /convert_price

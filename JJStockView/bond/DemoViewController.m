@@ -269,14 +269,14 @@ static int AllCount = 1;
                 btnTitle = [NSString stringWithFormat:@"K-%@",model.bond_id];
                 break;
             case 14:
-                btnTitle = model.stock_id;
+                btnTitle = @"公告";
                 break;
             case 15:
                 btnTitle = [NSString stringWithFormat:@"SK-%@",model.stock_id];
                 break;
                 
             case 16:
-                btnTitle = [NSString stringWithFormat:@"SC-%@",model.stock_id];;
+                btnTitle = @"主营业务";
                 break;
             
             default:
@@ -292,7 +292,7 @@ static int AllCount = 1;
         label.text = [NSString stringWithFormat:@"%@",btnTitle];
         label.textAlignment = NSTextAlignmentCenter;
         [bg addSubview:label];
-        if ([btnTitle isEqualToString:model.stock_id] || [btnTitle isEqualToString:[NSString stringWithFormat:@"K-%@",model.bond_id]] ||  [btnTitle isEqualToString:[NSString stringWithFormat:@"SK-%@",model.stock_id]] || [btnTitle isEqualToString:[NSString stringWithFormat:@"SC-%@",model.stock_id]] || [btnTitle hasPrefix:@"添加监控"]) {
+        if ([btnTitle isEqualToString:@"主营业务"] || [btnTitle isEqualToString:[NSString stringWithFormat:@"K-%@",model.bond_id]] ||  [btnTitle isEqualToString:[NSString stringWithFormat:@"SK-%@",model.stock_id]] || [btnTitle isEqualToString:@"公告"] || [btnTitle hasPrefix:@"添加监控"]) {
             [bg addSubview:button];
         }
         
@@ -502,15 +502,21 @@ static int AllCount = 1;
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
         
         return;
-    }else if ([sender.currentTitle hasPrefix:@"SC"]){
+    }else if ([sender.currentTitle hasPrefix:@"主营业务"]){
         
-        YYWebViewController *web = [[YYWebViewController alloc] init];
+        YYKLineWebViewController *web = [[YYKLineWebViewController alloc] init];
+        web.stockURL = m.stockMainBusinessURL;
+        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
+        return;
+    }else if ([sender.currentTitle hasPrefix:@"公告"]){
         
+        YYKLineWebViewController *web = [[YYKLineWebViewController alloc] init];
+        web.stockURL = m.stockGongGaoURL;
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
         return;
     }
     
-    [self.searchResults removeAllObjects];
+    [self.searchResults removeAllObjects];//数据何时删除 添加？ 更新？？？
     NSLog(@"%@",self.searchResults);
     
 }
@@ -621,7 +627,9 @@ static int AllCount = 1;
             stockModel.stockConceptURL = [NSString stringWithFormat:@"http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/%@/menu_num/5.phtml",[stockModel.stock_id substringFromIndex:@"sh".length]];
             //
             stockModel.bondURL = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/bond/quotes/%@.html",stockModel.pre_bond_id];
-            stockModel.stockMainBusinessURL = [NSString stringWithFormat:@"http://www.aichagu.com/zy/%@.html",[stockModel.stock_id substringFromIndex:@"sh".length]];
+            stockModel.stockMainBusinessURL = [NSString stringWithFormat:@"http://stockpage.10jqka.com.cn/%@/operate/",[stockModel.stock_id substringFromIndex:@"sh".length]];
+            //http://stockpage.10jqka.com.cn/300407/operate/
+            stockModel.stockGongGaoURL = [NSString stringWithFormat:@"https://www.jisilu.cn/data/stock/%@",[stockModel.stock_id substringFromIndex:@"sh".length]];
             
             if ([self.holdingPonds containsObject:stockModel.bond_nm]) {
                 NSString *keyElements = [NSString stringWithFormat:@"[m20_SI=%f/CP=%@/BP=%@]",stockModel.ma20_SI,stockModel.convert_price,stockModel.full_price];
