@@ -4,7 +4,10 @@
 //
 //  Created by smart-wift on 2019/9/18.
 //  Copyright © 2019 Jezz. All rights reserved.
-//
+// http://stockpage.10jqka.com.cn/300407/operate/   主营业务
+
+//公告功能！！！-----所有公告！  所有文章。----自选股的公告。
+//https://www.jisilu.cn/question/325682?item_id=2416640&rf=false&lastpage=true#!answer_2416640
 
 #import <Foundation/Foundation.h>
 

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		047622BE22468379005CD02C /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 047622BD22468379005CD02C /* libsqlite3.0.tbd */; };
 		047622C0224683D9005CD02C /* testForCheck.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047622BF224683D9005CD02C /* testForCheck.xib */; };
+		0606247D23332854009CC6D8 /* ChooseStock.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0606247C23332854009CC6D8 /* ChooseStock.plist */; };
+		0606247F23332871009CC6D8 /* chooseTime.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0606247E23332871009CC6D8 /* chooseTime.plist */; };
 		060A94AE2240C37E00F42A54 /* YYCheckWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 060A94AD2240C37E00F42A54 /* YYCheckWebViewController.m */; };
 		060C4B7F222259DE004BA326 /* YYStockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B77222259DE004BA326 /* YYStockModel.m */; };
 		060C4B80222259DE004BA326 /* YYSqliteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B7C222259DE004BA326 /* YYSqliteManager.m */; };
@@ -177,6 +179,8 @@
 /* Begin PBXFileReference section */
 		047622BD22468379005CD02C /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		047622BF224683D9005CD02C /* testForCheck.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = testForCheck.xib; sourceTree = "<group>"; };
+		0606247C23332854009CC6D8 /* ChooseStock.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ChooseStock.plist; sourceTree = "<group>"; };
+		0606247E23332871009CC6D8 /* chooseTime.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = chooseTime.plist; sourceTree = "<group>"; };
 		060A94AC2240C37E00F42A54 /* YYCheckWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYCheckWebViewController.h; sourceTree = "<group>"; };
 		060A94AD2240C37E00F42A54 /* YYCheckWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYCheckWebViewController.m; sourceTree = "<group>"; };
 		060C4B77222259DE004BA326 /* YYStockModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYStockModel.m; sourceTree = "<group>"; };
@@ -565,6 +569,8 @@
 				06ED2102231D4C8B00400C91 /* celue.plist */,
 				B631FD412327485F001ED114 /* xinDe.plist */,
 				B631FD4B2329EC5B001ED114 /* conceptAnalise.plist */,
+				0606247C23332854009CC6D8 /* ChooseStock.plist */,
+				0606247E23332871009CC6D8 /* chooseTime.plist */,
 				06ED2105231D4CF400400C91 /* File.strings */,
 				06ED2100231D4C4C00400C91 /* test.stringsdict */,
 				B631FD2B23222DC5001ED114 /* functionDesign */,
@@ -1190,10 +1196,12 @@
 				B692B0B42302D68A00E01511 /* Resource.bundle in Resources */,
 				B692B0A32302D56C00E01511 /* menu_setting@2x.png in Resources */,
 				B631FD4A2329D8A5001ED114 /* changeHoldingMomo.geojson in Resources */,
+				0606247F23332871009CC6D8 /* chooseTime.plist in Resources */,
 				61F13E821F91F670002F4681 /* Assets.xcassets in Resources */,
 				06ED2106231D4CF400400C91 /* File.strings in Resources */,
 				B631FD2C23222DC5001ED114 /* functionDesign in Resources */,
 				B692B0A42302D56C00E01511 /* zhinengwangzu@2x.png in Resources */,
+				0606247D23332854009CC6D8 /* ChooseStock.plist in Resources */,
 				06ED2103231D4C8B00400C91 /* celue.plist in Resources */,
 				06C5BBC52252F0A90037B993 /* note201904 in Resources */,
 				B692B0AD2302D56C00E01511 /* home_bgimg@2x.png in Resources */,
