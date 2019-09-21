@@ -36,6 +36,9 @@
 #import "FMDB.h"//多线程 处理数据库的问题
 #import "YYAnotherWatchPondStock.h"
 
+#import <Foundation/Foundation.h>
+#import "YYSingleStockModel.h"
+
 #define columnCount 18
 #define kYYCachePath @"/Users/g/Desktop"
 
@@ -616,6 +619,8 @@ static int AllCount = 1;
             
             NSString *keyElements = [NSString stringWithFormat:@"[m20_SI=%f/CP=%@/BP=%@]",stockModel.ma20_SI,stockModel.convert_price,stockModel.full_price];
             [allToPlist setValue:keyElements forKey:stockModel.bond_nm];
+            
+            [self handleSingleStock:stockModel.stock_id];
  /*************************************日志管理********1.SI > 9************************************/
             NSRange range = [stockModel.sincrease_rt rangeOfString:@"."];
             float tempIncrease = [stockModel.sincrease_rt substringToIndex:range.location].floatValue;
@@ -962,6 +967,51 @@ static int AllCount = 1;
     
     WillBondViewController *web = [[WillBondViewController alloc] init];
     [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
+}
+
+-(void)handleSingleStock:(NSString *)stockid{
+    ///Users/g/Documents/GitHub/python/02 StockData/01 IntradayCN
+    
+    NSString *stockPath = @"Users/g/Documents/GitHub/python/02 StockData/01 IntradayCN";
+    
+    NSString *readFilePath = [NSString stringWithFormat:@"%@/%@.csv",stockPath,[stockid substringFromIndex:@"sh".length]];
+    NSFileHandle *readFile = [NSFileHandle fileHandleForReadingAtPath:readFilePath];
+    NSData *currentData = [readFile readDataToEndOfFile];
+    NSString *currentStr = [[NSString alloc] initWithData:currentData encoding:NSUTF8StringEncoding];
+//    NSJSONSerialization *json = [NSJSONSerialization JSONObjectWithData:currentData options:NSJSONReadingMutableContainers error:nil];
+    NSArray *History = [currentStr componentsSeparatedByString:@"\n"];
+    for (int i = 0; i< History.count ; i++) {
+         NSArray *record = [History[i] componentsSeparatedByString:@","];
+        YYSingleStockModel *singleM = [[YYSingleStockModel alloc] init];
+        if (record.count < 15) {
+            continue;
+        }
+        for (int i = 0; i < record.count; i++) {
+            if ([record[0] isEqualToString:@"timestamp"]) {
+                continue;
+            }
+            singleM.timestamp = record[0];
+            singleM.open = [record[1] floatValue];
+            singleM.high = [record[2] floatValue];
+            singleM.close = [record[3] floatValue];
+            singleM.low = [record[4] floatValue];
+            singleM.volume = [record[5] floatValue];
+            
+            singleM.price_change = [record[6] floatValue];
+            singleM.p_change = [record[7] floatValue];
+            singleM.ma5 = [record[8] floatValue];
+            singleM.ma10 = [record[9] floatValue];
+            singleM.ma20 = [record[10] floatValue];
+            
+            singleM.v_ma5 = [record[11] floatValue];
+            singleM.v_ma10 = [record[12] floatValue];
+            singleM.v_ma20 = [record[13] floatValue];
+            
+            singleM.turnover = [record[14] floatValue];
+        }
+        [XMGSqliteModelTool saveOrUpdateModel:singleM uid:stockid];
+    }
+//    NSLog(@"json-----%@",singleStockHistory);
 }
 
 #pragma mark - 根据传入的文件名称,拼接全路径并返回!

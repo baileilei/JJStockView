@@ -11,6 +11,7 @@
 		047622C0224683D9005CD02C /* testForCheck.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047622BF224683D9005CD02C /* testForCheck.xib */; };
 		0606247D23332854009CC6D8 /* ChooseStock.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0606247C23332854009CC6D8 /* ChooseStock.plist */; };
 		0606247F23332871009CC6D8 /* chooseTime.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0606247E23332871009CC6D8 /* chooseTime.plist */; };
+		0606248223360642009CC6D8 /* YYSingleStockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0606248123360642009CC6D8 /* YYSingleStockModel.m */; };
 		060A94AE2240C37E00F42A54 /* YYCheckWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 060A94AD2240C37E00F42A54 /* YYCheckWebViewController.m */; };
 		060C4B7F222259DE004BA326 /* YYStockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B77222259DE004BA326 /* YYStockModel.m */; };
 		060C4B80222259DE004BA326 /* YYSqliteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B7C222259DE004BA326 /* YYSqliteManager.m */; };
@@ -181,6 +182,8 @@
 		047622BF224683D9005CD02C /* testForCheck.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = testForCheck.xib; sourceTree = "<group>"; };
 		0606247C23332854009CC6D8 /* ChooseStock.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ChooseStock.plist; sourceTree = "<group>"; };
 		0606247E23332871009CC6D8 /* chooseTime.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = chooseTime.plist; sourceTree = "<group>"; };
+		0606248023360641009CC6D8 /* YYSingleStockModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYSingleStockModel.h; sourceTree = "<group>"; };
+		0606248123360642009CC6D8 /* YYSingleStockModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYSingleStockModel.m; sourceTree = "<group>"; };
 		060A94AC2240C37E00F42A54 /* YYCheckWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYCheckWebViewController.h; sourceTree = "<group>"; };
 		060A94AD2240C37E00F42A54 /* YYCheckWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYCheckWebViewController.m; sourceTree = "<group>"; };
 		060C4B77222259DE004BA326 /* YYStockModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYStockModel.m; sourceTree = "<group>"; };
@@ -524,6 +527,8 @@
 				B631FD2E23223114001ED114 /* YYMockBuyModel.m */,
 				060C4B972222741D004BA326 /* YYBuyintoStockModel.m */,
 				060C4B7B222259DE004BA326 /* YYStockModel.h */,
+				0606248023360641009CC6D8 /* YYSingleStockModel.h */,
+				0606248123360642009CC6D8 /* YYSingleStockModel.m */,
 				06D1589D225C6EFE0040B6C6 /* YYSelfDefineCategoryStock.h */,
 				06D1589E225C6EFE0040B6C6 /* YYSelfDefineCategoryStock.m */,
 				060C4B77222259DE004BA326 /* YYStockModel.m */,
@@ -1391,6 +1396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0606248223360642009CC6D8 /* YYSingleStockModel.m in Sources */,
 				B63263132305135F003AEC58 /* HMTMASConstraint.m in Sources */,
 				B671E57E22F82B4500483FBA /* UIView+Extension.m in Sources */,
 				06C5BBD42253319D0037B993 /* TFEvent.m in Sources */,
