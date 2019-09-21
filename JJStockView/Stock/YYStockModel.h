@@ -4,7 +4,13 @@
 //
 //  Created by pactera on 2018/1/26.
 //  Copyright © 2018年 pactera. All rights reserved.
-//
+//即将出下修？
+// 交易系统。。。  1.买卖什么（标的）。2.买卖多少。3.何时买。4.止损条件。5.离市---何时出仓！  6.策略：如何买卖
+//。            SI》10。        一成。      回撤时！BP<100         债券急涨的时候！（100以上的时候，BI>6 时建仓！一成 回调时加仓。） 130以上（BI回调时减2成仓）。  一个SI一成
+
+//没有确定的交易系统，即便是大涨了也是焦虑的！  大族？ 是为了发行下个转债做准备！！！
+//统计套利！ 统计SI（count）
+//思路错了量化也救不了你」。    黄金 思路？？？       凯发 130的时候，我竟然不敢卖！！！  总是焦虑！！！
 
 #import <Foundation/Foundation.h>
 #import "XMGModelProtocol.h"
@@ -18,16 +24,21 @@
 
 @property (nonatomic,copy) NSString *noteDate;
 
-@property (nonatomic,assign) float ratio;
-@property (nonatomic,assign) float stockRatio;
+@property (nonatomic,assign) float ratio;// BRatio   = ma20_BI - 1 转股溢价率
+@property (nonatomic,assign) float stockRatio; // = ma20_SI -1; //股票初始溢价率
 
-@property (nonatomic,copy) NSString *stockURL;
+@property (nonatomic,copy) NSString *stockURL;// wande --------自动化， 深入学习？？？
+//目的是拿到个股的历史数据----------
+//xinlang sina
 @property (nonatomic,copy) NSString *stockConceptURL;//http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_CorpOtherInfo/stockid/002822/menu_num/5.phtml
 //http://www.aichagu.com/zy/603915.html
-@property (nonatomic,copy) NSString *stockMainBusinessURL;
+@property (nonatomic,copy) NSString *stockMainBusinessURL;//tonghuashun
+//https://www.jisilu.cn/data/stock/002402
+@property (nonatomic,copy) NSString *stockGongGaoURL;//jisilu
 @property (nonatomic,copy) NSString *bondURL;
 
-@property (nonatomic,assign) float ma20_SI;//Sprice /convert_price
+@property (nonatomic,assign) float ma20_SI;//Sprice /convert_price------- 股价距离标准的波动程度
+@property (nonatomic,assign) float ma20_BI;
 
 @property (nonatomic,copy) NSString *stockMostPrice;//总库
 @property (nonatomic,copy) NSString *bondMostPrice;//总库 但是。  SIFasteBI的主键好像没起作用???
@@ -94,11 +105,11 @@
 @property (nonatomic,copy) NSString *ration_rt;
 
 
-@property (nonatomic,copy) NSString *real_force_redeem_price;
+@property (nonatomic,copy) NSString *real_force_redeem_price;// 真实强赎价
 @property (nonatomic,copy) NSString *redeem_count_days;
 @property (nonatomic,copy) NSString *redeem_dt;//强赎日期
 @property (nonatomic,copy) NSString *redeem_inc_cpn_fl;
-@property (nonatomic,copy) NSString *redeem_price;//赎回价格
+@property (nonatomic,copy) NSString *redeem_price;//到期赎回价格
 @property (nonatomic,copy) NSString *redeem_price_ratio;//130
 @property (nonatomic,copy) NSString *redeem_real_days;
 @property (nonatomic,copy) NSString *redeem_tc;//赎回条件

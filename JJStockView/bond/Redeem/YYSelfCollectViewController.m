@@ -215,10 +215,6 @@ static int count = 1;
             [bg addSubview:button];
         }
         
-        if (model.convert_dt && [YYDateUtil toCurrentLessThan8Days:model.convert_dt]) {//临近转股期的
-            label.backgroundColor = [UIColor purpleColor];
-        }
-        
         //        if (model.sprice.floatValue > model.convert_price.floatValue && ABS(model.full_price.integerValue - 100) < 10 && model.full_price.integerValue != 100) {//入场点
         //            label.backgroundColor = [UIColor redColor];
         //        }

@@ -2,15 +2,43 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>SI&gt;9&amp;&amp;BP&lt;110---急涨出！10%/d</key>
+	<key>SI&gt;9&amp;&amp;BP&lt;110---</key>
 	<array>
+		<dict>
+			<key>0</key>
+			<string>两三天后低吸。  持有一个月吧，出仓：急涨的时候出仓！  因为低风险，所以可承受。</string>
+			<key>11</key>
+			<string>该策略有效利用了债反应滞后的策略，虽然当时确实有反应，但是缩量涨停必然是因为内因，或许未公告！ 如华通。</string>
+			<key>12</key>
+			<string>两三天后是因为勿追高，可低吸。 看好未来一个月的该股行情</string>
+			<key>1</key>
+			<string>该策略可以有效避免高位诱多的情形出现。   比如凯发电气。</string>
+			<key>2</key>
+			<string>急涨出！10%/d-----（S几个涨停？）</string>
+		</dict>
 		<dict>
 			<key>亚太转债---0919</key>
 			<string>两三天后低吸。  持有一个月吧，出仓：急涨的时候出仓！  因为低风险，所以可承受。</string>
+			<key>2</key>
+			<string>今天亚太又一个涨停，而转债没有动。 应该是转债吸筹的阶段！！！</string>
+			<key>科森-0919 BP= 107.71</key>
+			<string>尾盘涨停</string>
+			<key>凯发电力-0919涨停 - bp =111</key>
+			<string>应该会直接转股！！！  业务价值向好！ 并且剩余规模才1.3亿！  昨收111，今天直接130，进入强赎期？ 威帝也是类似的走势！</string>
+			<key>1</key>
+			<string>完全有可能走出逆大盘的行情？</string>
+			<key>威帝-----</key>
+			<string>太TM突然了。  9.29会回调到110以下吗？？？</string>
+			<key>亚太</key>
+			<string>95---S10，强势。 一个S10，加一成债券！（策略）</string>
 		</dict>
 	</array>
-	<key>SH指数 回调&gt;1%时，自选池中跌不动的标的</key>
+	<key>SH指数  回调&gt;1%时</key>
 	<array>
+		<dict>
+			<key>伊力转债</key>
+			<string>回调&gt;1%时，自选池中跌不动的标的</string>
+		</dict>
 		<dict>
 			<key>伊力转债</key>
 			<string>价格：110</string>
@@ -27,7 +55,9 @@
 	<array>
 		<dict>
 			<key>凯力电气</key>
-			<string>感觉这个涨停没有持续性，所以先卖出凯电转债。 炒作的成分大！-看了公告，感觉不是！</string>
+			<string>感觉这个涨停没有持续性，所以先卖出凯电转债。 炒作的成分大！-看了公告，感觉不是！  </string>
+			<key>1</key>
+			<string>早盘涨停 VS 尾盘涨停！   价值归一。-----价值：业务变好。   三力和华通都是如此。。。</string>
 		</dict>
 	</array>
 </dict>
