@@ -225,7 +225,11 @@ static int AllCount = 1;
     NSArray *temp = [self headMatchContent:row];;
     for (int i = 0; i < columnCount; i++) {
 //        temp = [self headMatchContent:i];
-        UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(i * 100, 0, 100, 30)];
+        float titleWidth = 100;
+        UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(i * titleWidth, 0, 100, 30)];
+//        if (i == 14) {
+//            button.frame = CGRectMake(i * titleWidth - 50, 0, 150, 10);
+//        }
 //        YYStockModel *model = self.isSearch == YES? self.searchResults[row] : self.stocks[row];;
 //        NSString *btnTitle = nil;
 //
@@ -293,9 +297,6 @@ static int AllCount = 1;
 //        }
         
         [button setTitle:[NSString stringWithFormat:@"%@",temp[i]] forState:UIControlStateNormal];
-        if (i == 1 || i == 2 || i ==0) {
-            NSLog(@"2====%@",temp);
-        }
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         button.titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -323,6 +324,12 @@ static int AllCount = 1;
 }
 
 - (UIView*)headTitle:(JJStockView*)stockView{
+//    __block float titleWidth = 100;
+//    [self.headTitles enumerateObjectsUsingBlock:^(NSString * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        if (obj.length > 6) {
+//            titleWidth = 150;
+//        }
+//    }];
     UIView* bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, columnCount * 100, 40)];
     bg.backgroundColor = [UIColor colorWithRed:223.0f/255.0 green:223.0f/255.0 blue:223.0f/255.0 alpha:1.0];
     
@@ -331,6 +338,7 @@ static int AllCount = 1;
         label.text = [NSString stringWithFormat:@"标题:%d",i];
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        
         button.frame = CGRectMake(i * 100, 0, 100, 40);
         //@"债价",@"债涨跌幅",@"股价", @"股涨跌幅"(统计个数) ,/@"股价偏离度",@"转股溢价率",@"回售(触发)价",@"转股价", @"强赎触发价"/  转股起始日 剩余规模
         //买入参考：@"评级-到期赎回价" @"S-K线图"; @"K线图";  @"公告";  @"主营业务";  @"概念";//
@@ -471,7 +479,7 @@ static int AllCount = 1;
         return;
     }
     
-    if ([sender.currentTitle hasPrefix:@"K-"]) {
+    if ([sender.currentTitle hasPrefix:@"债K"]) {
         YYKLineWebViewController *kWeb = [[YYKLineWebViewController alloc] init];
         
         kWeb.bigPrice = [NSString stringWithFormat:@"上市日期%@---转股%@------强赎%@",m.list_dt,m.convert_dt,m.redeem_dt];
@@ -479,7 +487,7 @@ static int AllCount = 1;
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:kWeb] animated:YES completion:nil];
         
         return;
-    }else if ([sender.currentTitle hasPrefix:@"SK-"]){
+    }else if ([sender.currentTitle hasPrefix:@"股价K"]){
         YYKLineWebViewController *kWeb = [[YYKLineWebViewController alloc] init];
         kWeb.stockURL = m.stockURL;
         kWeb.bigPrice = [NSString stringWithFormat:@"回售价%.2f-------下调价%.2f----%@天-----转股价%.2f--------强赎价%.2f,--------currentPrice%@",m.convert_price.floatValue * 0.7,m.convert_price.floatValue * 0.9,m.redeem_real_days,m.convert_price.floatValue,m.convert_price.floatValue * 1.3,m.full_price];;
@@ -515,9 +523,21 @@ static int AllCount = 1;
 -(void)sort:(UIButton *)btn{
     NSLog(@"%@",btn.currentTitle);
     
-    if ([btn.currentTitle isEqualToString:@"现价"]) {
+    if ([btn.currentTitle isEqualToString:@"债价"]) {
         [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
             return obj1.full_price.floatValue < obj2.full_price.floatValue;
+        }];
+    }
+    
+    if ([btn.currentTitle isEqualToString:@"债涨跌幅"]) {
+        [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
+            return obj1.increase_rt.floatValue < obj2.increase_rt.floatValue;
+        }];
+    }
+    
+    if ([btn.currentTitle isEqualToString:@"股涨跌幅"]) {
+        [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
+            return obj1.sincrease_rt.floatValue < obj2.sincrease_rt.floatValue;
         }];
     }
     
@@ -528,9 +548,9 @@ static int AllCount = 1;
         }];
     }
     
-    if ([btn.currentTitle isEqualToString:@"溢价率"]) {
+    if ([btn.currentTitle isEqualToString:@"转股价"]) {
         [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
-            return obj1.ratio > obj2.ratio;
+            return obj1.convert_price.floatValue > obj2.convert_price.floatValue;
             
         }];
     }
@@ -630,8 +650,11 @@ static int AllCount = 1;
             
             NSString *keyElements = [NSString stringWithFormat:@"[m20_SI=%f/CP=%@/BP=%@]",stockModel.ma20_SI,stockModel.convert_price,stockModel.full_price];
             [allToPlist setValue:keyElements forKey:stockModel.bond_nm];
-            
-            [self handleSingleStock:stockModel.stock_id];
+            if (stockModel.full_price.floatValue < 105) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self handleSingleStock:stockModel.stock_id];
+                });
+            }
  /*************************************日志管理********1.SI > 9************************************/
             NSRange range = [stockModel.sincrease_rt rangeOfString:@"."];
             float tempIncrease = [stockModel.sincrease_rt substringToIndex:range.location].floatValue;
@@ -682,7 +705,9 @@ static int AllCount = 1;
                 [[LocalNotificationManager sharedNotificationManager] Tool_testLoaclNotification:[stockModel.bond_nm stringByAppendingString:@"%@---降幅大于了10"]];
             }
             
-             /*************************************通知管理********************************************/
+            NSArray *SIbigger9Array = [XMGSqliteModelTool queryModels:[YYSingleStockModel class] WithSql:@"select timeStamp,p_change from YYSingleStockModel where p_change > 9" uid:stockModel.stock_id];
+            
+            [[SMLogManager sharedManager] Tool_logPlanName:@"countOfSI>9" targetStockName:stockModel.stock_nm currentStockPrice:[SIbigger9Array componentsJoinedByString:@"-"] currentBondPrice:[NSString stringWithFormat:@"%d个",SIbigger9Array.count] whenToVerify:@"" comments:@"统计个数"];/*************************************通知管理********************************************/
             
            //日历
             
@@ -966,15 +991,17 @@ static int AllCount = 1;
     NSString *stockPath = @"Users/g/Documents/GitHub/python/02 StockData/01 IntradayCN";
     
     NSString *readFilePath = [NSString stringWithFormat:@"%@/%@.csv",stockPath,[stockid substringFromIndex:@"sh".length]];
+    NSLog(@"writing data to sqlite %@",readFilePath);
     NSFileHandle *readFile = [NSFileHandle fileHandleForReadingAtPath:readFilePath];
     NSData *currentData = [readFile readDataToEndOfFile];
     NSString *currentStr = [[NSString alloc] initWithData:currentData encoding:NSUTF8StringEncoding];
 //    NSJSONSerialization *json = [NSJSONSerialization JSONObjectWithData:currentData options:NSJSONReadingMutableContainers error:nil];
     NSArray *History = [currentStr componentsSeparatedByString:@"\n"];
+    int p_changeCount = 0;
+    YYSingleStockModel *singleM = [[YYSingleStockModel alloc] init];
     for (int i = 0; i< History.count ; i++) {
          NSArray *record = [History[i] componentsSeparatedByString:@","];
-        YYSingleStockModel *singleM = [[YYSingleStockModel alloc] init];
-        if (record.count < 15) {
+        if (record.count < 10) {
             continue;
         }
         for (int i = 0; i < record.count; i++) {
@@ -993,13 +1020,19 @@ static int AllCount = 1;
             singleM.ma5 = [record[8] floatValue];
             singleM.ma10 = [record[9] floatValue];
             singleM.ma20 = [record[10] floatValue];
+            if (singleM.p_change > 9) {
+                p_changeCount++;
+            }
             
             singleM.v_ma5 = [record[11] floatValue];
             singleM.v_ma10 = [record[12] floatValue];
             singleM.v_ma20 = [record[13] floatValue];
             
-            singleM.turnover = [record[14] floatValue];
+//            singleM.turnover = [record[14] floatValue];
         }
+       
+        
+        
         [XMGSqliteModelTool saveOrUpdateModel:singleM uid:stockid];
     }
 //    NSLog(@"json-----%@",singleStockHistory);
@@ -1048,7 +1081,7 @@ static int AllCount = 1;
 
 -(NSArray *)headTitles{
     if (!_headTitles) {//单独的可排序
-        _headTitles = [NSArray arrayWithObjects:@"债价",@"债涨跌幅",@"股价",@"股涨跌幅",@"回售(触发)价",@"转股价",@"强赎触发价",@"卖出参考:",@"股价偏离度",@"转股溢价率",@"强天数",@"剩余年限",@"剩余规模",@"买入参考:",@"评级-到期赎回价-转股起始日",@"股价K线图",@"债K线图",@"公告",@"主营业务",@"概念",nil];
+        _headTitles = [NSArray arrayWithObjects:@"债价",@"债涨跌幅",@"股价",@"股涨跌幅",@"回售触发)价",@"转股价",@"强赎触发价",@"卖出参考:",@"股价偏离度",@"转股溢价率",@"强天数",@"剩余年限",@"剩余规模",@"买入参考:",@"评级-到期赎回价",@"转股起始日",@"股价K线图",@"债K线图",@"公告",@"主营业务",@"概念",nil];
     }
     return _headTitles;
 }
@@ -1069,19 +1102,20 @@ static int AllCount = 1;
     [self.headMatchContents addObject:[NSString stringWithFormat:@"%f",model.ma20_SI]];
     [self.headMatchContents addObject:[NSString stringWithFormat:@"%f",model.ratio]];
     
-    [self.headMatchContents addObject:model.redeem_count_days];
+    [self.headMatchContents addObject:model.redeem_count_days ?:@""];
     [self.headMatchContents addObject:model.year_left];
     [self.headMatchContents addObject:model.curr_iss_amt];
     
     [self.headMatchContents addObject:@""];
-    [self.headMatchContents addObject:model.convert_dt];
+    [self.headMatchContents addObject:[model.redeem_price stringByAppendingString:model.rating_cd]];
+     [self.headMatchContents addObject:model.convert_dt];
     
     [self.headMatchContents addObject:@"股价K线图"];
-    [self.headMatchContents addObject:@"股价K线图"];
-    [self.headMatchContents addObject:@"股价K线图"];
-    [self.headMatchContents addObject:@"股价K线图"];
+    [self.headMatchContents addObject:@"债K线图"];
+    [self.headMatchContents addObject:@"公告"];
+    [self.headMatchContents addObject:@"主营业务"];
     [self.headMatchContents addObject:@"概念"];
-//    [NSMutableArray arrayWithObjects:model.full_price,model.increase_rt,model.sprice,model.sincrease_rt,model.put_convert_price,model.convert_price,model.force_redeem_price,@"",model.ma20_SI,model.redeem_count_days,model.year_left,model.curr_iss_amt,@"",[NSString stringWithFormat:@"%@-%@-%@",model.ration_cd,model.redeem_price,model.convert_dt],@"股价K线图",@"债K线图",@"公告",@"主营业务",@"概念", nil];
+//   return [NSMutableArray arrayWithObjects:model.full_price,model.increase_rt,model.sprice,model.sincrease_rt,model.put_convert_price,model.convert_price,model.force_redeem_price,@"",model.ma20_SI,model.redeem_count_days,model.year_left,model.curr_iss_amt,@"",[NSString stringWithFormat:@"%@-%@-%@",model.ration_cd,model.redeem_price,model.convert_dt],@"股价K线图",@"债K线图",@"公告",@"主营业务",@"概念", nil];
     
 //        self.headMatchContents = [NSArray arrayWithObjects:model.full_price,model.increase_rt,model.sprice,model.sincrease_rt,model.put_convert_price,model.convert_price,model.force_redeem_price,@"",model.ma20_SI,model.redeem_count_days,model.year_left,model.curr_iss_amt,@"",[NSString stringWithFormat:@"%@-%@-%@",model.ration_cd,model.redeem_price,model.convert_dt],@"股价K线图",@"债K线图",@"公告",@"主营业务",@"概念", nil].mutableCopy;
 //    }

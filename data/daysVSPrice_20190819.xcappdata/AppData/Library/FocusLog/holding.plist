@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>利欧转债</key>
+	<string>[m20_SI=1.011628/CP=1.720/BP=110.580]</string>
+	<key>圣达转债</key>
+	<string>[m20_SI=1.254343/CP=28.780/BP=116.830]</string>
+	<key>杭电转债</key>
+	<string>[m20_SI=0.861878/CP=7.240/BP=103.140]</string>
+	<key>道氏转债</key>
+	<string>[m20_SI=0.865781/CP=15.050/BP=106.411]</string>
+</dict>
+</plist>
