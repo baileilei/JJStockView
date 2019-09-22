@@ -1,0 +1,15 @@
+<- 2019-09-21 16:20:40 ->[ Uncaught Exception ]
+Name: 国祯环保2019-09-21,威帝股份2019-09-21,凯发电气2019-09-21, [Price: BP=142.580,BP=112.730,BP=125.560
+ bondPrice: whenToVerify == 第三天回调？]
+comments == 低吸？[ Fe Symbols End ]
+
+<- 2019-09-22 10:50:25 ->[ Uncaught Exception ]
+Name: 国祯环保2019-09-21,威帝股份2019-09-21,凯发电气2019-09-21, [Price: BP=142.580,BP=112.730,BP=125.560
+ bondPrice: whenToVerify == 第三天回调？]
+comments == 低吸？[ Fe Symbols End ]
+
+<- 2019-09-22 11:56:47 ->[ Uncaught Exception ]
+Name: 威帝股份2019-09-22,凯发电气2019-09-22,国祯环保2019-09-22, [Price: BP=112.730,BP=125.560,BP=142.580
+ bondPrice: whenToVerify == 第三天回调？]
+comments == 低吸？[ Fe Symbols End ]
+

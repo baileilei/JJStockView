@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>SI&gt;9&amp;&amp;BP&lt;110---</key>
+	<key>SI&gt;9&amp;&amp;BP&lt;110--规模&lt;50-反例：今飞</key>
 	<array>
 		<dict>
 			<key>0</key>
@@ -15,6 +15,8 @@
 			<string>该策略可以有效避免高位诱多的情形出现。   比如凯发电气。</string>
 			<key>2</key>
 			<string>急涨出！10%/d-----（S几个涨停？）</string>
+			<key>3</key>
+			<string>前3~5天都是上影线的时候，必须高抛！！！-代表前期积累了大量抛盘！</string>
 		</dict>
 		<dict>
 			<key>亚太转债---0919</key>
@@ -49,6 +51,23 @@
 		<dict>
 			<key>中百集团</key>
 			<string>8.1  ？？</string>
+		</dict>
+	</array>
+	<key>饲料</key>
+	<array>
+		<dict>
+			<key>溢多利反应更真实吧</key>
+			<string>相对来说，圣达还是时间期权。20年1.9才转股。二者几乎一模一样！</string>
+		</dict>
+		<dict>
+			<key>溢多利-119</key>
+			<string>溢多利为指标吧，应该都会回调！ </string>
+			<key>圣达-117</key>
+			<string></string>
+			<key>天康-猪饲料121</key>
+			<string>已经累计1天强赎</string>
+			<key>金农转债-122</key>
+			<string></string>
 		</dict>
 	</array>
 	<key>SI&gt;10%</key>

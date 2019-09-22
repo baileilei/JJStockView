@@ -1,0 +1,20 @@
+<- 2019-09-21 16:16:41 ->[ Uncaught Exception ]
+Name: 威帝股份, [Price: 5.07
+ bondPrice:112.730 whenToVerify == 一月内]
+comments ==  不要追涨？  要高抛  行情启动or挖坑 115为蓝思[ Fe Symbols End ]
+
+<- 2019-09-21 16:16:42 ->[ Uncaught Exception ]
+Name: 大丰实业, [Price: 12.38
+ bondPrice:100.120 whenToVerify == 一月内]
+comments ==  不要追涨？  要高抛  行情启动or挖坑 115为蓝思[ Fe Symbols End ]
+
+<- 2019-09-21 16:16:42 ->[ Uncaught Exception ]
+Name: 亚太股份, [Price: 5.53
+ bondPrice:95.200 whenToVerify == 一月内]
+comments ==  不要追涨？  要高抛  行情启动or挖坑 115为蓝思[ Fe Symbols End ]
+
+<- 2019-09-22 10:50:26 ->[ Uncaught Exception ]
+Name: 威帝股份, [Price: 5.07
+ bondPrice:112.730 whenToVerify == 一月内]
+comments ==  不要追涨？  要高抛  行情启动or挖坑 115为蓝思[ Fe Symbols End ]
+

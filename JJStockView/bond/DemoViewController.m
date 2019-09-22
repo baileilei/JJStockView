@@ -40,7 +40,7 @@
 #import <Foundation/Foundation.h>
 #import "YYSingleStockModel.h"
 
-#define columnCount 18
+//#define columnCount 21
 
 #define kYYCachePath @"/Users/g/Desktop"
 
@@ -64,7 +64,7 @@ static int AllCount = 1;
 
 @property (nonatomic, strong) NSTimer *timer;
 
-#define columnCount 20
+#define columnCount 24
 @property (nonatomic,strong) NSArray *headTitles;
 @property (nonatomic,strong) NSMutableArray *headMatchContents;
 @end
@@ -541,9 +541,9 @@ static int AllCount = 1;
         }];
     }
     
-    if ([btn.currentTitle isEqualToString:@"上市日期"]) {
+    if ([btn.currentTitle isEqualToString:@"转股起始日"]) {
         [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
-            return [[YYDateUtil stringToDate:obj2.issue_dt dateFormat:@"yyyy-MM-dd"] compare:[YYDateUtil stringToDate:obj1.issue_dt dateFormat:@"yyyy-MM-dd"]];
+            return [[YYDateUtil stringToDate:obj2.convert_dt dateFormat:@"yyyy-MM-dd"] compare:[YYDateUtil stringToDate:obj1.convert_dt dateFormat:@"yyyy-MM-dd"]];
             
         }];
     }
@@ -558,6 +558,34 @@ static int AllCount = 1;
     if ([btn.currentTitle isEqualToString:@"强天数"]) {
         [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
             return obj1.redeem_real_days < obj2.redeem_real_days;
+            
+        }];
+    }
+    
+    if ([btn.currentTitle isEqualToString:@"弱天数"]) {
+        [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
+            return obj1.put_real_days < obj2.put_real_days;
+            
+        }];
+    }
+    
+    if ([btn.currentTitle isEqualToString:@"转股偏离度"]) {
+        [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
+            return obj1.ma20_SI < obj2.ma20_SI;
+            
+        }];
+    }
+    
+    if ([btn.currentTitle isEqualToString:@"转股溢价率"]) {
+        [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
+            return obj1.ratio < obj2.ratio;
+            
+        }];
+    }
+    
+    if ([btn.currentTitle isEqualToString:@"转股占比"]) {//大股东为了让市场容易炒作而故意转股的？  凯发？
+        [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
+            return obj1.convertToStockRatio < obj2.convertToStockRatio;
             
         }];
     }
@@ -625,6 +653,7 @@ static int AllCount = 1;
             [stockModel setValuesForKeysWithDictionary:dic[@"cell"]];
             float ratio = (stockModel.full_price.floatValue - stockModel.convert_value.floatValue)/stockModel.convert_value.floatValue;
             stockModel.ratio = ratio;
+            stockModel.convertToStockRatio = stockModel.curr_iss_amt.floatValue / stockModel.orig_iss_amt.floatValue;
             
             stockModel.ma20_SI = stockModel.sprice.floatValue / stockModel.convert_price.floatValue;
             stockModel.ma20_BI = stockModel.full_price.floatValue / stockModel.convert_value.floatValue;
@@ -707,7 +736,12 @@ static int AllCount = 1;
             
             NSArray *SIbigger9Array = [XMGSqliteModelTool queryModels:[YYSingleStockModel class] WithSql:@"select timeStamp,p_change from YYSingleStockModel where p_change > 9" uid:stockModel.stock_id];
             
-            [[SMLogManager sharedManager] Tool_logPlanName:@"countOfSI>9" targetStockName:stockModel.stock_nm currentStockPrice:[SIbigger9Array componentsJoinedByString:@"-"] currentBondPrice:[NSString stringWithFormat:@"%d个",SIbigger9Array.count] whenToVerify:@"" comments:@"统计个数"];/*************************************通知管理********************************************/
+            if (SIbigger9Array.count > 0) {
+                 [[SMLogManager sharedManager] Tool_logPlanName:@"countOfSI>9" targetStockName:stockModel.stock_nm currentStockPrice:[[SIbigger9Array valueForKey:@"timestamp"] componentsJoinedByString:@"-"] currentBondPrice:[NSString stringWithFormat:@"%d个",SIbigger9Array.count] whenToVerify:[[SIbigger9Array valueForKey:@"p_change"] componentsJoinedByString:@"-"] comments:@"统计个数"];
+                
+                stockModel.SIBibber9Count = SIbigger9Array.count;
+            }
+           /*************************************通知管理********************************************/
             
            //日历
             
@@ -1081,7 +1115,7 @@ static int AllCount = 1;
 
 -(NSArray *)headTitles{
     if (!_headTitles) {//单独的可排序
-        _headTitles = [NSArray arrayWithObjects:@"债价",@"债涨跌幅",@"股价",@"股涨跌幅",@"回售触发)价",@"转股价",@"强赎触发价",@"卖出参考:",@"股价偏离度",@"转股溢价率",@"强天数",@"剩余年限",@"剩余规模",@"买入参考:",@"评级-到期赎回价",@"转股起始日",@"股价K线图",@"债K线图",@"公告",@"主营业务",@"概念",nil];
+        _headTitles = [NSArray arrayWithObjects:@"债价",@"债涨跌幅",@"股价",@"股涨跌幅",@"回售触发)价",@"转股价",@"强赎触发价",@"卖出参考:",@"股价偏离度",@"转股溢价率",@"转股占比",@"强天数",@"弱天数",@"剩余年限",@"剩余规模",@"买入参考:",@"评级-涨停个数",@"到期回售价",@"转股起始日",@"股价K线图",@"债K线图",@"公告",@"主营业务",@"概念",nil];
     }
     return _headTitles;
 }
@@ -1101,13 +1135,16 @@ static int AllCount = 1;
     [self.headMatchContents addObject:@""];
     [self.headMatchContents addObject:[NSString stringWithFormat:@"%f",model.ma20_SI]];
     [self.headMatchContents addObject:[NSString stringWithFormat:@"%f",model.ratio]];
+    [self.headMatchContents addObject:[NSString stringWithFormat:@"%f",model.convertToStockRatio]];//
     
-    [self.headMatchContents addObject:model.redeem_count_days ?:@""];
+    [self.headMatchContents addObject:[NSString stringWithFormat:@"%@/%@-%@",model.redeem_real_days,model.redeem_total_days,model.redeem_count_days]];
+     [self.headMatchContents addObject:[NSString stringWithFormat:@"%@/%@-%@",model.put_real_days,model.put_total_days,model.put_count_days]];
     [self.headMatchContents addObject:model.year_left];
-    [self.headMatchContents addObject:model.curr_iss_amt];
+    [self.headMatchContents addObject:[NSString stringWithFormat:@"%@/%@",model.curr_iss_amt,model.orig_iss_amt] ];
     
     [self.headMatchContents addObject:@""];
-    [self.headMatchContents addObject:[model.redeem_price stringByAppendingString:model.rating_cd]];
+    [self.headMatchContents addObject:[model.rating_cd stringByAppendingFormat:@"%d个",model.SIBibber9Count]];
+    [self.headMatchContents addObject:model.redeem_price];
      [self.headMatchContents addObject:model.convert_dt];
     
     [self.headMatchContents addObject:@"股价K线图"];

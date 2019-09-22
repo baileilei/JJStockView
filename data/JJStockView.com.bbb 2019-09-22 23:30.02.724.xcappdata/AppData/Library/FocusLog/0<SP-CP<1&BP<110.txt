@@ -1,0 +1,50 @@
+<- 2019-09-21 16:16:40 ->[ Uncaught Exception ]
+Name: 远东传动, [Price: 6.03
+ bondPrice:100.000 whenToVerify == 一周内]
+comments == 热点板块叠加！[ Fe Symbols End ]
+
+<- 2019-09-21 16:16:40 ->[ Uncaught Exception ]
+Name: 游族网络, [Price: 17.09
+ bondPrice:100.000 whenToVerify == 一周内]
+comments == 热点板块叠加！[ Fe Symbols End ]
+
+<- 2019-09-21 16:16:41 ->[ Uncaught Exception ]
+Name: 荣晟环保, [Price: 19.71
+ bondPrice:108.310 whenToVerify == 一周内]
+comments == 热点板块叠加！[ Fe Symbols End ]
+
+<- 2019-09-21 16:16:41 ->[ Uncaught Exception ]
+Name: 长江电力, [Price: 18.87
+ bondPrice:108.916 whenToVerify == 一周内]
+comments == 热点板块叠加！[ Fe Symbols End ]
+
+<- 2019-09-21 16:16:41 ->[ Uncaught Exception ]
+Name: 九洲电气, [Price: 5.93
+ bondPrice:108.900 whenToVerify == 一周内]
+comments == 热点板块叠加！[ Fe Symbols End ]
+
+<- 2019-09-21 16:16:41 ->[ Uncaught Exception ]
+Name: 哈尔斯, [Price: 6.01
+ bondPrice:109.311 whenToVerify == 一周内]
+comments == 热点板块叠加！[ Fe Symbols End ]
+
+<- 2019-09-21 16:16:41 ->[ Uncaught Exception ]
+Name: 岱勒新材, [Price: 25.13
+ bondPrice:108.340 whenToVerify == 一周内]
+comments == 热点板块叠加！[ Fe Symbols End ]
+
+<- 2019-09-21 16:16:41 ->[ Uncaught Exception ]
+Name: 亚泰国际, [Price: 14.94
+ bondPrice:108.801 whenToVerify == 一周内]
+comments == 热点板块叠加！[ Fe Symbols End ]
+
+<- 2019-09-21 16:16:41 ->[ Uncaught Exception ]
+Name: 尚荣医疗, [Price: 4.91
+ bondPrice:109.178 whenToVerify == 一周内]
+comments == 热点板块叠加！[ Fe Symbols End ]
+
+<- 2019-09-22 10:50:25 ->[ Uncaught Exception ]
+Name: 远东传动, [Price: 6.03
+ bondPrice:100.000 whenToVerify == 一周内]
+comments == 热点板块叠加！[ Fe Symbols End ]
+
