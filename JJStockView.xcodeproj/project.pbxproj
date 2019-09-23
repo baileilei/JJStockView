@@ -11,7 +11,6 @@
 		047622C0224683D9005CD02C /* testForCheck.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047622BF224683D9005CD02C /* testForCheck.xib */; };
 		0606247D23332854009CC6D8 /* ChooseStock.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0606247C23332854009CC6D8 /* ChooseStock.plist */; };
 		0606247F23332871009CC6D8 /* chooseTime.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0606247E23332871009CC6D8 /* chooseTime.plist */; };
-		0606248223360642009CC6D8 /* YYSingleStockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0606248123360642009CC6D8 /* YYSingleStockModel.m */; };
 		060A94AE2240C37E00F42A54 /* YYCheckWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 060A94AD2240C37E00F42A54 /* YYCheckWebViewController.m */; };
 		060C4B7F222259DE004BA326 /* YYStockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B77222259DE004BA326 /* YYStockModel.m */; };
 		060C4B80222259DE004BA326 /* YYSqliteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 060C4B7C222259DE004BA326 /* YYSqliteManager.m */; };
@@ -136,6 +135,8 @@
 		B6AAD1E5230102F40048ED8E /* YYCacheGroupTable.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AAD1E4230102F40048ED8E /* YYCacheGroupTable.m */; };
 		B6BD634D2318EA540071A980 /* SMLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BD634C2318EA540071A980 /* SMLogManager.m */; };
 		B6BD63502318EC3D0071A980 /* PrintBeautifulLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BD634F2318EC3D0071A980 /* PrintBeautifulLog.m */; };
+		B6C543B623389AFF002281BD /* base+hotPoint.geojson in Resources */ = {isa = PBXBuildFile; fileRef = B6C543B523389AFF002281BD /* base+hotPoint.geojson */; };
+		B6C543BA2338A959002281BD /* YYSingleStockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C543B82338A959002281BD /* YYSingleStockModel.m */; };
 		B6D7E483231A79A300A8D8A7 /* WillBondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D7E482231A79A300A8D8A7 /* WillBondViewController.m */; };
 		CA3E67123885F30DC034BA5F /* Pods_JJStockViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECD81FD3CF2763E1E549E37 /* Pods_JJStockViewTests.framework */; };
 		F536965EE630A3FA9DA68069 /* Pods_JJStockViewUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C93A9EA472081DE0D872CF1 /* Pods_JJStockViewUITests.framework */; };
@@ -182,8 +183,6 @@
 		047622BF224683D9005CD02C /* testForCheck.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = testForCheck.xib; sourceTree = "<group>"; };
 		0606247C23332854009CC6D8 /* ChooseStock.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ChooseStock.plist; sourceTree = "<group>"; };
 		0606247E23332871009CC6D8 /* chooseTime.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = chooseTime.plist; sourceTree = "<group>"; };
-		0606248023360641009CC6D8 /* YYSingleStockModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYSingleStockModel.h; sourceTree = "<group>"; };
-		0606248123360642009CC6D8 /* YYSingleStockModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYSingleStockModel.m; sourceTree = "<group>"; };
 		060A94AC2240C37E00F42A54 /* YYCheckWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYCheckWebViewController.h; sourceTree = "<group>"; };
 		060A94AD2240C37E00F42A54 /* YYCheckWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYCheckWebViewController.m; sourceTree = "<group>"; };
 		060C4B77222259DE004BA326 /* YYStockModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYStockModel.m; sourceTree = "<group>"; };
@@ -420,6 +419,9 @@
 		B6BD634C2318EA540071A980 /* SMLogManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMLogManager.m; sourceTree = "<group>"; };
 		B6BD634E2318EC3D0071A980 /* PrintBeautifulLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrintBeautifulLog.h; sourceTree = "<group>"; };
 		B6BD634F2318EC3D0071A980 /* PrintBeautifulLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrintBeautifulLog.m; sourceTree = "<group>"; };
+		B6C543B523389AFF002281BD /* base+hotPoint.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = "base+hotPoint.geojson"; sourceTree = "<group>"; };
+		B6C543B82338A959002281BD /* YYSingleStockModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYSingleStockModel.m; sourceTree = "<group>"; };
+		B6C543B92338A959002281BD /* YYSingleStockModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSingleStockModel.h; sourceTree = "<group>"; };
 		B6D7E481231A79A300A8D8A7 /* WillBondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WillBondViewController.h; sourceTree = "<group>"; };
 		B6D7E482231A79A300A8D8A7 /* WillBondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WillBondViewController.m; sourceTree = "<group>"; };
 		C2C2C12824F1BCF43EE78566 /* Pods-MyselfFunction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyselfFunction.debug.xcconfig"; path = "Target Support Files/Pods-MyselfFunction/Pods-MyselfFunction.debug.xcconfig"; sourceTree = "<group>"; };
@@ -527,8 +529,8 @@
 				B631FD2E23223114001ED114 /* YYMockBuyModel.m */,
 				060C4B972222741D004BA326 /* YYBuyintoStockModel.m */,
 				060C4B7B222259DE004BA326 /* YYStockModel.h */,
-				0606248023360641009CC6D8 /* YYSingleStockModel.h */,
-				0606248123360642009CC6D8 /* YYSingleStockModel.m */,
+				B6C543B92338A959002281BD /* YYSingleStockModel.h */,
+				B6C543B82338A959002281BD /* YYSingleStockModel.m */,
 				06D1589D225C6EFE0040B6C6 /* YYSelfDefineCategoryStock.h */,
 				06D1589E225C6EFE0040B6C6 /* YYSelfDefineCategoryStock.m */,
 				060C4B77222259DE004BA326 /* YYStockModel.m */,
@@ -570,6 +572,7 @@
 				06ED2107231D4D0300400C91 /* Directions.geojson */,
 				B631FD4323289AD1001ED114 /* logManager.geojson */,
 				B631FD492329D8A5001ED114 /* changeHoldingMomo.geojson */,
+				B6C543B523389AFF002281BD /* base+hotPoint.geojson */,
 				06ED2109231D4E4300400C91 /* Table.md */,
 				06ED2102231D4C8B00400C91 /* celue.plist */,
 				B631FD412327485F001ED114 /* xinDe.plist */,
@@ -1210,6 +1213,7 @@
 				06ED2103231D4C8B00400C91 /* celue.plist in Resources */,
 				06C5BBC52252F0A90037B993 /* note201904 in Resources */,
 				B692B0AD2302D56C00E01511 /* home_bgimg@2x.png in Resources */,
+				B6C543B623389AFF002281BD /* base+hotPoint.geojson in Resources */,
 				B692B0AA2302D56C00E01511 /* 0-01首页-菜单展开_MarkMan.png in Resources */,
 				B692B09E2302D56C00E01511 /* 关于.png in Resources */,
 				B631FD51232F490D001ED114 /* holdingPlist.plist in Resources */,
@@ -1396,7 +1400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0606248223360642009CC6D8 /* YYSingleStockModel.m in Sources */,
+				B6C543BA2338A959002281BD /* YYSingleStockModel.m in Sources */,
 				B63263132305135F003AEC58 /* HMTMASConstraint.m in Sources */,
 				B671E57E22F82B4500483FBA /* UIView+Extension.m in Sources */,
 				06C5BBD42253319D0037B993 /* TFEvent.m in Sources */,
@@ -1695,8 +1699,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 776PTX526L;
+				DEVELOPMENT_TEAM = SS3JMJH6PN;
 				GCC_PREFIX_HEADER = JJStockView/APPConstant.h;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SYCacheFileViewController/SYCacheFileViewController.framework/Headers\"",
+					"$(PROJECT_DIR)/Stock",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/JJStockView/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1716,7 +1725,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 776PTX526L;
+				DEVELOPMENT_TEAM = SS3JMJH6PN;
 				GCC_PREFIX_HEADER = JJStockView/APPConstant.h;
 				INFOPLIST_FILE = "$(SRCROOT)/JJStockView/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

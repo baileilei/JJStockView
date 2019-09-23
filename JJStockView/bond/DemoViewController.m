@@ -120,7 +120,7 @@ static int AllCount = 1;
     self.stockView.jjStockTableView.tableHeaderView = header;
     [self.view addSubview:self.stockView];
     
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"涨停热点" style:UIBarButtonItemStyleDone target:self action:@selector(p_checkSum)];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"对比同类" style:UIBarButtonItemStyleDone target:self action:@selector(p_checkSum)];
     
      UIBarButtonItem *rightItem1 = [[UIBarButtonItem alloc] initWithTitle:@"强赎" style:UIBarButtonItemStyleDone target:self action:@selector(p_redeem)];
     
@@ -442,9 +442,9 @@ static int AllCount = 1;
     }
     YYStockModel *m =self.isSearch? self.searchResults[sender.tag]:self.stocks[sender.tag];
     
-    if ([sender.currentTitle hasPrefix:@"添加监控"]) {
+    if ([sender.currentTitle hasPrefix:@"对比"]) {
         
-        [self.watchPond addObject:m.bond_nm];
+        [self.watchPond addObject:m];
         
 //        NSDateFormatter *minDateFormater = [[NSDateFormatter alloc] init];
 //        [minDateFormater setDateFormat:@"yyyy-MM-dd HH:mm"];
@@ -966,25 +966,14 @@ static int AllCount = 1;
 
 -(void)p_checkSum{
     
-    YYCheckWebViewController *checkVC = [[YYCheckWebViewController alloc] init];
-    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:checkVC] animated:YES completion:nil];
-    //http://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData?page=1&num=5&sort=changepercent&asc=0&node=sh_a&symbol=
+//    [self.stocks insertObjects:self.watchPond atIndexes:0];
     
-//    NSDictionary *param = @{
-//                            @"page":@"1",
-//                            @"num":@"40",
-//                            @"sort":@"symbol",
-//                            @"asc":@"1",
-//                            @"node":@"chgn_700234",
-//                            @"symbol":@"_s_r_a",
-//                            @"_s_r_a":@"init"
-//                            };
-//
-    [[BaseNetManager defaultManager] GET:@" hhttp://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData?page=1&num=5&sort=changepercent&asc=0&node=sh_a&symbol=" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"responseObject----%@",responseObject);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-
-    }];
+    [self.stocks removeObjectsInArray:self.watchPond];
+    
+    for (YYStockModel *m in self.watchPond) {
+        [self.stocks insertObject:m atIndex:0];
+    }
+    [self.stockView reloadStockView];
 }
 
 -(void)p_redeem{
@@ -1003,6 +992,9 @@ static int AllCount = 1;
         self.isSearch = NO;
         [self.stockView reloadStockView];
     }
+    
+    [self.stocks addObjectsFromArray:self.watchPond];
+    [self.stockView reloadStockView];
 }
 
 -(void)p_caledar{
@@ -1089,7 +1081,7 @@ static int AllCount = 1;
 
 -(NSMutableArray *)watchPond{
     if (!_watchPond) {
-        _watchPond = [NSMutableArray arrayWithObjects:@"", nil];
+        _watchPond = [NSMutableArray array];
     }
     return _watchPond;
 }
@@ -1132,7 +1124,7 @@ static int AllCount = 1;
     
     [self.headMatchContents addObject:model.convert_price];
     [self.headMatchContents addObject:model.force_redeem_price];
-    [self.headMatchContents addObject:@""];
+    [self.headMatchContents addObject:@"对比"];
     [self.headMatchContents addObject:[NSString stringWithFormat:@"%f",model.ma20_SI]];
     [self.headMatchContents addObject:[NSString stringWithFormat:@"%f",model.ratio]];
     [self.headMatchContents addObject:[NSString stringWithFormat:@"%f",model.convertToStockRatio]];//
