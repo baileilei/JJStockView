@@ -71,14 +71,14 @@
 //    self.ipField.text = [SMBaseConnect getSeverIPWithKey:@"SMK_ServerIP"];//测试用
     
     UIButton *altbtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    [altbtn setTitle:LocalizedStringForkey(@"ids_base_cancel") forState:UIControlStateNormal];
+    [altbtn setTitle:LocalizedStringForkey(@"ids_base_cancel") forState:UIControlStateNormal];
     [altbtn setBackgroundColor:[UIColor whiteColor]];
     [altbtn setTag:0];
     [altbtn setFrame:CGRectMake(5, 5, 50, 35)];
     [altbtn addTarget:self action:@selector(checkbtn:) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *altbut1=[UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    [altbut1 setTitle:LocalizedStringForkey(@"ids_base_save") forState:UIControlStateNormal];
+    [altbut1 setTitle:LocalizedStringForkey(@"ids_base_save") forState:UIControlStateNormal];
     [altbut1 setBackgroundColor:[UIColor whiteColor]];
     [altbut1 setTag:1];
     [altbut1 setFrame:CGRectMake(_altwidth - 55, 5, 50, 35)];

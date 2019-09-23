@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)float altwidth;
 @property(nonatomic,weak)id<LoginIPViewDelegate>delegate;
 
+@property(nonatomic,assign) NSInteger modelIndex;
+
 - (void)creatAltWithAltTile:(NSString*)title content:(NSString*)content;
 - (void)show;
 - (void)hide;

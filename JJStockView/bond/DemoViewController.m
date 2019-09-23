@@ -40,6 +40,8 @@
 #import <Foundation/Foundation.h>
 #import "YYSingleStockModel.h"
 
+#import "HNLoginIPView.h"
+
 //#define columnCount 21
 
 #define kYYCachePath @"/Users/g/Desktop"
@@ -53,7 +55,7 @@
 static int AllCount = 1;
 
 
-@interface DemoViewController ()<StockViewDataSource,StockViewDelegate,UISearchBarDelegate>
+@interface DemoViewController ()<StockViewDataSource,StockViewDelegate,UISearchBarDelegate,LoginIPViewDelegate>
 
 @property (nonatomic,strong) NSMutableArray *holdingPonds;
 @property (nonatomic,strong) NSMutableArray *watchPond;//监控池功能
@@ -64,9 +66,11 @@ static int AllCount = 1;
 
 @property (nonatomic, strong) NSTimer *timer;
 
-#define columnCount 24
+#define columnCount 25
 @property (nonatomic,strong) NSArray *headTitles;
 @property (nonatomic,strong) NSMutableArray *headMatchContents;
+
+@property (nonatomic,strong) HNLoginIPView *loginIPView;
 @end
 
 @implementation DemoViewController
@@ -94,6 +98,9 @@ static int AllCount = 1;
     [super viewDidLoad];
     
 
+    _loginIPView = [[HNLoginIPView alloc] init];
+    _loginIPView.delegate = self;
+    _loginIPView.altwidth = SCREEN_WIDTH;
 //    [self testResultOfAPI];
 //    [self testAPIWithAFN];
     self.searchResults = [NSMutableArray array];
@@ -227,74 +234,6 @@ static int AllCount = 1;
 //        temp = [self headMatchContent:i];
         float titleWidth = 100;
         UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(i * titleWidth, 0, 100, 30)];
-//        if (i == 14) {
-//            button.frame = CGRectMake(i * titleWidth - 50, 0, 150, 10);
-//        }
-//        YYStockModel *model = self.isSearch == YES? self.searchResults[row] : self.stocks[row];;
-//        NSString *btnTitle = nil;
-//
-//        switch (i) {
-//            case 0:
-//
-//                btnTitle = model.full_price;
-//                break;
-//            case 1:
-//                btnTitle = model.increase_rt;// 债
-//                break;
-//            case 2:
-//                btnTitle = [NSString stringWithFormat:@"%@",model.sprice];
-//                break;
-//            case 3:
-//                btnTitle = [NSString stringWithFormat:@"%@",model.increase_rt];
-//                break;
-//            case 4:
-//                btnTitle = [NSString stringWithFormat:@"%f",model.ma20_SI];
-//                break;
-//            case 5:
-//                btnTitle = [NSString stringWithFormat:@"%.2f",model.ratio];;
-//                break;
-//            case 6:
-//                btnTitle = model.put_convert_price;//回售触发价
-//                break;
-//            case 7:
-//                btnTitle = model.convert_price;
-//                break;
-//            case 8:
-//                btnTitle = model.force_redeem_price;//强赎出发价
-//                break;
-//            case 9:
-//                btnTitle = model.convert_dt;//日期转String
-//                break;
-//            case 10:
-//                btnTitle = model.sprice;//输入框？
-//                break;
-//            case 11:
-//                btnTitle = model.issue_dt;
-//                break;
-//            case 12:
-//                btnTitle = model.list_dt.length > 0 ? model.list_dt : model.price_tips;//@"买入策略";//输入框？
-//                break;
-//            case 13:
-//                btnTitle = [NSString stringWithFormat:@"K-%@",model.bond_id];
-//                break;
-//            case 14:
-//                btnTitle = @"公告";
-//                break;
-//            case 15:
-//                btnTitle = [NSString stringWithFormat:@"SK-%@",model.stock_id];
-//                break;
-//
-//            case 16:
-//                btnTitle = @"主营业务";
-//                break;
-//
-//            case 17:
-//                btnTitle = @"概念";
-//                break;
-//
-//            default:
-//                break;
-//        }
         
         [button setTitle:[NSString stringWithFormat:@"%@",temp[i]] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -343,74 +282,6 @@ static int AllCount = 1;
         //@"债价",@"债涨跌幅",@"股价", @"股涨跌幅"(统计个数) ,/@"股价偏离度",@"转股溢价率",@"回售(触发)价",@"转股价", @"强赎触发价"/  转股起始日 剩余规模
         //买入参考：@"评级-到期赎回价" @"S-K线图"; @"K线图";  @"公告";  @"主营业务";  @"概念";//
         //卖出参考： 强天数  剩余年限。。
-//
-//        switch (i) {
-//            case 0:
-//                label.text = @"债价";
-//                break;
-//            case 1:
-//                label.text = @"债涨跌幅";
-//                break;
-//            case 2:
-//                label.text = @"股价";
-//                break;
-//            case 3:
-//                label.text = @"股涨跌幅";
-//                break;
-//            case 4:
-//                label.text = @"股价偏离度";
-//                break;
-//            case 5:
-//                label.text = @"转股溢价率";
-//                break;
-//            case 6:
-//                label.text = @"回售(触发)价";
-//                break;
-//            case 7:
-//                label.text = @"转股价";
-//                break;
-//            case 8:
-//                label.text = @"强赎触发价";
-//                break;
-//            case 9:
-//                label.text = @"转股起始日";
-//                break;
-//            case 10:
-//                label.text = @"剩余规模";
-//                break;
-//            case 11:
-//                label.text = @"买入参考：";
-//                break;
-//            case 12:
-//                label.text = @"评级-到期赎回价";//@"买入策略";//输入框？
-//                break;
-//            case 13:
-//                label.text = @"K线图";
-//                break;
-//            case 14:
-//                label.text = @"公告";
-//                break;
-//            case 15:
-//                label.text = @"S-K线图";
-//                break;
-//            case 16:
-//                label.text = @"主营业务";
-//                break;
-//            case 17:
-//                label.text = @"概念";
-//                break;
-//            case 18:
-//                label.text = @"卖出参考：";
-//                break;
-//            case 19:
-//                label.text = @"强天数";
-//                break;
-//            case 20:
-//                label.text = @"剩余年限";
-//                break;
-//            default:
-//                break;
-//        }
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = [UIColor grayColor];
         [button setTitle:self.headTitles[i] forState:UIControlStateNormal];
@@ -444,37 +315,9 @@ static int AllCount = 1;
     
     if ([sender.currentTitle hasPrefix:@"对比"]) {
         
-        [self.watchPond addObject:m];
-        
-//        NSDateFormatter *minDateFormater = [[NSDateFormatter alloc] init];
-//        [minDateFormater setDateFormat:@"yyyy-MM-dd HH:mm"];
-//        NSDate *scrollToDate = [minDateFormater dateFromString:@"2019-08-01 11:11"];
-//
-//        WSDatePickerView *datepicker = [[WSDatePickerView alloc] initWithDateStyle:DateStyleShowYearMonthDayHourMinute scrollToDate:scrollToDate CompleteBlock:^(NSDate *selectDate) {
-//
-//            NSString *date = [selectDate stringWithFormat:@"yyyy-MM-dd HH:mm"];
-//            NSLog(@"选择的日期：%@",date);
-//
-//            [sender setTitle:@"" forState:UIControlStateNormal];
-//            [sender setTitle:date forState:UIControlStateNormal];
-//
-//            YYStockModel *model = self.stocks[sender.tag];
-//
-//            model.noteDate = date;
-//            // 在数据更改之前先取消之前的通知
-//            [LocalNotificationManager cancelLocalNotification:model.noteDate];
-//
-//            NSDate *currentDate = [NSDate date];
-//            NSString *dateStr = [YYDateUtil dateToString:currentDate andFormate:@"yyyy-MM-dd"];
-//            [XMGSqliteModelTool saveOrUpdateModel:model uid:dateStr];
-//
-//            [LocalNotificationManager addLocalNotification:date withName:model.bond_nm];
-//        }];
-//        //    datepicker.dateLabelColor = RGB(65, 188, 241);//年-月-日-时-分 颜色
-//        datepicker.datePickerColor = [UIColor blackColor];//滚轮日期颜色
-//        //    datepicker.doneButtonColor = RGB(65, 188, 241);//确定按钮的颜色
-//        datepicker.yearLabelColor = [UIColor clearColor];//大号年份字体颜色
-//        [datepicker show];
+        if (![self.watchPond containsObject:m]) {
+            [self.watchPond addObject:m];
+        }
         
         return;
     }
@@ -508,9 +351,15 @@ static int AllCount = 1;
         return;
     }else if ([sender.currentTitle hasPrefix:@"概念"]){
         
-        YYKLineWebViewController *web = [[YYKLineWebViewController alloc] init];
-        web.stockURL = m.stockConceptURL;
-        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
+
+        [self.loginIPView creatAltWithAltTile:@"concept" content:@"CP"];
+        [self.view addSubview:self.loginIPView];
+        [self.loginIPView show];
+        self.loginIPView.modelIndex = sender.tag;
+        self.loginIPView.backgroundColor = [UIColor orangeColor];
+        
+       
+        
         return;
     }
     
@@ -518,6 +367,35 @@ static int AllCount = 1;
     [self.searchResults removeAllObjects];//数据何时删除 添加？ 更新？？？
     NSLog(@"%@",self.searchResults);
     
+}
+
+-(void)alertview:(id)altview clickbuttonIndex:(NSInteger)index withTextField:(NSString *)textField{
+     YYStockModel *m =self.isSearch? self.searchResults[self.loginIPView.modelIndex]:self.stocks[self.loginIPView.modelIndex];
+    if (index == 0) {
+        [self.loginIPView hide];
+        YYKLineWebViewController *web = [[YYKLineWebViewController alloc] init];
+        web.stockURL = m.stockConceptURL;
+        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
+    }else{
+        if (textField.length >= 0) {
+            
+            
+            NSDate *date = [NSDate date];
+            NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
+            m.stockConcept = textField;
+            [XMGSqliteModelTool saveOrUpdateModel:m uid:dateStr];
+            
+            {
+                m.bond_id = [NSString stringWithFormat:@"%@-%@",m.bond_id,dateStr];
+                m.saveDate = dateStr;
+                [XMGSqliteModelTool saveOrUpdateModel:m uid:@"allBondData"];
+            }
+            
+            [[NSUserDefaults standardUserDefaults] setObject:m.stockConcept forKey:m.stock_nm];
+        }
+        
+        [self.loginIPView hide];
+    }
 }
 
 -(void)sort:(UIButton *)btn{
@@ -767,7 +645,7 @@ static int AllCount = 1;
             //所有的数据存在一个库里
             {
                 //主键的唯一性----------查询历史价格， 趋势， 比分库查询应该会好很多。特别是个股走势！
-                stockModel.bond_id = stockModel.bond_id = [NSString stringWithFormat:@"%@-%@",stockModel.bond_id,dateStr];
+                stockModel.bond_id = [NSString stringWithFormat:@"%@-%@",stockModel.bond_id,dateStr];
                 stockModel.saveDate = dateStr;
                 [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"allBondData"];
             }
@@ -1107,7 +985,7 @@ static int AllCount = 1;
 
 -(NSArray *)headTitles{
     if (!_headTitles) {//单独的可排序
-        _headTitles = [NSArray arrayWithObjects:@"债价",@"债涨跌幅",@"股价",@"股涨跌幅",@"回售触发)价",@"转股价",@"强赎触发价",@"卖出参考:",@"股价偏离度",@"转股溢价率",@"转股占比",@"强天数",@"弱天数",@"剩余年限",@"剩余规模",@"买入参考:",@"评级-涨停个数",@"到期回售价",@"转股起始日",@"股价K线图",@"债K线图",@"公告",@"主营业务",@"概念",nil];
+        _headTitles = [NSArray arrayWithObjects:@"债价",@"债涨跌幅",@"股价",@"股涨跌幅",@"回售触发)价",@"转股价",@"强赎触发价",@"卖出参考:",@"股价偏离度",@"转股溢价率",@"转股占比",@"强天数",@"弱天数",@"剩余年限",@"剩余规模",@"买入参考:",@"评级-涨停个数",@"到期回售价",@"转股起始日",@"股价K线图",@"债K线图",@"公告",@"主营业务",@"概念",@"概念输入",nil];
     }
     return _headTitles;
 }
@@ -1142,8 +1020,12 @@ static int AllCount = 1;
     [self.headMatchContents addObject:@"股价K线图"];
     [self.headMatchContents addObject:@"债K线图"];
     [self.headMatchContents addObject:@"公告"];
-    [self.headMatchContents addObject:@"主营业务"];
-    [self.headMatchContents addObject:@"概念"];
+    [self.headMatchContents addObject:model.stockMainBusiness ?: @"主营业务"];
+    if (!model.stockConcept) {
+        model.stockConcept = [[NSUserDefaults standardUserDefaults] objectForKey:model.stock_nm];
+    }
+    [self.headMatchContents addObject:model.stockConcept ?: @"概念"];
+    [self.headMatchContents addObject:model.stockConcept ?: @"概念"];
 //   return [NSMutableArray arrayWithObjects:model.full_price,model.increase_rt,model.sprice,model.sincrease_rt,model.put_convert_price,model.convert_price,model.force_redeem_price,@"",model.ma20_SI,model.redeem_count_days,model.year_left,model.curr_iss_amt,@"",[NSString stringWithFormat:@"%@-%@-%@",model.ration_cd,model.redeem_price,model.convert_dt],@"股价K线图",@"债K线图",@"公告",@"主营业务",@"概念", nil];
     
 //        self.headMatchContents = [NSArray arrayWithObjects:model.full_price,model.increase_rt,model.sprice,model.sincrease_rt,model.put_convert_price,model.convert_price,model.force_redeem_price,@"",model.ma20_SI,model.redeem_count_days,model.year_left,model.curr_iss_amt,@"",[NSString stringWithFormat:@"%@-%@-%@",model.ration_cd,model.redeem_price,model.convert_dt],@"股价K线图",@"债K线图",@"公告",@"主营业务",@"概念", nil].mutableCopy;

@@ -37,10 +37,13 @@
 @property (nonatomic,copy) NSString *stockGongGaoURL;//jisilu
 @property (nonatomic,copy) NSString *bondURL;
 
+@property (nonatomic,copy) NSString *stockConcept;
+@property (nonatomic,copy) NSString *stockMainBusiness;
+
 @property (nonatomic,assign) int SIBibber9Count;
 @property (nonatomic,assign) float convertToStockRatio;
 
-@property (nonatomic,assign) float ma20_SI;//Sprice /convert_price------- 股价距离标准的波动程度
+@property (nonatomic,assign) float ma20_SI;//Sprice /convert_price------- 股价距离标准的波动程度  0.97+热点
 @property (nonatomic,assign) float ma20_BI;
 
 @property (nonatomic,copy) NSString *stockMostPrice;//总库

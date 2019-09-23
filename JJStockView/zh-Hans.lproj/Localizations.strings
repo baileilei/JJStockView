@@ -10,3 +10,7 @@
 "new_cloud_ip" = "云平台IP";
 "hint_input_server_ip"="请输入云平台IP";
 "check_ip" = "请输入正确的ip";
+
+"ids_base_confirm" = "确定";
+"ids_base_cancel" = "取消";
+"ids_base_save" = "保存";

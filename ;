@@ -1,0 +1,16 @@
+"对比同类功能"
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Mon Sep 23 15:36:06 2019 +0800
+#
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#	modified:   JJStockView.xcodeproj/project.pbxproj
+#	modified:   JJStockView/bond/DemoViewController.m
+#	new file:   JJStockView/notes/base+hotPoint.geojson
+#	
