@@ -6,43 +6,38 @@
 //  Copyright © 2017年 Jezz. All rights reserved.
 // 模拟交易功能
 
-#import "DemoViewController.h"
+//M
 #import "YYStockModel.h"
-#import "XMGSqliteModelTool.h"
+#import "YYBuyintoStockModel.h"
+#import "YYAnotherWatchPondStock.h"
+#import "YYSingleStockModel.h"
+#import "YYMockBuyModel.h"
 
+//V
+#import "WSDatePickerView.h"
+#import "HNNetworkFooterView.h"
+#import "HNLoginIPView.h"
+
+//C
+#import "DemoViewController.h"
 #import "YYBuyIntoViewController.h"
 #import "YYWebViewController.h"
 #import "YYKLineWebViewController.h"
+#import "YYCheckWebViewController.h"
+#import "YYSerachViewController.h"
+#import "YYSelfCollectViewController.h"
+#import "WillBondViewController.h"
+#import "YYHoldingViewController.h"
 
+//T
+#import "XMGSqliteModelTool.h"
 #import "XMGSessionManager.h"
 #import "BaseNetManager.h"
-
-#import "YYCheckWebViewController.h"
-
 #import "YYDateUtil.h"
-
-#import "YYSerachViewController.h"
-#import "WSDatePickerView.h"
 #import "LocalNotificationManager.h"
-#import "YYSelfCollectViewController.h"
-
-#import "HNNetworkFooterView.h"
-
-#import "YYBuyintoStockModel.h"
-
 #import "SMLogManager.h"
-#import "WillBondViewController.h"
-
 #import "FMDB.h"//多线程 处理数据库的问题
-#import "YYAnotherWatchPondStock.h"
-
-
 #import <Foundation/Foundation.h>
-#import "YYSingleStockModel.h"
-
-#import "HNLoginIPView.h"
-
-#import "YYMockBuyModel.h"
 
 
 #define kYYCachePath @"/Users/g/Desktop"
@@ -206,8 +201,7 @@ static int AllCount = 1;
     [searchBar resignFirstResponder];
     
 }
-//-searchbare
-#pragma mark Stock DataSource
+
 #pragma mark - Stock DataSource
 //多少行
 - (NSUInteger)countForStockView:(JJStockView*)stockView{
@@ -892,8 +886,10 @@ static int AllCount = 1;
 
 -(void)p_calenar{
     
-    WillBondViewController *web = [[WillBondViewController alloc] init];
-    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
+    YYHoldingViewController *holdingVC = [[YYHoldingViewController alloc] init];
+    [self.navigationController pushViewController:holdingVC animated:YES];
+//    WillBondViewController *web = [[WillBondViewController alloc] init];
+//    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
 }
 
 -(void)handleSingleStock:(NSString *)stockid{

@@ -133,6 +133,7 @@
 		B6AAD1E5230102F40048ED8E /* YYCacheGroupTable.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AAD1E4230102F40048ED8E /* YYCacheGroupTable.m */; };
 		B6BD634D2318EA540071A980 /* SMLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BD634C2318EA540071A980 /* SMLogManager.m */; };
 		B6BD63502318EC3D0071A980 /* PrintBeautifulLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BD634F2318EC3D0071A980 /* PrintBeautifulLog.m */; };
+		B6C12612233B43BF0016EBD6 /* YYHoldingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C12611233B43BF0016EBD6 /* YYHoldingViewController.m */; };
 		B6C543B623389AFF002281BD /* base+hotPoint.geojson in Resources */ = {isa = PBXBuildFile; fileRef = B6C543B523389AFF002281BD /* base+hotPoint.geojson */; };
 		B6C543BA2338A959002281BD /* YYSingleStockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C543B82338A959002281BD /* YYSingleStockModel.m */; };
 		B6D7E483231A79A300A8D8A7 /* WillBondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D7E482231A79A300A8D8A7 /* WillBondViewController.m */; };
@@ -414,6 +415,8 @@
 		B6BD634C2318EA540071A980 /* SMLogManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMLogManager.m; sourceTree = "<group>"; };
 		B6BD634E2318EC3D0071A980 /* PrintBeautifulLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrintBeautifulLog.h; sourceTree = "<group>"; };
 		B6BD634F2318EC3D0071A980 /* PrintBeautifulLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrintBeautifulLog.m; sourceTree = "<group>"; };
+		B6C12610233B43BF0016EBD6 /* YYHoldingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYHoldingViewController.h; sourceTree = "<group>"; };
+		B6C12611233B43BF0016EBD6 /* YYHoldingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYHoldingViewController.m; sourceTree = "<group>"; };
 		B6C543B523389AFF002281BD /* base+hotPoint.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = "base+hotPoint.geojson"; sourceTree = "<group>"; };
 		B6C543B82338A959002281BD /* YYSingleStockModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYSingleStockModel.m; sourceTree = "<group>"; };
 		B6C543B92338A959002281BD /* YYSingleStockModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSingleStockModel.h; sourceTree = "<group>"; };
@@ -807,6 +810,8 @@
 			isa = PBXGroup;
 			children = (
 				060A94AC2240C37E00F42A54 /* YYCheckWebViewController.h */,
+				B6C12610233B43BF0016EBD6 /* YYHoldingViewController.h */,
+				B6C12611233B43BF0016EBD6 /* YYHoldingViewController.m */,
 				060A94AD2240C37E00F42A54 /* YYCheckWebViewController.m */,
 				060C4B9122226B9C004BA326 /* YYBuyIntoViewController.h */,
 				060C4B9222226B9C004BA326 /* YYBuyIntoViewController.m */,
@@ -1466,6 +1471,7 @@
 				FDF0B7502223DFBD003A6999 /* YYDateUtil.m in Sources */,
 				FD0E6940223630E200B1F67F /* AFHTTPSessionManager.m in Sources */,
 				FDC46BA62223CA3300C58FA2 /* JRSwizzle.m in Sources */,
+				B6C12612233B43BF0016EBD6 /* YYHoldingViewController.m in Sources */,
 				FD0E6943223630E200B1F67F /* AFNetworkReachabilityManager.m in Sources */,
 				060A94AE2240C37E00F42A54 /* YYCheckWebViewController.m in Sources */,
 				B6BD63502318EC3D0071A980 /* PrintBeautifulLog.m in Sources */,

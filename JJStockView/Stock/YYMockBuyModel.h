@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface YYMockBuyModel : NSObject
 
 @property (nonatomic,copy) NSString *bond_id;
+@property (nonatomic,copy) NSString *bond_nm;
 
 @property (nonatomic,assign) float holding;
 @property (nonatomic,assign) float totalMarketPrice;
