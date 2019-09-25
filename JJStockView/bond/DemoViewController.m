@@ -42,7 +42,8 @@
 
 #import "HNLoginIPView.h"
 
-//#define columnCount 21
+#import "YYMockBuyModel.h"
+
 
 #define kYYCachePath @"/Users/g/Desktop"
 
@@ -67,6 +68,7 @@ static int AllCount = 1;
 @property (nonatomic, strong) NSTimer *timer;
 
 #define columnCount 25
+#define columnWidth 120
 @property (nonatomic,strong) NSArray *headTitles;
 @property (nonatomic,strong) NSMutableArray *headMatchContents;
 
@@ -227,13 +229,13 @@ static int AllCount = 1;
 #pragma mark - 内容
 - (UIView*)contentCellForStockView:(JJStockView*)stockView atRowPath:(NSUInteger)row{
     
-    UIView* bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, columnCount * 100, 30)];
+    UIView* bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, columnCount * columnWidth, 30)];
     bg.backgroundColor = row % 2 == 0 ?[UIColor whiteColor] :[UIColor colorWithRed:240.0f/255.0 green:240.0f/255.0 blue:240.0f/255.0 alpha:1.0];
     NSArray *temp = [self headMatchContent:row];;
     for (int i = 0; i < columnCount; i++) {
 //        temp = [self headMatchContent:i];
         float titleWidth = 100;
-        UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(i * titleWidth, 0, 100, 30)];
+        UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(i * titleWidth, 0, columnWidth, 30)];
         
         [button setTitle:[NSString stringWithFormat:@"%@",temp[i]] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -263,27 +265,21 @@ static int AllCount = 1;
 }
 
 - (UIView*)headTitle:(JJStockView*)stockView{
-//    __block float titleWidth = 100;
-//    [self.headTitles enumerateObjectsUsingBlock:^(NSString * obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//        if (obj.length > 6) {
-//            titleWidth = 150;
-//        }
-//    }];
-    UIView* bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, columnCount * 100, 40)];
+
+    UIView* bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, columnCount * columnWidth, 40)];
     bg.backgroundColor = [UIColor colorWithRed:223.0f/255.0 green:223.0f/255.0 blue:223.0f/255.0 alpha:1.0];
     
     for (int i = 0; i < columnCount; i++) {
-        UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(i * 100, 0, 100, 40)];
-        label.text = [NSString stringWithFormat:@"标题:%d",i];
+//        UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(i * columnWidth, 0, columnWidth, 40)];
+//        label.text = [NSString stringWithFormat:@"标题:%d",i];
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        
-        button.frame = CGRectMake(i * 100, 0, 100, 40);
         //@"债价",@"债涨跌幅",@"股价", @"股涨跌幅"(统计个数) ,/@"股价偏离度",@"转股溢价率",@"回售(触发)价",@"转股价", @"强赎触发价"/  转股起始日 剩余规模
         //买入参考：@"评级-到期赎回价" @"S-K线图"; @"K线图";  @"公告";  @"主营业务";  @"概念";//
         //卖出参考： 强天数  剩余年限。。
-        label.textAlignment = NSTextAlignmentCenter;
-        label.textColor = [UIColor grayColor];
+        button.frame = CGRectMake(i * columnWidth, 0, columnWidth, 40);
+//        label.textAlignment = NSTextAlignmentCenter;
+//        label.textColor = [UIColor grayColor];
         [button setTitle:self.headTitles[i] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(sort:) forControlEvents:UIControlEventTouchUpInside];
         [bg addSubview:button];
@@ -581,6 +577,17 @@ static int AllCount = 1;
             if (tempIncrease >=9.00) {
                 NSString *keyInfo = [NSString stringWithFormat:@"BP=%@",stockModel.full_price];
                 [SIBigger10dictPlist setValue:keyInfo forKey:[stockModel.stock_nm stringByAppendingString:dateStr]];
+            }
+            
+            if (tempIncrease >= 9.00 && stockModel.increase_rt.floatValue < 0.9) {//0.9即0.9%
+                YYMockBuyModel *mockBuy = [[YYMockBuyModel alloc] init];
+                mockBuy.bond_id = [stockModel.bond_id stringByAppendingString:dateStr];
+                mockBuy.buyPrice = stockModel.full_price;
+                mockBuy.buyCount = 100;
+                mockBuy.cost = mockBuy.buyPrice.floatValue * mockBuy.buyCount;
+                mockBuy.buyIntoTime = dateStr;
+                
+                [XMGSqliteModelTool saveOrUpdateModel:mockBuy uid:@"mockExchange"];
             }
            
             //股价涨幅  远大于 债涨幅  启动迹象！！！
@@ -985,7 +992,7 @@ static int AllCount = 1;
 
 -(NSArray *)headTitles{
     if (!_headTitles) {//单独的可排序
-        _headTitles = [NSArray arrayWithObjects:@"债价",@"债涨跌幅",@"股价",@"股涨跌幅",@"回售触发)价",@"转股价",@"强赎触发价",@"卖出参考:",@"股价偏离度",@"转股溢价率",@"转股占比",@"强天数",@"弱天数",@"剩余年限",@"剩余规模",@"买入参考:",@"评级-涨停个数",@"到期回售价",@"转股起始日",@"股价K线图",@"债K线图",@"公告",@"主营业务",@"概念",@"概念输入",nil];
+        _headTitles = [NSArray arrayWithObjects:@"债价/成本",@"债涨跌幅",@"股价",@"股涨跌幅",@"回售触发)价",@"转股价",@"强赎触发价",@"卖出参考:",@"股价偏离度",@"转股溢价率",@"转股占比",@"强天数",@"弱天数",@"剩余年限",@"剩余规模",@"买入参考:",@"评级-涨停个数",@"到期回售价",@"转股起始日",@"股价K线图",@"债K线图",@"公告",@"主营业务",@"概念",@"概念输入",nil];
     }
     return _headTitles;
 }
@@ -994,6 +1001,12 @@ static int AllCount = 1;
 
     [self.headMatchContents removeAllObjects];
     YYStockModel *model = self.isSearch == YES? self.searchResults[index] : self.stocks[index];
+    NSArray *mockArray = [XMGSqliteModelTool queryAllModels:[YYMockBuyModel class] uid:@"mockExchange"];
+    for (YYMockBuyModel *mockModel in mockArray) {
+        if ([[mockModel.bond_id substringToIndex:6] isEqualToString:[model.bond_id substringToIndex:6]]) {
+            model.full_price = [NSString stringWithFormat:@"%@/%@",model.full_price,mockModel.buyPrice];
+        };
+    }
     [self.headMatchContents addObject:model.full_price];
     [self.headMatchContents addObject:[NSString stringWithFormat:@"%@",model.increase_rt]];
     [self.headMatchContents addObject:model.sprice];

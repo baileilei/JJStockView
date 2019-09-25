@@ -12,16 +12,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YYMockBuyModel : NSObject
 
-
+@property (nonatomic,copy) NSString *bond_id;
 
 @property (nonatomic,assign) float holding;
 @property (nonatomic,assign) float totalMarketPrice;
 
+@property (nonatomic,assign) float buyCount;//100的倍数
+@property (nonatomic,assign) float cost;//100的倍数
 @property (nonatomic,copy) NSString *buyIntoTime;
 @property (nonatomic,copy) NSString *buyPrice;
 
-@property (nonatomic,copy) NSString *buyDecesionElements; //买入因素。支撑位？？？
-@property (nonatomic,copy) NSString *fupan; //。支撑位？？？  
+
+
+
+@property (nonatomic,copy) NSString *buyDecesionElements; //
+@property (nonatomic,copy) NSString *fupan; //。
 
 @property (nonatomic,copy) NSString *nowprice;
 @property (nonatomic,copy) NSString *updateTime;

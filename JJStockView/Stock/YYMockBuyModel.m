@@ -10,4 +10,8 @@
 
 @implementation YYMockBuyModel
 
++(NSString *)primaryKey{
+    return @"bond_id";
+}
+
 @end

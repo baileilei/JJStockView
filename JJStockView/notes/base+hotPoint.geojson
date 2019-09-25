@@ -1,5 +1,5 @@
-{// base:orign_iss_amt< 50      full_Price: 100~105   (太低也不容易起来！)    msa20_SI:>0.9
-    //hotPoint:---concept:
+{// base:orign_iss_amt< 50      full_Price: 100~105   (太低也不容易起来！)    msa20_SI:>0.9   年报：预增+概念
+    //hotPoint:---concept: 热点是等来的！！！  是出仓的机会！！！（订单情绪化？）
     //plan： 100～105 createHolding   step：5   holdingPrice - 5 +1成 （msa20_SI>0.9）
     "base": "curr_iss_amt < 10",
     "concept": []

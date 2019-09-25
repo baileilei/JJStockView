@@ -56,9 +56,7 @@
 		06D158F3225C84120040B6C6 /* YYStockViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D158F1225C84120040B6C6 /* YYStockViewCell.m */; };
 		06D158F4225C84120040B6C6 /* YYStockScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D158F2225C84120040B6C6 /* YYStockScrollView.m */; };
 		06ED20FF231D499D00400C91 /* note201909 in Resources */ = {isa = PBXBuildFile; fileRef = 06ED20FE231D499D00400C91 /* note201909 */; };
-		06ED2101231D4C4C00400C91 /* test.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 06ED2100231D4C4C00400C91 /* test.stringsdict */; };
 		06ED2103231D4C8B00400C91 /* celue.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06ED2102231D4C8B00400C91 /* celue.plist */; };
-		06ED2106231D4CF400400C91 /* File.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06ED2105231D4CF400400C91 /* File.strings */; };
 		5171AAF02EDE61B9E5E640A8 /* Pods_MyselfFunction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C3405708353132BBD164EB8 /* Pods_MyselfFunction.framework */; };
 		5250CCD816F603E17FC5A542 /* Pods_JJStockView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E747CDF99F5250D8556A97D8 /* Pods_JJStockView.framework */; };
 		6186110E1F95E2F600E4E8B4 /* JJStockScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6186110D1F95E2F600E4E8B4 /* JJStockScrollView.m */; };
@@ -272,11 +270,8 @@
 		06D158F1225C84120040B6C6 /* YYStockViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYStockViewCell.m; sourceTree = "<group>"; };
 		06D158F2225C84120040B6C6 /* YYStockScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYStockScrollView.m; sourceTree = "<group>"; };
 		06ED20FE231D499D00400C91 /* note201909 */ = {isa = PBXFileReference; lastKnownFileType = text; path = note201909; sourceTree = "<group>"; };
-		06ED2100231D4C4C00400C91 /* test.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = test.stringsdict; sourceTree = "<group>"; };
 		06ED2102231D4C8B00400C91 /* celue.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = celue.plist; sourceTree = "<group>"; };
-		06ED2105231D4CF400400C91 /* File.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = File.strings; sourceTree = "<group>"; };
 		06ED2107231D4D0300400C91 /* Directions.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = Directions.geojson; sourceTree = "<group>"; };
-		06ED2109231D4E4300400C91 /* Table.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Table.md; sourceTree = "<group>"; };
 		0E82011F019E96F3DC7E4B94 /* Pods-JJStockViewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJStockViewUITests.debug.xcconfig"; path = "Target Support Files/Pods-JJStockViewUITests/Pods-JJStockViewUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1C3405708353132BBD164EB8 /* Pods_MyselfFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyselfFunction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		245A624B532B30217F8FC787 /* Pods-JJStockViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJStockViewTests.release.xcconfig"; path = "Target Support Files/Pods-JJStockViewTests/Pods-JJStockViewTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -422,6 +417,7 @@
 		B6C543B523389AFF002281BD /* base+hotPoint.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = "base+hotPoint.geojson"; sourceTree = "<group>"; };
 		B6C543B82338A959002281BD /* YYSingleStockModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYSingleStockModel.m; sourceTree = "<group>"; };
 		B6C543B92338A959002281BD /* YYSingleStockModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSingleStockModel.h; sourceTree = "<group>"; };
+		B6C543BB2339E8B5002281BD /* 0924HoldingFuPan.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = 0924HoldingFuPan.geojson; sourceTree = "<group>"; };
 		B6D7E481231A79A300A8D8A7 /* WillBondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WillBondViewController.h; sourceTree = "<group>"; };
 		B6D7E482231A79A300A8D8A7 /* WillBondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WillBondViewController.m; sourceTree = "<group>"; };
 		C2C2C12824F1BCF43EE78566 /* Pods-MyselfFunction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyselfFunction.debug.xcconfig"; path = "Target Support Files/Pods-MyselfFunction/Pods-MyselfFunction.debug.xcconfig"; sourceTree = "<group>"; };
@@ -572,15 +568,13 @@
 				06ED2107231D4D0300400C91 /* Directions.geojson */,
 				B631FD4323289AD1001ED114 /* logManager.geojson */,
 				B631FD492329D8A5001ED114 /* changeHoldingMomo.geojson */,
+				B6C543BB2339E8B5002281BD /* 0924HoldingFuPan.geojson */,
 				B6C543B523389AFF002281BD /* base+hotPoint.geojson */,
-				06ED2109231D4E4300400C91 /* Table.md */,
 				06ED2102231D4C8B00400C91 /* celue.plist */,
 				B631FD412327485F001ED114 /* xinDe.plist */,
 				B631FD4B2329EC5B001ED114 /* conceptAnalise.plist */,
 				0606247C23332854009CC6D8 /* ChooseStock.plist */,
 				0606247E23332871009CC6D8 /* chooseTime.plist */,
-				06ED2105231D4CF400400C91 /* File.strings */,
-				06ED2100231D4C4C00400C91 /* test.stringsdict */,
 				B631FD2B23222DC5001ED114 /* functionDesign */,
 				B631FD50232F490D001ED114 /* holdingPlist.plist */,
 			);
@@ -1206,7 +1200,6 @@
 				B631FD4A2329D8A5001ED114 /* changeHoldingMomo.geojson in Resources */,
 				0606247F23332871009CC6D8 /* chooseTime.plist in Resources */,
 				61F13E821F91F670002F4681 /* Assets.xcassets in Resources */,
-				06ED2106231D4CF400400C91 /* File.strings in Resources */,
 				B631FD2C23222DC5001ED114 /* functionDesign in Resources */,
 				B692B0A42302D56C00E01511 /* zhinengwangzu@2x.png in Resources */,
 				0606247D23332854009CC6D8 /* ChooseStock.plist in Resources */,
@@ -1239,7 +1232,6 @@
 				B692B0B12302D56C00E01511 /* 语言设置.png in Resources */,
 				B631FD4423289AD1001ED114 /* logManager.geojson in Resources */,
 				06ED20FF231D499D00400C91 /* note201909 in Resources */,
-				06ED2101231D4C4C00400C91 /* test.stringsdict in Resources */,
 				B631FD4C2329EC5B001ED114 /* conceptAnalise.plist in Resources */,
 				B692B0A92302D56C00E01511 /* 0-01首页_MarkMan.png in Resources */,
 			);
