@@ -676,6 +676,8 @@ static int AllCount = 1;
                 
             });
         }
+        //http://stock.jrj.com.cn/action/gudong/getGudongDataByCode.jspa?vname=stockgudongData&stockcode=600519&_=1569474620679
+        
         
         NSArray *libPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
         NSString *holdingDirectory = [[libPath objectAtIndex:0] stringByAppendingPathComponent:@"FocusLog"];
@@ -812,6 +814,7 @@ static int AllCount = 1;
 -(void)testAPIWithAFN{
     //发行流程：董事会预案 → 股东大会批准 → 证监会受理 → 发审委通过 → 证监会核准批文 → 发行公告
     //https://www.jisilu.cn/data/cbnew/pre_list/?___jsl=LST___t=1566207894005
+    //http://stock.jrj.com.cn/action/gudong/getGudongDataByCode.jspa?vname=stockgudongData&stockcode=600519&_=1569474620679
     [[BaseNetManager defaultManager] GET:@"https://www.jisilu.cn/jisiludata/safe_stock.php?___jsl=LST___t=1568810772785" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"AFN ----responseObject----%@",responseObject);
         
@@ -942,6 +945,17 @@ static int AllCount = 1;
         
         [XMGSqliteModelTool saveOrUpdateModel:singleM uid:stockid];
     }
+    
+    NSString *url = [NSString stringWithFormat:@"http://stock.jrj.com.cn/action/gudong/getGudongDataByCode.jspa?vname=stockgudongData&stockcode=%@&_=1569474620679",[stockid substringFromIndex:2]];
+    [BaseNetManager GET:url parameters:nil complationHandle:^(id responseObject, NSError *error) {
+       
+        NSString *holdCountStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSString *houldCountStrJson = [holdCountStr componentsSeparatedByString:@"="].lastObject;
+//        id json =[NSJSONSerialization JSONObjectWithData:[houldCountStrJson dataUsingEncoding:NSUTF8StringEncoding] options:nil error:nil];
+//         NSLog(@"股东人数---%@",json);
+        
+        NSDictionary *dict = [NSDictionary dictionary];
+    }];
 //    NSLog(@"json-----%@",singleStockHistory);
 }
 
