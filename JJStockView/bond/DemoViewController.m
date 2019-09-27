@@ -947,16 +947,24 @@ static int AllCount = 1;
     }
     
     NSString *url = [NSString stringWithFormat:@"http://stock.jrj.com.cn/action/gudong/getGudongDataByCode.jspa?vname=stockgudongData&stockcode=%@&_=1569474620679",[stockid substringFromIndex:2]];
+    NSDate *date = [NSDate date];
+    NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
     [BaseNetManager GET:url parameters:nil complationHandle:^(id responseObject, NSError *error) {
        
         NSString *holdCountStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        NSString *houldCountStrJson = [holdCountStr componentsSeparatedByString:@"="].lastObject;
+        NSString *holdCountStrJson = [holdCountStr componentsSeparatedByString:@"="].lastObject;
 //        id json =[NSJSONSerialization JSONObjectWithData:[houldCountStrJson dataUsingEncoding:NSUTF8StringEncoding] options:nil error:nil];
-//         NSLog(@"股东人数---%@",json);
+        NSLog(@"houldCountStrJson-----%@",holdCountStrJson);
+        for (YYStockModel *m in self.stocks) {
+            if ([m.stock_id isEqualToString:stockid]) {
+                m.holdCountStrJson = holdCountStrJson;
+            }
+            [XMGSqliteModelTool saveOrUpdateModel:m uid:dateStr];
+        }
+        [[NSUserDefaults standardUserDefaults] setValue:holdCountStrJson forKey:stockid];
         
-        NSDictionary *dict = [NSDictionary dictionary];
     }];
-//    NSLog(@"json-----%@",singleStockHistory);
+//
 }
 
 #pragma mark - 根据传入的文件名称,拼接全路径并返回!

@@ -40,6 +40,8 @@
 @property (nonatomic,copy) NSString *stockConcept;
 @property (nonatomic,copy) NSString *stockMainBusiness;
 
+@property (nonatomic,copy) NSString *holdCountStrJson;
+
 @property (nonatomic,assign) int SIBibber9Count;
 @property (nonatomic,assign) float convertToStockRatio;
 
