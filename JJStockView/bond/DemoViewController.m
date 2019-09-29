@@ -227,9 +227,7 @@ static int AllCount = 1;
     bg.backgroundColor = row % 2 == 0 ?[UIColor whiteColor] :[UIColor colorWithRed:240.0f/255.0 green:240.0f/255.0 blue:240.0f/255.0 alpha:1.0];
     NSArray *temp = [self headMatchContent:row];;
     for (int i = 0; i < columnCount; i++) {
-//        temp = [self headMatchContent:i];
-        float titleWidth = 100;
-        UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(i * titleWidth, 0, columnWidth, 30)];
+        UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(i * columnWidth, 0, columnWidth, 30)];
         
         [button setTitle:[NSString stringWithFormat:@"%@",temp[i]] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
