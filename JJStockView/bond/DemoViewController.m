@@ -13,6 +13,7 @@
 #import "YYSingleStockModel.h"
 #import "YYMockBuyModel.h"
 #import "YYSingleBondModel.h"
+#import "YYDueBondModel.h"
 
 //V
 #import "WSDatePickerView.h"
@@ -380,8 +381,7 @@ static int AllCount = 1;
         }
 
     }
-    
-    
+    //https://www.jisilu.cn/data/cbnew/delisted/?___jsl=LST___t=1569838061120
     [self.searchResults removeAllObjects];//数据何时删除 添加？ 更新？？？
     NSLog(@"%@",self.searchResults);
     
@@ -499,6 +499,36 @@ static int AllCount = 1;
             
         }];
     }
+    
+    
+    if ([btn.currentTitle isEqualToString:@"历史数据"]){
+        
+        NSDate *date = [NSDate date];
+        NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
+        
+        {//https://www.jisilu.cn/data/cbnew/detail_hist/113539?___jsl=LST___t=1569814990739
+            NSString *url = [NSString stringWithFormat:@"https://www.jisilu.cn/data/cbnew/delisted/?___jsl=LST___t=1569838061120"];
+            
+            [[HWNetTools shareNetTools] POST:url parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                NSLog(@"history ----%@",responseObject);
+                
+                NSDictionary *dictArray = responseObject[@"rows"];
+                for (NSDictionary *dict in dictArray) {
+                    YYDueBondModel *bondM = [[YYDueBondModel alloc] init];
+                    [bondM setValuesForKeysWithDictionary:dict[@"cell"]];
+                    //                    dispatch_async(dispatch_get_main_queue(), ^{
+                    BOOL isSucess =  [XMGSqliteModelTool saveOrUpdateModel:bondM uid:@"dueBonds"];
+                    NSLog(@"保存成功---%d",isSucess);
+                    //                    });
+                    
+                }
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                
+            }];
+        }
+        
+    }
+
 
     
     [self.stockView reloadStockView];
@@ -1042,7 +1072,7 @@ static int AllCount = 1;
 
 -(NSArray *)headTitles{
     if (!_headTitles) {//单独的可排序
-        _headTitles = [NSArray arrayWithObjects:@"债价/成本",@"债涨跌幅",@"股价",@"股涨跌幅",@"回售触发)价",@"转股价",@"强赎触发价",@"卖出参考:",@"股价偏离度",@"转股溢价率",@"转股占比",@"强天数",@"弱天数",@"剩余年限",@"剩余规模",@"买入参考:",@"评级-涨停个数",@"到期回售价",@"转股起始日",@"股价K线图",@"债K线图",@"公告",@"主营业务",@"概念",@"概念输入",nil];
+        _headTitles = [NSArray arrayWithObjects:@"债价/成本",@"债涨跌幅",@"股价",@"股涨跌幅",@"回售触发)价",@"转股价",@"强赎触发价",@"卖出参考:",@"股价偏离度",@"转股溢价率",@"转股占比",@"强天数",@"弱天数",@"剩余年限",@"剩余规模",@"买入参考:",@"评级-涨停个数",@"到期回售价",@"转股起始日",@"股价K线图",@"债K线图",@"公告",@"主营业务",@"概念",@"历史数据",nil];
     }
     return _headTitles;
 }
