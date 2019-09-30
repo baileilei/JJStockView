@@ -12,6 +12,7 @@
 #import "YYAnotherWatchPondStock.h"
 #import "YYSingleStockModel.h"
 #import "YYMockBuyModel.h"
+#import "YYSingleBondModel.h"
 
 //V
 #import "WSDatePickerView.h"
@@ -38,6 +39,7 @@
 #import "SMLogManager.h"
 #import "FMDB.h"//多线程 处理数据库的问题
 #import <Foundation/Foundation.h>
+#import "HWNetTools.h"
 
 
 #define kYYCachePath @"/Users/g/Desktop"
@@ -349,6 +351,34 @@ static int AllCount = 1;
        
         
         return;
+    }else if ([sender.currentTitle isEqualToString:@"BondHistory"]){
+        
+        NSDate *date = [NSDate date];
+        NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
+        
+        {//https://www.jisilu.cn/data/cbnew/detail_hist/113539?___jsl=LST___t=1569814990739
+            NSString *url = [NSString stringWithFormat:@"https://www.jisilu.cn/data/cbnew/detail_hist/%@?___jsl=LST___t=1569814990739",[m.bond_id substringToIndex:6]];
+            
+            [[HWNetTools shareNetTools] POST:url parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                NSLog(@"history ----%@",responseObject);
+                
+                NSDictionary *dictArray = responseObject[@"rows"];
+                for (NSDictionary *dict in dictArray) {
+                    YYSingleBondModel *bondM = [[YYSingleBondModel alloc] init];
+                    [bondM setValuesForKeysWithDictionary:dict[@"cell"]];
+                    bondM.bond_price = [NSString stringWithFormat:@"%.2f",(bondM.premium_rt.floatValue * 0.01 * bondM.convert_value.floatValue + bondM.convert_value.floatValue)];
+                    NSLog(@"bond_price-----%@--------%f",bondM.bond_price,bondM.premium_rt.floatValue * 0.01 * bondM.convert_value.floatValue);
+//                    dispatch_async(dispatch_get_main_queue(), ^{
+                       BOOL isSucess =  [XMGSqliteModelTool saveOrUpdateModel:bondM uid:[dateStr stringByAppendingString:bondM.bond_id]];
+                        NSLog(@"保存成功---%d",isSucess);
+//                    });
+                   
+                }
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                
+            }];
+        }
+
     }
     
     
@@ -550,7 +580,29 @@ static int AllCount = 1;
                     [self handleSingleStock:stockModel.stock_id];
                 });
             }
- /*************************************日志管理********1.SI > 9************************************/
+            
+            {
+                NSString *url = [NSString stringWithFormat:@"http://stock.jrj.com.cn/action/gudong/getGudongDataByCode.jspa?vname=stockgudongData&stockcode=%@&_=1569474620679",[stockModel.stock_id substringFromIndex:2]];
+                NSDate *date = [NSDate date];
+                NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
+                [BaseNetManager GET:url parameters:nil complationHandle:^(id responseObject, NSError *error) {
+                    
+                    NSString *holdCountStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                    NSString *holdCountStrJson = [holdCountStr componentsSeparatedByString:@"="].lastObject;
+                    //        id json =[NSJSONSerialization JSONObjectWithData:[houldCountStrJson dataUsingEncoding:NSUTF8StringEncoding] options:nil error:nil];
+                    NSLog(@"houldCountStrJson---%@-stockid=%@",holdCountStrJson,stockModel.stock_id);
+                    for (YYStockModel *m in self.stocks) {
+                        if ([m.stock_id isEqualToString:stockModel.stock_id]) {
+                            m.holdCountStrJson = holdCountStrJson;
+                        }
+//                        [XMGSqliteModelTool saveOrUpdateModel:m uid:dateStr];
+                    }
+                    [[NSUserDefaults standardUserDefaults] setValue:holdCountStrJson forKey:stockModel.stock_id];
+                    
+                }];
+            }
+            
+             /*************************************日志管理********1.SI > 9************************************/
             NSRange range = [stockModel.sincrease_rt rangeOfString:@"."];
             float tempIncrease = [stockModel.sincrease_rt substringToIndex:range.location].floatValue;
             if (tempIncrease > 5 && stockModel.full_price.floatValue < 115) {
@@ -944,24 +996,6 @@ static int AllCount = 1;
         [XMGSqliteModelTool saveOrUpdateModel:singleM uid:stockid];
     }
     
-    NSString *url = [NSString stringWithFormat:@"http://stock.jrj.com.cn/action/gudong/getGudongDataByCode.jspa?vname=stockgudongData&stockcode=%@&_=1569474620679",[stockid substringFromIndex:2]];
-    NSDate *date = [NSDate date];
-    NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
-    [BaseNetManager GET:url parameters:nil complationHandle:^(id responseObject, NSError *error) {
-       
-        NSString *holdCountStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        NSString *holdCountStrJson = [holdCountStr componentsSeparatedByString:@"="].lastObject;
-//        id json =[NSJSONSerialization JSONObjectWithData:[houldCountStrJson dataUsingEncoding:NSUTF8StringEncoding] options:nil error:nil];
-        NSLog(@"houldCountStrJson-----%@",holdCountStrJson);
-        for (YYStockModel *m in self.stocks) {
-            if ([m.stock_id isEqualToString:stockid]) {
-                m.holdCountStrJson = holdCountStrJson;
-            }
-            [XMGSqliteModelTool saveOrUpdateModel:m uid:dateStr];
-        }
-        [[NSUserDefaults standardUserDefaults] setValue:holdCountStrJson forKey:stockid];
-        
-    }];
 //
 }
 
@@ -1054,7 +1088,7 @@ static int AllCount = 1;
         model.stockConcept = [[NSUserDefaults standardUserDefaults] objectForKey:model.stock_nm];
     }
     [self.headMatchContents addObject:model.stockConcept ?: @"概念"];
-    [self.headMatchContents addObject:model.stockConcept ?: @"概念"];
+    [self.headMatchContents addObject:@"BondHistory"];
 //   return [NSMutableArray arrayWithObjects:model.full_price,model.increase_rt,model.sprice,model.sincrease_rt,model.put_convert_price,model.convert_price,model.force_redeem_price,@"",model.ma20_SI,model.redeem_count_days,model.year_left,model.curr_iss_amt,@"",[NSString stringWithFormat:@"%@-%@-%@",model.ration_cd,model.redeem_price,model.convert_dt],@"股价K线图",@"债K线图",@"公告",@"主营业务",@"概念", nil];
     
 //        self.headMatchContents = [NSArray arrayWithObjects:model.full_price,model.increase_rt,model.sprice,model.sincrease_rt,model.put_convert_price,model.convert_price,model.force_redeem_price,@"",model.ma20_SI,model.redeem_count_days,model.year_left,model.curr_iss_amt,@"",[NSString stringWithFormat:@"%@-%@-%@",model.ration_cd,model.redeem_price,model.convert_dt],@"股价K线图",@"债K线图",@"公告",@"主营业务",@"概念", nil].mutableCopy;

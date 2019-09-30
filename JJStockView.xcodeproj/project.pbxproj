@@ -68,6 +68,7 @@
 		61F13E9D1F91F670002F4681 /* StockViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13E9C1F91F670002F4681 /* StockViewUITests.m */; };
 		61F13EAF1F91F6D4002F4681 /* JJStockViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13EAB1F91F6D3002F4681 /* JJStockViewCell.m */; };
 		61F13EB01F91F6D4002F4681 /* JJStockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13EAD1F91F6D4002F4681 /* JJStockView.m */; };
+		B615F3E22341E22F00B0EC62 /* YYSingleBondModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B615F3E12341E22F00B0EC62 /* YYSingleBondModel.m */; };
 		B624A8FE230AA9F70093AF88 /* NSDictionary+HMToChineseLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B624A8FB230AA9F70093AF88 /* NSDictionary+HMToChineseLog.m */; };
 		B624A8FF230AA9F70093AF88 /* NSArray+HWLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B624A8FD230AA9F70093AF88 /* NSArray+HWLog.m */; };
 		B631FD2C23222DC5001ED114 /* functionDesign in Resources */ = {isa = PBXBuildFile; fileRef = B631FD2B23222DC5001ED114 /* functionDesign */; };
@@ -303,6 +304,8 @@
 		921806BF8F626BE56429F804 /* Pods-JJStockView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJStockView.debug.xcconfig"; path = "Target Support Files/Pods-JJStockView/Pods-JJStockView.debug.xcconfig"; sourceTree = "<group>"; };
 		923E9F7EC9FE139C225EA901 /* Pods-JJStockView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJStockView.release.xcconfig"; path = "Target Support Files/Pods-JJStockView/Pods-JJStockView.release.xcconfig"; sourceTree = "<group>"; };
 		B2E0C1ECEA684781F2B1548F /* Pods-JJStockViewUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJStockViewUITests.release.xcconfig"; path = "Target Support Files/Pods-JJStockViewUITests/Pods-JJStockViewUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B615F3E02341E22F00B0EC62 /* YYSingleBondModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYSingleBondModel.h; sourceTree = "<group>"; };
+		B615F3E12341E22F00B0EC62 /* YYSingleBondModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYSingleBondModel.m; sourceTree = "<group>"; };
 		B624A8FA230AA9F70093AF88 /* NSArray+HWLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+HWLog.h"; sourceTree = "<group>"; };
 		B624A8FB230AA9F70093AF88 /* NSDictionary+HMToChineseLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+HMToChineseLog.m"; sourceTree = "<group>"; };
 		B624A8FC230AA9F70093AF88 /* NSDictionary+HMToChineseLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HMToChineseLog.h"; sourceTree = "<group>"; };
@@ -532,6 +535,8 @@
 				060C4B7B222259DE004BA326 /* YYStockModel.h */,
 				B6C543B92338A959002281BD /* YYSingleStockModel.h */,
 				B6C543B82338A959002281BD /* YYSingleStockModel.m */,
+				B615F3E02341E22F00B0EC62 /* YYSingleBondModel.h */,
+				B615F3E12341E22F00B0EC62 /* YYSingleBondModel.m */,
 				06D1589D225C6EFE0040B6C6 /* YYSelfDefineCategoryStock.h */,
 				06D1589E225C6EFE0040B6C6 /* YYSelfDefineCategoryStock.m */,
 				060C4B77222259DE004BA326 /* YYStockModel.m */,
@@ -1443,6 +1448,7 @@
 				060C4B82222259DE004BA326 /* YYStockDB.m in Sources */,
 				B631FD3C2325E997001ED114 /* FMDatabaseQueue.m in Sources */,
 				6186110E1F95E2F600E4E8B4 /* JJStockScrollView.m in Sources */,
+				B615F3E22341E22F00B0EC62 /* YYSingleBondModel.m in Sources */,
 				06C5BBC92252FFD60037B993 /* YYSerachViewController.m in Sources */,
 				FD0E693F223630E200B1F67F /* AFURLResponseSerialization.m in Sources */,
 				B671E57D22F82B4500483FBA /* NSDate+Extension.m in Sources */,

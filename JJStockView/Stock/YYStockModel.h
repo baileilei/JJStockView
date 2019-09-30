@@ -1,7 +1,7 @@
 //
 //  YYStockModel.h
 //  HandleStockJson
-//
+//https://www.jisilu.cn/data/cbnew/detail_pic/?display=premium_rt&bond_id=113539。 bondPricHistory
 //  Created by pactera on 2018/1/26.
 //  Copyright © 2018年 pactera. All rights reserved.
 //即将出下修？
@@ -20,7 +20,7 @@
 //重点指标：year_left。stockURL  bondURL  convert_dt passConvert_dt_days  convert_price  convert_value force_redeem_price full_price put_convert_price sprice volume
 
 //强赎区  突破区。 建仓区
-
+//炒作的参考点：convertToStockRatio 概念/主营业务 
 
 @property (nonatomic,copy) NSString *noteDate;
 
@@ -61,7 +61,7 @@
 @property (nonatomic,copy) NSString *bond_id;//债券代码
 @property (nonatomic,copy) NSString *bond_nm;//债券名称
 @property (nonatomic,copy) NSString *btype;//债券类型？
-@property (nonatomic,copy) NSString *convert_amt_ratio;//转债占比    转债余额/总市值   👀
+@property (nonatomic,copy) NSString *convert_amt_ratio;//转债占比    转债余额/总市值   convertToStockRatio？
 
 @property (nonatomic,copy) NSString *convert_cd;//转股代码------即过了转股起始期之后才会有的  //未到转股期
 @property (nonatomic,copy) NSString *convert_dt;//转股起始期
