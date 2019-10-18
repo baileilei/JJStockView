@@ -136,9 +136,9 @@ static int AllCount = 1;
     NSLog(@"pathStr----%@",pathStr);
     
     UIBarButtonItem *rightItem2 = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:pathStr] style:UIBarButtonItemStyleDone target:self action:@selector(p_calenar)];
-    //[[UIBarButtonItem alloc] initWithTitle:@"日历" style:UIBarButtonItemStyleDone target:self action:@selector(p_calenar)];
+     UIBarButtonItem *rightItem3 = [[UIBarButtonItem alloc] initWithTitle:@"日历" style:UIBarButtonItemStyleDone target:self action:@selector(p_saoYiSao)];
     
-    self.navigationItem.rightBarButtonItems = @[rightItem,rightItem1,rightItem2];
+    self.navigationItem.rightBarButtonItems = @[rightItem,rightItem1,rightItem2,rightItem3];
     
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"刷新" style:UIBarButtonItemStyleDone target:self action:@selector(p_refresh)];
     self.navigationItem.leftBarButtonItem = leftItem;
@@ -973,6 +973,10 @@ static int AllCount = 1;
     [self.navigationController pushViewController:holdingVC animated:YES];
 //    WillBondViewController *web = [[WillBondViewController alloc] init];
 //    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:web] animated:YES completion:nil];
+}
+
+-(void)p_saoYiSao{
+    
 }
 
 -(void)handleSingleStock:(NSString *)stockid{
