@@ -10,6 +10,7 @@
 
 #import "AppDelegate.h"
 #import "DemoViewController.h"
+#import "SMLoginVc.h"
 
 @interface AppDelegate ()
 
@@ -26,7 +27,7 @@
     
     [self showLocalNote:localNote];
     
-    DemoViewController* view = [[DemoViewController alloc] init];
+    SMLoginVc* view = [[SMLoginVc alloc] init];
     UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:view];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = nav;

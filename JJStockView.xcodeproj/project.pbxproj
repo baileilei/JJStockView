@@ -70,6 +70,13 @@
 		61F13EB01F91F6D4002F4681 /* JJStockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13EAD1F91F6D4002F4681 /* JJStockView.m */; };
 		B615F3E22341E22F00B0EC62 /* YYSingleBondModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B615F3E12341E22F00B0EC62 /* YYSingleBondModel.m */; };
 		B615F3E523420CAD00B0EC62 /* YYDueBondModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B615F3E423420CAD00B0EC62 /* YYDueBondModel.m */; };
+		B619E829235DCB700066C56B /* SMLoginVc.m in Sources */ = {isa = PBXBuildFile; fileRef = B619E81F235DCB700066C56B /* SMLoginVc.m */; };
+		B619E82A235DCB700066C56B /* SMUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B619E822235DCB700066C56B /* SMUserInfo.m */; };
+		B619E82C235DCB700066C56B /* HNLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = B619E828235DCB700066C56B /* HNLoginView.m */; };
+		B619E82F235DCC410066C56B /* SMLoginManage.m in Sources */ = {isa = PBXBuildFile; fileRef = B619E82E235DCC410066C56B /* SMLoginManage.m */; };
+		B619E832235DCC5B0066C56B /* SMLoginNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = B619E831235DCC5B0066C56B /* SMLoginNetwork.m */; };
+		B619E835235DCC7B0066C56B /* SMBaseConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = B619E834235DCC7B0066C56B /* SMBaseConnect.m */; };
+		B619E838235DCCB50066C56B /* NSString+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = B619E837235DCCB50066C56B /* NSString+AES.m */; };
 		B624A8FE230AA9F70093AF88 /* NSDictionary+HMToChineseLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B624A8FB230AA9F70093AF88 /* NSDictionary+HMToChineseLog.m */; };
 		B624A8FF230AA9F70093AF88 /* NSArray+HWLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B624A8FD230AA9F70093AF88 /* NSArray+HWLog.m */; };
 		B631FD2C23222DC5001ED114 /* functionDesign in Resources */ = {isa = PBXBuildFile; fileRef = B631FD2B23222DC5001ED114 /* functionDesign */; };
@@ -309,6 +316,20 @@
 		B615F3E12341E22F00B0EC62 /* YYSingleBondModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYSingleBondModel.m; sourceTree = "<group>"; };
 		B615F3E323420CAD00B0EC62 /* YYDueBondModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYDueBondModel.h; sourceTree = "<group>"; };
 		B615F3E423420CAD00B0EC62 /* YYDueBondModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYDueBondModel.m; sourceTree = "<group>"; };
+		B619E81F235DCB700066C56B /* SMLoginVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMLoginVc.m; sourceTree = "<group>"; };
+		B619E820235DCB700066C56B /* SMLoginVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMLoginVc.h; sourceTree = "<group>"; };
+		B619E822235DCB700066C56B /* SMUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMUserInfo.m; sourceTree = "<group>"; };
+		B619E823235DCB700066C56B /* SMUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMUserInfo.h; sourceTree = "<group>"; };
+		B619E828235DCB700066C56B /* HNLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNLoginView.m; sourceTree = "<group>"; };
+		B619E82D235DCC410066C56B /* SMLoginManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMLoginManage.h; sourceTree = "<group>"; };
+		B619E82E235DCC410066C56B /* SMLoginManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMLoginManage.m; sourceTree = "<group>"; };
+		B619E830235DCC5B0066C56B /* SMLoginNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMLoginNetwork.h; sourceTree = "<group>"; };
+		B619E831235DCC5B0066C56B /* SMLoginNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMLoginNetwork.m; sourceTree = "<group>"; };
+		B619E833235DCC7B0066C56B /* SMBaseConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBaseConnect.h; sourceTree = "<group>"; };
+		B619E834235DCC7B0066C56B /* SMBaseConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBaseConnect.m; sourceTree = "<group>"; };
+		B619E836235DCCB50066C56B /* NSString+AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AES.h"; sourceTree = "<group>"; };
+		B619E837235DCCB50066C56B /* NSString+AES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AES.m"; sourceTree = "<group>"; };
+		B619E83A235DD0E80066C56B /* HNLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNLoginView.h; sourceTree = "<group>"; };
 		B624A8FA230AA9F70093AF88 /* NSArray+HWLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+HWLog.h"; sourceTree = "<group>"; };
 		B624A8FB230AA9F70093AF88 /* NSDictionary+HMToChineseLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+HMToChineseLog.m"; sourceTree = "<group>"; };
 		B624A8FC230AA9F70093AF88 /* NSDictionary+HMToChineseLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HMToChineseLog.h"; sourceTree = "<group>"; };
@@ -735,6 +756,7 @@
 		61F13E771F91F670002F4681 /* JJStockView */ = {
 			isa = PBXGroup;
 			children = (
+				B619E81D235DCB700066C56B /* Login */,
 				B692B0852302D56C00E01511 /* 切图 */,
 				B6AAD1E22301029B0048ED8E /* GroupTableView */,
 				06C5BBCA2253315D0037B993 /* UIEvent */,
@@ -793,6 +815,49 @@
 				6186110D1F95E2F600E4E8B4 /* JJStockScrollView.m */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		B619E81D235DCB700066C56B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B619E81E235DCB700066C56B /* Controller */,
+				B619E821235DCB700066C56B /* Model */,
+				B619E824235DCB700066C56B /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B619E81E235DCB700066C56B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B619E81F235DCB700066C56B /* SMLoginVc.m */,
+				B619E820235DCB700066C56B /* SMLoginVc.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B619E821235DCB700066C56B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B619E833235DCC7B0066C56B /* SMBaseConnect.h */,
+				B619E834235DCC7B0066C56B /* SMBaseConnect.m */,
+				B619E830235DCC5B0066C56B /* SMLoginNetwork.h */,
+				B619E831235DCC5B0066C56B /* SMLoginNetwork.m */,
+				B619E82D235DCC410066C56B /* SMLoginManage.h */,
+				B619E82E235DCC410066C56B /* SMLoginManage.m */,
+				B619E822235DCB700066C56B /* SMUserInfo.m */,
+				B619E823235DCB700066C56B /* SMUserInfo.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B619E824235DCB700066C56B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B619E83A235DD0E80066C56B /* HNLoginView.h */,
+				B619E828235DCB700066C56B /* HNLoginView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B624A8F9230AA9F70093AF88 /* netLog */ = {
@@ -1024,6 +1089,8 @@
 		FDC46B952223CA3300C58FA2 /* Swizzle */ = {
 			isa = PBXGroup;
 			children = (
+				B619E836235DCCB50066C56B /* NSString+AES.h */,
+				B619E837235DCCB50066C56B /* NSString+AES.m */,
 				FDC46B962223CA3300C58FA2 /* NSArray+Swizzle.h */,
 				FDC46B972223CA3300C58FA2 /* UIViewController+Swizzle.m */,
 				FDC46B982223CA3300C58FA2 /* JRSwizzle.h */,
@@ -1418,6 +1485,7 @@
 				FDF0BEF72230E9490040A892 /* YYKLineWebViewController.m in Sources */,
 				FDF0B7532223E2AF003A6999 /* LocalNotificationManager.m in Sources */,
 				61F13EB01F91F6D4002F4681 /* JJStockView.m in Sources */,
+				B619E838235DCCB50066C56B /* NSString+AES.m in Sources */,
 				FDC46BA22223CA3300C58FA2 /* UIViewController+Swizzle.m in Sources */,
 				060C4B982222741D004BA326 /* YYBuyintoStockModel.m in Sources */,
 				B632630F2305135F003AEC58 /* HMTMASViewAttribute.m in Sources */,
@@ -1425,6 +1493,7 @@
 				B615F3E523420CAD00B0EC62 /* YYDueBondModel.m in Sources */,
 				06C5BBD12253318B0037B993 /* ListenerBag.m in Sources */,
 				060C4B8F222262A2004BA326 /* XMGSqliteTool.m in Sources */,
+				B619E832235DCC5B0066C56B /* SMLoginNetwork.m in Sources */,
 				B631FD2F23223114001ED114 /* YYMockBuyModel.m in Sources */,
 				B631FD3F2325E997001ED114 /* FMDatabasePool.m in Sources */,
 				B63263102305135F003AEC58 /* HMTMASLayoutConstraint.m in Sources */,
@@ -1434,6 +1503,7 @@
 				060C4B8D222262A2004BA326 /* XMGTableTool.m in Sources */,
 				060C4B9422226B9C004BA326 /* YYBuyIntoViewController.m in Sources */,
 				B631FD3D2325E997001ED114 /* FMDatabaseAdditions.m in Sources */,
+				B619E835235DCC7B0066C56B /* SMBaseConnect.m in Sources */,
 				B63263142305135F003AEC58 /* HMTMASConstraintMaker.m in Sources */,
 				B632630B2305135F003AEC58 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				B631FD472329CBCE001ED114 /* HMTHintView.m in Sources */,
@@ -1467,11 +1537,15 @@
 				B671E57C22F82B4500483FBA /* WSDatePickerView.m in Sources */,
 				06C307522266CACE00B08B4B /* YYSelfCollectViewController.m in Sources */,
 				FD0E6942223630E200B1F67F /* AFURLRequestSerialization.m in Sources */,
+				B619E829235DCB700066C56B /* SMLoginVc.m in Sources */,
 				B631FD402325E997001ED114 /* FMResultSet.m in Sources */,
+				B619E82F235DCC410066C56B /* SMLoginManage.m in Sources */,
 				060C4B81222259DE004BA326 /* YYMenuLabel.m in Sources */,
+				B619E82C235DCB700066C56B /* HNLoginView.m in Sources */,
 				B631FD3E2325E997001ED114 /* FMDatabase.m in Sources */,
 				B632630E2305135F003AEC58 /* HMTMASCompositeConstraint.m in Sources */,
 				B63262F02305132E003AEC58 /* HNRecommendToolCell.m in Sources */,
+				B619E82A235DCB700066C56B /* SMUserInfo.m in Sources */,
 				B6D7E483231A79A300A8D8A7 /* WillBondViewController.m in Sources */,
 				61F13E881F91F670002F4681 /* main.m in Sources */,
 				FD0E69472236381E00B1F67F /* BaseNetManager.m in Sources */,

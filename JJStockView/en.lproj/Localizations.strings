@@ -10,3 +10,4 @@
 "new_cloud_ip" = "Enter the IP";
 "hint_input_server_ip"="Please input the server ip.";
 "check_ip" = "Please enter the correct IP";
+"ids_login_btn" = "登录";
