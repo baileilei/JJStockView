@@ -42,6 +42,8 @@
 #import <Foundation/Foundation.h>
 #import "HWNetTools.h"
 
+#import "YYActiveDegree.h"
+
 
 #define kYYCachePath @"/Users/g/Desktop"
 
@@ -65,7 +67,7 @@ static int AllCount = 1;
 
 @property (nonatomic, strong) NSTimer *timer;
 
-#define columnCount 25
+#define columnCount 27
 #define columnWidth 120
 @property (nonatomic,strong) NSArray *headTitles;
 @property (nonatomic,strong) NSMutableArray *headMatchContents;
@@ -212,11 +214,11 @@ static int AllCount = 1;
 }
 //左侧显示什么名称
 - (UIView*)titleCellForStockView:(JJStockView*)stockView atRowPath:(NSUInteger)row{
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
     
     YYStockModel *model = self.isSearch == YES? self.searchResults[row] : self.stocks[row];
 //    label.text = [NSString stringWithFormat:@"标题:%ld",row];
-    label.text = [NSString stringWithFormat:@"%@",model.bond_nm];
+    label.text = [NSString stringWithFormat:@"%@/%@",model.bond_nm,model.price];
     
     label.textColor = [UIColor grayColor];
     label.backgroundColor = [UIColor colorWithRed:223.0f/255.0 green:223.0f/255.0 blue:223.0f/255.0 alpha:1.0];
@@ -251,7 +253,7 @@ static int AllCount = 1;
 }
 
 - (UIView*)headRegularTitle:(JJStockView*)stockView{
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];
     label.text = @"标题";
     label.backgroundColor = [UIColor whiteColor];
     label.textColor = [UIColor grayColor];
@@ -500,6 +502,13 @@ static int AllCount = 1;
         }];
     }
     
+    if ([btn.currentTitle isEqualToString:@"活跃度"]) {
+        [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
+            return (obj1.volume.floatValue/obj1.curr_iss_amt.floatValue) < (obj2.volume.floatValue/obj2.curr_iss_amt.floatValue);
+            
+        }];
+    }
+    
     
     if ([btn.currentTitle isEqualToString:@"历史数据"]){
         
@@ -575,6 +584,22 @@ static int AllCount = 1;
             
             YYStockModel *stockModel = [[YYStockModel alloc] init];
             
+            YYActiveDegree *degree = [[YYActiveDegree alloc] init];
+            [degree setValuesForKeysWithDictionary:dic[@"cell"]];
+            
+            NSDate *date = [NSDate date];
+            NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
+            degree.date = dateStr;
+            
+            degree.bond_Degree = [NSString stringWithFormat:@"%f",degree.volume.floatValue/degree.curr_iss_amt.floatValue];
+            
+            degree.stock_Degree = [NSString stringWithFormat:@"%f",degree.svolume.floatValue/degree.curr_iss_amt.floatValue];
+            
+            degree.stock_id = [NSString stringWithFormat:@"%@-%@",degree.stock_id,dateStr];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [XMGSqliteModelTool saveOrUpdateModel:degree uid:@"Degree"];
+            });
             
             [stockModel setValuesForKeysWithDictionary:dic[@"cell"]];
             float ratio = (stockModel.full_price.floatValue - stockModel.convert_value.floatValue)/stockModel.convert_value.floatValue;
@@ -633,36 +658,36 @@ static int AllCount = 1;
             }
             
              /*************************************日志管理********1.SI > 9************************************/
-            NSRange range = [stockModel.sincrease_rt rangeOfString:@"."];
-            float tempIncrease = [stockModel.sincrease_rt substringToIndex:range.location].floatValue;
-            if (tempIncrease > 5 && stockModel.full_price.floatValue < 115) {
-                [[SMLogManager sharedManager] Tool_logPlanName:@"SI大于5&BP<115" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一月内" comments:@" 不要追涨？  要高抛  行情启动or挖坑 115为蓝思"];
-            }
-            
-            if (tempIncrease <= -5) {
-                [[SMLogManager sharedManager] Tool_logPlanName:@"SI小于负5&BP<110" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一月内" comments:@"过激反应？ 不要杀跌   要低吸 "];
-            }
-            
-            if (tempIncrease >= 9 && stockModel.full_price.floatValue < 110) {
-                [[SMLogManager sharedManager] Tool_logPlanName:@"SI > 9 history" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.price whenToVerify:@"两三天内回调" comments:@"两三天后回调低吸 华通and三力，即便诱多价也在110以下！ 三力-确实工业大麻很给力，老挝。  华通？确实有公告！ 二者在110以下都可以建仓，都是小盘，都很活跃！！！ 看到9.29！ 亚太、久其"];
-                //按照该策略，可以建仓亚太了！   股价涨停，有预期。-----内部有大的利好，还未公布而已！一月可期！ 而转债回调了第4天了。刚好回调到了30%。
-            }
-            
-            if (tempIncrease >=9.00) {
-                NSString *keyInfo = [NSString stringWithFormat:@"BP=%@",stockModel.full_price];
-                [SIBigger10dictPlist setValue:keyInfo forKey:[stockModel.stock_nm stringByAppendingString:dateStr]];
-            }
-            
-            if (tempIncrease >= 9.00 && stockModel.increase_rt.floatValue < 0.9) {//0.9即0.9%
-                YYMockBuyModel *mockBuy = [[YYMockBuyModel alloc] init];
-                mockBuy.bond_id = [stockModel.bond_id stringByAppendingString:dateStr];
-                mockBuy.buyPrice = stockModel.full_price;
-                mockBuy.buyCount = 100;
-                mockBuy.cost = mockBuy.buyPrice.floatValue * mockBuy.buyCount;
-                mockBuy.buyIntoTime = dateStr;
-                
-                [XMGSqliteModelTool saveOrUpdateModel:mockBuy uid:@"mockExchange"];
-            }
+//            NSRange range = [stockModel.sincrease_rt rangeOfString:@"."];
+//            float tempIncrease = [stockModel.sincrease_rt substringToIndex:range.location].floatValue;
+//            if (tempIncrease > 5 && stockModel.full_price.floatValue < 115) {
+//                [[SMLogManager sharedManager] Tool_logPlanName:@"SI大于5&BP<115" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一月内" comments:@" 不要追涨？  要高抛  行情启动or挖坑 115为蓝思"];
+//            }
+//
+//            if (tempIncrease <= -5) {
+//                [[SMLogManager sharedManager] Tool_logPlanName:@"SI小于负5&BP<110" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一月内" comments:@"过激反应？ 不要杀跌   要低吸 "];
+//            }
+//
+//            if (tempIncrease >= 9 && stockModel.full_price.floatValue < 110) {
+//                [[SMLogManager sharedManager] Tool_logPlanName:@"SI > 9 history" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.price whenToVerify:@"两三天内回调" comments:@"两三天后回调低吸 华通and三力，即便诱多价也在110以下！ 三力-确实工业大麻很给力，老挝。  华通？确实有公告！ 二者在110以下都可以建仓，都是小盘，都很活跃！！！ 看到9.29！ 亚太、久其"];
+//                //按照该策略，可以建仓亚太了！   股价涨停，有预期。-----内部有大的利好，还未公布而已！一月可期！ 而转债回调了第4天了。刚好回调到了30%。
+//            }
+//
+//            if (tempIncrease >=9.00) {
+//                NSString *keyInfo = [NSString stringWithFormat:@"BP=%@",stockModel.full_price];
+//                [SIBigger10dictPlist setValue:keyInfo forKey:[stockModel.stock_nm stringByAppendingString:dateStr]];
+//            }
+//
+//            if (tempIncrease >= 9.00 && stockModel.increase_rt.floatValue < 0.9) {//0.9即0.9%
+//                YYMockBuyModel *mockBuy = [[YYMockBuyModel alloc] init];
+//                mockBuy.bond_id = [stockModel.bond_id stringByAppendingString:dateStr];
+//                mockBuy.buyPrice = stockModel.full_price;
+//                mockBuy.buyCount = 100;
+//                mockBuy.cost = mockBuy.buyPrice.floatValue * mockBuy.buyCount;
+//                mockBuy.buyIntoTime = dateStr;
+//
+//                [XMGSqliteModelTool saveOrUpdateModel:mockBuy uid:@"mockExchange"];
+//            }
            
             //股价涨幅  远大于 债涨幅  启动迹象！！！
             if (stockModel.sprice.floatValue - stockModel.convert_price.floatValue < 1.00
@@ -735,6 +760,7 @@ static int AllCount = 1;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:dateStr];
                 //
+                
                 
                 NSArray *sqliteArray = @[@"2019-09-06",@"2019-09-02",@"2019-09-03",@"2019-09-04",@"2019-09-05",];
                 
@@ -1076,7 +1102,7 @@ static int AllCount = 1;
 
 -(NSArray *)headTitles{
     if (!_headTitles) {//单独的可排序
-        _headTitles = [NSArray arrayWithObjects:@"债价/成本",@"债涨跌幅",@"股价",@"股涨跌幅",@"回售触发)价",@"转股价",@"强赎触发价",@"卖出参考:",@"股价偏离度",@"转股溢价率",@"转股占比",@"强天数",@"弱天数",@"剩余年限",@"剩余规模",@"买入参考:",@"评级-涨停个数",@"到期回售价",@"转股起始日",@"股价K线图",@"债K线图",@"公告",@"主营业务",@"概念",@"历史数据",nil];
+        _headTitles = [NSArray arrayWithObjects:@"债价/成本",@"债涨跌幅",@"股价",@"股涨跌幅",@"回售触发)价",@"转股价",@"强赎触发价",@"卖出参考:",@"股价偏离度",@"转股溢价率",@"转股占比",@"强天数",@"弱天数",@"剩余年限",@"剩余规模",@"成交额",@"活跃度",@"买入参考:",@"评级-涨停个数",@"到期回售价",@"转股起始日",@"股价K线图",@"债K线图",@"公告",@"主营业务",@"概念",@"历史数据",nil];
     }
     return _headTitles;
 }
@@ -1108,6 +1134,8 @@ static int AllCount = 1;
      [self.headMatchContents addObject:[NSString stringWithFormat:@"%@/%@-%@",model.put_real_days,model.put_total_days,model.put_count_days]];
     [self.headMatchContents addObject:model.year_left];
     [self.headMatchContents addObject:[NSString stringWithFormat:@"%@/%@",model.curr_iss_amt,model.orig_iss_amt] ];
+    [self.headMatchContents addObject:[NSString stringWithFormat:@"%@",model.volume] ];
+    [self.headMatchContents addObject:[NSString stringWithFormat:@"%f",model.volume.floatValue/model.curr_iss_amt.floatValue] ];
     
     [self.headMatchContents addObject:@""];
     [self.headMatchContents addObject:[model.rating_cd stringByAppendingFormat:@"%d个",model.SIBibber9Count]];

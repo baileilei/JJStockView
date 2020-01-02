@@ -140,6 +140,7 @@
 @property (nonatomic,copy) NSString *stock_id;//股票代码
 @property (nonatomic,copy) NSString *stock_net_value;//PB ------纯债价值？ 期权价值？
 @property (nonatomic,copy) NSString *stock_nm;//股票名称
+@property (nonatomic,copy) NSString *svolume;
 @property (nonatomic,copy) NSString *volume;//成交额   ------Y
 
 @property (nonatomic,copy) NSString *year_left;//剩余年限

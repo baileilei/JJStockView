@@ -27,7 +27,7 @@
     
     [self showLocalNote:localNote];
     
-    SMLoginVc* view = [[SMLoginVc alloc] init];
+    DemoViewController* view = [[DemoViewController alloc] init];
     UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:view];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = nav;

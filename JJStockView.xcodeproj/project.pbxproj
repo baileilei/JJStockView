@@ -140,6 +140,7 @@
 		B695EE3A233225820094F717 /* HNLoginIPView.m in Sources */ = {isa = PBXBuildFile; fileRef = B695EE38233225820094F717 /* HNLoginIPView.m */; };
 		B695EE4123322B230094F717 /* Localizations.strings in Resources */ = {isa = PBXBuildFile; fileRef = B695EE4323322B230094F717 /* Localizations.strings */; };
 		B6AAD1E5230102F40048ED8E /* YYCacheGroupTable.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AAD1E4230102F40048ED8E /* YYCacheGroupTable.m */; };
+		B6BBFF4E23BDD18B006E8352 /* YYActiveDegree.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BBFF4D23BDD18B006E8352 /* YYActiveDegree.m */; };
 		B6BD634D2318EA540071A980 /* SMLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BD634C2318EA540071A980 /* SMLogManager.m */; };
 		B6BD63502318EC3D0071A980 /* PrintBeautifulLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BD634F2318EC3D0071A980 /* PrintBeautifulLog.m */; };
 		B6C12612233B43BF0016EBD6 /* YYHoldingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C12611233B43BF0016EBD6 /* YYHoldingViewController.m */; };
@@ -439,6 +440,8 @@
 		B695EE4523322B4A0094F717 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizations.strings; sourceTree = "<group>"; };
 		B6AAD1E3230102F40048ED8E /* YYCacheGroupTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYCacheGroupTable.h; sourceTree = "<group>"; };
 		B6AAD1E4230102F40048ED8E /* YYCacheGroupTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYCacheGroupTable.m; sourceTree = "<group>"; };
+		B6BBFF4C23BDD18B006E8352 /* YYActiveDegree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYActiveDegree.h; sourceTree = "<group>"; };
+		B6BBFF4D23BDD18B006E8352 /* YYActiveDegree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYActiveDegree.m; sourceTree = "<group>"; };
 		B6BD634B2318EA540071A980 /* SMLogManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMLogManager.h; sourceTree = "<group>"; };
 		B6BD634C2318EA540071A980 /* SMLogManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMLogManager.m; sourceTree = "<group>"; };
 		B6BD634E2318EC3D0071A980 /* PrintBeautifulLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrintBeautifulLog.h; sourceTree = "<group>"; };
@@ -559,6 +562,8 @@
 				B615F3E323420CAD00B0EC62 /* YYDueBondModel.h */,
 				B615F3E423420CAD00B0EC62 /* YYDueBondModel.m */,
 				060C4B7B222259DE004BA326 /* YYStockModel.h */,
+				B6BBFF4C23BDD18B006E8352 /* YYActiveDegree.h */,
+				B6BBFF4D23BDD18B006E8352 /* YYActiveDegree.m */,
 				B6C543B92338A959002281BD /* YYSingleStockModel.h */,
 				B6C543B82338A959002281BD /* YYSingleStockModel.m */,
 				B615F3E02341E22F00B0EC62 /* YYSingleBondModel.h */,
@@ -1567,6 +1572,7 @@
 				B6BD63502318EC3D0071A980 /* PrintBeautifulLog.m in Sources */,
 				61F13E7A1F91F670002F4681 /* AppDelegate.m in Sources */,
 				B695EE3A233225820094F717 /* HNLoginIPView.m in Sources */,
+				B6BBFF4E23BDD18B006E8352 /* YYActiveDegree.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
