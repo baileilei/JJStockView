@@ -46,6 +46,14 @@ static NSString *const FooterViewCellID = @"FooterViewCellID";
 
 #pragma mark - 创建子控件
 - (void)creatChildViewToNetworkFooterView {
+    UIButton *saveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self addSubview:saveBtn];
+    [saveBtn mas_makeConstraints:^(HMTMASConstraintMaker *make) {
+        make.top.mas_equalTo(self);
+        make.right.mas_equalTo(self);
+    }];
+    [saveBtn setTitle:@"保存" forState:UIControlStateNormal];
+    [saveBtn addTarget:self action:@selector(save) forControlEvents:UIControlEventTouchUpInside];
     //1.创建标题lable
     SMEditLabel *titleLable = [[SMEditLabel alloc] init];
     [self addSubview:titleLable];
@@ -56,7 +64,7 @@ static NSString *const FooterViewCellID = @"FooterViewCellID";
     }];
     titleLable.font = [UIFont systemFontOfSize:24 * WIDTH_PROPORTION];
 //    titleLable.textColor = [UIColor CustomColorByStr:@"#212121"];
-    titleLable.numberOfLines = 0;
+//    titleLable.numberOfLines = 0;
     titleLable.text = @"快捷功能";
     self.titleLable = titleLable;
     
@@ -112,6 +120,9 @@ static NSString *const FooterViewCellID = @"FooterViewCellID";
 }
 
 
+-(void)save{
+    
+}
 
 
 @end

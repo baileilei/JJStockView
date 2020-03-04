@@ -104,6 +104,7 @@
 		B63263122305135F003AEC58 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B63263052305135F003AEC58 /* View+MASAdditions.m */; };
 		B63263132305135F003AEC58 /* HMTMASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = B63263082305135F003AEC58 /* HMTMASConstraint.m */; };
 		B63263142305135F003AEC58 /* HMTMASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = B632630A2305135F003AEC58 /* HMTMASConstraintMaker.m */; };
+		B641DA1F23C719D600589072 /* YYMarketValueAndTureOver.m in Sources */ = {isa = PBXBuildFile; fileRef = B641DA1E23C719D600589072 /* YYMarketValueAndTureOver.m */; };
 		B658F40123325FF00029BEC8 /* YYAnotherWatchPondStock.m in Sources */ = {isa = PBXBuildFile; fileRef = B658F40023325FF00029BEC8 /* YYAnotherWatchPondStock.m */; };
 		B671E57B22F82B4500483FBA /* WSDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B671E57722F82B4500483FBA /* WSDatePickerView.xib */; };
 		B671E57C22F82B4500483FBA /* WSDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E57822F82B4500483FBA /* WSDatePickerView.m */; };
@@ -113,6 +114,7 @@
 		B671E58422F8518D00483FBA /* YYRedeemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E58322F8518D00483FBA /* YYRedeemModel.m */; };
 		B671E58722F9333000483FBA /* NSString+storeImagePath.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E58622F9333000483FBA /* NSString+storeImagePath.m */; };
 		B671E58A22F951FE00483FBA /* UIViewController+printName.m in Sources */ = {isa = PBXBuildFile; fileRef = B671E58922F951FE00483FBA /* UIViewController+printName.m */; };
+		B67D3E6B23D4041A00ED4F13 /* YYTicaiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B67D3E6A23D4041A00ED4F13 /* YYTicaiModel.m */; };
 		B692B09E2302D56C00E01511 /* 关于.png in Resources */ = {isa = PBXBuildFile; fileRef = B692B0872302D56C00E01511 /* 关于.png */; };
 		B692B09F2302D56C00E01511 /* 箭头.png in Resources */ = {isa = PBXBuildFile; fileRef = B692B0882302D56C00E01511 /* 箭头.png */; };
 		B692B0A02302D56C00E01511 /* 开放源代码.png in Resources */ = {isa = PBXBuildFile; fileRef = B692B0892302D56C00E01511 /* 开放源代码.png */; };
@@ -386,6 +388,8 @@
 		B63263082305135F003AEC58 /* HMTMASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMTMASConstraint.m; sourceTree = "<group>"; };
 		B63263092305135F003AEC58 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		B632630A2305135F003AEC58 /* HMTMASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMTMASConstraintMaker.m; sourceTree = "<group>"; };
+		B641DA1D23C719D600589072 /* YYMarketValueAndTureOver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYMarketValueAndTureOver.h; sourceTree = "<group>"; };
+		B641DA1E23C719D600589072 /* YYMarketValueAndTureOver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYMarketValueAndTureOver.m; sourceTree = "<group>"; };
 		B658F3FF23325FF00029BEC8 /* YYAnotherWatchPondStock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYAnotherWatchPondStock.h; sourceTree = "<group>"; };
 		B658F40023325FF00029BEC8 /* YYAnotherWatchPondStock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYAnotherWatchPondStock.m; sourceTree = "<group>"; };
 		B671E57422F82B4500483FBA /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
@@ -403,6 +407,8 @@
 		B671E58622F9333000483FBA /* NSString+storeImagePath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+storeImagePath.m"; sourceTree = "<group>"; };
 		B671E58822F951FE00483FBA /* UIViewController+printName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+printName.h"; sourceTree = "<group>"; };
 		B671E58922F951FE00483FBA /* UIViewController+printName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+printName.m"; sourceTree = "<group>"; };
+		B67D3E6923D4041A00ED4F13 /* YYTicaiModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYTicaiModel.h; sourceTree = "<group>"; };
+		B67D3E6A23D4041A00ED4F13 /* YYTicaiModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYTicaiModel.m; sourceTree = "<group>"; };
 		B692B0872302D56C00E01511 /* 关于.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "关于.png"; sourceTree = "<group>"; };
 		B692B0882302D56C00E01511 /* 箭头.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "箭头.png"; sourceTree = "<group>"; };
 		B692B0892302D56C00E01511 /* 开放源代码.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "开放源代码.png"; sourceTree = "<group>"; };
@@ -557,6 +563,8 @@
 				B658F3FF23325FF00029BEC8 /* YYAnotherWatchPondStock.h */,
 				B658F40023325FF00029BEC8 /* YYAnotherWatchPondStock.m */,
 				B631FD2D23223114001ED114 /* YYMockBuyModel.h */,
+				B641DA1D23C719D600589072 /* YYMarketValueAndTureOver.h */,
+				B641DA1E23C719D600589072 /* YYMarketValueAndTureOver.m */,
 				B631FD2E23223114001ED114 /* YYMockBuyModel.m */,
 				060C4B972222741D004BA326 /* YYBuyintoStockModel.m */,
 				B615F3E323420CAD00B0EC62 /* YYDueBondModel.h */,
@@ -564,6 +572,8 @@
 				060C4B7B222259DE004BA326 /* YYStockModel.h */,
 				B6BBFF4C23BDD18B006E8352 /* YYActiveDegree.h */,
 				B6BBFF4D23BDD18B006E8352 /* YYActiveDegree.m */,
+				B67D3E6923D4041A00ED4F13 /* YYTicaiModel.h */,
+				B67D3E6A23D4041A00ED4F13 /* YYTicaiModel.m */,
 				B6C543B92338A959002281BD /* YYSingleStockModel.h */,
 				B6C543B82338A959002281BD /* YYSingleStockModel.m */,
 				B615F3E02341E22F00B0EC62 /* YYSingleBondModel.h */,
@@ -1485,6 +1495,7 @@
 			files = (
 				B6C543BA2338A959002281BD /* YYSingleStockModel.m in Sources */,
 				B63263132305135F003AEC58 /* HMTMASConstraint.m in Sources */,
+				B67D3E6B23D4041A00ED4F13 /* YYTicaiModel.m in Sources */,
 				B671E57E22F82B4500483FBA /* UIView+Extension.m in Sources */,
 				06C5BBD42253319D0037B993 /* TFEvent.m in Sources */,
 				FDF0BEF72230E9490040A892 /* YYKLineWebViewController.m in Sources */,
@@ -1543,6 +1554,7 @@
 				06C307522266CACE00B08B4B /* YYSelfCollectViewController.m in Sources */,
 				FD0E6942223630E200B1F67F /* AFURLRequestSerialization.m in Sources */,
 				B619E829235DCB700066C56B /* SMLoginVc.m in Sources */,
+				B641DA1F23C719D600589072 /* YYMarketValueAndTureOver.m in Sources */,
 				B631FD402325E997001ED114 /* FMResultSet.m in Sources */,
 				B619E82F235DCC410066C56B /* SMLoginManage.m in Sources */,
 				060C4B81222259DE004BA326 /* YYMenuLabel.m in Sources */,

@@ -28,6 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setDefaultLog;
 - (void)clearExpiredLog;
 
+-(void)saveLogWithFileName:(NSString *)date;
+-(void)openLogFileWithFielName:(NSString *)date;
+
 @end
 
 NS_ASSUME_NONNULL_END

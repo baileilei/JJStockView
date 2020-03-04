@@ -14,6 +14,8 @@
 #import "YYMockBuyModel.h"
 #import "YYSingleBondModel.h"
 #import "YYDueBondModel.h"
+#import "YYMarketValueAndTureOver.h"
+#import "YYTicaiModel.h"
 
 //V
 #import "WSDatePickerView.h"
@@ -111,7 +113,7 @@ static int AllCount = 1;
     
 //    [self requestData];
     
-    [self testAPIWithAFN];
+//    [self testAPIWithAFN];
     
     self.navigationItem.title = @"股票表格";
     
@@ -123,9 +125,10 @@ static int AllCount = 1;
     
     self.stockView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
     HNNetworkFooterView *header = [[HNNetworkFooterView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 100)];
+    header.backgroundColor = [UIColor orangeColor];
     //SELECT sprice - convert_price, bond_nm,full_price from YYStockModel where sprice - convert_price > 0 ORDER BY sprice - convert_price;
     //投资模型！   变量因子：时间，股价差。 目的：转债。
-    header.titleLable.text = @"看板：9.25 格力地产的价格是多少？ 5.23？ 未来热点：环保，大气污染（12月）工业大麻--三力士 近期热点：垃圾分类 /深圳概念/ 猪概念(高抛低吸)---------急涨抛，急跌吸---------";
+    header.titleLable.text = @"缩量滞跌   放量滞涨  放量下跌 缩量上涨---局部，一周为宜   看板：9.25 格力地产的价格是多少？ 5.23？ 未来热点：环保，大气污染（12月）工业大麻--三力士 ";
     self.stockView.jjStockTableView.tableHeaderView = header;
     [self.view addSubview:self.stockView];
     
@@ -509,6 +512,13 @@ static int AllCount = 1;
         }];
     }
     
+    if ([btn.currentTitle isEqualToString:@"s活跃度"]) {
+        [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
+            return (obj1.svolume.floatValue/obj1.curr_iss_amt.floatValue) < (obj2.svolume.floatValue/obj2.curr_iss_amt.floatValue);
+            
+        }];
+    }
+    
     
     if ([btn.currentTitle isEqualToString:@"历史数据"]){
         
@@ -550,6 +560,7 @@ static int AllCount = 1;
         return _stockView;
     }
     _stockView = [JJStockView new];
+//    _stockView.backgroundColor = [UIColor orangeColor];
     _stockView.dataSource = self;
     _stockView.delegate = self;
     return _stockView;
@@ -591,11 +602,99 @@ static int AllCount = 1;
             NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
             degree.date = dateStr;
             
+            NSString *pmURL = [NSString stringWithFormat:@"http://f10.eastmoney.com/PC_HSF10/IndustryAnalysis/IndustryAnalysisAjax?code=%@&icode=447",degree.stock_id];
+            [[BaseNetManager defaultManager] GET:pmURL parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                NSLog(@" paiming---%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+                degree.ticai = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                NSLog(@"json-----%@",json);
+                NSMutableString *ticai;
+                NSMutableArray *temp = [NSMutableArray array];
+                for (NSDictionary *dict in json[@"gsgmjlr"]) {
+                    if ([degree.stock_nm isEqualToString:dict[@"jc"]]) {
+                        degree.gsgmjlr = dict[@"jlr"];
+                        degree.gsgmzsz = dict[@"zsz"];
+                        degree.gsgmltsz = dict[@"ltsz"];
+                        degree.gsgmyysr = dict[@"yysr"];
+                        degree.gsgmjlr_pm = dict[@"pm"];
+                    }
+                }
+                
+                for (NSDictionary *dict in json[@"gsgmyysr"]) {
+                    if ([degree.stock_nm isEqualToString:dict[@"jc"]]) {
+//                        degree.gsgmjlr = dict[@"jlr"];
+//                        degree.gsgmzsz = dict[@"zsz"];
+//                        degree.gsgmlgsz = dict[@"lgsz"];
+//                        degree.gsgmyysr = dict[@"yysr"];
+                        degree.gsgmyysr_pm = dict[@"pm"];
+                    }
+                }
+                for (NSDictionary *dict in json[@"gsgmltsz"]) {
+                    if ([degree.stock_nm isEqualToString:dict[@"jc"]]) {
+//                        degree.gsgmjlr = dict[@"jlr"];
+//                        degree.gsgmzsz = dict[@"zsz"];
+//                        degree.gsgmltsz = dict[@"lgsz"];
+//                        degree.gsgmyysr = dict[@"yysr"];
+                        degree.gsgmltsz_pm = dict[@"pm"];
+                    }
+                }
+                //如何纵向观察一个数组
+                NSLog(@"jyscbm=%@,zqdm=%@,zqjc=%@,zqnm=%@",[[temp valueForKey:@"jyscbm"] componentsJoinedByString:@","],[[temp valueForKey:@"zqdm"] componentsJoinedByString:@","],[[temp valueForKey:@"zqjc"] componentsJoinedByString:@","],[[temp valueForKey:@"zqnm"] componentsJoinedByString:@","]);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [XMGSqliteModelTool saveOrUpdateModel:degree uid:@"Degree"];
+                });
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                NSLog(@"ticai - 失败");
+                
+            }];
+
+            
+            NSString *ticaiUrl = [NSString stringWithFormat:@"http://f10.eastmoney.com/CoreConception/CoreConceptionAjax?code=%@",degree.stock_id];
+//            degree.ticai
+//            [self testAPIWithAFN];
+//            dispatch_async(dispatch_get_main_queue(), ^{
+            [[BaseNetManager defaultManager] GET:ticaiUrl parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                NSLog(@"题材---%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+                degree.ticai = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                NSLog(@"json-----%@",json);
+                NSMutableString *ticai;
+                NSMutableArray *temp = [NSMutableArray array];
+                for (NSDictionary *dict in json[@"hxtc"]) {
+                    YYTicaiModel *ticaiModel = [[YYTicaiModel alloc] init];
+                    [ticaiModel setValuesForKeysWithDictionary:dict];
+                    
+                    if ([ticaiModel.yd isEqualToString:@"1"]) {
+                        degree.ssbk = ticaiModel.ydnr;
+                    }
+                    
+                    [temp addObject:ticaiModel];
+                }
+                
+                [temp valueForKey:@"ydnr"];
+                degree.ticai = ticai;
+                degree.ticaiNumbers = [[temp valueForKey:@"yd"] componentsJoinedByString:@","];
+                degree.ticaiBrief = [[temp valueForKey:@"gjc"] componentsJoinedByString:@","];
+                degree.ticaiDetail = [[temp valueForKey:@"ydnr"] componentsJoinedByString:@","];
+                //如何纵向观察一个数组   
+                NSLog(@"jyscbm=%@,zqdm=%@,zqjc=%@,zqnm=%@",[[temp valueForKey:@"jyscbm"] componentsJoinedByString:@","],[[temp valueForKey:@"zqdm"] componentsJoinedByString:@","],[[temp valueForKey:@"zqjc"] componentsJoinedByString:@","],[[temp valueForKey:@"zqnm"] componentsJoinedByString:@","]);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [XMGSqliteModelTool saveOrUpdateModel:degree uid:@"Degree"];
+                });
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                NSLog(@"ticai - 失败");
+                
+            }];
+//            });
+            
             degree.bond_Degree = [NSString stringWithFormat:@"%f",degree.volume.floatValue/degree.curr_iss_amt.floatValue];
             
             degree.stock_Degree = [NSString stringWithFormat:@"%f",degree.svolume.floatValue/degree.curr_iss_amt.floatValue];
             
             degree.stock_id = [NSString stringWithFormat:@"%@-%@",degree.stock_id,dateStr];
+            degree.currentEnergyFlow = [NSString stringWithFormat:@"%f",degree.volume.floatValue/degree.increase_rt.floatValue];
+            degree.scurrentEnergyFlow = [NSString stringWithFormat:@"%f",degree.svolume.floatValue/degree.sincrease_rt.floatValue];
+            
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [XMGSqliteModelTool saveOrUpdateModel:degree uid:@"Degree"];
@@ -921,12 +1020,62 @@ static int AllCount = 1;
     //发行流程：董事会预案 → 股东大会批准 → 证监会受理 → 发审委通过 → 证监会核准批文 → 发行公告
     //https://www.jisilu.cn/data/cbnew/pre_list/?___jsl=LST___t=1566207894005
     //http://stock.jrj.com.cn/action/gudong/getGudongDataByCode.jspa?vname=stockgudongData&stockcode=600519&_=1569474620679
-    [[BaseNetManager defaultManager] GET:@"https://www.jisilu.cn/jisiludata/safe_stock.php?___jsl=LST___t=1568810772785" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[BaseNetManager defaultManager] GET:@"http://f10.eastmoney.com/CoreConception/CoreConceptionAjax?code=sz002851" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"AFN ----responseObject----%@",responseObject);
         
         NSLog(@"%@",[[NSString alloc] initWithData:responseObject encoding:nil]);
         
         NSString *str = [[NSString alloc] initWithData:responseObject encoding:nil];
+        str = [str substringFromIndex:@"IO.XSRV2.CallbackList['b4VIm$HArIJ1qfKO']".length];
+        NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"()[]"];
+        str = [str stringByTrimmingCharactersInSet:set];
+        
+        NSArray *strArray = [str componentsSeparatedByString:@"},{"];
+        NSDate *date = [NSDate date];
+        NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
+        for (NSString *string in strArray) {
+            NSString *formartStr;
+            if ([string containsString:@"{"]) {
+                
+                formartStr = [NSString stringWithFormat:@"\@\"%@}\"",string];
+                
+            }else if ([string containsString:@"}"]){
+                formartStr = [NSString stringWithFormat:@"\@\"{%@\"",string];
+            }else{
+                formartStr = [NSString stringWithFormat:@"\@\"{%@}\"",string];
+            }
+            
+            NSArray *targetArray = [formartStr componentsSeparatedByString:@","];
+            
+            
+            YYMarketValueAndTureOver *marketModel = [[YYMarketValueAndTureOver alloc] init];
+            
+            NSString *targetStr1 = [NSString stringWithFormat:@"%@",targetArray[1]];
+            NSString *targetStr2 = [NSString stringWithFormat:@"%@",targetArray[2]];
+            NSString *targetStr13 = [NSString stringWithFormat:@"%@",targetArray[13]];
+            
+            NSString *targetStr20 = [NSString stringWithFormat:@"%@",targetArray[20]];
+            NSCharacterSet *set2 = [NSCharacterSet characterSetWithCharactersInString:@"\"\"\""];
+            targetStr1 = [targetStr1 stringByTrimmingCharactersInSet:set2];
+            targetStr2 = [targetStr2 stringByTrimmingCharactersInSet:set2];
+            targetStr13 = [targetStr13 stringByTrimmingCharactersInSet:set2];
+            targetStr20 = [targetStr20 stringByTrimmingCharactersInSet:set2];
+            marketModel.code = [targetStr1 substringFromIndex:@"code:".length];
+            marketModel.name = [targetStr2 substringFromIndex:@"name:".length];
+            
+            marketModel.amount = [targetStr13 substringFromIndex:@"amount:".length];
+            marketModel.nmc = [targetStr20 substringFromIndex:@"nmc:".length];
+            
+            marketModel.date = dateStr;
+            marketModel.symbol = [NSString stringWithFormat:@"%@-%@",marketModel.code,dateStr];
+            
+            [XMGSqliteModelTool saveOrUpdateModel:marketModel uid:@"marcketActive"];
+            /*
+        symbol:"sh601398",code:"601398",name:"¹¤ÉÌÒøÐÐ",trade:"5.910",pricechange:"0.000",changepercent:"0.000",buy:"5.900",sell:"5.910",settlement:"5.910",open:"5.950",high:"5.960",low:"5.880",volume:"137713429",amount:"813806686",ticktime:"15:00:06",per:7.207,per_d:6.8,nta:"6.7900",pb:0.87,mktcap:210636097.9396,nmc:159340817.61055,turnoverratio:0.05108
+             */
+            
+        }
+        
         NSData *jsonData = [str dataUsingEncoding:NSUTF8StringEncoding];
         
         
@@ -1102,7 +1251,7 @@ static int AllCount = 1;
 
 -(NSArray *)headTitles{
     if (!_headTitles) {//单独的可排序
-        _headTitles = [NSArray arrayWithObjects:@"债价/成本",@"债涨跌幅",@"股价",@"股涨跌幅",@"回售触发)价",@"转股价",@"强赎触发价",@"卖出参考:",@"股价偏离度",@"转股溢价率",@"转股占比",@"强天数",@"弱天数",@"剩余年限",@"剩余规模",@"成交额",@"活跃度",@"买入参考:",@"评级-涨停个数",@"到期回售价",@"转股起始日",@"股价K线图",@"债K线图",@"公告",@"主营业务",@"概念",@"历史数据",nil];
+        _headTitles = [NSArray arrayWithObjects:@"债价/成本",@"债涨跌幅",@"股价",@"股涨跌幅",@"回售触发)价",@"转股价",@"强赎触发价",@"卖出参考:",@"股价偏离度",@"转股溢价率",@"转股占比",@"强天数",@"距转股天数",@"剩余年限",@"剩余规模",@"成交额",@"活跃度",@"s活跃度",@"买入参考:",@"评级-涨停个数",@"到期回售价",@"转股起始日",@"股价K线图",@"债K线图",@"公告",@"主营业务",@"概念",@"历史数据",nil];
     }
     return _headTitles;
 }
@@ -1131,11 +1280,13 @@ static int AllCount = 1;
     [self.headMatchContents addObject:[NSString stringWithFormat:@"%f",model.convertToStockRatio]];//
     
     [self.headMatchContents addObject:[NSString stringWithFormat:@"%@/%@-%@",model.redeem_real_days,model.redeem_total_days,model.redeem_count_days]];
-     [self.headMatchContents addObject:[NSString stringWithFormat:@"%@/%@-%@",model.put_real_days,model.put_total_days,model.put_count_days]];
+     [self.headMatchContents addObject:[NSString stringWithFormat:@"%@/%@",model.passConvert_dt_days,model.convert_dt]];
     [self.headMatchContents addObject:model.year_left];
     [self.headMatchContents addObject:[NSString stringWithFormat:@"%@/%@",model.curr_iss_amt,model.orig_iss_amt] ];
     [self.headMatchContents addObject:[NSString stringWithFormat:@"%@",model.volume] ];
     [self.headMatchContents addObject:[NSString stringWithFormat:@"%f",model.volume.floatValue/model.curr_iss_amt.floatValue] ];
+    [self.headMatchContents addObject:[NSString stringWithFormat:@"%f",model.svolume.floatValue/model.curr_iss_amt.floatValue] ];
+    
     
     [self.headMatchContents addObject:@""];
     [self.headMatchContents addObject:[model.rating_cd stringByAppendingFormat:@"%d个",model.SIBibber9Count]];

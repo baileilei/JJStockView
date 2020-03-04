@@ -17,7 +17,7 @@ typedef enum : NSUInteger {
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SMEditLabel : UILabel
+@interface SMEditLabel : UITextView
 
 @property (nonatomic,assign) CopyLabelStatus lableType;
 @end
