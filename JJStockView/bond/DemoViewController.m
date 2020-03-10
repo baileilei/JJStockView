@@ -622,19 +622,11 @@ static int AllCount = 1;
                 
                 for (NSDictionary *dict in json[@"gsgmyysr"]) {
                     if ([degree.stock_nm isEqualToString:dict[@"jc"]]) {
-//                        degree.gsgmjlr = dict[@"jlr"];
-//                        degree.gsgmzsz = dict[@"zsz"];
-//                        degree.gsgmlgsz = dict[@"lgsz"];
-//                        degree.gsgmyysr = dict[@"yysr"];
                         degree.gsgmyysr_pm = dict[@"pm"];
                     }
                 }
                 for (NSDictionary *dict in json[@"gsgmltsz"]) {
                     if ([degree.stock_nm isEqualToString:dict[@"jc"]]) {
-//                        degree.gsgmjlr = dict[@"jlr"];
-//                        degree.gsgmzsz = dict[@"zsz"];
-//                        degree.gsgmltsz = dict[@"lgsz"];
-//                        degree.gsgmyysr = dict[@"yysr"];
                         degree.gsgmltsz_pm = dict[@"pm"];
                     }
                 }
@@ -647,6 +639,56 @@ static int AllCount = 1;
                 NSLog(@"ticai - 失败");
                 
             }];
+            
+            
+            
+            
+            NSString *xmURL = [NSString stringWithFormat:@"http://f10.eastmoney.com/PC_HSF10/CapitalOperation/CapitalOperationAjax?code=%@&orderBy=1&isAsc=false",degree.stock_id];
+            [[BaseNetManager defaultManager] GET:xmURL parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                NSLog(@" paiming---%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+                degree.xmList = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                NSLog(@"json-----%@",json);
+                degree.xmListBrief = [[json[@"ProjectProgress"] valueForKey:@"xmmc"] componentsJoinedByString:@","];
+                NSMutableString *xm;
+                NSMutableArray *temp = [NSMutableArray array];
+//                for (NSDictionary *dict in json[@"ProjectProgress"]) {
+//                    degree.xmList = [@"" stringByAppendingString:@"%@",dict[@"xmmc"]];
+//                }
+                
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [XMGSqliteModelTool saveOrUpdateModel:degree uid:@"Degree"];
+                });
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                NSLog(@"ticai - 失败");
+                
+            }];
+            
+            
+            NSString *zygcURL = [NSString stringWithFormat:@"http://f10.eastmoney.com/PC_HSF10/BusinessAnalysis/BusinessAnalysisAjax?code=%@",degree.stock_id];
+            [[BaseNetManager defaultManager] GET:zygcURL parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                NSLog(@" paiming---%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+                degree.zygcList = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                NSLog(@"json-----%@",json);
+                degree.zygcListBrief = [[json[@"zygcfx"][0][@"hy"] valueForKey:@"zygc"] componentsJoinedByString:@","];
+                
+                NSMutableString *xm;
+                NSMutableArray *temp = [NSMutableArray array];
+                //                for (NSDictionary *dict in json[@"ProjectProgress"]) {
+                //                    degree.xmList = [@"" stringByAppendingString:@"%@",dict[@"xmmc"]];
+                //                }
+                
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [XMGSqliteModelTool saveOrUpdateModel:degree uid:@"Degree"];
+                });
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                NSLog(@"ticai - 失败");
+                
+            }];
+
 
             
             NSString *ticaiUrl = [NSString stringWithFormat:@"http://f10.eastmoney.com/CoreConception/CoreConceptionAjax?code=%@",degree.stock_id];

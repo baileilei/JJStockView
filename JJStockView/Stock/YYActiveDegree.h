@@ -31,6 +31,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,copy) NSString *full_price;//债券现价
 
+@property (nonatomic,copy) NSString *convert_price;//转股价
+
+@property (nonatomic,copy) NSString *force_redeem_price;//强赎触发价！！！！
+//@property (nonatomic,copy) NSString *premium_rt;
+@property (nonatomic,copy) NSString *put_convert_price;//回售触发价！！！！
+@property (nonatomic,copy) NSString *sprice;//股价
+
+@property (nonatomic,copy) NSString *year_left;//剩余年限
+
 @property (nonatomic,copy)NSString *bond_Degree;
 
 @property (nonatomic,copy)NSString *stock_Degree;
@@ -84,6 +93,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,copy) NSString *gsgmyysr_pm;
 @property (nonatomic,copy) NSString *gsgmjlr_pm;
+
+//xmlist
+@property (nonatomic,copy) NSString *xmList;
+@property (nonatomic,copy) NSString *xmListBrief;
+
+@property (nonatomic,copy) NSString *zygcList;
+@property (nonatomic,copy) NSString *zygcListBrief;
 
 //缩量滞跌,缩量上涨---局部 (买入)   放量滞涨  放量下跌 ，一周为宜   
 
