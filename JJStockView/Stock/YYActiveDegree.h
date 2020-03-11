@@ -40,9 +40,70 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,copy) NSString *year_left;//剩余年限
 
-@property (nonatomic,copy)NSString *bond_Degree;
+@property (nonatomic,copy)NSString *bond_Degree;// 成交额(万)/cur_amt(亿)
 
-@property (nonatomic,copy)NSString *stock_Degree;
+@property (nonatomic,copy)NSString *stock_Degree; //=成交量/(已流通股份-前十大股东-主力持仓)
+
+
+/****解禁***RptRestrictedBanList*/
+//http://f10.eastmoney.com/PC_HSF10/CapitalStockStructure/Index?type=soft&code=SH603822#
+@property (nonatomic,copy)NSString *stock_jjsj;//解禁时间
+@property (nonatomic,copy)NSString *stock_jjsl;//数量
+@property (nonatomic,copy)NSString *stock_jjzgbl;//解禁总股比例
+@property (nonatomic,copy)NSString *stock_jjltbl;//解禁流通比例
+
+/****股本结构***CapitalStockStructureDetail*/
+@property (nonatomic,copy)NSString *stock_ltsxgf;//流通受限股份
+@property (nonatomic,copy)NSString *stock_ltsxgfzb;//流通受限股份占比
+@property (nonatomic,copy)NSString *stock_yltgf;//已流通股份
+@property (nonatomic,copy)NSString *stock_yltgfzb;//已流通股份占比
+@property (nonatomic,copy)NSString *stock_zgb;//总股本
+@property (nonatomic,copy)NSString *stock_zgbzb;//总股本占比
+
+//http://f10.eastmoney.com/PC_HSF10/ShareholderResearch/Index?type=soft&code=SH603822#
+/***sdltgd****十大流通股东*/
+@property (nonatomic,copy)NSString *stock_sdlggdList;//十大股东List
+//@property (nonatomic,copy)NSString *stock_sdltgd_mc;//名次
+//@property (nonatomic,copy)NSString *stock_sdltgd_gdmc;//股东名称
+//@property (nonatomic,copy)NSString *stock_sdltgd_gdxz;//股东性质
+//@property (nonatomic,copy)NSString *stock_sdltgd_gflx;//股份类型
+//@property (nonatomic,copy)NSString *stock_sdltgd_cgs;//持股数(股)
+//@property (nonatomic,copy)NSString *stock_sdltgd_zltgbcgbl;//占总流通 股本持股比例
+//@property (nonatomic,copy)NSString *stock_sdltgd_zj;//增减
+//@property (nonatomic,copy)NSString *stock_sdltgd_bdbl;//变动比例
+
+/***sdltgdbd****十大流通股东持股变动*/
+@property (nonatomic,copy)NSString *stock_sdlggdbdList;//十大股东变动List
+
+/***sdltgd_chart****十大流通股东持股变动*/    //集中度!!!
+@property (nonatomic,copy)NSString *stock_sdlggdcg;//十大流通股东持股
+@property (nonatomic,copy)NSString *stock_ltsxgf1;//流通受限股份
+@property (nonatomic,copy)NSString *stock_qtltgf;//其余流通股份
+
+/***zlcc****主力持仓-----基金/保险/券商/QFII/社保基金/信托/其他机构*/
+@property (nonatomic,copy)NSString *stock_zlcc_List;//主力持仓
+@property (nonatomic,copy)NSString *stock_zlcc_jglx;//机构类型
+@property (nonatomic,copy)NSString *stock_zlcc_ccjs;//持仓家数
+@property (nonatomic,copy)NSString *stock_zlcc_ccgs;//持仓股数
+@property (nonatomic,copy)NSString *stock_zlcc_zltgbl;//占流通股比例
+@property (nonatomic,copy)NSString *stock_zlcc_zltgbbl;//占总股本比例
+
+/***jjcg****基金持股*/
+//@property (nonatomic,copy)NSString *stock_jjcgList;//十大股东List
+//@property (nonatomic,copy)NSString *stock_jjcg_jjdm;//基金代码
+//@property (nonatomic,copy)NSString *stock_jjcg_jjmc;//基金名称
+//@property (nonatomic,copy)NSString *stock_jjcg_cgs;//持股数(股)
+//@property (nonatomic,copy)NSString *stock_jjcg_cgsz;//持股市值
+//@property (nonatomic,copy)NSString *stock_jjcg_zzgbb;//占总股本比
+//
+//@property (nonatomic,copy)NSString *stock_jjcg_zltb;//占流通比
+//@property (nonatomic,copy)NSString *stock_jjcg_zjzb;//占净值比
+//@property (nonatomic,copy)NSString *stock_jjcg_order;//购买
+
+
+
+
+
 
 @property (nonatomic,copy) NSString *increase_rt;//债券涨跌幅   单日
 

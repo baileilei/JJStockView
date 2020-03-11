@@ -665,6 +665,60 @@ static int AllCount = 1;
                 
             }];
             
+            NSString *jjURL = [NSString stringWithFormat:@"http://f10.eastmoney.com/PC_HSF10/CapitalStockStructure/Index?type=soft&code=%@#",degree.stock_id];
+            [[BaseNetManager defaultManager] GET:jjURL parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                NSLog(@" paiming---%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+//                degree.xmList = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                NSLog(@"股本结构-json-----%@",json);
+                degree.stock_jjsj = [json[@"RptRestrictedBanList"] valueForKey:@"jjsj"];
+                degree.stock_jjsl = [json[@"RptRestrictedBanList"] valueForKey:@"jjsl"];
+                degree.stock_jjzgbl = [json[@"RptRestrictedBanList"] valueForKey:@"jjzgbl"];
+                degree.stock_jjltbl = [json[@"RptRestrictedBanList"] valueForKey:@"jjltbl"];
+                
+                degree.stock_zgb = [json[@"CapitalStockStructureDetail"] valueForKey:@"zgb"];
+                degree.stock_ltsxgf = [json[@"CapitalStockStructureDetail"] valueForKey:@"ltsxgf"];
+                degree.stock_ltsxgfzb = [json[@"CapitalStockStructureDetail"] valueForKey:@"ltsxgfzb"];
+                degree.stock_yltgf = [json[@"CapitalStockStructureDetail"] valueForKey:@"yltgf"];
+                degree.stock_yltgfzb = [json[@"CapitalStockStructureDetail"] valueForKey:@"yltgfzb"];
+                degree.stock_zgbzb = [json[@"CapitalStockStructureDetail"] valueForKey:@"zgbzb"];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [XMGSqliteModelTool saveOrUpdateModel:degree uid:@"Degree"];
+                });
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                NSLog(@"ticai - 失败");
+                
+            }];
+            
+            
+            NSString *ltgbURL = [NSString stringWithFormat:@"http://f10.eastmoney.com/PC_HSF10/ShareholderResearch/Index?type=soft&code=SH603822#",degree.stock_id];
+            [[BaseNetManager defaultManager] GET:ltgbURL parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                NSLog(@" paiming---%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+                degree.xmList = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                NSLog(@"股本结构-json-----%@",json);
+                degree.stock_sdlggdList = [json[@"sdltgd"] valueForKey:@"sdltgd"];
+                degree.stock_sdlggdbdList = json[@"sdltgdbd"];
+                
+                degree.stock_sdlggdcg = [json[@"sdltgd_chart"] valueForKey:@"sdlggdcg"];
+                degree.stock_ltsxgf1 = [json[@"sdltgd_chart"] valueForKey:@"ltsxgf"];
+                degree.stock_qtltgf = [json[@"sdltgd_chart"] valueForKey:@"qtltgf"];
+                
+                degree.stock_zlcc_jglx = [json[@"zlcc"] valueForKey:@"jglx"];
+                degree.stock_zlcc_ccjs = [json[@"zlcc"] valueForKey:@"ccjs"];
+                degree.stock_zlcc_ccgs = [json[@"zlcc"] valueForKey:@"ccgs"];
+                degree.stock_zlcc_zltgbl = [json[@"zlcc"] valueForKey:@"zltgbl"];
+                degree.stock_zlcc_zltgbbl = [json[@"zlcc"] valueForKey:@"zltgbbl"];
+//                degree.stock_zlcc_jglx = [json[@"zlcc"] valueForKey:@"jglx"];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [XMGSqliteModelTool saveOrUpdateModel:degree uid:@"Degree"];
+                });
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                NSLog(@"ticai - 失败");
+                
+            }];
             
             NSString *zygcURL = [NSString stringWithFormat:@"http://f10.eastmoney.com/PC_HSF10/BusinessAnalysis/BusinessAnalysisAjax?code=%@",degree.stock_id];
             [[BaseNetManager defaultManager] GET:zygcURL parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
