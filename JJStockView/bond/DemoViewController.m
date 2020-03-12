@@ -508,8 +508,23 @@ static int AllCount = 1;
     if ([btn.currentTitle isEqualToString:@"活跃度"]) {
         [self.stocks sortUsingComparator:^NSComparisonResult(YYStockModel * obj1, YYStockModel * _Nonnull obj2) {
             return (obj1.volume.floatValue/obj1.curr_iss_amt.floatValue) < (obj2.volume.floatValue/obj2.curr_iss_amt.floatValue);
-            
         }];
+        
+        NSDate *date = [NSDate date];
+        NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
+        
+        for (int i =0; i< self.stocks.count; i++) {
+            YYStockModel *m = self.stocks[i];
+            
+            NSString *sql = [NSString stringWithFormat:@"select * from YYActiveDegree where stock_id = '%@-%@'",m.stock_id,dateStr];
+            YYActiveDegree *D=  [XMGSqliteModelTool queryModels:[YYActiveDegree class] WithSql:sql uid:@"Degree"].firstObject;
+            
+            D.bond_Degree_pm_date = [NSString stringWithFormat:@"%d-%@",i+1,dateStr];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [XMGSqliteModelTool saveOrUpdateModel:D uid:@"Degree"];
+            });
+        }
     }
     
     if ([btn.currentTitle isEqualToString:@"s活跃度"]) {
@@ -517,6 +532,23 @@ static int AllCount = 1;
             return (obj1.svolume.floatValue/obj1.curr_iss_amt.floatValue) < (obj2.svolume.floatValue/obj2.curr_iss_amt.floatValue);
             
         }];
+        
+        NSDate *date = [NSDate date];
+        NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
+        
+        for (int i =0; i< self.stocks.count; i++) {
+            YYStockModel *m = self.stocks[i];
+            
+            NSString *sql = [NSString stringWithFormat:@"select * from YYActiveDegree where stock_id = '%@-%@'",m.stock_id,dateStr];
+            YYActiveDegree *D=  [XMGSqliteModelTool queryModels:[YYActiveDegree class] WithSql:sql uid:@"Degree"].firstObject;
+            
+            D.stock_Degree_pm_date = [NSString stringWithFormat:@"%d-%@",i+1,dateStr];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [XMGSqliteModelTool saveOrUpdateModel:D uid:@"Degree"];
+            });
+        }
+
     }
     
     
@@ -602,69 +634,70 @@ static int AllCount = 1;
             NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
             degree.date = dateStr;
             
-            NSString *pmURL = [NSString stringWithFormat:@"http://f10.eastmoney.com/PC_HSF10/IndustryAnalysis/IndustryAnalysisAjax?code=%@&icode=447",degree.stock_id];
-            [[BaseNetManager defaultManager] GET:pmURL parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                NSLog(@" paiming---%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
-                degree.ticai = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-                id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-                NSLog(@"json-----%@",json);
-                NSMutableString *ticai;
-                NSMutableArray *temp = [NSMutableArray array];
-                for (NSDictionary *dict in json[@"gsgmjlr"]) {
-                    if ([degree.stock_nm isEqualToString:dict[@"jc"]]) {
-                        degree.gsgmjlr = dict[@"jlr"];
-                        degree.gsgmzsz = dict[@"zsz"];
-                        degree.gsgmltsz = dict[@"ltsz"];
-                        degree.gsgmyysr = dict[@"yysr"];
-                        degree.gsgmjlr_pm = dict[@"pm"];
-                    }
-                }
-                
-                for (NSDictionary *dict in json[@"gsgmyysr"]) {
-                    if ([degree.stock_nm isEqualToString:dict[@"jc"]]) {
-                        degree.gsgmyysr_pm = dict[@"pm"];
-                    }
-                }
-                for (NSDictionary *dict in json[@"gsgmltsz"]) {
-                    if ([degree.stock_nm isEqualToString:dict[@"jc"]]) {
-                        degree.gsgmltsz_pm = dict[@"pm"];
-                    }
-                }
-                //如何纵向观察一个数组
-                NSLog(@"jyscbm=%@,zqdm=%@,zqjc=%@,zqnm=%@",[[temp valueForKey:@"jyscbm"] componentsJoinedByString:@","],[[temp valueForKey:@"zqdm"] componentsJoinedByString:@","],[[temp valueForKey:@"zqjc"] componentsJoinedByString:@","],[[temp valueForKey:@"zqnm"] componentsJoinedByString:@","]);
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [XMGSqliteModelTool saveOrUpdateModel:degree uid:@"Degree"];
-                });
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                NSLog(@"ticai - 失败");
-                
-            }];
-            
-            
-            
-            
-            NSString *xmURL = [NSString stringWithFormat:@"http://f10.eastmoney.com/PC_HSF10/CapitalOperation/CapitalOperationAjax?code=%@&orderBy=1&isAsc=false",degree.stock_id];
-            [[BaseNetManager defaultManager] GET:xmURL parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                NSLog(@" paiming---%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
-                degree.xmList = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-                id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-                NSLog(@"json-----%@",json);
-                degree.xmListBrief = [[json[@"ProjectProgress"] valueForKey:@"xmmc"] componentsJoinedByString:@","];
-                NSMutableString *xm;
-                NSMutableArray *temp = [NSMutableArray array];
-//                for (NSDictionary *dict in json[@"ProjectProgress"]) {
-//                    degree.xmList = [@"" stringByAppendingString:@"%@",dict[@"xmmc"]];
+            //排名
+//            NSString *pmURL = [NSString stringWithFormat:@"http://f10.eastmoney.com/PC_HSF10/IndustryAnalysis/IndustryAnalysisAjax?code=%@&icode=447",degree.stock_id];
+//            [[BaseNetManager defaultManager] GET:pmURL parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//                NSLog(@" paiming---%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+//                degree.ticai = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+//                id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+//                NSLog(@"json-----%@",json);
+//                NSMutableString *ticai;
+//                NSMutableArray *temp = [NSMutableArray array];
+//                for (NSDictionary *dict in json[@"gsgmjlr"]) {
+//                    if ([degree.stock_nm isEqualToString:dict[@"jc"]]) {
+//                        degree.gsgmjlr = dict[@"jlr"];
+//                        degree.gsgmzsz = dict[@"zsz"];
+//                        degree.gsgmltsz = dict[@"ltsz"];
+//                        degree.gsgmyysr = dict[@"yysr"];
+//                        degree.gsgmjlr_pm = dict[@"pm"];
+//                    }
 //                }
-                
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [XMGSqliteModelTool saveOrUpdateModel:degree uid:@"Degree"];
-                });
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                NSLog(@"ticai - 失败");
-                
-            }];
+//
+//                for (NSDictionary *dict in json[@"gsgmyysr"]) {
+//                    if ([degree.stock_nm isEqualToString:dict[@"jc"]]) {
+//                        degree.gsgmyysr_pm = dict[@"pm"];
+//                    }
+//                }
+//                for (NSDictionary *dict in json[@"gsgmltsz"]) {
+//                    if ([degree.stock_nm isEqualToString:dict[@"jc"]]) {
+//                        degree.gsgmltsz_pm = dict[@"pm"];
+//                    }
+//                }
+//                //如何纵向观察一个数组
+//                NSLog(@"jyscbm=%@,zqdm=%@,zqjc=%@,zqnm=%@",[[temp valueForKey:@"jyscbm"] componentsJoinedByString:@","],[[temp valueForKey:@"zqdm"] componentsJoinedByString:@","],[[temp valueForKey:@"zqjc"] componentsJoinedByString:@","],[[temp valueForKey:@"zqnm"] componentsJoinedByString:@","]);
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [XMGSqliteModelTool saveOrUpdateModel:degree uid:@"Degree"];
+//                });
+//            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//                NSLog(@"ticai - 失败");
+//
+//            }];
             
+            
+            //项目
+            
+//            NSString *xmURL = [NSString stringWithFormat:@"http://f10.eastmoney.com/PC_HSF10/CapitalOperation/CapitalOperationAjax?code=%@&orderBy=1&isAsc=false",degree.stock_id];
+//            [[BaseNetManager defaultManager] GET:xmURL parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//                NSLog(@" paiming---%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+//                degree.xmList = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+//                id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+//                NSLog(@"json-----%@",json);
+//                degree.xmListBrief = [[json[@"ProjectProgress"] valueForKey:@"xmmc"] componentsJoinedByString:@","];
+//                NSMutableString *xm;
+//                NSMutableArray *temp = [NSMutableArray array];
+////                for (NSDictionary *dict in json[@"ProjectProgress"]) {
+////                    degree.xmList = [@"" stringByAppendingString:@"%@",dict[@"xmmc"]];
+////                }
+//
+//
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [XMGSqliteModelTool saveOrUpdateModel:degree uid:@"Degree"];
+//                });
+//            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//                NSLog(@"ticai - 失败");
+//
+//            }];
+            /*************   限售解禁
             NSString *jjURL = [NSString stringWithFormat:@"http://f10.eastmoney.com/PC_HSF10/CapitalStockStructure/Index?type=soft&code=%@#",degree.stock_id];
             [[BaseNetManager defaultManager] GET:jjURL parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 NSLog(@" paiming---%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
@@ -690,9 +723,9 @@ static int AllCount = 1;
                 NSLog(@"ticai - 失败");
                 
             }];
+            */
             
-            
-            NSString *ltgbURL = [NSString stringWithFormat:@"http://f10.eastmoney.com/PC_HSF10/ShareholderResearch/Index?type=soft&code=SH603822#",degree.stock_id];
+            NSString *ltgbURL = [NSString stringWithFormat:@"http://f10.eastmoney.com/PC_HSF10/ShareholderResearch/ShareholderResearchAjax?&code=%@#",degree.stock_id];
             [[BaseNetManager defaultManager] GET:ltgbURL parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 NSLog(@" paiming---%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
                 degree.xmList = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
@@ -701,16 +734,30 @@ static int AllCount = 1;
                 degree.stock_sdlggdList = [json[@"sdltgd"] valueForKey:@"sdltgd"];
                 degree.stock_sdlggdbdList = json[@"sdltgdbd"];
                 
-                degree.stock_sdlggdcg = [json[@"sdltgd_chart"] valueForKey:@"sdlggdcg"];
-                degree.stock_ltsxgf1 = [json[@"sdltgd_chart"] valueForKey:@"ltsxgf"];
-                degree.stock_qtltgf = [json[@"sdltgd_chart"] valueForKey:@"qtltgf"];
+                degree.stock_sdlggdcg = [json[@"sdltgd_chart"][0] valueForKey:@"sdltgdcg"];
+                degree.stock_ltsxgf1 = [json[@"sdltgd_chart"][0] valueForKey:@"ltsxgf"];
+                degree.stock_qtltgf = [json[@"sdltgd_chart"][0] valueForKey:@"qyltgf"];
                 
                 degree.stock_zlcc_jglx = [json[@"zlcc"] valueForKey:@"jglx"];
                 degree.stock_zlcc_ccjs = [json[@"zlcc"] valueForKey:@"ccjs"];
-                degree.stock_zlcc_ccgs = [json[@"zlcc"] valueForKey:@"ccgs"];
-                degree.stock_zlcc_zltgbl = [json[@"zlcc"] valueForKey:@"zltgbl"];
-                degree.stock_zlcc_zltgbbl = [json[@"zlcc"] valueForKey:@"zltgbbl"];
+                
+                if ([[[json[@"zlcc"] lastObject] valueForKey:@"jglx"] isEqualToString:@"合计"] && ![[[json[@"zlcc"] lastObject] valueForKey:@"zltgbbl"] isEqualToString:@"--"]) {
+                    degree.stock_zlcc_zltgbl = [[json[@"zlcc"] lastObject] valueForKey:@"zltgbl"];
+                    degree.stock_zlcc_zltgbbl = [[json[@"zlcc"] lastObject] valueForKey:@"zltgbbl"];
+                    degree.stock_zlcc_ccgs = [[json[@"zlcc"] lastObject] valueForKey:@"ccgs"];
+                }else{
+                    degree.stock_zlcc_zltgbl = 0;
+                    degree.stock_zlcc_zltgbbl = 0;
+                }
+               
 //                degree.stock_zlcc_jglx = [json[@"zlcc"] valueForKey:@"jglx"];
+                
+                degree.stock_jjsj = [json[@"xsjj"] valueForKey:@"jjsj"];
+                degree.stock_jjsl = [json[@"xsjj"] valueForKey:@"jjsl"];
+                degree.stock_jjzgbl = [json[@"xsjj"] valueForKey:@"jjgzzgbbl"];//解禁股占总股本比例
+                degree.stock_jjltbl = [json[@"xsjj"] valueForKey:@"jjgzzgbbl"];//解禁股占流通股本比例
+                
+                degree.stock_Degree = [NSString stringWithFormat:@"%f",degree.svolume.floatValue /(degree.stock_qtltgf.floatValue -degree.stock_zlcc_ccgs.floatValue)*degree.sprice.floatValue];;
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [XMGSqliteModelTool saveOrUpdateModel:degree uid:@"Degree"];
@@ -720,28 +767,28 @@ static int AllCount = 1;
                 
             }];
             
-            NSString *zygcURL = [NSString stringWithFormat:@"http://f10.eastmoney.com/PC_HSF10/BusinessAnalysis/BusinessAnalysisAjax?code=%@",degree.stock_id];
-            [[BaseNetManager defaultManager] GET:zygcURL parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                NSLog(@" paiming---%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
-                degree.zygcList = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-                id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-                NSLog(@"json-----%@",json);
-                degree.zygcListBrief = [[json[@"zygcfx"][0][@"hy"] valueForKey:@"zygc"] componentsJoinedByString:@","];
-                
-                NSMutableString *xm;
-                NSMutableArray *temp = [NSMutableArray array];
-                //                for (NSDictionary *dict in json[@"ProjectProgress"]) {
-                //                    degree.xmList = [@"" stringByAppendingString:@"%@",dict[@"xmmc"]];
-                //                }
-                
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [XMGSqliteModelTool saveOrUpdateModel:degree uid:@"Degree"];
-                });
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                NSLog(@"ticai - 失败");
-                
-            }];
+//            NSString *zygcURL = [NSString stringWithFormat:@"http://f10.eastmoney.com/PC_HSF10/BusinessAnalysis/BusinessAnalysisAjax?code=%@",degree.stock_id];
+//            [[BaseNetManager defaultManager] GET:zygcURL parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//                NSLog(@" paiming---%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+//                degree.zygcList = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+//                id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+//                NSLog(@"json-----%@",json);
+//                degree.zygcListBrief = [[json[@"zygcfx"][0][@"hy"] valueForKey:@"zygc"] componentsJoinedByString:@","];
+//
+//                NSMutableString *xm;
+//                NSMutableArray *temp = [NSMutableArray array];
+//                //                for (NSDictionary *dict in json[@"ProjectProgress"]) {
+//                //                    degree.xmList = [@"" stringByAppendingString:@"%@",dict[@"xmmc"]];
+//                //                }
+//
+//
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [XMGSqliteModelTool saveOrUpdateModel:degree uid:@"Degree"];
+//                });
+//            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//                NSLog(@"ticai - 失败");
+//
+//            }];
 
 
             
@@ -785,7 +832,6 @@ static int AllCount = 1;
             
             degree.bond_Degree = [NSString stringWithFormat:@"%f",degree.volume.floatValue/degree.curr_iss_amt.floatValue];
             
-            degree.stock_Degree = [NSString stringWithFormat:@"%f",degree.svolume.floatValue/degree.curr_iss_amt.floatValue];
             
             degree.stock_id = [NSString stringWithFormat:@"%@-%@",degree.stock_id,dateStr];
             degree.currentEnergyFlow = [NSString stringWithFormat:@"%f",degree.volume.floatValue/degree.increase_rt.floatValue];
@@ -831,59 +877,26 @@ static int AllCount = 1;
                 });
             }
             
-            {
-                NSString *url = [NSString stringWithFormat:@"http://stock.jrj.com.cn/action/gudong/getGudongDataByCode.jspa?vname=stockgudongData&stockcode=%@&_=1569474620679",[stockModel.stock_id substringFromIndex:2]];
-                NSDate *date = [NSDate date];
-                NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
-                [BaseNetManager GET:url parameters:nil complationHandle:^(id responseObject, NSError *error) {
-                    
-                    NSString *holdCountStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-                    NSString *holdCountStrJson = [holdCountStr componentsSeparatedByString:@"="].lastObject;
-                    //        id json =[NSJSONSerialization JSONObjectWithData:[houldCountStrJson dataUsingEncoding:NSUTF8StringEncoding] options:nil error:nil];
-                    NSLog(@"houldCountStrJson---%@-stockid=%@",holdCountStrJson,stockModel.stock_id);
-                    for (YYStockModel *m in self.stocks) {
-                        if ([m.stock_id isEqualToString:stockModel.stock_id]) {
-                            m.holdCountStrJson = holdCountStrJson;
-                        }
-//                        [XMGSqliteModelTool saveOrUpdateModel:m uid:dateStr];
-                    }
-                    [[NSUserDefaults standardUserDefaults] setValue:holdCountStrJson forKey:stockModel.stock_id];
-                    
-                }];
-            }
-            
-             /*************************************日志管理********1.SI > 9************************************/
-//            NSRange range = [stockModel.sincrease_rt rangeOfString:@"."];
-//            float tempIncrease = [stockModel.sincrease_rt substringToIndex:range.location].floatValue;
-//            if (tempIncrease > 5 && stockModel.full_price.floatValue < 115) {
-//                [[SMLogManager sharedManager] Tool_logPlanName:@"SI大于5&BP<115" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一月内" comments:@" 不要追涨？  要高抛  行情启动or挖坑 115为蓝思"];
-//            }
+//            {
+//                NSString *url = [NSString stringWithFormat:@"http://stock.jrj.com.cn/action/gudong/getGudongDataByCode.jspa?vname=stockgudongData&stockcode=%@&_=1569474620679",[stockModel.stock_id substringFromIndex:2]];
+//                NSDate *date = [NSDate date];
+//                NSString *dateStr = [YYDateUtil dateToString:date andFormate:@"yyyy-MM-dd"];
+//                [BaseNetManager GET:url parameters:nil complationHandle:^(id responseObject, NSError *error) {
 //
-//            if (tempIncrease <= -5) {
-//                [[SMLogManager sharedManager] Tool_logPlanName:@"SI小于负5&BP<110" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.full_price whenToVerify:@"一月内" comments:@"过激反应？ 不要杀跌   要低吸 "];
-//            }
+//                    NSString *holdCountStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+//                    NSString *holdCountStrJson = [holdCountStr componentsSeparatedByString:@"="].lastObject;
+//                    //        id json =[NSJSONSerialization JSONObjectWithData:[houldCountStrJson dataUsingEncoding:NSUTF8StringEncoding] options:nil error:nil];
+//                    NSLog(@"houldCountStrJson---%@-stockid=%@",holdCountStrJson,stockModel.stock_id);
+//                    for (YYStockModel *m in self.stocks) {
+//                        if ([m.stock_id isEqualToString:stockModel.stock_id]) {
+//                            m.holdCountStrJson = holdCountStrJson;
+//                        }
+////                        [XMGSqliteModelTool saveOrUpdateModel:m uid:dateStr];
+//                    }
+//                    [[NSUserDefaults standardUserDefaults] setValue:holdCountStrJson forKey:stockModel.stock_id];
 //
-//            if (tempIncrease >= 9 && stockModel.full_price.floatValue < 110) {
-//                [[SMLogManager sharedManager] Tool_logPlanName:@"SI > 9 history" targetStockName:stockModel.stock_nm currentStockPrice:stockModel.sprice currentBondPrice:stockModel.price whenToVerify:@"两三天内回调" comments:@"两三天后回调低吸 华通and三力，即便诱多价也在110以下！ 三力-确实工业大麻很给力，老挝。  华通？确实有公告！ 二者在110以下都可以建仓，都是小盘，都很活跃！！！ 看到9.29！ 亚太、久其"];
-//                //按照该策略，可以建仓亚太了！   股价涨停，有预期。-----内部有大的利好，还未公布而已！一月可期！ 而转债回调了第4天了。刚好回调到了30%。
+//                }];
 //            }
-//
-//            if (tempIncrease >=9.00) {
-//                NSString *keyInfo = [NSString stringWithFormat:@"BP=%@",stockModel.full_price];
-//                [SIBigger10dictPlist setValue:keyInfo forKey:[stockModel.stock_nm stringByAppendingString:dateStr]];
-//            }
-//
-//            if (tempIncrease >= 9.00 && stockModel.increase_rt.floatValue < 0.9) {//0.9即0.9%
-//                YYMockBuyModel *mockBuy = [[YYMockBuyModel alloc] init];
-//                mockBuy.bond_id = [stockModel.bond_id stringByAppendingString:dateStr];
-//                mockBuy.buyPrice = stockModel.full_price;
-//                mockBuy.buyCount = 100;
-//                mockBuy.cost = mockBuy.buyPrice.floatValue * mockBuy.buyCount;
-//                mockBuy.buyIntoTime = dateStr;
-//
-//                [XMGSqliteModelTool saveOrUpdateModel:mockBuy uid:@"mockExchange"];
-//            }
-           
             //股价涨幅  远大于 债涨幅  启动迹象！！！
             if (stockModel.sprice.floatValue - stockModel.convert_price.floatValue < 1.00
                 && stockModel.sprice.floatValue - stockModel.convert_price.floatValue > 0
@@ -950,32 +963,6 @@ static int AllCount = 1;
                 stockModel.saveDate = dateStr;
                 [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"allBondData"];
             }
-            
-            //日期分库存储
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:dateStr];
-                //
-                
-                
-                NSArray *sqliteArray = @[@"2019-09-06",@"2019-09-02",@"2019-09-03",@"2019-09-04",@"2019-09-05",];
-                
-                //对既有的历史数据作一些统计----------耗时操作
-//                for (NSString *uid in sqliteArray) {
-//                    NSArray *uidArray = [XMGSqliteModelTool queryAllModels:[YYStockModel class] uid:uid];
-//                    for (YYStockModel *m in uidArray) {
-//                        if (m.sincrease_rt.floatValue > m.increase_rt.floatValue) {
-//                            m.bond_id = [NSString stringWithFormat:@"%@-%@",m.bond_id,uid];
-//                            [XMGSqliteModelTool saveOrUpdateModel:m uid:@"SIFasterBI"];
-//                        }
-//                    }
-//                }
-                
-                if (stockModel.sincrease_rt.floatValue > stockModel.increase_rt.floatValue) {
-                    stockModel.bond_id = [NSString stringWithFormat:@"%@-%@",stockModel.bond_id,dateStr];
-                    [XMGSqliteModelTool saveOrUpdateModel:stockModel uid:@"SIFasterBI"];
-                }
-                
-            });
         }
         //http://stock.jrj.com.cn/action/gudong/getGudongDataByCode.jspa?vname=stockgudongData&stockcode=600519&_=1569474620679
         

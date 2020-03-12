@@ -42,6 +42,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,copy)NSString *bond_Degree;// 成交额(万)/cur_amt(亿)
 
+@property (nonatomic,copy)NSString *bond_Degree_pm_date;
+
+@property (nonatomic,copy)NSString *stock_Degree_pm_date;
+
 @property (nonatomic,copy)NSString *stock_Degree; //=成交量/(已流通股份-前十大股东-主力持仓)
 
 
