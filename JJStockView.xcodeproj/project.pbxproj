@@ -68,6 +68,7 @@
 		61F13E9D1F91F670002F4681 /* StockViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13E9C1F91F670002F4681 /* StockViewUITests.m */; };
 		61F13EAF1F91F6D4002F4681 /* JJStockViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13EAB1F91F6D3002F4681 /* JJStockViewCell.m */; };
 		61F13EB01F91F6D4002F4681 /* JJStockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F13EAD1F91F6D4002F4681 /* JJStockView.m */; };
+		B6023BA42420781000BB76B2 /* YYShareHoldersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6023BA32420781000BB76B2 /* YYShareHoldersModel.m */; };
 		B615F3E22341E22F00B0EC62 /* YYSingleBondModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B615F3E12341E22F00B0EC62 /* YYSingleBondModel.m */; };
 		B615F3E523420CAD00B0EC62 /* YYDueBondModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B615F3E423420CAD00B0EC62 /* YYDueBondModel.m */; };
 		B619E829235DCB700066C56B /* SMLoginVc.m in Sources */ = {isa = PBXBuildFile; fileRef = B619E81F235DCB700066C56B /* SMLoginVc.m */; };
@@ -315,6 +316,8 @@
 		921806BF8F626BE56429F804 /* Pods-JJStockView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJStockView.debug.xcconfig"; path = "Target Support Files/Pods-JJStockView/Pods-JJStockView.debug.xcconfig"; sourceTree = "<group>"; };
 		923E9F7EC9FE139C225EA901 /* Pods-JJStockView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJStockView.release.xcconfig"; path = "Target Support Files/Pods-JJStockView/Pods-JJStockView.release.xcconfig"; sourceTree = "<group>"; };
 		B2E0C1ECEA684781F2B1548F /* Pods-JJStockViewUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJStockViewUITests.release.xcconfig"; path = "Target Support Files/Pods-JJStockViewUITests/Pods-JJStockViewUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B6023BA22420781000BB76B2 /* YYShareHoldersModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYShareHoldersModel.h; sourceTree = "<group>"; };
+		B6023BA32420781000BB76B2 /* YYShareHoldersModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYShareHoldersModel.m; sourceTree = "<group>"; };
 		B615F3E02341E22F00B0EC62 /* YYSingleBondModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYSingleBondModel.h; sourceTree = "<group>"; };
 		B615F3E12341E22F00B0EC62 /* YYSingleBondModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYSingleBondModel.m; sourceTree = "<group>"; };
 		B615F3E323420CAD00B0EC62 /* YYDueBondModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYDueBondModel.h; sourceTree = "<group>"; };
@@ -571,6 +574,8 @@
 				B615F3E423420CAD00B0EC62 /* YYDueBondModel.m */,
 				060C4B7B222259DE004BA326 /* YYStockModel.h */,
 				B6BBFF4C23BDD18B006E8352 /* YYActiveDegree.h */,
+				B6023BA22420781000BB76B2 /* YYShareHoldersModel.h */,
+				B6023BA32420781000BB76B2 /* YYShareHoldersModel.m */,
 				B6BBFF4D23BDD18B006E8352 /* YYActiveDegree.m */,
 				B67D3E6923D4041A00ED4F13 /* YYTicaiModel.h */,
 				B67D3E6A23D4041A00ED4F13 /* YYTicaiModel.m */,
@@ -1565,6 +1570,7 @@
 				B619E82A235DCB700066C56B /* SMUserInfo.m in Sources */,
 				B6D7E483231A79A300A8D8A7 /* WillBondViewController.m in Sources */,
 				61F13E881F91F670002F4681 /* main.m in Sources */,
+				B6023BA42420781000BB76B2 /* YYShareHoldersModel.m in Sources */,
 				FD0E69472236381E00B1F67F /* BaseNetManager.m in Sources */,
 				B695EE37233224B70094F717 /* HNNoPasteTextField.m in Sources */,
 				FD0E6944223630E200B1F67F /* AFSecurityPolicy.m in Sources */,

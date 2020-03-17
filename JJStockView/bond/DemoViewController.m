@@ -45,6 +45,7 @@
 #import "HWNetTools.h"
 
 #import "YYActiveDegree.h"
+#import "YYShareHoldersModel.h"
 
 
 #define kYYCachePath @"/Users/g/Desktop"
@@ -724,13 +725,40 @@ static int AllCount = 1;
                 
             }];
             */
-            
             NSString *ltgbURL = [NSString stringWithFormat:@"http://f10.eastmoney.com/PC_HSF10/ShareholderResearch/ShareholderResearchAjax?&code=%@#",degree.stock_id];
             [[BaseNetManager defaultManager] GET:ltgbURL parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 NSLog(@" paiming---%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
                 degree.xmList = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
                 id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
                 NSLog(@"股本结构-json-----%@",json);
+                YYShareHoldersModel *shareHolder = [[YYShareHoldersModel alloc] init];
+                shareHolder.stock_id = degree.stock_id;
+                for (NSDictionary *dict in json[@"gdrs"]) {
+                    YYGgdrsModel *gdrsM = [[YYGgdrsModel alloc] init];
+                    [gdrsM setValuesForKeysWithDictionary:dict];
+                    [shareHolder.gdrs_List addObject:gdrsM];
+                }
+                
+                for (NSDictionary *dict in json[@"sdltgd"]) {
+                    YYSdltgdModel *sdltgdM = [[YYSdltgdModel alloc] init];
+                    [sdltgdM setValuesForKeysWithDictionary:dict[@"sdltgd"]];
+                    [shareHolder.sdltgd_List addObject:sdltgdM];
+                }
+                
+                for (NSDictionary *dict in json[@"jjcg"]) {
+                    YYJjcgModel *jjcgdM = [[YYJjcgModel alloc] init];
+                    [jjcgdM setValuesForKeysWithDictionary:dict[@"jjcg"]];
+                    jjcgdM.rq = dict[@"rq"];
+                    [shareHolder.jjcc_List addObject:jjcgdM];
+                }
+                
+                for (NSDictionary *dict in json[@"zlcc"]) {
+                    YYZlccModel *zlccM = [[YYZlccModel alloc] init];
+                    [zlccM setValuesForKeysWithDictionary:dict];
+                    [shareHolder.zlcc_List addObject:zlccM];
+                }
+                
+                
                 degree.stock_sdlggdList = [json[@"sdltgd"] valueForKey:@"sdltgd"];
                 degree.stock_sdlggdbdList = json[@"sdltgdbd"];
                 
@@ -749,8 +777,6 @@ static int AllCount = 1;
                     degree.stock_zlcc_zltgbl = 0;
                     degree.stock_zlcc_zltgbbl = 0;
                 }
-               
-//                degree.stock_zlcc_jglx = [json[@"zlcc"] valueForKey:@"jglx"];
                 
                 degree.stock_jjsj = [json[@"xsjj"] valueForKey:@"jjsj"];
                 degree.stock_jjsl = [json[@"xsjj"] valueForKey:@"jjsl"];
@@ -761,6 +787,7 @@ static int AllCount = 1;
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [XMGSqliteModelTool saveOrUpdateModel:degree uid:@"Degree"];
+                    [XMGSqliteModelTool saveOrUpdateModel:shareHolder uid:@"shareHolder"];//一次性的数据库？？？
                 });
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 NSLog(@"ticai - 失败");
@@ -792,43 +819,40 @@ static int AllCount = 1;
 
 
             
-            NSString *ticaiUrl = [NSString stringWithFormat:@"http://f10.eastmoney.com/CoreConception/CoreConceptionAjax?code=%@",degree.stock_id];
-//            degree.ticai
-//            [self testAPIWithAFN];
-//            dispatch_async(dispatch_get_main_queue(), ^{
-            [[BaseNetManager defaultManager] GET:ticaiUrl parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                NSLog(@"题材---%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
-                degree.ticai = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-                id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-                NSLog(@"json-----%@",json);
-                NSMutableString *ticai;
-                NSMutableArray *temp = [NSMutableArray array];
-                for (NSDictionary *dict in json[@"hxtc"]) {
-                    YYTicaiModel *ticaiModel = [[YYTicaiModel alloc] init];
-                    [ticaiModel setValuesForKeysWithDictionary:dict];
-                    
-                    if ([ticaiModel.yd isEqualToString:@"1"]) {
-                        degree.ssbk = ticaiModel.ydnr;
-                    }
-                    
-                    [temp addObject:ticaiModel];
-                }
-                
-                [temp valueForKey:@"ydnr"];
-                degree.ticai = ticai;
-                degree.ticaiNumbers = [[temp valueForKey:@"yd"] componentsJoinedByString:@","];
-                degree.ticaiBrief = [[temp valueForKey:@"gjc"] componentsJoinedByString:@","];
-                degree.ticaiDetail = [[temp valueForKey:@"ydnr"] componentsJoinedByString:@","];
-                //如何纵向观察一个数组   
-                NSLog(@"jyscbm=%@,zqdm=%@,zqjc=%@,zqnm=%@",[[temp valueForKey:@"jyscbm"] componentsJoinedByString:@","],[[temp valueForKey:@"zqdm"] componentsJoinedByString:@","],[[temp valueForKey:@"zqjc"] componentsJoinedByString:@","],[[temp valueForKey:@"zqnm"] componentsJoinedByString:@","]);
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [XMGSqliteModelTool saveOrUpdateModel:degree uid:@"Degree"];
-                });
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                NSLog(@"ticai - 失败");
-                
-            }];
-//            });
+//            NSString *ticaiUrl = [NSString stringWithFormat:@"http://f10.eastmoney.com/CoreConception/CoreConceptionAjax?code=%@",degree.stock_id];
+//            [[BaseNetManager defaultManager] GET:ticaiUrl parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//                NSLog(@"题材---%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+//                degree.ticai = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+//                id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+//                NSLog(@"json-----%@",json);
+//                NSMutableString *ticai;
+//                NSMutableArray *temp = [NSMutableArray array];
+//                for (NSDictionary *dict in json[@"hxtc"]) {
+//                    YYTicaiModel *ticaiModel = [[YYTicaiModel alloc] init];
+//                    [ticaiModel setValuesForKeysWithDictionary:dict];
+//
+//                    if ([ticaiModel.yd isEqualToString:@"1"]) {
+//                        degree.ssbk = ticaiModel.ydnr;
+//                    }
+//
+//                    [temp addObject:ticaiModel];
+//                }
+//
+//                [temp valueForKey:@"ydnr"];
+//                degree.ticai = ticai;
+//                degree.ticaiNumbers = [[temp valueForKey:@"yd"] componentsJoinedByString:@","];
+//                degree.ticaiBrief = [[temp valueForKey:@"gjc"] componentsJoinedByString:@","];
+//                degree.ticaiDetail = [[temp valueForKey:@"ydnr"] componentsJoinedByString:@","];
+//                //如何纵向观察一个数组
+//                NSLog(@"jyscbm=%@,zqdm=%@,zqjc=%@,zqnm=%@",[[temp valueForKey:@"jyscbm"] componentsJoinedByString:@","],[[temp valueForKey:@"zqdm"] componentsJoinedByString:@","],[[temp valueForKey:@"zqjc"] componentsJoinedByString:@","],[[temp valueForKey:@"zqnm"] componentsJoinedByString:@","]);
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [XMGSqliteModelTool saveOrUpdateModel:degree uid:@"Degree"];
+//                });
+//            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//                NSLog(@"ticai - 失败");
+//
+//            }];
+
             
             degree.bond_Degree = [NSString stringWithFormat:@"%f",degree.volume.floatValue/degree.curr_iss_amt.floatValue];
             

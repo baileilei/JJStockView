@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YYActiveDegree : NSObject
 
+@property (nonatomic,copy) NSString *real_force_redeem_price;// 真实强赎价
+@property (nonatomic,copy) NSString *redeem_count_days;
+@property (nonatomic,copy) NSString *redeem_dt;//强赎日期
+@property (nonatomic,copy) NSString *redeem_flag;//强赎标志
 
 @property (nonatomic,copy) NSString *stock_id;//主键
 
@@ -48,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,copy)NSString *stock_Degree; //=成交量/(已流通股份-前十大股东-主力持仓)
 
-
+// 前十大股东   除其他以外的机构：基金/保险、券商、QFII，社保基金、信托。
 /****解禁***RptRestrictedBanList*/
 //http://f10.eastmoney.com/PC_HSF10/CapitalStockStructure/Index?type=soft&code=SH603822#
 @property (nonatomic,copy)NSString *stock_jjsj;//解禁时间
@@ -71,7 +75,7 @@ NS_ASSUME_NONNULL_BEGIN
 //@property (nonatomic,copy)NSString *stock_sdltgd_gdmc;//股东名称
 //@property (nonatomic,copy)NSString *stock_sdltgd_gdxz;//股东性质
 //@property (nonatomic,copy)NSString *stock_sdltgd_gflx;//股份类型
-//@property (nonatomic,copy)NSString *stock_sdltgd_cgs;//持股数(股)
+//@property (nonatomic,copy)NSString *stock_sdltgd_cgs_List;//持股数(股)
 //@property (nonatomic,copy)NSString *stock_sdltgd_zltgbcgbl;//占总流通 股本持股比例
 //@property (nonatomic,copy)NSString *stock_sdltgd_zj;//增减
 //@property (nonatomic,copy)NSString *stock_sdltgd_bdbl;//变动比例
