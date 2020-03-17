@@ -10,6 +10,8 @@
 
 @implementation YYDueBondModel
 
+
+
 +(NSString *)primaryKey{
     return @"stock_id";
 }

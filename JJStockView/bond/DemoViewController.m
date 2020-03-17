@@ -733,61 +733,78 @@ static int AllCount = 1;
                 NSLog(@"股本结构-json-----%@",json);
                 YYShareHoldersModel *shareHolder = [[YYShareHoldersModel alloc] init];
                 shareHolder.stock_id = degree.stock_id;
+                shareHolder.bond_nm = degree.bond_nm;
                 for (NSDictionary *dict in json[@"gdrs"]) {
-                    YYGgdrsModel *gdrsM = [[YYGgdrsModel alloc] init];
-                    [gdrsM setValuesForKeysWithDictionary:dict];
-                    [shareHolder.gdrs_List addObject:gdrsM];
+//                    YYGgdrsModel *gdrsM = [[YYGgdrsModel alloc] init];
+//                    [gdrsM setValuesForKeysWithDictionary:dict];
+                    [shareHolder.gdrs_List_json addObject:dict];
                 }
                 
+                shareHolder.gdrs_List_Str = [[json[@"gdrs"] valueForKey:@"gdrs"] componentsJoinedByString:@","];
+                shareHolder.gdrs_jsqbh_Str = [[json[@"gdrs"] valueForKey:@"gdrs_jsqbh"] componentsJoinedByString:@","];
+                shareHolder.gdrs_rjltg_Str = [[json[@"gdrs"] valueForKey:@"rjltg"] componentsJoinedByString:@","];
+                shareHolder.gdrs_rjltg_jsqbh_Str = [[json[@"gdrs"] valueForKey:@"rjltg_jsqbh"] componentsJoinedByString:@","];
+                shareHolder.gdrs_qsdltgdcghj_Str = [[json[@"gdrs"] valueForKey:@"qsdltgdcghj"] componentsJoinedByString:@","];
+                
+                
                 for (NSDictionary *dict in json[@"sdltgd"]) {
-                    YYSdltgdModel *sdltgdM = [[YYSdltgdModel alloc] init];
-                    [sdltgdM setValuesForKeysWithDictionary:dict[@"sdltgd"]];
-                    [shareHolder.sdltgd_List addObject:sdltgdM];
+//                    YYSdltgdModel *sdltgdM = [[YYSdltgdModel alloc] init];
+//                    sdltgdM.rq = dict[@"rq"];
+                    for (NSDictionary *dic in dict[@"sdltgd"]) {
+//                        [sdltgdM setValuesForKeysWithDictionary:dic];
+                        [shareHolder.sdltgd_List_json addObject:dic];
+                    }
                 }
                 
                 for (NSDictionary *dict in json[@"jjcg"]) {
-                    YYJjcgModel *jjcgdM = [[YYJjcgModel alloc] init];
-                    [jjcgdM setValuesForKeysWithDictionary:dict[@"jjcg"]];
-                    jjcgdM.rq = dict[@"rq"];
-                    [shareHolder.jjcc_List addObject:jjcgdM];
+//                    YYJjcgModel *jjcgdM = [[YYJjcgModel alloc] init];
+//                    jjcgdM.rq = dict[@"rq"];
+                    for (NSDictionary *dic in dict[@"jjcg"]) {
+//                        [jjcgdM setValuesForKeysWithDictionary:dic];
+                        [shareHolder.jjcc_List_json addObject:dic];
+                    }
                 }
-                
+                float zlcchj = 0;
                 for (NSDictionary *dict in json[@"zlcc"]) {
-                    YYZlccModel *zlccM = [[YYZlccModel alloc] init];
-                    [zlccM setValuesForKeysWithDictionary:dict];
-                    [shareHolder.zlcc_List addObject:zlccM];
+//                    YYZlccModel *zlccM = [[YYZlccModel alloc] init];
+//                    [zlccM setValuesForKeysWithDictionary:dict];
+                    if (![dict[@"zltgbl"] isEqualToString:@"--"] && ![dict[@"jglx"] isEqualToString:@"其他机构"] && ![dict[@"jglx"] isEqualToString:@"合计"]) {
+                        zlcchj = zlcchj + [dict[@"zltgbl"] floatValue];
+                    }
+                    [shareHolder.zlcc_List_json addObject:dict];
                 }
                 
-                
-                degree.stock_sdlggdList = [json[@"sdltgd"] valueForKey:@"sdltgd"];
-                degree.stock_sdlggdbdList = json[@"sdltgdbd"];
-                
-                degree.stock_sdlggdcg = [json[@"sdltgd_chart"][0] valueForKey:@"sdltgdcg"];
-                degree.stock_ltsxgf1 = [json[@"sdltgd_chart"][0] valueForKey:@"ltsxgf"];
-                degree.stock_qtltgf = [json[@"sdltgd_chart"][0] valueForKey:@"qyltgf"];
-                
-                degree.stock_zlcc_jglx = [json[@"zlcc"] valueForKey:@"jglx"];
-                degree.stock_zlcc_ccjs = [json[@"zlcc"] valueForKey:@"ccjs"];
-                
-                if ([[[json[@"zlcc"] lastObject] valueForKey:@"jglx"] isEqualToString:@"合计"] && ![[[json[@"zlcc"] lastObject] valueForKey:@"zltgbbl"] isEqualToString:@"--"]) {
-                    degree.stock_zlcc_zltgbl = [[json[@"zlcc"] lastObject] valueForKey:@"zltgbl"];
-                    degree.stock_zlcc_zltgbbl = [[json[@"zlcc"] lastObject] valueForKey:@"zltgbbl"];
-                    degree.stock_zlcc_ccgs = [[json[@"zlcc"] lastObject] valueForKey:@"ccgs"];
-                }else{
-                    degree.stock_zlcc_zltgbl = 0;
-                    degree.stock_zlcc_zltgbbl = 0;
-                }
-                
-                degree.stock_jjsj = [json[@"xsjj"] valueForKey:@"jjsj"];
-                degree.stock_jjsl = [json[@"xsjj"] valueForKey:@"jjsl"];
-                degree.stock_jjzgbl = [json[@"xsjj"] valueForKey:@"jjgzzgbbl"];//解禁股占总股本比例
-                degree.stock_jjltbl = [json[@"xsjj"] valueForKey:@"jjgzzgbbl"];//解禁股占流通股本比例
-                
-                degree.stock_Degree = [NSString stringWithFormat:@"%f",degree.svolume.floatValue /(degree.stock_qtltgf.floatValue -degree.stock_zlcc_ccgs.floatValue)*degree.sprice.floatValue];;
+                shareHolder.stock_qsdltgdcghj_jjcg_zltglbs = [NSString stringWithFormat:@"%f",[json[@"gdrs"][0][@"qsdltgdcghj"] floatValue] + zlcchj];
+//                degree.stock_sdlggdList = [json[@"sdltgd"] valueForKey:@"sdltgd"];
+//                degree.stock_sdlggdbdList = json[@"sdltgdbd"];
+//
+//                degree.stock_sdlggdcg = [json[@"sdltgd_chart"][0] valueForKey:@"sdltgdcg"];
+//                degree.stock_ltsxgf1 = [json[@"sdltgd_chart"][0] valueForKey:@"ltsxgf"];
+//                degree.stock_qtltgf = [json[@"sdltgd_chart"][0] valueForKey:@"qyltgf"];
+//
+//                degree.stock_zlcc_jglx = [json[@"zlcc"] valueForKey:@"jglx"];
+//                degree.stock_zlcc_ccjs = [json[@"zlcc"] valueForKey:@"ccjs"];
+//
+//                if ([[[json[@"zlcc"] lastObject] valueForKey:@"jglx"] isEqualToString:@"合计"] && ![[[json[@"zlcc"] lastObject] valueForKey:@"zltgbbl"] isEqualToString:@"--"]) {
+//                    degree.stock_zlcc_zltgbl = [[json[@"zlcc"] lastObject] valueForKey:@"zltgbl"];
+//                    degree.stock_zlcc_zltgbbl = [[json[@"zlcc"] lastObject] valueForKey:@"zltgbbl"];
+//                    degree.stock_zlcc_ccgs = [[json[@"zlcc"] lastObject] valueForKey:@"ccgs"];
+//                }else{
+//                    degree.stock_zlcc_zltgbl = 0;
+//                    degree.stock_zlcc_zltgbbl = 0;
+//                }
+//
+//                degree.stock_jjsj = [json[@"xsjj"] valueForKey:@"jjsj"];
+//                degree.stock_jjsl = [json[@"xsjj"] valueForKey:@"jjsl"];
+//                degree.stock_jjzgbl = [json[@"xsjj"] valueForKey:@"jjgzzgbbl"];//解禁股占总股本比例
+//                degree.stock_jjltbl = [json[@"xsjj"] valueForKey:@"jjgzzgbbl"];//解禁股占流通股本比例
+//
+//                degree.stock_Degree = [NSString stringWithFormat:@"%f",degree.svolume.floatValue /(degree.stock_qtltgf.floatValue -degree.stock_zlcc_ccgs.floatValue)*degree.sprice.floatValue];;
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [XMGSqliteModelTool saveOrUpdateModel:degree uid:@"Degree"];
+//                    [XMGSqliteModelTool saveOrUpdateModel:degree uid:@"Degree"];
                     [XMGSqliteModelTool saveOrUpdateModel:shareHolder uid:@"shareHolder"];//一次性的数据库？？？
+                    NSLog(@"股东数据库保存完成");
                 });
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 NSLog(@"ticai - 失败");
@@ -895,11 +912,6 @@ static int AllCount = 1;
             
             NSString *keyElements = [NSString stringWithFormat:@"[m20_SI=%f/CP=%@/BP=%@]",stockModel.ma20_SI,stockModel.convert_price,stockModel.full_price];
             [allToPlist setValue:keyElements forKey:stockModel.bond_nm];
-            if (stockModel.full_price.floatValue < 105) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self handleSingleStock:stockModel.stock_id];
-                });
-            }
             
 //            {
 //                NSString *url = [NSString stringWithFormat:@"http://stock.jrj.com.cn/action/gudong/getGudongDataByCode.jspa?vname=stockgudongData&stockcode=%@&_=1569474620679",[stockModel.stock_id substringFromIndex:2]];
@@ -1309,7 +1321,7 @@ static int AllCount = 1;
        
         
         
-        [XMGSqliteModelTool saveOrUpdateModel:singleM uid:stockid];
+//        [XMGSqliteModelTool saveOrUpdateModel:singleM uid:stockid];
     }
     
 //

@@ -15,13 +15,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,copy) NSString *stock_id;//主键
 
-@property (nonatomic,strong)NSMutableArray <YYGgdrsModel *>*gdrs_List;
+@property (nonatomic,copy) NSString *bond_nm;//债券代码
 
-@property (nonatomic,strong)NSMutableArray <YYSdltgdModel *>*sdltgd_List;//个人  其他    证券投资基金？？？
+@property (nonatomic,strong)NSMutableArray <YYGgdrsModel *>*gdrs_List_json;
 
-@property (nonatomic,strong)NSMutableArray <YYJjcgModel *>*jjcc_List;//基金
+@property (nonatomic,strong)NSMutableArray <YYSdltgdModel *>*sdltgd_List_json;//个人  其他    证券投资基金？？？
 
-@property (nonatomic,strong)NSMutableArray <YYZlccModel *>*zlcc_List;// 除其他机构外的：信托、社保基金、QFII、券商、保险、基金
+@property (nonatomic,strong)NSMutableArray <YYJjcgModel *>*jjcc_List_json;//基金
+
+@property (nonatomic,strong)NSMutableArray <YYZlccModel *>*zlcc_List_json;// 除其他机构外的：信托、社保基金、QFII、券商、保险、基金
+
+
+@property (nonatomic,strong)NSString *gdrs_List_Str;
+
+@property (nonatomic,strong)NSString *gdrs_jsqbh_Str;//都小于0就好
+
+@property (nonatomic,strong)NSString *gdrs_rjltg_Str;
+
+@property (nonatomic,strong)NSString *gdrs_rjltg_jsqbh_Str;//都大于0 就好
+
+@property (nonatomic,strong)NSString *gdrs_qsdltgdcghj_Str;
+
+
+
+@property (nonatomic,copy) NSString *stock_qsdltgdcghj_jjcg_zltglbs;//十大流通股比例+机构持股占流通股比例gdrs_List_Str.first.floatValue + zlcc_List_str   关注>70%
+
 
 @end
 
@@ -29,8 +47,8 @@ NS_ASSUME_NONNULL_END
 
 @interface YYGgdrsModel : NSObject
 
-@property (nonatomic,copy) NSString * _Nullable rq;
-@property (nonatomic,copy) NSString * _Nonnull gdrs;
+@property (nonatomic,copy) NSString *rq;
+@property (nonatomic,copy) NSString *gdrs;
 @property (nonatomic,copy) NSString *gdrs_jsqbh;
 
 @property (nonatomic,copy) NSString *rjltg;//人均流通股
