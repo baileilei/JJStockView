@@ -52,6 +52,124 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,copy)NSString *stock_Degree; //=成交量/(已流通股份-前十大股东-主力持仓)
 
+
+@property (nonatomic,copy) NSString *premium_rt;
+
+@property (nonatomic,copy) NSString *convert_amt_ratio;
+
+
+/***********************************择时指标********************************************/
+//会随着日期发生变化的标的
+
+
+@property (nonatomic,copy) NSString *increase_rt;//债券涨跌幅   单日   7日的所有加起来即7日振幅
+
+@property (nonatomic,copy) NSString *sincrease_rt;//股票涨跌幅    单日
+
+
+@property (nonatomic,copy) NSString *currentEnergyFlow;//量能 
+
+@property (nonatomic,copy) NSString *scurrentEnergyFlow;//量能
+
+
+/***********************************基本面********************************************/
+//三月之内不会有大变化的指标
+//基本面是压舱石!!!   是择股的标准.     择时指标 回调建仓?
+//
+@property (nonatomic,copy) NSString *cpbd_dstx;//大事提醒
+
+@property (nonatomic,copy) NSString *cpbd_xsjj;//解禁
+@property (nonatomic,copy) NSString *cpbd_xsjj_jjsj;//解禁时间
+@property (nonatomic,copy) NSString *cpbd_xsjj_jjsl;//解禁数量
+@property (nonatomic,copy) NSString *cpbd_xsjj_jjgzzgbbl;//解禁股占总股本比例
+@property (nonatomic,copy) NSString *cpbd_xsjj_jjgzltgbbl;//解禁股占流通股比例
+@property (nonatomic,copy) NSString *cpbd_xsjj_gplx;//解禁类型
+
+@property (nonatomic,copy) NSString *cpbd_hxtc;//核心题材
+@property (nonatomic,copy) NSString *cpbd_hxtc_gjc;//核心题材-关键词 hxtc.gjc
+@property (nonatomic,copy) NSString *cpbd_hxtc_ydnr;//核心题材-要点内容 hxtc.ydnr
+
+
+@property (nonatomic,copy) NSString *cpbd_ggxx;//公告讯息
+@property (nonatomic,copy) NSString *cpbd_ggxx_title;//公告讯息
+@property (nonatomic,copy) NSString *cpbd_ggxx_summary;//公告讯息
+@property (nonatomic,copy) NSString *cpbd_ggxx_uniqueUrl;//公告讯息
+@property (nonatomic,copy) NSString *cpbd_ggxx_url;//公告讯息
+
+@property (nonatomic,copy) NSString *cpbd_gggg;//公司公告
+@property (nonatomic,copy) NSString *cpbd_gggg_title;//公司公告gggg.data.items.title
+@property (nonatomic,copy) NSString *cpbd_gggg_url;//公司公告???gggg.data.items.title
+
+@property (nonatomic,copy) NSString *cpbd_dzjy;//大宗交易
+@property (nonatomic,copy) NSString *cpbd_jyrq;//大宗交易-交易日期
+@property (nonatomic,copy) NSString *cpbd_cjj;//大宗交易-成交价
+@property (nonatomic,copy) NSString *cpbd_cjl;//大宗交易-成交量
+@property (nonatomic,copy) NSString *cpbd_cjje;//大宗交易-成交金额
+@property (nonatomic,copy) NSString *cpbd_mryyb;//大宗交易-买入营业部
+@property (nonatomic,copy) NSString *cpbd_mcyyb;//大宗交易-卖出营业部。 思路:模塑/通用之类的标的,哪些营业部有提前买入?  追踪营业部的净买入
+
+@property (nonatomic,copy) NSString *cpbd_lhbd;//龙虎榜单 当日涨幅偏离值达7%的证券
+
+@property (nonatomic,copy) NSString *cpbd_lhbd_title;//当日涨幅偏离值达7%的证券
+@property (nonatomic,copy) NSString *cpbd_lhbd_rq;//当日涨幅偏离值达7%的证券
+@property (nonatomic,copy) NSString *cpbd_lhbd_zl;//当日涨幅偏离值达7%的证券
+@property (nonatomic,copy) NSString *cpbd_lhbd_mrzj;//买入总计
+@property (nonatomic,copy) NSString *cpbd_lhbd_mrzjzjeb;//买入总计占金额比
+@property (nonatomic,copy) NSString *cpbd_lhbd_mczj;//卖出总计占金额比
+@property (nonatomic,copy) NSString *cpbd_lhbd_mczjzjeb;//卖出总计占金额比
+
+@property (nonatomic,copy) NSString *cpbd_lhbd_group_mr_yybmc;//营业部名称-买入组
+@property (nonatomic,copy) NSString *cpbd_lhbd_group_mr_mrje;//营业部名称-买入金额
+@property (nonatomic,copy) NSString *cpbd_lhbd_group_mr_zjeb_mr;//营业部名称-买入金额-占金额比
+@property (nonatomic,copy) NSString *cpbd_lhbd_group_mr_mcje;//营业部名称-卖出金额
+@property (nonatomic,copy) NSString *cpbd_lhbd_group_mr_zjeb_mc;//营业部名称-卖出金额-占金额比
+
+@property (nonatomic,copy) NSString *cpbd_lhbd_group_mc_yybmc;//营业部名称-买出组
+@property (nonatomic,copy) NSString *cpbd_lhbd_group_mc_mrje;//营业部名称-买入金额
+@property (nonatomic,copy) NSString *cpbd_lhbd_group_mc_zjeb_mr;//营业部名称-买入金额-占金额比
+@property (nonatomic,copy) NSString *cpbd_lhbd_group_mc_mcje;//营业部名称-卖出金额
+@property (nonatomic,copy) NSString *cpbd_lhbd_group_mc_zjeb_mc;//营业部名称-卖出金额-占金额比
+
+
+
+
+
+@property (nonatomic,copy) NSString *cpbd_rzrq;//融资融券
+
+@property (nonatomic,copy) NSString *cpbd_gdrs;//股东人数
+@property (nonatomic,copy) NSString *cpbd_gdrs_rq;//股东人数
+@property (nonatomic,copy) NSString *cpbd_gdrs_gdrs;//股东人数
+@property (nonatomic,copy) NSString *cpbd_gdrs_gdrs_jsqbh;//股东人数
+@property (nonatomic,copy) NSString *cpbd_gdrs_rjltg_jsqbh;//股东人数
+@property (nonatomic,copy) NSString *cpbd_gdrs_qsdltgdcghj;//前十大流通股东持股合计
+
+@property (nonatomic,copy) NSString *cpbd_zyzb_abgq;//主要指标-按报告期
+@property (nonatomic,copy) NSString *cpbd_zyzb_abgq_rq;//主要指标-按报告期
+@property (nonatomic,copy) NSString *cpbd_zyzb_abgq_jbmgsy;//主要指标-按报告期
+@property (nonatomic,copy) NSString *cpbd_zyzb_abgq_kfmgsy;//主要指标-按报告期
+@property (nonatomic,copy) NSString *cpbd_zyzb_abgq_xsmgsy;//主要指标-按报告期
+@property (nonatomic,copy) NSString *cpbd_zyzb_abgq_gsjlr;//主要指标-按报告期
+@property (nonatomic,copy) NSString *cpbd_zyzb_abgq_mll;//主要指标-按报告期
+@property (nonatomic,copy) NSString *cpbd_zyzb_abgq_ysk;//主要指标-按报告期
+
+@property (nonatomic,copy) NSString *cpbd_zyzb_and;//主要指标-按年度
+
+@property (nonatomic,copy) NSString *cpbd_zyzb_adjd;//主要指标-按单季度
+
+@property (nonatomic,copy) NSString *cpbd_jgyc;//机构预测
+
+@property (nonatomic,copy) NSString *cpbd_ggyb;//研报
+@property (nonatomic,copy) NSString *cpbd_ggyb_title;//研报
+
+
+
+
+
+
+@property (nonatomic,copy) NSString *ticai;
+
+@property (nonatomic,copy) NSArray *ticaiList;
+
 // 前十大股东   除其他以外的机构：基金/保险、券商、QFII，社保基金、信托。
 /****解禁***RptRestrictedBanList*/
 //http://f10.eastmoney.com/PC_HSF10/CapitalStockStructure/Index?type=soft&code=SH603822#
@@ -108,24 +226,6 @@ NS_ASSUME_NONNULL_BEGIN
 //@property (nonatomic,copy)NSString *stock_jjcg_zjzb;//占净值比
 //@property (nonatomic,copy)NSString *stock_jjcg_order;//购买
 
-
-
-
-
-
-@property (nonatomic,copy) NSString *increase_rt;//债券涨跌幅   单日
-
-@property (nonatomic,copy) NSString *sincrease_rt;//股票涨跌幅    单日
-
-
-@property (nonatomic,copy) NSString *currentEnergyFlow;//量能 
-
-@property (nonatomic,copy) NSString *scurrentEnergyFlow;//量能
-
-@property (nonatomic,copy) NSString *ticai;
-
-@property (nonatomic,copy) NSArray *ticaiList;
-
 /******可炒作性*****/
 
 @property (nonatomic,copy) NSString *total_shares;//大小盘
@@ -146,9 +246,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,copy) NSString *adj_cnt;//下调次数
 
-@property (nonatomic,copy) NSString *convert_amt_ratio;
-
-@property (nonatomic,copy) NSString *premium_rt;
 
 /******行业排名*****/
 @property (nonatomic,copy) NSString *gsgmzsz;
