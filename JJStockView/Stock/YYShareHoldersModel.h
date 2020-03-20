@@ -28,19 +28,40 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,strong)NSString *gdrs_List_Str;
 
-@property (nonatomic,strong)NSString *gdrs_jsqbh_Str;//都小于0就好
+@property (nonatomic,strong)NSString *gdrs_jsqbh_Str;//都小于0就好*************************************************************************趋势
 
 @property (nonatomic,strong)NSString *gdrs_rjltg_Str;
 
-@property (nonatomic,strong)NSString *gdrs_rjltg_jsqbh_Str;//都大于0 就好
+@property (nonatomic,strong)NSString *gdrs_rjltg_jsqbh_Str;//都大于0 就好********************************************************************趋势
 
 @property (nonatomic,strong)NSString *gdrs_qsdltgdcghj_Str;
 
 
 
 @property (nonatomic,copy) NSString *stock_qsdltgdcghj_jjcg_zltglbs;//十大流通股比例+机构持股占流通股比例gdrs_List_Str.first.floatValue + zlcc_List_str   关注>70%
+//盈利能力
+@property (nonatomic,copy) NSString *zyzb_abgq_mll;//主要指标-按报告期
+//http://f10.eastmoney.com/PC_HSF10/NewFinanceAnalysis/MainTargetAjax?type=0&code=SH603822
+@property (nonatomic,copy) NSString *zyzb_abgq_jll;//主要指标-按报告期
+//成长能力
+@property (nonatomic,copy) NSString *zyzb_yyzsr;//主要指标-按报告期
+//http://f10.eastmoney.com/PC_HSF10/NewFinanceAnalysis/MainTargetAjax?type=0&code=SH603822
+@property (nonatomic,copy) NSString *zyzb_mlr;//主要指标-按报告期  同行之间比较才有意义,  有的快消行业,低毛利率但是快周转率也可以取得不错的业绩.
+//分红能力
+@property (nonatomic,copy) NSString *zyzb_mgjzc;//主要指标-按报告期
+@property (nonatomic,copy) NSString *zyzb_mggjj;//主要指标-按报告期
+@property (nonatomic,copy) NSString *zyzb_mgwfply;//主要指标-按报告期
+@property (nonatomic,copy) NSString *zyzb_mgjyxjl;//主要指标-按报告期
 
-
+/*
+每股净资产(元)    10.0555    10.0506    9.8666    9.7330    9.6624    9.6487    9.4884    9.4249    9.2549
+每股公积金(元)    3.0975    3.3097    3.3097    3.3097    3.3097    3.4786    3.4785    3.4722    3.4206
+每股未分配利润(元)    5.3954    5.1783    4.9943    4.8607    4.7901    4.6394    4.4791    4.4219    4.3035
+每股经营现金流(元)    1.8030    1.2372    0.8830    0.5856    -0.7898    -0.0321    0.1380    -0.1063    2.1235
+成长能力指标    19-12-31    19-09-30    19-06-30    19-03-31    18-12-31    18-09-30    18-06-30    18-03-31    17-12-31
+营业总收入(元)    12.5亿    8.46亿    5.03亿    2.08亿    10.4亿    7.72亿    4.70亿    1.99亿    8.83亿
+毛利润(元)    1.68亿    1.15亿    6507万    2303万    1.37亿    1.05亿    6244万    2423万    1.09亿
+ */
 @end
 
 NS_ASSUME_NONNULL_END
